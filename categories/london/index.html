@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>London &middot; Big Bag Blog</title>
+
+    <meta name="description" content="Need a place to hide">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="London &middot; Big Bag Blog">
+    <meta name="twitter:description" content="Need a place to hide">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="London &middot; Big Bag Blog">
+    <meta property="og:description" content="Need a place to hide">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://blog.pedrazas.me/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Big Bag Blog" href="http://blog.pedrazas.me/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://blog.pedrazas.me">Big Bag Blog</a></h1>
+            <h2 class="brand-tagline"> Need a place to hide </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/ipedrazas"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/ipedrazas "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://blog.pedrazas.me/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                
+                <h1 class="content-subhead">12 Aug 2015</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2015/08/12/contain-3/" class="post-title">Contain 3</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-DevOps" href="http://blog.pedrazas.me/categories/devops">DevOps</a><a class="post-category post-category-London" href="http://blog.pedrazas.me/categories/london">London</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Last night it was the third Contain meetup. I was looking forward to seeing all the guys from RedHat, Microsoft and CoreOS and learning what was in store for us in the container space.</p>
+
+<p>As it usually happens in life, things changed pretty quickly. Boris, the guy from Microsoft, had a car accident (rumours of him being in a Google self driving ca were discarded promptly). With Boris out, Matt asked me if I could be in the panel instead of him. I guess that Matt thought I was the perfect candidate to represent Microsoft since I am one of the few certified Windows Me power users (cough, cough).</p>
+
+<p>Matt understands containers, that&#8217;s why he gave us the slides the proper way:</p>
+
+<blockquote>
+<p><strong><em>docker run jetstack/contain:v3_container_os</em></strong></p>
+</blockquote>
+
+<p>The good news, to compensate the bad news of Boris car accident, was that Chris Kenyon, from Canonical came to talk to us about their plans with containers: <a href="http://www.ubuntu.com/cloud/tools/lxd" target="_blank">LXD</a></p>
+
+<p>Chris told us during the panel that the datacenter now is following how mobile phones work. Updating hundreds or thousands of machines it&#8217;s equivalent to update thousands of telephones. Which is very interesting way of explaining transactional updates. Ubuntu, with snappy or CoreOS have that as the core of their value proposition.</p>
+
+<p>It was an interesting conversation. I&#8217;m a big fan of immutable and ephemeral infrastructure. So when people ask me &#8220;<em>how do you update your containers</em>&#8221; the answer is simple: You don&#8217;t!</p>
+
+<p>I think it&#8217;s good to differentiate when transactional updates are good and when they are not. Host updates: <strong>yes</strong>. Containers updates: <strong>No</strong>!</p>
+
+<p>But what it&#8217;s fundamental is to understand that containers are not machines or VMs. You have to see your containers as snapshots. Immutable snapshots that can be easily discarded.</p>
+
+<p>Forget about Chef, Puppet, Ansible or Salt</p>
+
+<p><a href="http://ivan.pedrazas.me/wp-content/uploads/2015/08/pffbz.jpg"><img class="aligncenter size-medium wp-image-466" src="http://ivan.pedrazas.me/wp-content/uploads/2015/08/pffbz-300x177.jpg" alt="pffbz" width="300" height="177" /></a></p>
+
+<p>Updating containers have 2 parts: updating the image and running that container. Kubernetes is your friend here. It wasn&#8217;t until yesterday that I realised that many of my colleagues do not understand the great value of Kubernetes.</p>
+
+<p>Updating containers is a matter of defining a new pod with your new containers and swapping the label when you are ready for the &#8220;update&#8221;. I guess that the best way of putting it is to say that Kubernetes does not try to solve the update problem because there&#8217;s no such problem in the kubernetes world. We have others&#8230; but that it&#8217;s not one of them.</p>
+
+<p>In summary, an excellent night. Thanks <a href="http://www.jetstack.io/" target="_blank">Jetstack</a> and all the Matts involved!</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">27 Jun 2014</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2014/06/27/enter-bitcoin/" class="post-title">Enter Bitcoin</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Bitcoin" href="http://blog.pedrazas.me/categories/bitcoin">Bitcoin</a><a class="post-category post-category-London" href="http://blog.pedrazas.me/categories/london">London</a><a class="post-category post-category-startups" href="http://blog.pedrazas.me/categories/startups">startups</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p><a href="http://ivan.pedrazas.me/wp-content/uploads/2014/06/bitcoin-logo-1000_0.jpg"><img class="aligncenter size-medium wp-image-271" src="http://ivan.pedrazas.me/wp-content/uploads/2014/06/bitcoin-logo-1000_0-300x300.jpg" alt="bitcoin-logo-1000_0" width="300" height="300" /></a></p>
+
+<p>Last month I decided that it was time for Bitcoin and I to spend more quality time together. So I went to <a href="http://www.megamine.com/">MegaMine</a> and opened an account. Why Megamine and not some others? well, truth is that they are local. It&#8217;s a Startup from London, you can go and visit them. Depending on the time of the day they will buy you a coffee or a beer and have a nice chat with you&#8230; and yes, their prices are super competitive!</p>
+
+<p>I bumped into them because I was looking for a cheap datacenter to host my machines to build my OpenStack Empire, but that&#8217;s another story. Let&#8217;s focus!</p>
+
+<p>If you want to get into Bitcoins there are two ways:</p>
+
+<ul>
+<li>You can mine Bitcoins, aka Bitcoin mining</li>
+<li>You can buy Bitcoins. In the same way that you would buy any other foreign currency.</li>
+</ul>
+
+<p>The main difference is the price. Buying Bitcoins is like buying US Dollars, or British Pounds. (Buying and selling prices are different.) When mining you pay for the usage of a mining machine (or a pool), regardless of the price of the Bitcoin (well, that&#8217;s the theory). This means that under certain circumstances, buying Bitcoin is more convenient that mining.</p>
+
+<p>buying Bitcoin is not as straightforward as many people think. Yes, there are places where you can go and buy Bitcoins. for example, <a href="https://bitbargain.co.uk/buy">this website</a>. Now, if you notice, the website does not sell Bitcoins, the website will allow you to buy Bitcoins (from someone else), and because of that, every transaction has different conditions (looks dodgy, doesn&#8217;t it?)</p>
+
+<p>At the beginning of the month SatoshiPoint presented their machines and I rushed to go and compare what I could get from them compared to what I could get from mining.</p>
+
+<p>The difference was that the machines will give you your bitcoin straightaway (in reality it the transaction took around 13 minutes to go through) compared to the 5~ish days that I had to spend mining to get the same amount of Bitcoin.</p>
+
+<p>As I see it, if you want your Bitcoins now, go and buy them out of some place. Make sure the website is the one selling the Bitcoins and not-yet-another-middle-man-in-the-middle.</p>
+
+<p>If you want to squeeze your money and get a higher return&#8230; <a href="http://www.megamine.com/pricing.php">go and mine</a>!</p>
+
+<p>I&#8217;m not sure if Megamine will sell Bitcoins in the future or not, but I will be asking them next time I see them for a coffee or a beer.</p>
+
+<p>&nbsp;</p>
+
+<p>Happy Mining!</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Disclaimer</strong>: I&#8217;m not related to Megamine in any way nor they give me any satoshis to write about them (although any offered will be most welcome!).</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">04 May 2014</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2014/05/04/distributed-access/" class="post-title">Distributed Access</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-London" href="http://blog.pedrazas.me/categories/london">London</a><a class="post-category post-category-startups" href="http://blog.pedrazas.me/categories/startups">startups</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Sharing information is not easy. We are animals of customs. Moving from one way of doing things to another takes time and it creates friction and it happens, over time that we accept the new way of doing things as the &#8220;way we do this&#8221;.</p>
+
+<p>Working with a distributed team is strange. my team is not exactly distributed, but asynchronous. Working with people whoe are not next to you creates a barrier, but opens up tons of possibilities.</p>
+
+<p>My wife recently asked  advise about how to deal with a distributed and/or asynchronous team. Technically we have so many options that it&#8217;s difficult to know which is the right choice.</p>
+
+<p>These are the applications that in my experience, make a distributed async team to be as productive as working together elbow to elbow:</p>
+
+<ul>
+<li><strong>Serialised Chat:</strong> a chat where people can see the last 4 days of history. Chats are not only useful to &#8220;chat&#8221; but to keep track of what was going on.</li>
+<li><strong>Internal Blogs:</strong> This is the core of a team. Every single team should have an internal blog where they dump what&#8217;s happening. I know, it seems the same than the chat, but it&#8217;s not. Chats are prone to off topics and and are terriffic to let people know. Blogs allow transmitting info and gathering comments dead easy.</li>
+<li><strong>Skype/hangouts:</strong> not much to say here really. There are times that a simple phone call can sort out many problems.</li>
+<li><strong>Wiki:</strong> nothing beats the good old wiki to create a solid knowledge base.</li>
+<li><strong>Github:</strong> git it&#8217;s not only great for code, but for anything you need to pull-request</li>
+<li><strong>Dropbox:</strong> sharing made easy.</li>
+</ul>
+
+<p>I do have tried things like basecamp, yammer or jive and they are great but they do not fit very well with small teams.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">01 Mar 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2013/03/01/now-in-london/" class="post-title">Now in London</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-London" href="http://blog.pedrazas.me/categories/london">London</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>London is HARD. That&#8217;s the message I always send to the Spaniards who ask me about coming to live and work to this city. London has far too many things to offer but there&#8217;s also a high price you have to pay (have you looked at the rental prices lately?).</p>
+
+<p>But it&#8217;s not only money. London is expensive but so it is Barcelona or Paris.</p>
+
+<p>What it really makes this city so special is the people (I know, I know, bear with me). The first difference young people notice with any other city is the incredible amount of young people who lives here. The second one is that many people come to London not to settle down, which makes this city the perfect place for flings, affairs and passionate one night stands.</p>
+
+<p>But it&#8217;s not about how easy is to get laid in this city, ok, it is&#8230; O_0 and about work. I don&#8217;t  tweet job offers any more, at the end of the day, I&#8217;m not a recruiter but if you want to come to this city to find a job, let me know.</p>
+
+<p>For example, while having coffee this morning a guy asked if I knew of a python developer looking for a job. Another guy spat out  &#8220;<em>Python developers don&#8217;t look for jobs, they all have jobs</em>&#8221; and we all laughed (we all do python and we all have jobs, so the guy was not that wrong, was he?)</p>
+
+<p>&nbsp;</p>
+
+                    </div>
+                </section>
+                
+            </div>
+            
+
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://blog.pedrazas.me/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

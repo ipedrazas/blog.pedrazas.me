@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy &middot; Big Bag Blog</title>
+
+    <meta name="description" content="Need a place to hide">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Deploy &middot; Big Bag Blog">
+    <meta name="twitter:description" content="Need a place to hide">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Deploy &middot; Big Bag Blog">
+    <meta property="og:description" content="Need a place to hide">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://blog.pedrazas.me/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Big Bag Blog" href="http://blog.pedrazas.me/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://blog.pedrazas.me">Big Bag Blog</a></h1>
+            <h2 class="brand-tagline"> Need a place to hide </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/ipedrazas"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/ipedrazas "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://blog.pedrazas.me/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                
+                <h1 class="content-subhead">15 Jun 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2013/06/15/3-links-to-save-your-sanity/" class="post-title">3 links to save your sanity</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Development" href="http://blog.pedrazas.me/categories/development">Development</a><a class="post-category post-category-DevOps" href="http://blog.pedrazas.me/categories/devops">DevOps</a><a class="post-category post-category-Python" href="http://blog.pedrazas.me/categories/python">Python</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>During the last two years I&#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.</p>
+
+<p>Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&#8217;s finished Boom! deploy finished <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+
+<p>This script will create the following directory:</p>
+
+<p><code>/data/blibb/releases/2013.6.15-22.59.12</code></p>
+
+<p>Let&#8217;s assume the last deploy was done 2 days before:</p>
+
+<p><code>/data/blibb/releases/2013.6.13-11.23.22&lt;br /&gt;
+/data/blibb/releases/2013.6.15-22.59.12</code></p>
+
+<p>Now, there&#8217;s something I do&#8230; &#8220;just in case&#8221;, I create 3 symbolic links as follows:</p>
+
+<p>``During the last two years I&#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.</p>
+
+<p>Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&#8217;s finished Boom! deploy finished <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+
+<p>This script will create the following directory:</p>
+
+<p><code>/data/blibb/releases/2013.6.15-22.59.12</code></p>
+
+<p>Let&#8217;s assume the last deploy was done 2 days before:</p>
+
+<p><code>/data/blibb/releases/2013.6.13-11.23.22&lt;br /&gt;
+/data/blibb/releases/2013.6.15-22.59.12</code></p>
+
+<p>Now, there&#8217;s something I do&#8230; &#8220;just in case&#8221;, I create 3 symbolic links as follows:</p>
+
+<p>``</p>
+
+<p>So, my nginx points to current, so if something goes wrong, I can always swap back to the previous release that, alas, it&#8217;s just there. With these 3 links I know exactly where I am and where I was before the release, and yes, things go wrong, and my rollback is as simple as changing a couple of links (I do something else, but the update of the links is what makes the process extremely fast).</p>
+
+<p>In case that you wonder, this is how the links are left after a rollback:</p>
+
+<p>```During the last two years I&#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.</p>
+
+<p>Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&#8217;s finished Boom! deploy finished <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+
+<p>This script will create the following directory:</p>
+
+<p><code>/data/blibb/releases/2013.6.15-22.59.12</code></p>
+
+<p>Let&#8217;s assume the last deploy was done 2 days before:</p>
+
+<p><code>/data/blibb/releases/2013.6.13-11.23.22&lt;br /&gt;
+/data/blibb/releases/2013.6.15-22.59.12</code></p>
+
+<p>Now, there&#8217;s something I do&#8230; &#8220;just in case&#8221;, I create 3 symbolic links as follows:</p>
+
+<p>``During the last two years I&#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.</p>
+
+<p>Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&#8217;s finished Boom! deploy finished <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+
+<p>This script will create the following directory:</p>
+
+<p><code>/data/blibb/releases/2013.6.15-22.59.12</code></p>
+
+<p>Let&#8217;s assume the last deploy was done 2 days before:</p>
+
+<p><code>/data/blibb/releases/2013.6.13-11.23.22&lt;br /&gt;
+/data/blibb/releases/2013.6.15-22.59.12</code></p>
+
+<p>Now, there&#8217;s something I do&#8230; &#8220;just in case&#8221;, I create 3 symbolic links as follows:</p>
+
+<p>``</p>
+
+<p>So, my nginx points to current, so if something goes wrong, I can always swap back to the previous release that, alas, it&#8217;s just there. With these 3 links I know exactly where I am and where I was before the release, and yes, things go wrong, and my rollback is as simple as changing a couple of links (I do something else, but the update of the links is what makes the process extremely fast).</p>
+
+<p>In case that you wonder, this is how the links are left after a rollback:</p>
+
+<p>```</p>
+
+                    </div>
+                </section>
+                
+            </div>
+            
+
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://blog.pedrazas.me/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

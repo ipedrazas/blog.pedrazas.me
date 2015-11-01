@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Cassandra in AWS for Dev &amp; Test &middot; Big Bag Blog</title>
+
+    <meta name="description" content="">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Using Cassandra in AWS for Dev &amp; Test &middot; Big Bag Blog">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Using Cassandra in AWS for Dev &amp; Test &middot; Big Bag Blog">
+    <meta property="og:description" content="">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://blog.pedrazas.me/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Big Bag Blog" href="http://blog.pedrazas.me/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://blog.pedrazas.me">Big Bag Blog</a></h1>
+            <h2 class="brand-tagline"> Need a place to hide </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/ipedrazas"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/ipedrazas "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://blog.pedrazas.me/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                <h1 class="content-subhead">12 Mar 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2015/03/12/using-cassandra-in-aws-for-dev-test/" class="post-title">Using Cassandra in AWS for Dev &amp; Test</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Cassandra" href="http://blog.pedrazas.me/categories/cassandra">Cassandra</a><a class="post-category post-category-DevOps" href="http://blog.pedrazas.me/categories/devops">DevOps</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-share">
+                        <div class="post-share-links">
+                            <h4 style="">Share</h4>
+                            <a href="#" data-type="facebook" data-url="http://blog.pedrazas.me/2015/03/12/using-cassandra-in-aws-for-dev-test/" data-title="Using Cassandra in AWS for Dev &amp; Test" data-description="" data-media="" class="prettySocial fa fa-facebook"></a>
+                            <a href="#" data-type="googleplus" data-url="http://blog.pedrazas.me/2015/03/12/using-cassandra-in-aws-for-dev-test/" data-description="" class="prettySocial fa fa-google-plus"></a>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="post-description">
+                        <p>At <a href="http://www.adbrain.com/">Adbrain</a>, Cassandra is one of our core databases. I&#8217;m a big fan of not doing much by automating a lot. However, I couldn&#8217;t find an easy way, by easy I mean that it would take very little to implement and could work without me having to do any intervention.</p>
+
+<p>As I&#8217;ve mentioned before, we create ephemeral clusters for our computational work force using Apache Spark, which helped us a lot to reduce the cost of our running infrastructure.</p>
+
+<p>Yes, I&#8217;m a big fan of using infrastructure in an effective way. There&#8217;s no secret here, using the cloud gives you the flexibility to pay for what you use.</p>
+
+<p>Our Dev &amp; Test machines only run during working hours (you know, to pay for what you use only). However, with Cassandra we had to do an exception. Noticed the past tense? We use the ephemeral drives of our AWS instances (in raid0), and as many of you have know, disks do not survive if you stop the instances&#8230; which makes stopping &amp; starting Cassandra nodes a pain.</p>
+
+<p>The solution is pretty obvious, and yes, I&#8217;m banging my head against the wall for all the times I&#8217;ve wrongly said &#8220;Cassandra clusters cannot be stopped&#8221;.</p>
+
+<p>We have a jenkins job that stop Dev &amp; Test machines. The idea was to be able to put my Cassandra cluster nodes in that job as well (to keep things tidy). However, it&#8217;s possible but not ideal because you create some dependencies (and there&#8217;s nothing better than being independent)</p>
+
+<p>This is what my job does:</p>
+
+<p style="padding-left: 30px;">
+  <strong>Cassandra Stop Job</strong>
+</p>
+
+<ol>
+<li>Flush cassandra data.
+
+<ol>
+<li>nodetool flush</li>
+</ol></li>
+<li>Stop cassandra service.</li>
+<li>Copy Data out. (you have two options)
+
+<ol>
+<li>nodetool snapshot + tar + upload to S3</li>
+<li>tar /data/cassandra + upload S3</li>
+</ol></li>
+<li>Stop the instance.</li>
+</ol>
+
+<p style="padding-left: 30px;">
+  <strong>Cassandra Start Job</strong>
+</p>
+
+<ol>
+<li>Start the instance.</li>
+<li>Create raid0.</li>
+<li>Copy data in.</li>
+<li>Start cassandra service.</li>
+</ol>
+
+<p>That&#8217;s it, now my Cassandra clusters for Dev &amp; Test only run for 50h a week, instead of 168h (24&#215;7).</p>
+
+<p>If you use the m3.2xlarge instance type, you will pay per node $28 per week instead of $94.08. A saving of <strong>$66.08</strong> per node per week.</p>
+
+                    </div>
+                    
+                </section>
+            </div>
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://blog.pedrazas.me/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

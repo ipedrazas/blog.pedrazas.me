@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neo4j &middot; Big Bag Blog</title>
+
+    <meta name="description" content="Need a place to hide">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Neo4j &middot; Big Bag Blog">
+    <meta name="twitter:description" content="Need a place to hide">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Neo4j &middot; Big Bag Blog">
+    <meta property="og:description" content="Need a place to hide">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://blog.pedrazas.me/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Big Bag Blog" href="http://blog.pedrazas.me/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://blog.pedrazas.me">Big Bag Blog</a></h1>
+            <h2 class="brand-tagline"> Need a place to hide </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/ipedrazas"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/ipedrazas "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://blog.pedrazas.me/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                
+                <h1 class="content-subhead">27 Jul 2014</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2014/07/27/gmit/" class="post-title">GmIT</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-DevOps" href="http://blog.pedrazas.me/categories/devops">DevOps</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>(Graph my IT)</p>
+
+<p><strong>The problem:</strong> We&#8217;re in the process of upgrading our Documentum platform. As part of this upgrade I had to get in contact with all the owners of the different applications that use, connects or access Documentum. They all had to test, and if possible, upgrade their internal Documentum libraries.</p>
+
+<p>The main issue was that it was not clear which applications were connecting to our different services or who was the right person to get in touch with.</p>
+
+<p>My Solution? spending a few days going around the building talking to different teams and people to make sure the message was received.</p>
+
+<p>I know what you are thinking: proper documentation and email could have well solved my problem but if you work in a fairly large organisation like I do, it will not surprise you that the documentation was not complete and it was not up to date. Half of the people the documentation mentioned was not working in those teams anymore, and some of them had move on to brightest lands.</p>
+
+<p>As I said, I spent some quality time with different teams. Specially rewarding was my time with the networking team checking out the firewall to know which IPs were connecting to my servers. Having meetings with different group (developers, primary support, help desk, administrators&#8230;) to make sure we had everything under control.</p>
+
+<p>All this took a fairly amount of time and yes, it can be improved a lot and this post talks about what I did to start sailing towards that remote port.</p>
+
+<p>Once I had all the details of people, machine, roles, and infrastructure I realise that a Spreadsheet (the way this information was officially kept) was not fit for purpose. I realise pretty quickly that I was looking at a graph and that finally I had stumbled upon a nice Use Case for <a href="http://www.neo4j.org/">Neo4J</a>.</p>
+
+<p><a href="http://ivan.pedrazas.me/wp-content/uploads/2014/07/neo4j.png"><img class="aligncenter size-medium wp-image-283" src="http://ivan.pedrazas.me/wp-content/uploads/2014/07/neo4j-300x73.png" alt="neo4j" width="300" height="73" /></a></p>
+
+<p>The first time I had knowledge of Neo4J was in NOSQL eXchange in 2011. Since then, every time I&#8217;ve looked at their technology I&#8217;ve seen really cool things like graphs about Dr. Who or more recently The World Cup but as cool as these examples were, they were not very business focused, really. I mean, mapping daleks and doctors have a very different business value than mapping servers and applications (unless you work for BBC or you just happen to be The Doctor, of course).</p>
+
+<p><a href="http://ivan.pedrazas.me/wp-content/uploads/2014/07/koans_drwho.png"><img class="aligncenter wp-image-282 size-medium" src="http://ivan.pedrazas.me/wp-content/uploads/2014/07/koans_drwho-300x224.png" alt="koans_drwho" width="300" height="224" /></a></p>
+
+<p>I have to reckon that it took me a fair bit too long to get into graphs (I will blame Dr. Who and the World Cup!!)</p>
+
+<p>Neo4j is not as different to any other database, this means: getting your data model right is fundamental&#8230; however, Neo4j has something else&#8230; it provides a bunch of relationships which will transform your data model.</p>
+
+<p>Let me give you a visual example of what&#8217;s going to happen with you data model once you try to use Neo4J is the Pizza dough. Let&#8217;s assume your Data Architect defined the data model. That would be the dough. If Neo4J were the pizza master, this is what will happen: it will get your data model, it will stretch it, it will shrink it, it will make it spin, it will bake it and finally&#8230; it will be ready for consumption in a very different way it was at the very beginning.</p>
+
+<div id="attachment_286" style="width: 310px" class="wp-caption aligncenter">
+  <a href="http://ivan.pedrazas.me/wp-content/uploads/2014/07/2160246890_94819d31ab.jpg"><img class="size-medium wp-image-286" src="http://ivan.pedrazas.me/wp-content/uploads/2014/07/2160246890_94819d31ab-300x300.jpg" alt="Defining your Data Model like a Pro!" width="300" height="300" /></a>
+  
+  <p class="wp-caption-text">
+    Defining your Data Model like a Pro!
+  </p>
+</div>
+
+<p>Seriously. I worked with Postgres, MongoDB, ElasticSearch, Redis, Dynamo&#8230; and the datasource that has changed my data model the most is Neo4J, by far!</p>
+
+<p>I started designing my model using the entities we had in the Spreadsheet&#8230; it didn&#8217;t work. Because flat is not good, and dealing with spreadsheets is what you get: flatland.</p>
+
+<p>We had a list of applications and person to contact: <strong>Application Name, Owner</strong></p>
+
+<p>Every Application had a document where it was defined the different machines they used per environment. Yes, that means one document per row in your list.</p>
+
+<p>Then, you had another list of: <strong>Application, Administrator</strong></p>
+
+<p>And yet another one with: <strong>Application, Support Team</strong></p>
+
+<p>You can put any kind of crazy stuff into a spreadsheet as reality has confirmed to all of us, but the hard truth is that a flat table is just that, a flat data layout. Besides, the fact that you have all that data in a document (with an owner and a path) makes things even worse (people don&#8217;t tend to like other people&#8217;s updating their documents).  Anyway, I decided to run a docker container with Neo4j in it. Easy!</p>
+
+<p>My first model was something like this:</p>
+
+<p>&#8211; Application [IP, OS, Name]</p>
+
+<p>&#8211; Person [Name, email, extension]</p>
+
+<p>&#8211; Role [name]</p>
+
+<p>With this first model I achieved something unseen before: I could map my application with all the dependencies and all the people involved but&#8230; It was not very clear. If a person had 2 roles (I am the admin of an application, and support another one, the graph gets confusing. You want to know what the person does, not where he belongs&#8230;)</p>
+
+<p>Second iteration:</p>
+
+<p>&#8211; Application [IP, OS, Name] :: r[CONNECTS]</p>
+
+<p>&#8211; Person [Name, email, extension] :: [ADMINS | SUPPORTS ]</p>
+
+<p>Applications run in clusters and machine information is quiet important (because we have firewall rules per machine, and IPs are per machine not application). Third iteration:</p>
+
+<p>&#8211; Application [Name, Build Version] :: r[CONNECTS]</p>
+
+<p>&#8211; Person [Name, email, extension] :: [ADMINS | SUPPORTS | HAS_ACCESS]</p>
+
+<p>&#8211; Server [Name, IP, OS] :: r[RUNS]</p>
+
+<p>Well, I&#8217;m not sure what&#8217;s the best way of describing relationships to an entity but in a nutshell, an application can connect to another application, an application runs in one or more servers, people administers, supports and develops applications and servers and specially key, we had the relationship to map the firewall rules.</p>
+
+<p><a href="http://ivan.pedrazas.me/wp-content/uploads/2014/07/networkmap.png"><img class="aligncenter size-large wp-image-289" src="http://ivan.pedrazas.me/wp-content/uploads/2014/07/networkmap-1024x539.png" alt="networkmap" width="700" height="368" /></a></p>
+
+<p>No matter how strict your rules are, you will always have exceptions and you will have to deal with them&#8230; and as in any other place we do, but those exceptions are the first things to get broken when updates or migrations happen.</p>
+
+<p>Things that I&#8217;ve learnt during this process:</p>
+
+<ul>
+<li>Creating a graph is much easier that it seems, specially if you run docker.</li>
+<li>Data with Relationships visualisations are very powerful. Do not underestimate them!</li>
+<li><strong>Having an image of your map is worth a 1000 misunderstandings!</strong></li>
+<li>Uploading CSV is a super fast way of getting your data in Neo4j</li>
+<li>I love the idea of having a <a href="http://docs.neo4j.org/chunked/milestone/rest-api-cypher.html">REST API</a> for my Cypher queries</li>
+<li>Have I said that you can do batch processing with their API? #AWESOME!</li>
+</ul>
+
+<p>Let me give you the basic queries you will need to recreate a beautiful map of your network</p>
+
+<p><strong># Creates Application</strong></p>
+
+<pre>CREATE (ee:Application { name: "Google Search Engine", version: "42", public: true })
+</pre>
+
+<p><strong># Creates Server</strong></p>
+
+<pre>CREATE (ee:Server { name: "galactus", os: "Linux Debian 7", ip: "192.168.69.70" })
+</pre>
+
+<p><strong># Creates Person</strong></p>
+
+<pre>CREATE (ee:Person { name: "John Wayne", email: "jwayne@galactus.net", ext: 6867 })
+</pre>
+
+<p><strong># Creates Relationship Person-App, in this case:</strong></p>
+
+<p><strong># person supports application</strong></p>
+
+<pre>MATCH (a:Person),(b:Application)
+    WHERE a.name = 'John Wayne' AND b.name = 'Google Search Engine' 
+CREATE (a)-[r:Supports]-&gt;(b)
+RETURN r
+</pre>
+
+<p><strong># Display everything</strong></p>
+
+<pre>MATCH (a)-[r]-(b) RETURN a,b LIMIT 25
+</pre>
+
+<p>That&#8217;s all folks, hope you have fun!</p>
+
+<p>Oh, one last thing&#8230; in case you want to run <a href="https://registry.hub.docker.com/u/tpires/neo4j/">Neo4j in docker</a>:</p>
+
+<pre>docker run -d -p 7474:7474 tpires/neo4j</pre>
+
+<p>If you have any comments, you can <a href="https://twitter.com/ipedrazas">find me here <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></a></p>
+
+                    </div>
+                </section>
+                
+            </div>
+            
+
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://blog.pedrazas.me/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

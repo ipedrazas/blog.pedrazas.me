@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deconstructing &middot; Big Bag Blog</title>
+
+    <meta name="description" content="">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Deconstructing &middot; Big Bag Blog">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Deconstructing &middot; Big Bag Blog">
+    <meta property="og:description" content="">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://blog.pedrazas.me/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Big Bag Blog" href="http://blog.pedrazas.me/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://blog.pedrazas.me">Big Bag Blog</a></h1>
+            <h2 class="brand-tagline"> Need a place to hide </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/ipedrazas"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/ipedrazas "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://blog.pedrazas.me/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                <h1 class="content-subhead">25 Jun 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2015/06/25/deconstructing/" class="post-title">Deconstructing</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-DevOps" href="http://blog.pedrazas.me/categories/devops">DevOps</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-share">
+                        <div class="post-share-links">
+                            <h4 style="">Share</h4>
+                            <a href="#" data-type="facebook" data-url="http://blog.pedrazas.me/2015/06/25/deconstructing/" data-title="Deconstructing" data-description="" data-media="" class="prettySocial fa fa-facebook"></a>
+                            <a href="#" data-type="googleplus" data-url="http://blog.pedrazas.me/2015/06/25/deconstructing/" data-description="" class="prettySocial fa fa-google-plus"></a>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="post-description">
+                        <p><a href="http://ivan.pedrazas.me/wp-content/uploads/2015/06/kafka_logo.png"><img class="alignleft size-full wp-image-454" src="http://ivan.pedrazas.me/wp-content/uploads/2015/06/kafka_logo.png" alt="kafka_logo" width="75" height="117" /></a>If you haven&#8217;t heard about <a href="http://kafka.apache.org/">Apache Kafka</a>, or his little brother Amazon Kinesis, go and read about <a href="http://www.oreilly.com/pub/e/3098">why they are so great</a>.</p>
+
+<p>I was chatting with a friend last night and he told me &#8220;I get containers now. I needed some give it some thought, but I get them now&#8221;. If I had to describe him with one word I would use &#8220;smart&#8221; without any doubt&#8230; still he had to think about why containers are so great.</p>
+
+<p>We carried on talking and after two more beers and few pork ribs I managed to make him understand why we are about to change we build applications. It&#8217;s not only because of containers (or systems like Mesos or Kubernetes), but because with containers, we have seen the light of deconstructing the monoliths into microservices.</p>
+
+<p>But, there&#8217;s another key element on this Game of Thrones: The Log, systems like Apache kafka are going to help to change completely the landscape of what we build, and ship and run. Like with Microservices, the Log overlord brings a blessing in disguise: it&#8217;s not what it does, it&#8217;s what allows others to do.</p>
+
+<p>It is not about its responsibility, it&#8217;s about delegating that responsibility in who really has it. Let&#8217;s look at what happens today. We have a system, that system gets some data, compute that data and stores that data in a database. Easy!</p>
+
+<p>Then someone comes along and asks to get that same data and put it somewhere else, so our system now gets some data, compute that data and stores that data in two different places.</p>
+
+<p>As we can see, this does not scale very well, so people get smart, and start doing things like database triggers and a whole bunch of things that are totally correct in itself, but over time, it creates a big mess of &#8220;dirty integrations&#8221;. These are the things that will break when we want to move our system. These are the future nightmares of our microservices journey.</p>
+
+<p>Then, we have The LOG&#8230; a dumb system that guess what: it does not care about what do you do with that data. The Log Overlord will keep your data for a while, and it&#8217;s up to you, the consumers, to use it.</p>
+
+<p>A bit like how the TV has been broadcasting for a few years&#8230; with a twist, because, as we do now, this TV system allows you to consume the programs when you want it.</p>
+
+<p>Ok, so, basically, we have a place where we put all that data (for a while) and we have a bunch of people consuming that data? So what?</p>
+
+<p>Well, not much, but as with microservices, what the LOG overlord provides is the ability of your consumers to consume the way they want (once per hour, once per day&#8230; in real time), and even more, the people who create the TV shows do not care about the broadcasting anymore.</p>
+
+<p>Think about it. Microservices decouple your business logic. With microservices you can write very business specific services without having to worry about all the other business rules, use cases and (oh yes) those terrible exceptions.</p>
+
+<p>Apache Kafka or Amazon Kinesis decouple your data. How you read that data is up to the readers and the writers have nothing to do with that. It&#8217;s like a writer writing a book, and people reading that book: when they want, how they want&#8230; as opposed to the writer writing and reading aloud to certain audience.</p>
+
+<p>I&#8217;m not sure if the creators of Kafka chose that name because it&#8217;s a system that allows writers and readers to focus and enjoy what they want to do.</p>
+
+<p>As I said, we are living very exciting times with a lot of change. Let me finish with a song&#8230; or my own version of a song by <a href="https://www.youtube.com/watch?v=f8PMqLHF1jU">Elvis Presley</a>:</p>
+
+<p style="text-align: center;">
+  Treat me like a fool,<br /> Treat me mean and cruel,<br /> But <strong>LOG</strong> me.
+</p>
+
+<p style="text-align: center;">
+  Wring my faithful heart,<br /> Tear it all apart,<br /> But <strong>LOG</strong> me.
+</p>
+
+<p style="text-align: center;">
+  <a href="http://ivan.pedrazas.me/wp-content/uploads/2015/06/649ca9a3f3d4aba78095a28c26fba1fa.jpg"><img class="aligncenter size-medium wp-image-455" src="http://ivan.pedrazas.me/wp-content/uploads/2015/06/649ca9a3f3d4aba78095a28c26fba1fa-233x300.jpg" alt="649ca9a3f3d4aba78095a28c26fba1fa" width="233" height="300" /></a>
+</p>
+
+                    </div>
+                    
+                </section>
+            </div>
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://blog.pedrazas.me/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

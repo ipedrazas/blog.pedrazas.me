@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Analytics on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/categories/analytics/</link>
+    <description>Recent content in Analytics on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Sun, 07 Sep 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/categories/analytics/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Analytics From my Browsing History</title>
+      <link>http://blog.pedrazas.me/2014/09/07/from-my-browsing-history/</link>
+      <pubDate>Sun, 07 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/09/07/from-my-browsing-history/</guid>
+      <description>&lt;p&gt;One of the problems I had while writing dotMarks was the fact that I could not get enough URLs for my testing. I did ask friends and family to send me over their exported list of bookmarks or the bookmarks from pocket&amp;#8230; but &lt;a href=&#34;https://www.youtube.com/watch?v=Pj-qBUWOYfE&#34;&gt;I needed more data&lt;/a&gt;, so, I look somewhere else: My browsing history.&lt;/p&gt;
+
+&lt;p&gt;Of course I couldn&amp;#8217;t just get those links &amp;#8220;&lt;strong&gt;&lt;em&gt;and carry on&lt;/em&gt;&lt;/strong&gt;&amp;#8220;. I had to look at them, poke them and write an extension that allows me to analyse them.&lt;/p&gt;
+
+&lt;p&gt;Because, the idea was&amp;#8230; what kind of high level information can Google (or anyone else) know from just looking at my browing history? and the result was as scary as you might imagine.&lt;/p&gt;
+
+&lt;p&gt;Bear in mind that Google knows much more than just my history&amp;#8230; but that&amp;#8217;s for another post. Let&amp;#8217;s focus!&lt;/p&gt;
+
+&lt;p&gt;This extension basically gathers all your browing history (100 days max), sends it to dotmarks where some data-crunching happens and&amp;#8230; then you see the results.&lt;/p&gt;
+
+&lt;p&gt;For example, it checks at what time you visit a link and creates this pretty graph:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111057.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-330&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111057-300x167.png&#34; alt=&#34;Screenshot from 2014-09-07 11:10:57&#34; width=&#34;300&#34; height=&#34;167&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Which highlights something that everybody who knows me is aware of: I do not sleep much and&amp;#8230; that I work very early in the morning, or very late at night.&lt;/p&gt;
+
+&lt;p&gt;I was very curious about finding out my most visited websites&amp;#8230; nothing surprising here:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111147.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-328&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111147-300x207.png&#34; alt=&#34;Screenshot from 2014-09-07 11:11:47&#34; width=&#34;300&#34; height=&#34;207&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;That I do not procastinate as much as I thought is quiet clear (twitter reloads itself a lot, that&amp;#8217;s why it ranks so high), but mostly I work on my localhost&amp;#8230; and check how my Bitcoins are doing at &lt;a href=&#34;http://megamine.com/&#34;&gt;Megamine&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/theres-no-place-like-127-0-0-1-localhost-computer-print-poster.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-333&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/theres-no-place-like-127-0-0-1-localhost-computer-print-poster-300x200.jpg&#34; alt=&#34;theres-no-place-like-127-0-0-1-localhost-computer-print-poster&#34; width=&#34;300&#34; height=&#34;200&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Then, I started extracting keywords from my searches&amp;#8230; and things got more interesting:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111126.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-329&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111126-300x209.png&#34; alt=&#34;Screenshot from 2014-09-07 11:11:26&#34; width=&#34;300&#34; height=&#34;209&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Yes, I do search about superheroes a lot&amp;#8230; things of having children addicted to Thor, Spiderman and such troop.&lt;/p&gt;
+
+&lt;p&gt;What is really interesting is how high rank generics like java, python or ubuntu. I was a bit puzzled at first, then I realised that those keywords are ways of filtering out unwanted results. No surprise then, I do work with ubuntu, java and python.&lt;/p&gt;
+
+&lt;p&gt;Still, top marks for the two technologies I&amp;#8217;ve been working more with: ElasticSearch and Docker. ElasticSearch documentation is quite dry&amp;#8230; Docker, because I&amp;#8217;m trying to do a bit too much I guess.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://dotmarks.net&#34;&gt;dotMarks&lt;/a&gt; is a self hosted bookmarks service. The idea is that you will run your own dotMarks server. I&amp;#8217;m working hard to make it as easy as possible to run it (thanks to Docker) but if you&amp;#8217;re curious and want to see what your browsing history says about you, &lt;a href=&#34;https://github.com/ipedrazas/dotmarks-history&#34;&gt;download the extension&lt;/a&gt; and give it a go.&lt;/p&gt;
+
+&lt;p&gt;What I need is advice  &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;If you run the extension and think of something else I can extract I&amp;#8217;m all ears.&lt;/p&gt;
+
+&lt;p&gt;Currently I&amp;#8217;m working on a simple amazon parser, but it&amp;#8217;s still very early&amp;#8230; anyway, if you want to give it a go, by all means try it out and if you can share your feedback &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;with me&lt;/a&gt;, I would really appreciate it.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;a href=&#34;https://dotmarks.net&#34;&gt;dotMarks&lt;/a&gt; and all related to this project is OpenSource. I do have a working version &lt;a href=&#34;https://dotmarks.net/app/#/dotmarks&#34;&gt;here&lt;/a&gt;, but as I said, the idea is that you will run your own service. Still, if you want to add your bookmarks, go ahead, and if you want to be able to find them later, use a tag that you can recognise later.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

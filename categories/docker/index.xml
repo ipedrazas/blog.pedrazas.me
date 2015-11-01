@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/categories/docker/</link>
+    <description>Recent content in Docker on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Tue, 25 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Spaghetti management</title>
+      <link>http://blog.pedrazas.me/2015/08/25/spaghetti-management/</link>
+      <pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/08/25/spaghetti-management/</guid>
+      <description>&lt;p&gt;During a job interview they started asking questions about microservices and the discussion that we had made me think that it would be good to write a bit about it.&lt;/p&gt;
+
+&lt;p&gt;Microservices are great because:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;They are small, that&amp;#8217;s why the appended &amp;#8220;&lt;em&gt;Micro&lt;/em&gt;&amp;#8220;&lt;/li&gt;
+&lt;li&gt;They are independent one each other (deployment, runtime, configuration, downtime, scaling&amp;#8230;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Great! so, where&amp;#8217;s the catch&amp;#8230; because there&amp;#8217;s always a catch. Think about it. You can split your API in multiple microservices. Great, now, the application is loosely coupled to a bunch of services.&lt;/p&gt;
+
+&lt;p&gt;If you replace services by libraries, the name that comes to your mind is? DEPENDENCIES!&lt;/p&gt;
+
+&lt;p&gt;The catch with microservices is that dependencies are not implicit in your API or APP the way they used to be (think jars, gems or python libs).&lt;/p&gt;
+
+&lt;p&gt;Bear in mind as well that IDE&amp;#8217;s and compilers are very good (in general) at finding when dependencies are broken&amp;#8230; which is not the case if you have a bunch of loosely couple services.&lt;/p&gt;
+
+&lt;p&gt;Who&amp;#8217;s responsible for managing all those dependencies now? because excuse me, but I need a way to bundle services together. Or, to be more precise, to bundle versions of services together.&lt;/p&gt;
+
+&lt;p&gt;To me the hardest problem is not a design problem, the hardest problem is managing dependencies at version level.&lt;/p&gt;
+
+&lt;p&gt;At &lt;a href=&#34;https://import.io/&#34; title=&#34;Import.io&#34;&gt;Import.io&lt;/a&gt; we started moving towards this architecture and the way we solved it was not using service discovery but using the old idea of having a contract where you specify a bunch of versions that you know they play nicely together.&lt;/p&gt;
+
+&lt;p&gt;I always differentiate Runtime, Configuration and Context. In our case, Runtime was a container running a microservice. Configuration was another container (a data container) where the relationship between versions was explicitly defined, like a manifest.&lt;/p&gt;
+
+&lt;p&gt;The advantage of using a data container to bind a bunch of versions is that you have traceability. You know always how the application was configured, because it is true, with microservices we have gained a lot of flexibility but we have lost certain control. Using a container helps me to regain that control.&lt;/p&gt;
+
+&lt;p&gt;Why do I do this? because I can leverage my continuous integration pipeline to test my services and how they interact with each other according to specific versions. Because now, my microservice bundles are in git and not in some obscure key of zookeeper or consul. Even more, when the time to migrate to &lt;a href=&#34;http://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt; arrives, I can use my data container as my pod blueprint.&lt;/p&gt;
+
+&lt;p&gt;Because one thing is my architecture and another different thing is my runtime and my operations.&lt;/p&gt;
+
+&lt;p&gt;Remember&amp;#8230;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;It&amp;#8217;s not about power, it&amp;#8217;s about responsibility&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Docker in the Enterprise</title>
+      <link>http://blog.pedrazas.me/2015/04/01/docker-in-the-enterprise/</link>
+      <pubDate>Wed, 01 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/04/01/docker-in-the-enterprise/</guid>
+      <description>&lt;p&gt;One of the top questions that people ask me about Docker is by far &amp;#8220;&lt;strong&gt;&lt;em&gt;Do you think the Enterprise will use Docker?&lt;/em&gt;&lt;/strong&gt;&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;My answer has been the same since the very beginning: &lt;strong&gt;Absolutely!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;It doesn&amp;#8217;t mean it will happen soon, but it will happen. There&amp;#8217;s just a few layers of middle management and hundreds of scared sysadmins in between, but it will happen.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve migrated a few legacy enterprise applications to Docker and to me, there&amp;#8217;s a big difference between startups using Docker and classic enterprise companies using Docker. To begin with, big enterprise companies are project and program based instead of product based. Middle management, red tape and a very low speed in general. In the technical aspects there are big differences also. Let me give you a couple of examples:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Firewalls.&lt;/li&gt;
+&lt;li&gt;Legacy applications.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Have you heard about Mesos? Docker Swarm? the ability to move containers around? well, let me tell you something, in the enterprise we have firewall rules. Firewall rules are dependant on the application but bound to the host. This means that you cannot move containers around if you cannot update firewall rules at the same time.&lt;/p&gt;
+
+&lt;p&gt;Solutions like Weave are perfect for this problem. Right now, I&amp;#8217;m not sure how Docker is going to solve the networking aspect, so, I will not say that Docker will do it natively. Still, you get the point.&lt;/p&gt;
+
+&lt;p&gt;Another scary issue is &amp;#8220;Legacy Applications&amp;#8221;. Let&amp;#8217;s face it, technical debt is bad, forgotten technical debt is pure evil. Moving these kind of applications into containers is sometimes harder than rewriting them from scratch. Issues that I&amp;#8217;ve found while migrating legacy applications to containers can be split in two main groups:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Configuration issues like
+
+&lt;ul&gt;
+&lt;li&gt;hard coded url and/or domains: quite typical to see hardcoded jdbc connections. You can get around it using internal DNSs or if in case of major trouble, a reverse proxy.&lt;/li&gt;
+&lt;li&gt;Hard coded IPs: If you&amp;#8217;re lucky, again, Weave can give you a bit of air here.&lt;/li&gt;
+&lt;li&gt;Embedded credentials: hardcoding credentials is bad, but including these credentials inside of your binaries is terrible. Bad news is that it happens more often than you think. Yes, they used properties files, and yes, they put that file inside a jar, inside a war, inside an EAR&amp;#8230; Hey, enterprise all the way down!&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Context Issues:
+
+&lt;ul&gt;
+&lt;li&gt;The system needs to run in a specific host with a specific configuration like specific IPs (ugh), specific URLs (easy), specific OS (this one was very painful)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Good news is that you have the tools to work around all these issues, and yes, you get much better on fixing them (with time, experience and tears). I don&amp;#8217;t think that we will be seeing a &amp;#8220;Wizard&amp;#8221; to migrate your apps to Docker just yet but we will get there.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2nd Docker Birthday, the London Way</title>
+      <link>http://blog.pedrazas.me/2015/03/24/2nd-docker-birthday-the-london-way/</link>
+      <pubDate>Tue, 24 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/03/24/2nd-docker-birthday-the-london-way/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/03/CAy0qK3UYAA58Oj.jpg&#34;&gt;&lt;img class=&#34;alignright size-medium wp-image-415&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/03/CAy0qK3UYAA58Oj-300x300.jpg&#34; alt=&#34;CAy0qK3UYAA58Oj&#34; width=&#34;300&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;Last night at Skillsmatter we celebratedDocker&amp;#8217;s 2nd birthday. It was a good evening to catch up with friends and of course, a great opportunity to meet new people.&lt;/p&gt;
+
+&lt;p&gt;As usual with Docker, the swag was top notch. The mentor&amp;#8217;s t-shirt was especially awesomic!&lt;/p&gt;
+
+&lt;p&gt;Beers and pizza drove to a quick intro by &lt;a href=&#34;https://twitter.com/bfirsh&#34;&gt;Ben&lt;/a&gt; from docker (&lt;a href=&#34;https://twitter.com/bfirsh&#34;&gt;@bfirsh&lt;/a&gt;) who explained that that was not yet-another-meetup but what he called an &amp;#8220;OpenSource-a-thon&amp;#8221;. The idea is to get around the table together and contribute to the Docker project. He emphasized that not only code contributions were welcomed, but all sorts of non-code contributions too.&lt;/p&gt;
+
+&lt;p&gt;I teamed up with the fine people of &lt;a href=&#34;http://www.cloud66.com/&#34;&gt;Cloud66&lt;/a&gt; trying to sort out the Documentation. We tried to complete &lt;a href=&#34;https://github.com/docker/docker/issues/11593&#34;&gt;the Issue 11593&lt;/a&gt;, but we didn&amp;#8217;t get too far. By the time we had set up the environment and started digging the code, it was time to wrap up.&lt;img class=&#34; size-medium wp-image-420 aligncenter&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/03/ben-docker-300x225.jpg&#34; alt=&#34;ben-docker&#34; width=&#34;300&#34; height=&#34;225&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation is key to adoption. Unfortunately, code documentation is very hard unless you know the code very well. At this point I would encourage you, kind reader, to try to write a little about something that&amp;#8217;s it&amp;#8217;s itching you. There&amp;#8217;s nothing like sitting down and starting to type (unless you have one of those funky standing desks, of course) to make you realise how hard is to write good documentation.&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/03/stickers-docker.jpg&#34;&gt;&lt;img class=&#34;alignright size-medium wp-image-419&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/03/stickers-docker-300x225.jpg&#34; alt=&#34;stickers-docker&#34; width=&#34;300&#34; height=&#34;225&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Kudos from me to all the people writing documentation. Me and my children are very very pleased with your work. Keep it up!&lt;/p&gt;
+
+&lt;p&gt;Docker has a &lt;a href=&#34;http://docker.party/&#34;&gt;Docker.party&lt;/a&gt; website about the motivation behind the &amp;#8220;&lt;em&gt;open-source-a-thon&lt;/em&gt;&amp;#8221; where they explain that they will donate $50 to the &lt;a href=&#34;http://www.oceanicsociety.org/&#34;&gt;Oceanic Society&lt;/a&gt; for each contribution we submit during the birthday. You see? write some documentation, save a whale!&lt;/p&gt;
+
+&lt;p&gt;But wait, it&amp;#8217;s not only during these events that your contributions can save a whale: from 23rd of March to 19th of April, all contributions made to the Docker Project will count toward Docker’s donation to the Oceanic Society &lt;strong&gt;\o/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I might spend some time finishing off that issue and to lead as example, I&amp;#8217;m also happy to write a tutorial. I&amp;#8217;ve been running Docker in production for almost a year now, I&amp;#8217;ve built microservices, used Weave, and migrated dinosaurs (aka Big Enterprise Legacy Applications) to containers. So, I might say it&amp;#8217;s safe to think I know a bit about how to use containers in real life scenarios.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.google.com/forms/d/1R7T-UDsOHsZ9uBYy9YopVEajjPbMrc1cP_nQinfbctc/viewform&#34;&gt;Fill this form&lt;/a&gt; or  &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;Just let me know in Twitter&lt;/a&gt; what kind of tutorial would you like to see and I will get my hands into it!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Happy Birthday, Docker!&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Asistentes a mi taller – PyCoNes 2014</title>
+      <link>http://blog.pedrazas.me/2014/11/02/asistentes-a-mi-taller-pycones-2014/</link>
+      <pubDate>Sun, 02 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/11/02/asistentes-a-mi-taller-pycones-2014/</guid>
+      <description>&lt;p&gt;Si aún no tienes claro si vas a venir a mi taller o no, &lt;a href=&#34;http://ivan.pedrazas.me/?p=364&#34;&gt;lee esto&lt;/a&gt;, y luego sigue &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Parece que la conexión de internet no va a ser para tirar cohetes&amp;#8230; nada que no hayamos sufrido todos alguna vez. Así que, para minimizar el impacto de una mala conexión hay dos opciones:&lt;/p&gt;
+
+&lt;p&gt;Usar una conexion ssh a una máquina virtual en la nube (AWS, &lt;a href=&#34;https://www.digitalocean.com/?refcode=56ae0600c4bc&#34;&gt;Digital Ocean&lt;/a&gt;, Linode&amp;#8230; o vuestro proveedor de máquinas virtuales favorito). Con ésto conseguimos que el tráfico ocurra entre esa máquina y docker, limitando el tráfico desde la sala a un puñado de conexiones ssh.&lt;/p&gt;
+
+&lt;p&gt;Otra opción es usar vuestro ordenador y descargar antes las imágenes que se van a usar. Ésta opción es más agresiva con la red por que cuando hagamos un build habrá imágenes que no se cachearán y habrá que descargarlas&amp;#8230; y petaremos la red.&lt;/p&gt;
+
+&lt;p&gt;Si váis a usar vuestro ordenador, es recomendable que os instaléis la versión 1.3 de docker y hagáis pull de las siguientes imágenes. En negrita están las 5 imágenes base para desarrollo python:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;docker pull ubuntu&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;docker pull tpires/neo4j&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;docker pull dockerfile/redis&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;docker pull dockerfile/mongodb&lt;/p&gt;
+
+&lt;p&gt;docker pull ipedrazas/elasticsearch&lt;/p&gt;
+
+&lt;p&gt;docker pull poklet/cassandra&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;docker pull python:2&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;docker pull python:3&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;docker pull nornagon/postgres&lt;/p&gt;
+
+&lt;p&gt;docker pull clue/ttrss&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;docker pull postgres&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;docker pull ipedrazas/taiga-front&lt;/p&gt;
+
+&lt;p&gt;docker pull ipedrazas/taiga-back&lt;/p&gt;
+
+&lt;p&gt;docker pull php:5.6-apache&lt;/p&gt;
+
+&lt;p&gt;docker pull node:0.10-onbuild&lt;/p&gt;
+
+&lt;p&gt;La lista no es definitiva, pero cubre mucho camino. A los que no uséis Linux, tenéis que instalar Boot2Docker y si no recuerdo mal, la versión 1.3 ya permite montar volúmenes entre host y contenedor, así que no tendréis problemas para seguir el taller.&lt;/p&gt;
+
+&lt;p&gt;Si tenéis preguntas o queréis que hable de algún tema en concreto, mandadme un email, o dadme un toque por &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;twitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;El taller está pensado para que la gente salga con una idea clara de lo que se puede hacer con Docker y por donde se puede empezar. Todo el material estará colgado en github.&lt;/p&gt;
+
+&lt;p&gt;Nos vemos el Sábado!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;: ya empezamos otra vez con las notitas?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 2&lt;/strong&gt;: No, el código de DO no es por que &amp;#8220;espere forrarme&amp;#8221;, ni mucho menos.  O sea, en serio??&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 3&lt;/strong&gt;: a ver cuántos errores y tildes encuentra &lt;a href=&#34;https://twitter.com/yamila_moreno&#34;&gt;Yamila&lt;/a&gt;&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;Nota 4: Gracias a &lt;a href=&#34;https://twitter.com/agonzalezro&#34;&gt;Álex&lt;/a&gt; por corregirme 723 errores, lo menos &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PyConEs 2014</title>
+      <link>http://blog.pedrazas.me/2014/10/30/pycones-2014/</link>
+      <pubDate>Thu, 30 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/10/30/pycones-2014/</guid>
+      <description>&lt;p&gt;Estoy muy orgulloso de poder participar en la PyCon Española con un taller que para seguir la tradición he titulado  &amp;#8220;&lt;strong&gt;50 Shades of Docker&lt;/strong&gt;&amp;#8220;.&lt;/p&gt;
+
+&lt;p&gt;El taller es una breve introducción a los contenedores de Linux y por qué es importante saber sobre ellos. Si eres CIO, CEO o Director de Informática de una empresa donde se usa la virtualización, éste es un taller que no te puedes perder!!!&lt;/p&gt;
+
+&lt;p&gt;De hecho, si eres programador, sysadmin o diseñador&amp;#8230; tampoco te puedes perder!&lt;/p&gt;
+
+&lt;p&gt;Si te preguntás por qué deberías pagar &lt;del&gt;&lt;a href=&#34;https://www.ticketea.com/pycones14/&#34;&gt;los 30€ de la entrada&lt;/a&gt;&lt;/del&gt; (&lt;a href=&#34;https://www.ticketea.com/pycones14/&#34;&gt;20€ usando el codigo &lt;strong&gt;DescuentoPonentes&lt;/strong&gt;)&lt;/a&gt; de la PyConEs, la respuesta es muy sencilla: lo que te vas a ahorrar una vez entiendas lo que Docker puede hacer para ti o tu negocio va a compensar muy mucho el precio de la entrada.&lt;/p&gt;
+
+&lt;p&gt;El taller esta orientado de forma genérica. Los conceptos, si bien son un poco abstractos y con poca aplicación práctica, dan paso a multitud de soluciones y prácticas que se resumen en una frase muy corta:&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;trabajar mejor&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;Así que si estás interesado en saber o aprender cómo puedes trabajar mejor.. ya sabes, VEN!&lt;/p&gt;
+
+&lt;p&gt;Durante el taller se mostrarán ejemplos prácticos. Como todo el mundo ha padecido alguna vez, durante las conferencias la conexión a Internet sufre bastante, es por eso que se recomienda a los asistentes que usen una conexión remota (con &lt;a href=&#34;https://www.digitalocean.com/?refcode=56ae0600c4bc&#34;&gt;éste código&lt;/a&gt; puedes obtener &lt;a href=&#34;https://www.digitalocean.com/?refcode=56ae0600c4bc&#34;&gt;$10 gratis&lt;/a&gt; en Digital Ocean, más que suficiente para que cada asistente pueda realizar el taller durante un par de meses).&lt;/p&gt;
+
+&lt;p&gt;Si prefieres usar tu ordenador, deberás asegurarte que tienes la última versión de &lt;a href=&#34;https://docs.docker.com/installation/#installation&#34;&gt;Docker instalada&lt;/a&gt;, y una vez la tengas instalada, ejecuta el setup.sh que hay en el repositorio de mi github.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;: estoy montando el repo durante esta semana, así que no te sorprendas que el setup cambie un poquillo&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 2&lt;/strong&gt;: El setup lo único que hace es bajarse las imágenes que usaremos durante el taller.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 3&lt;/strong&gt;: Sí, voy a traer mis Google Glass, pero si vienes a mi taller por unas gafas sin cristales tú y yo tenemos que hablar!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 4&lt;/strong&gt;: cualquier duda, &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;pregunta&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 5&lt;/strong&gt;: si la duda es de &lt;a href=&#34;https://golang.org/&#34;&gt;Golang&lt;/a&gt;, preguntadle a &lt;a href=&#34;https://twitter.com/agonzalezro&#34;&gt;Alex&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Última Nota&lt;/strong&gt;: El &lt;a href=&#34;https://twitter.com/juanriaza&#34;&gt;maestro Riaza&lt;/a&gt; se ha comprometido a llevarme a comer a un lugar &amp;#8220;secreto&amp;#8230; dice&amp;#8221; que va a superar con creces la comida de la pasada PyCon. Como dicen por aqui: really looking forward to eating there &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Local Taiga with Docker</title>
+      <link>http://blog.pedrazas.me/2014/10/08/local-taiga-with-docker/</link>
+      <pubDate>Wed, 08 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/10/08/local-taiga-with-docker/</guid>
+      <description>&lt;p&gt;Recently &lt;a href=&#34;https://taiga.io/&#34;&gt;Taiga.io&lt;/a&gt; was announced. As they describe themselves:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Free. Open Source. Powerful. &lt;strong&gt;Taiga&lt;/strong&gt; is a project management platform for startups and agile developers &amp;amp; designers who want a simple, &lt;strong&gt;beautiful&lt;/strong&gt; tool that makes work truly enjoyable.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It didn&amp;#8217;t take me too long to realise that it would be a nice preparation to dockerize taiga for my next &amp;#8220;50 Shades of Docker&amp;#8221; workshop at the Spanish PyCon.&lt;/p&gt;
+
+&lt;p&gt;I have to reckon that it&amp;#8217;s been more challenging than expected. I would blame the developers, of course  &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;but truth is that turning taiga into a docker container is quiet simple (specially since they provide all the scripts to build a taiga platform in one single host).&lt;/p&gt;
+
+&lt;p&gt;Unfortunately for me, I like distributing things&amp;#8230; so I decided to run one single process per container, so I would have several containers.&lt;/p&gt;
+
+&lt;p&gt;The scripts installed Redis and RabbitMQ which are not in use (just yet), so teh final version has 3 containers:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Postgres&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;RabbitMQ&lt;/del&gt;&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;Redis&lt;/del&gt;&lt;/li&gt;
+&lt;li&gt;Taiga-back&lt;/li&gt;
+&lt;li&gt;Taiga-front&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Another problem I found is that the front-end is not distributable. It means, you have to build it&amp;#8230; so, I created another container that does the build.&lt;/p&gt;
+
+&lt;p&gt;If you want to run taiga in your local machine, you can do so by using this script:&lt;/p&gt;
+
+&lt;pre&gt;sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+sudo sh -c &#34;echo deb https://get.docker.io/ubuntu docker main &amp;gt; /etc/apt/sources.list.d/docker.list&#34;
+sudo apt-get update -y
+sudo apt-get install -y lxc-docker
+
+sudo mkdir -p /data/postgresql
+
+sudo docker run -d --name postgres    -p 5432:5432  -v /data/postgresql:/var/lib/postgresql/data postgres
+sudo docker run -d --name taiga-back  -p 8001:8001  --link postgres:postgres ipedrazas/taiga-back
+sudo docker run -d --name taiga-front -p 80:80 -p 8000:8000 --link taiga-back:taiga-back ipedrazas/taiga-front
+
+
+sudo docker run -it --link postgres:postgres --rm postgres sh -c &#34;su postgres --command &#39;createuser -h &#34;&#39;$POSTGRES_PORT_5432_TCP_ADDR&#39;&#34; -p &#34;&#39;$POSTGRES_PORT_5432_TCP_PORT&#39;&#34; -d -r -s taiga&#39;&#34;
+sudo docker run -it --link postgres:postgres --rm postgres sh -c &#34;su postgres --command &#39;createdb -h &#34;&#39;$POSTGRES_PORT_5432_TCP_ADDR&#39;&#34; -p &#34;&#39;$POSTGRES_PORT_5432_TCP_PORT&#39;&#34; -O taiga taiga&#39;&#34;;
+sudo docker run -it --rm --link postgres:postgres ipedrazas/taiga-back bash regenerate.sh
+&lt;/pre&gt;
+
+&lt;p&gt;If, like me, you want to run it in AWS or Digital Ocean, you will need first to create a DNS and build Taiga using that host (yes, the api url is hardcoded&amp;#8230; so, you have to build it using your hostname).&lt;/p&gt;
+
+&lt;p&gt;Having said that, I want to congratulate the whole Taiag team for the product and the support they have been giving (not only to me, but to many others). &lt;strong&gt;Well done, guys!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;All the code is in my &lt;a href=&#34;https://github.com/ipedrazas/taiga-docker&#34;&gt;Github Repo&lt;/a&gt;, in case that anyone wants to play with it. If you have any doubts, &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;just ask&lt;/a&gt; &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cassandra and Docker – round 1</title>
+      <link>http://blog.pedrazas.me/2014/09/18/cassandra-and-docker-round-1/</link>
+      <pubDate>Thu, 18 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/09/18/cassandra-and-docker-round-1/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Cassandra_logo.svg_.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-340&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Cassandra_logo.svg_-300x201.png&#34; alt=&#34;Cassandra_logo.svg&#34; width=&#34;300&#34; height=&#34;201&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;This last week I&amp;#8217;ve spent some time trying to set up Cassandra in Docker. My starting point was this Docker Image called &lt;a href=&#34;https://registry.hub.docker.com/u/poklet/cassandra/&#34;&gt;pokle/cassandra&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There are things from that image that I don&amp;#8217;t like and I&amp;#8217;ve been very tempeted to fork it, but as I said, it was a starting point, and for what we need now, it&amp;#8217;s good enough.&lt;/p&gt;
+
+&lt;p&gt;Basically what I wanted was to have a cluster of 3 machines running in Docker, talking to each other and letting me &amp;#8220;play away&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m re-writing dotMarks in java using Dropwizard and, of course, Cassandra. Anyway, this post is about how to set up that cluster.&lt;/p&gt;
+
+&lt;p&gt;Open your terminal and paste this:&lt;/p&gt;
+
+&lt;pre&gt;# Make dirs to store your data
+sudo mkdir -p /data/cassandra/{c1,c2,c3}/data
+sudo mkdir -p /data/cassandra/{c1,c2,c3}/commitlog
+
+# Change permissions so the Cassandra user can write on them
+sudo chmod 777 /data/cassandra/{c1,c2,c3}/data
+sudo chmod 777 /data/cassandra/{c1,c2,c3}/commitlog
+
+# Run the Docker containers with Cassandra
+docker run -d --name c1 -v /data/cassandra/c1/data:/var/lib/cassandra/data -v /data/cassandra/c1/commitlog:/var/lib/cassandra/commitlog poklet/cassandra
+docker run -d --name c2 -v /data/cassandra/c2/data:/var/lib/cassandra/data -v /data/cassandra/c2/commitlog:/var/lib/cassandra/commitlog poklet/cassandra start $(./scripts/ipof.sh c1)
+docker run -d --name c3 -v /data/cassandra/c3/data:/var/lib/cassandra/data -v /data/cassandra/c3/commitlog:/var/lib/cassandra/commitlog poklet/cassandra start $(./scripts/ipof.sh c1)
+
+# Open a CQLSH console
+docker run -it --rm --link c1:c1 -v /data/cassandra/scripts:/data poklet/cassandra bash -c &#39;cqlsh $C1_PORT_9160_TCP_ADDR&#39;
+
+&lt;/pre&gt;
+
+&lt;p&gt;Now you should have a C* cluster of 3 containers. Run docker ps and you should see something like this:&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;pre&gt;-&amp;gt; % docker ps
+CONTAINER ID        IMAGE                     COMMAND               CREATED              STATUS              PORTS                                                                           NAMES
+f85542cb46e3        poklet/cassandra:latest   &#34;start 172.17.0.14&#34;   About a minute ago   Up About a minute   8012/tcp, 9042/tcp, 9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp   c3                  
+9cfdccaf1213        poklet/cassandra:latest   &#34;start 172.17.0.14&#34;   About a minute ago   Up About a minute   9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp, 8012/tcp, 9042/tcp   c2                  
+162c36a8b876        poklet/cassandra:latest   &#34;/bin/sh -c start&#34;    2 minutes ago        Up 2 minutes        9042/tcp, 9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp, 8012/tcp   c1    
+&lt;/pre&gt;
+
+&lt;p&gt;Now, you might want to add some data. We do that using another container that will execute &lt;em&gt;&lt;strong&gt;CQLSH&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;pre&gt;docker run -it --rm --link c1:c1 -v /data/cassandra/scripts:/data poklet/cassandra bash -c &#39;cqlsh $C1_PORT_9160_TCP_ADDR&#39;
+&lt;/pre&gt;
+
+&lt;p&gt;Note that by using Links you don&amp;#8217;t need to know the IPs of the nodes. We will need them to connect if we don&amp;#8217;t use a container with links, but let&amp;#8217;s see that problem later.&lt;/p&gt;
+
+&lt;p&gt;Once you are in the CQLSH, add some data:&lt;/p&gt;
+
+&lt;pre&gt;CREATE KEYSPACE dotmarks WITH REPLICATION =
+ {&#39;class&#39;: &#39;SimpleStrategy&#39;, &#39;replication_factor&#39;: 1};
+
+ USE dotmarks;
+
+ CREATE TABLE test_table (
+  id text,
+  test_value text,
+  PRIMARY KEY (id)
+ );
+
+
+INSERT INTO test_table (id, test_value) VALUES (&#39;1&#39;, &#39;one&#39;);
+INSERT INTO test_table (id, test_value) VALUES (&#39;2&#39;, &#39;two&#39;);
+INSERT INTO test_table (id, test_value) VALUES (&#39;3&#39;, &#39;three&#39;);
+
+SELECT * FROM test_table;
+&lt;/pre&gt;
+
+&lt;p&gt;If you want to check the data from a different node, do this:&lt;/p&gt;
+
+&lt;pre&gt;docker run -it --rm --link c2:c2 -v /data/cassandra/scripts:/data poklet/cassandra bash -c &#39;cqlsh $C2_PORT_9160_TCP_ADDR&#39;
+
+
+Connected to Test Cluster at 172.17.0.15:9160.
+[cqlsh 4.1.1 | Cassandra 2.0.9 | CQL spec 3.1.1 | Thrift protocol 19.39.0]
+Use HELP for help.
+cqlsh&amp;gt; use dotmarks;
+cqlsh:dotmarks&amp;gt; select * from test_table;
+
+ id | test_value
+----+------------
+  3 |      three
+  2 |        two
+  1 |        one
+
+(3 rows)
+
+cqlsh:dotmarks&amp;gt; 
+&lt;/pre&gt;
+
+&lt;p&gt;With this, we have our cluster ready to rock and roll! In the next post, we will see how to confdigure and connect our Dropwizard App to our Cassandra cluster.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to build (and run) Microservices in Java without losing your Sanity</title>
+      <link>http://blog.pedrazas.me/2014/08/22/how-to-build-microservices-in-java-without-losing-your-sanity/</link>
+      <pubDate>Fri, 22 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/08/22/how-to-build-microservices-in-java-without-losing-your-sanity/</guid>
+      <description>&lt;p&gt;If you haven&amp;#8217;t heard about Microservices, &lt;a href=&#34;http://martinfowler.com/articles/microservices.html&#34;&gt;go here&lt;/a&gt; and read about them!&lt;/p&gt;
+
+&lt;p&gt;For a long time I&amp;#8217;ve writen all my microservices using Python because Java had a massive overhead (called a Servlet Container).&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m not sure how I stumbled upon DropWizard, but it has done something that I thought impossible: My Ops side has loved Java back.&lt;/p&gt;
+
+&lt;p&gt;What do I want?&lt;/p&gt;
+
+&lt;p&gt;I want to be able to define a simple REST service and publish it with as little dependencies as possible.&lt;/p&gt;
+
+&lt;p&gt;Yes, I can write a JAX-RS class and run:&lt;/p&gt;
+
+&lt;pre&gt;-&amp;gt;%mvn jetty:run
+&lt;/pre&gt;
+
+&lt;p&gt;And my servlet container will expose my REST service&amp;#8230; but let&amp;#8217;s face it, deploying services like this will not take us too far. Like, are you planning to run a Jetty/Tomcat service per MicroService you want to expose??? Yes, this is where my Ops side of me was cringing big time.&lt;/p&gt;
+
+&lt;p&gt;True, I could bundle services and&amp;#8230; and little by little we will find ourselves walking away from our beloved Microservices because of &amp;#8220;Operations is complicated&amp;#8221;. Operations is hard, we all know that, but a good architecture has to provide enough tools to satisfy our design goals without compromise our operations.&lt;/p&gt;
+
+&lt;p&gt;Solution? I&amp;#8217;m sure It won&amp;#8217;t surprise any of my followers: it&amp;#8217;s to use &lt;strong&gt;Docker and&amp;#8230; DropWizard&lt;/strong&gt;!!!&lt;/p&gt;
+
+&lt;p&gt;How, you don&amp;#8217;t know &lt;a href=&#34;https://dropwizard.github.io&#34;&gt;DropWizard&lt;/a&gt;? run to their website and sort that out: NOW! DropWizard does a lot of things, one of them is awesome: It allows you to write a JAX-RS class and run it from your command line. I mean, it creates a fat jar file that you can then run:&lt;/p&gt;
+
+&lt;pre&gt;java -jar my_microservice-0.0.1-SNAPSHOT.jar server my_microservice_conf.yml
+&lt;/pre&gt;
+
+&lt;p&gt;And&amp;#8230; it will expose your rest service in the port 8080 (and it comes with an admin freebie in port 8081 &amp;lt;&amp;#8211; my ops side of me is very happy about this).&lt;/p&gt;
+
+&lt;p&gt;Now&amp;#8230; what happens if you build a Docker image that runs that instruction? That you have an easy way to run/test/distribute your microservice.&lt;/p&gt;
+
+&lt;pre&gt;sudo docker run -d -p 9094:8080 7887:8081 ipedrazas/m_dotmarks:latest
+&lt;/pre&gt;
+
+&lt;p&gt;Note that all my microservices are exposed using the default ports: 8080 and 8081 and then I re-map them when running them in Docker. Why? because it gives me more flexibility and I don&amp;#8217;t have to worry about Ops while doing Dev (yes, developers do not decide how to run the service).&lt;/p&gt;
+
+&lt;p&gt;As always, I strongly recommend to run nginx as a gateway to your dockerized services. In this case our two ports 8080 and 8081 will be remmaped to 9094 (that nginx will expose using a url like api.dotmarks.net/dotmarks) and 7887 that will be used internally only.&lt;/p&gt;
+
+&lt;p&gt;These holidays I&amp;#8217;ve been rewriting my &lt;a href=&#34;https://dotmarks.net/&#34;&gt;dotMarks&lt;/a&gt; app originally in python in Java using DropWizard and I will be releasing the code once it works.&lt;/p&gt;
+
+&lt;p&gt;Stay tunned!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Thoughts on Docker</title>
+      <link>http://blog.pedrazas.me/2014/06/18/ditto-docker/</link>
+      <pubDate>Wed, 18 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/06/18/ditto-docker/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/06/docker-logo.png&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-237&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/06/docker-logo.png&#34; alt=&#34;docker logo&#34; width=&#34;400&#34; height=&#34;400&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;span style=&#34;font-style: italic; color: #574d4d;&#34;&gt;Docker is an open-source project to easily create lightweight, portable, self-sufficient containers from any application&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div id=&#34;wmd-preview-section-3&#34; class=&#34;wmd-preview-section preview-content&#34; style=&#34;color: #162029;&#34;&gt;
+  &lt;h3 id=&#34;vagrant&#34;&gt;
+    Vagrant
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    It’s not a secret that &lt;a href=&#34;http://www.vagrantup.com/&#34; target=&#34;_blank&#34;&gt;Vagrant&lt;/a&gt; changed my life as a developer. I&amp;#8217;m sure that if you know me, you will have heard me talking about how great vagrant is.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Vagrant, in case that you don’t know, it’s a little tool that allows you to develop locally an execute your code inside a Virtual Machine. This, of course, gives you the advantage of not needing to setup your own machine (a painful activity that we all have been suffering in silence for years). In a nutshell, vagrant helps you to decouple your development environment from your workstation.
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;wmd-preview-section-4&#34; class=&#34;wmd-preview-section preview-content&#34; style=&#34;color: #162029;&#34;&gt;
+  &lt;h3 id=&#34;after-vagrant&#34;&gt;
+    After Vagrant
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    Now, we cannot say that there’s a new guy in the block, because &lt;a href=&#34;https://www.docker.com&#34; target=&#34;_blank&#34;&gt;Docker&lt;/a&gt; has been around for a while (ehem…) but we do can say that Docker is not only going to change my life but it’s about to change everyone’s life.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Docker will change the way we run and distribute applications.&lt;/strong&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    I don’t think I’m the right person to explain what Docker is. I can tell you how it has changed the way I work, or to put it differently, to change the things I do, but if you really want to understand how Docker works, it&amp;#8217;s better you look at the resources at the bottom of the page.
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;wmd-preview-section-5&#34; class=&#34;wmd-preview-section preview-content&#34; style=&#34;color: #162029;&#34;&gt;
+  &lt;div class=&#34;se-section-delimiter&#34;&gt;
+  &lt;/div&gt;
+  
+
+&lt;p&gt;&lt;h3 id=&#34;enter-docker&#34;&gt;
+    Enter Docker
+  &lt;/h3&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p&gt;
+    Docker is a linux container that allows you to run an application with a simple &amp;#8220;RUN&amp;#8221; command. Yes, there are a few other parameter but the idea is that you can launch an app (that it&amp;#8217;s self contained) with a single command.
+  &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p&gt;
+    If you haven&amp;#8217;t suffered the enlighting experience of trying to run a web application like WordPress, for example, you don&amp;#8217;t know how complex things can turn very quickly. The ammount of software and things that have to be &amp;#8220;in place&amp;#8221; and configured properly is painful. How Docker can help you there? well, someone, for example me, will spend some time building a Docker image so people like you can just run it with a simple command.
+  &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p&gt;
+    Docker will lower the sys admin barrier. People who doesn&amp;#8217;t know much about how to set up a web server suddenly can run their own wordpress instance (which is the idea behind of all those VPS with &amp;#8220;one-click install&amp;#8221;).
+  &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p&gt;
+    But there&amp;#8217;s more, with Docker creating a cluster it’s easy. Ok, not trivial, but very feasible. Do you remember those complicated architectures you have seen in books? now you can build them in your laptop. I agree, a cluster under work load behaves very different than a cluster you could run in your workstation, but let’s face it, the fact that you can use docker to build a cluster of machines will help to speed up the future development of applications and solutions.
+  &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p&gt;
+    So, what I have been doing with Docker that has changed the way I see things?
+  &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p&gt;
+    well, I’m writing&lt;a href=&#34;http://dotmarks.net&#34;&gt; a little tool &lt;/a&gt;to manage bookmarks. The App has two provisioning tools. Vagrant (of course) and ansible scripts to deploy and configure the app in a VPS (like &lt;a href=&#34;https://www.digitalocean.com/?refcode=56ae0600c4bc&#34;&gt;Digital Ocean&lt;/a&gt;, for example).
+  &lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;div id=&#34;wmd-preview-section-6&#34; class=&#34;wmd-preview-section preview-content&#34; style=&#34;color: #162029;&#34;&gt;
+  &lt;h3 id=&#34;dotmarks&#34;&gt;
+    .dotMarks
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    The whole idea of this app is to self-host your bookmarks. Yes, I know, nobody seems to use bookmarks nowadays but that&amp;#8217;s a different story. The idea is that you run it in your machine… and because of that you can see how Docker can make my life much easier: It’s like giving people an executable that they can run. Everything is self-contained and pre-configured. It’s perfect, it&amp;#8217;s Awesome!
+  &lt;/p&gt;
+  
+  &lt;h3 id=&#34;dotmarks&#34;&gt;
+    What about me?
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    By default I run 3 docker containers in my machine. One with the &lt;a href=&#34;https://github.com/crosbymichael/dockerui&#34; target=&#34;_blank&#34;&gt;Dockerui&lt;/a&gt; (A web interface for Docker), &lt;a href=&#34;https://registry.hub.docker.com/u/ipedrazas/elasticsearch/&#34;&gt;One with ElasticSearch&lt;/a&gt; and one with MongoDB. I still use Vagrant to develop and run .dotMarks, but once it&amp;#8217;s ready, I can tell you, it will run in its own docker container.
+  &lt;/p&gt;
+  
+  &lt;div id=&#34;attachment_240&#34; style=&#34;width: 310px&#34; class=&#34;wp-caption aligncenter&#34;&gt;
+    &lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/06/Screenshot-from-2014-06-19-004257.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-267&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/06/Screenshot-from-2014-06-19-004257-300x97.png&#34; alt=&#34;Screenshot from 2014-06-19 00:42:57&#34; width=&#34;300&#34; height=&#34;97&#34; /&gt;&lt;/a&gt;
+    
+    &lt;p class=&#34;wp-caption-text&#34;&gt;
+      Marvel plugin for ElaasticSearch showing the state of my system
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;wmd-preview-section-7&#34; class=&#34;wmd-preview-section preview-content&#34;&gt;
+  &lt;h3 id=&#34;where-do-we-go-from-here&#34; style=&#34;color: #162029;&#34;&gt;
+    Where do we go from here
+  &lt;/h3&gt;
+  
+  &lt;p style=&#34;color: #162029;&#34;&gt;
+    Good question. As I see it, there are three areas that are not under the Docker Radar but I think that once the right people understand the potential it will go through as a freight train:
+  &lt;/p&gt;
+  
+  &lt;ul style=&#34;color: #162029;&#34;&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Education:&lt;/strong&gt; From the newbies that they need a (safe) playground to land, to the more experienced guy who wants to understand complex architectures, Docker has a huge potential in (self) education.
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Application Distribution:&lt;/strong&gt; WebApps are awesome, but distributing them is quite a pain… in fact, not many people do that because let&amp;#8217;s face it, it&amp;#8217;s hard. It’s not only shipping the code, it&amp;#8217;s configuring the servers, and running the whole lot and… it’s complicated. Docker will bring a standard way of distributing applications. From wordpress to the latest trendy idea someone pushes to Github&amp;#8230; I&amp;#8217;m sure developers will start including Dockerfiles to their repos once they understand the wonders of linux containers
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;strong&gt;Support and Quality Control:&lt;/strong&gt; Suddenly, testing applications in the real architecture locally is suddenly possible. Do you have customers with your system installed in-house. Replicating their environtment is a matter of linking images in a Dockerfile.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p style=&#34;color: #162029;&#34;&gt;
+    But don&amp;#8217;t get too carried away, Docker has its amaizing Use Cases but it&amp;#8217;s not for everyone. Yes, developers and SysAdmins love it&amp;#8230; time will say if it will become mainstream.
+  &lt;/p&gt;
+  
+  &lt;p style=&#34;color: #162029;&#34;&gt;
+    Want to know more? look at these resources:
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.youtube.com/watch?v=pts6F00GFuU&#34; target=&#34;_blank&#34;&gt;Docker at Spotify&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://en.wikipedia.org/wiki/Docker_(software)&#34; target=&#34;_blank&#34;&gt;Docker entry in Wikipedia&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;https://www.youtube.com/watch?v=ZzQfxoMFH0U&#34; target=&#34;_blank&#34;&gt;What it&amp;#8217;s Docker&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;http://www.slideshare.net/fasgoncalves/hypervisor-versus-linux-containers&#34;&gt;Future of Aplication Delivery&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

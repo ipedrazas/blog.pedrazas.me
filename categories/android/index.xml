@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/categories/android/</link>
+    <description>Recent content in Android on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Sat, 25 May 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/categories/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Eclipse and Android</title>
+      <link>http://blog.pedrazas.me/2013/05/25/eclipse-and-android/</link>
+      <pubDate>Sat, 25 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/05/25/eclipse-and-android/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/05/Screenshot-from-2013-05-25-231918.png&#34;&gt;&lt;img class=&#34;alignleft size-medium wp-image-124&#34; alt=&#34;Screenshot from 2013-05-25 23:19:18&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/05/Screenshot-from-2013-05-25-231918-59x300.png&#34; width=&#34;59&#34; height=&#34;300&#34; /&gt;&lt;/a&gt; If you are like me and you have to work in many different projects you probably will end up with a bloated eclipse&amp;#8230; which is bad. This is Eclipse sluggishness is extremely obvious when you do Android development.&lt;/p&gt;
+
+&lt;p&gt;So, what have I done to minimise the impact of working in multiple projects at the same time?&lt;/p&gt;
+
+&lt;p&gt;Easy, I have two Eclipses: One for Java apps, and one for Android (I know, I know, there&amp;#8217;s a new Android Studio coming, but let&amp;#8217;s face it, in Ubuntu it doesn&amp;#8217;t work&amp;#8230; so until mighty Google sorts this out, I&amp;#8217;ll stick to Eclipse).&lt;/p&gt;
+
+&lt;p&gt;Now, the problem of having different eclipses is that&amp;#8230; the icon is the same and trust me, you will click the wrong one many times&amp;#8230; and Eclipse is not the fastest app to load up.&lt;/p&gt;
+
+&lt;p&gt;Anyway, I found &lt;a href=&#34;http://cmwolfe.blogspot.co.uk/2012/07/changing-icon-colors.html&#34;&gt;here&lt;/a&gt; a nice image to use as an Icon, however, the white background screamed quiet a lot once dropped in my lovely black gnome-shell.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;#8217;t think I&amp;#8217;m a good graphic designer, but it seems to work quiet well &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/05/eclipse-android.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-123&#34; alt=&#34;eclipse-android&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/05/eclipse-android-300x300.png&#34; width=&#34;300&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Secret Valentine – Results</title>
+      <link>http://blog.pedrazas.me/2013/02/20/secret-valentine-results/</link>
+      <pubDate>Wed, 20 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/02/20/secret-valentine-results/</guid>
+      <description>&lt;p&gt;Almost a week ago and I&amp;#8217;ve said a word about My Secret Valentine project&amp;#8230; yet. you will have to excuse me but I&amp;#8217;ve been a bit busy. Things of having to deal with children during Half Term.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#8217;s get into the story. Last week I published a very little app that the only thing that did was to send a (not very pretty, have to reckon) message and a picture by email.&lt;/p&gt;
+
+&lt;p&gt;Total numbers:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span style=&#34;line-height: 15px;&#34;&gt;30 installations in 7 countries (UK, Spain, USA, Ireland, Netherlands, Panama, Ukraine)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;89 Valentines sent&lt;/li&gt;
+&lt;li&gt;8 Uninstalls (after 14th of February)&lt;/li&gt;
+&lt;li&gt;78 visits to the app page (78.71% from Twitter, 8.17% from Facebook, 0% from G+).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I used &lt;a href=&#34;http://karmacracy.com/&#34;&gt;Karmacrazy&lt;/a&gt; to check how many people went to the Play page. In case you don&amp;#8217;t know, Google doesn&amp;#8217;t let you track how many people visit your app&amp;#8217;s page. But as I said, no analytics? no problem. In fact, you can take a look to the link stats to see the kind of information you can get from this tool.&lt;/p&gt;
+
+&lt;p&gt;If you want to give it a go, use this &lt;a href=&#34;http://kcy.me/fo6q&#34;&gt;link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;More numbers. Android Versions. And this is kind of a surprise, because in the last Droidcon we talked loooong time about legacy android versions and here we have the proof of what&amp;#8217;s the biggest problem with Android so far.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/02/stats-msv.png&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-52&#34; alt=&#34;stats-msv&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/02/stats-msv.png&#34; width=&#34;985&#34; height=&#34;364&#34; /&gt;&lt;/a&gt;As you can see the top version is the very old 2.3.x followed by all the 4s. I fact, if we unify all the Jelly Bean devices we see that 75% of the devices are running Jelly Bean. However, who&amp;#8217;s going to shut the door to 30% of their potential customers?&lt;/p&gt;
+
+&lt;p&gt;For those who are prone to slag Android think about it. Updates don&amp;#8217;t come from Google, updates come from your carriers. The more the Android device has been customised, the harder it will be to update. Why so many devices still on 2.3.x ? because of the 24m contracts, of course.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>This is London Calling!</title>
+      <link>http://blog.pedrazas.me/2013/02/11/this-is-london-calling/</link>
+      <pubDate>Mon, 11 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/02/11/this-is-london-calling/</guid>
+      <description>&lt;p&gt;Pictures, I need Pictures!&lt;/p&gt;
+
+&lt;p&gt;Ok, let me explain myself. Since Thursday I&amp;#8217;ve been building a simple Android App for Saint Valentine. As original as I am, I called it &amp;#8220;&lt;strong&gt;My Secret Valentine&lt;/strong&gt;&amp;#8221; but if you&amp;#8217;re following this blog, you know already that.&lt;/p&gt;
+
+&lt;p&gt;The idea of the app is to be able to send a picture and a message to&amp;#8230; your secret valentine!&lt;/p&gt;
+
+&lt;p&gt;Now, the app allows you to access your telephone gallery, so your valentine message can be as personal and intimate as you want.&lt;/p&gt;
+
+&lt;p&gt;As well, I had thought about putting a few pictures inside the app so people who are not that good photographers (even Instagram I guess will have loads to say about it) could send pretty messages as well.&lt;/p&gt;
+
+&lt;p&gt;Now, time is ticking, so, this is my call, could you be so kind to send me some beautiful pictures so I can put them in my app?&lt;/p&gt;
+
+&lt;p&gt;If everything goes as expected, I&amp;#8217;ll be putting the app in the market tomorrow&amp;#8230; so, yes, time is REALLY ticking!&lt;/p&gt;
+
+&lt;p&gt;Btw, I can update the app at any moment, and I&amp;#8217;m more than happy to add them at any point.&lt;/p&gt;
+
+&lt;p&gt;Oh, yes, one last thing. Your pictures have to have at least a copyleft license. And yes, I will be putting up a page with everybody who contributed to it.&lt;/p&gt;
+
+&lt;p&gt;Let me give you an example of a message sent from the app:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/02/screenshot2.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-37&#34; alt=&#34;screenshot2&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/02/screenshot2-300x187.png&#34; width=&#34;300&#34; height=&#34;187&#34; /&gt;&lt;/a&gt; &lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/02/screenshoot1.png&#34;&gt;&lt;img class=&#34;aligncenter size-thumbnail wp-image-38&#34; alt=&#34;screenshoot1&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/02/screenshoot1-150x150.png&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So, yes, if you want people sending their Valentines using one of your astonishing pictures, just get in contact with me.&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  &lt;strong&gt;Happy Valentine&amp;#8217;s Day!&lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: the app is free and open source and there are no revenue created by or from the app or images (nope, there are no adds neither), but the really good thing is all the stuff I&amp;#8217;m going to write about it.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My Secret Valentine – I</title>
+      <link>http://blog.pedrazas.me/2013/02/10/my-secret-valentine-i/</link>
+      <pubDate>Sun, 10 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/02/10/my-secret-valentine-i/</guid>
+      <description>&lt;p&gt;Last Wednesday I spent 3 hours with QME trying to make them understand that one thing is having an idea, a very different thing is creating a product from that idea.&lt;/p&gt;
+
+&lt;p&gt;I got an idea: to make an app for Saint Valentine called &amp;#8220;My Secret Valentine&amp;#8221;. A simple app that allows you to send a message (an image and a text) to your valentine.&lt;/p&gt;
+
+&lt;p&gt;First step: accelerated idea iteration, where you basically get that idea, you throw it into the washing machine of your brain and try to spin it as much as possible. The result? a much polished idea.&lt;/p&gt;
+
+&lt;p&gt;Second step: paper prototype. I&amp;#8217;m a big fan of paper prototype. I always draw diagrams, relationships, anything&amp;#8230; ideas on paper are great because if you cannot put your idea on a paper, you don&amp;#8217;t have an idea, you&amp;#8217;re day dreaming.&lt;/p&gt;
+
+&lt;p&gt;Paper prototypes for apps are the best. Some post-its and a pencil it&amp;#8217;s enough to bring your app to live. Once I have the Post-It app done, I use a mobile outline where I try to do the equivalent of a storyboard of my app.&lt;/p&gt;
+
+&lt;p&gt;Once I have that I start coding&amp;#8230; but that part will be on another post.&lt;/p&gt;
+
+&lt;p&gt;Stay Tuned!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/02/storyboard.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-thumbnail wp-image-33&#34; alt=&#34;storyboard&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/02/storyboard-150x150.jpg&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Love is in the Air — The Challenge</title>
+      <link>http://blog.pedrazas.me/2013/02/08/love-is-in-the-air-the-challenge/</link>
+      <pubDate>Fri, 08 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/02/08/love-is-in-the-air-the-challenge/</guid>
+      <description>&lt;p&gt;Just after finishing the Mobile Apps. workshop for &lt;a href=&#34;http://www.qmsu.org/&#34;&gt;QME&lt;/a&gt; I started thinking of the follow up. I sent them off asking them to think about the idea so when we meet up again they can talk about it in complete confidence. A paper prototype would be ideal, but we shall see.&lt;/p&gt;
+
+&lt;p&gt;Anyway, there I was coming back in the tube and then I thought &amp;#8220;&lt;strong&gt;What if&amp;#8230;&lt;/strong&gt; I do the same&amp;#8221;. Of course, I&amp;#8217;m extremely busy already so, the  idea of making yet-another-app was beyond sanity. Still, by the following morning I had made the (cruel) decision to design, build and release an app&amp;#8230; in less than a week.&lt;/p&gt;
+
+&lt;p&gt;So, here&amp;#8217;s the thing, I&amp;#8217;m going to make an app under a week (and because I know myself quiet well) I&amp;#8217;m going to release it before next Thursday. Not only that, I&amp;#8217;ve made sure that there&amp;#8217;s no much point of missing the deadline, because this app, my friends, it&amp;#8217;s called &amp;#8216;&lt;strong&gt;My Secret Valentine&lt;/strong&gt;&amp;#8220;.&lt;/p&gt;
+
+&lt;p&gt;As you can see, releasing a Valentine&amp;#8217;s app on the 15th of Feb. is just idiotic. A classic example of Run or Die.&lt;/p&gt;
+
+&lt;p&gt;I did the paper prototype, in fact, I have 3 versions of the paper prototype (iterating it&amp;#8217;s easier when you only have to scrap the paper and get a new fresh post-it).&lt;/p&gt;
+
+&lt;p&gt;Bear with me (and my new blog) I will posting updates pretty soon and yes, I will write about the whole process&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Challenge</title>
+      <link>http://blog.pedrazas.me/2013/02/07/the-challenge/</link>
+      <pubDate>Thu, 07 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/02/07/the-challenge/</guid>
+      <description>&lt;p&gt;Yesterday I spent a few hours talking with the Queen Mary Entrepreneurs students. My main objective was to motivate those ones who had and idea to try and build a product. I&amp;#8217;m not sure if I&amp;#8217;ve succeeded or not but while I was talking I had the idea of teaching by giving example&amp;#8230; so, here&amp;#8217;s the challenge.&lt;/p&gt;
+
+&lt;p&gt;Today it&amp;#8217;s 7th of February, in a week it will be 14th&amp;#8230; Saint Valentine&amp;#8217;s day, so the challenge is to build an Android app that allows you to send a Secret Saint Valentine&amp;#8217;s message.&lt;/p&gt;
+
+&lt;p&gt;I have a week to design, implement, test and release this app. Can I do it? well, using Bob the Builder catchphrase: &amp;#8220;Yes, we can!&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;The idea is simple, a person uses the app to send an anonymous message to his secret Valentine. I don&amp;#8217;t really know how the person will receive the message. It will be by email but I&amp;#8217;m not sure of the format yet.&lt;/p&gt;
+
+&lt;p&gt;Anyway, the whole point is to write a bit about the experience so next time I meet with the QME people, I&amp;#8217;ll have some real data to share with them.&lt;/p&gt;
+
+&lt;p&gt;Wish me luck!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

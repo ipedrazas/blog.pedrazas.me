@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deploy on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/tags/deploy/</link>
+    <description>Recent content in Deploy on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Sat, 15 Jun 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/tags/deploy/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>3 links to save your sanity</title>
+      <link>http://blog.pedrazas.me/2013/06/15/3-links-to-save-your-sanity/</link>
+      <pubDate>Sat, 15 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/06/15/3-links-to-save-your-sanity/</guid>
+      <description>&lt;p&gt;During the last two years I&amp;#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.&lt;/p&gt;
+
+&lt;p&gt;Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&amp;#8217;s finished Boom! deploy finished &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This script will create the following directory:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#8217;s assume the last deploy was done 2 days before:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.13-11.23.22&amp;lt;br /&amp;gt;
+/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, there&amp;#8217;s something I do&amp;#8230; &amp;#8220;just in case&amp;#8221;, I create 3 symbolic links as follows:&lt;/p&gt;
+
+&lt;p&gt;``During the last two years I&amp;#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.&lt;/p&gt;
+
+&lt;p&gt;Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&amp;#8217;s finished Boom! deploy finished &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This script will create the following directory:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#8217;s assume the last deploy was done 2 days before:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.13-11.23.22&amp;lt;br /&amp;gt;
+/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, there&amp;#8217;s something I do&amp;#8230; &amp;#8220;just in case&amp;#8221;, I create 3 symbolic links as follows:&lt;/p&gt;
+
+&lt;p&gt;``&lt;/p&gt;
+
+&lt;p&gt;So, my nginx points to current, so if something goes wrong, I can always swap back to the previous release that, alas, it&amp;#8217;s just there. With these 3 links I know exactly where I am and where I was before the release, and yes, things go wrong, and my rollback is as simple as changing a couple of links (I do something else, but the update of the links is what makes the process extremely fast).&lt;/p&gt;
+
+&lt;p&gt;In case that you wonder, this is how the links are left after a rollback:&lt;/p&gt;
+
+&lt;p&gt;```During the last two years I&amp;#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.&lt;/p&gt;
+
+&lt;p&gt;Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&amp;#8217;s finished Boom! deploy finished &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This script will create the following directory:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#8217;s assume the last deploy was done 2 days before:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.13-11.23.22&amp;lt;br /&amp;gt;
+/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, there&amp;#8217;s something I do&amp;#8230; &amp;#8220;just in case&amp;#8221;, I create 3 symbolic links as follows:&lt;/p&gt;
+
+&lt;p&gt;``During the last two years I&amp;#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.&lt;/p&gt;
+
+&lt;p&gt;Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&amp;#8217;s finished Boom! deploy finished &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This script will create the following directory:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#8217;s assume the last deploy was done 2 days before:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.13-11.23.22&amp;lt;br /&amp;gt;
+/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, there&amp;#8217;s something I do&amp;#8230; &amp;#8220;just in case&amp;#8221;, I create 3 symbolic links as follows:&lt;/p&gt;
+
+&lt;p&gt;``&lt;/p&gt;
+
+&lt;p&gt;So, my nginx points to current, so if something goes wrong, I can always swap back to the previous release that, alas, it&amp;#8217;s just there. With these 3 links I know exactly where I am and where I was before the release, and yes, things go wrong, and my rollback is as simple as changing a couple of links (I do something else, but the update of the links is what makes the process extremely fast).&lt;/p&gt;
+
+&lt;p&gt;In case that you wonder, this is how the links are left after a rollback:&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

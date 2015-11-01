@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java &middot; Big Bag Blog</title>
+
+    <meta name="description" content="Need a place to hide">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Java &middot; Big Bag Blog">
+    <meta name="twitter:description" content="Need a place to hide">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Java &middot; Big Bag Blog">
+    <meta property="og:description" content="Need a place to hide">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://blog.pedrazas.me/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Big Bag Blog" href="http://blog.pedrazas.me/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://blog.pedrazas.me">Big Bag Blog</a></h1>
+            <h2 class="brand-tagline"> Need a place to hide </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/ipedrazas"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/ipedrazas "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://blog.pedrazas.me/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                
+                <h1 class="content-subhead">22 Aug 2014</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2014/08/22/how-to-build-microservices-in-java-without-losing-your-sanity/" class="post-title">How to build (and run) Microservices in Java without losing your Sanity</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Development" href="http://blog.pedrazas.me/categories/development">Development</a><a class="post-category post-category-Docker" href="http://blog.pedrazas.me/categories/docker">Docker</a><a class="post-category post-category-Java" href="http://blog.pedrazas.me/categories/java">Java</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>If you haven&#8217;t heard about Microservices, <a href="http://martinfowler.com/articles/microservices.html">go here</a> and read about them!</p>
+
+<p>For a long time I&#8217;ve writen all my microservices using Python because Java had a massive overhead (called a Servlet Container).</p>
+
+<p>I&#8217;m not sure how I stumbled upon DropWizard, but it has done something that I thought impossible: My Ops side has loved Java back.</p>
+
+<p>What do I want?</p>
+
+<p>I want to be able to define a simple REST service and publish it with as little dependencies as possible.</p>
+
+<p>Yes, I can write a JAX-RS class and run:</p>
+
+<pre>-&gt;%mvn jetty:run
+</pre>
+
+<p>And my servlet container will expose my REST service&#8230; but let&#8217;s face it, deploying services like this will not take us too far. Like, are you planning to run a Jetty/Tomcat service per MicroService you want to expose??? Yes, this is where my Ops side of me was cringing big time.</p>
+
+<p>True, I could bundle services and&#8230; and little by little we will find ourselves walking away from our beloved Microservices because of &#8220;Operations is complicated&#8221;. Operations is hard, we all know that, but a good architecture has to provide enough tools to satisfy our design goals without compromise our operations.</p>
+
+<p>Solution? I&#8217;m sure It won&#8217;t surprise any of my followers: it&#8217;s to use <strong>Docker and&#8230; DropWizard</strong>!!!</p>
+
+<p>How, you don&#8217;t know <a href="https://dropwizard.github.io">DropWizard</a>? run to their website and sort that out: NOW! DropWizard does a lot of things, one of them is awesome: It allows you to write a JAX-RS class and run it from your command line. I mean, it creates a fat jar file that you can then run:</p>
+
+<pre>java -jar my_microservice-0.0.1-SNAPSHOT.jar server my_microservice_conf.yml
+</pre>
+
+<p>And&#8230; it will expose your rest service in the port 8080 (and it comes with an admin freebie in port 8081 &lt;&#8211; my ops side of me is very happy about this).</p>
+
+<p>Now&#8230; what happens if you build a Docker image that runs that instruction? That you have an easy way to run/test/distribute your microservice.</p>
+
+<pre>sudo docker run -d -p 9094:8080 7887:8081 ipedrazas/m_dotmarks:latest
+</pre>
+
+<p>Note that all my microservices are exposed using the default ports: 8080 and 8081 and then I re-map them when running them in Docker. Why? because it gives me more flexibility and I don&#8217;t have to worry about Ops while doing Dev (yes, developers do not decide how to run the service).</p>
+
+<p>As always, I strongly recommend to run nginx as a gateway to your dockerized services. In this case our two ports 8080 and 8081 will be remmaped to 9094 (that nginx will expose using a url like api.dotmarks.net/dotmarks) and 7887 that will be used internally only.</p>
+
+<p>These holidays I&#8217;ve been rewriting my <a href="https://dotmarks.net/">dotMarks</a> app originally in python in Java using DropWizard and I will be releasing the code once it works.</p>
+
+<p>Stay tunned!</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">05 Aug 2014</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2014/08/05/fhr-elasticsearch-aggregations/" class="post-title">What’s the Filthiest PostCode in UK? and the Cleanest too!</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Development" href="http://blog.pedrazas.me/categories/development">Development</a><a class="post-category post-category-Java" href="http://blog.pedrazas.me/categories/java">Java</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>There&#8217;s a <a href="https://github.com/ipedrazas/crawlers/tree/master/FHR">GitHub repo</a> associated to this post that <a href="https://github.com/ipedrazas/crawlers/tree/master/FHR">it can be found here</a></p>
+
+<p>Do you know that sticker on the window of most takeaway shops? that sticker displays the Hygiene rating. This post is not about those stickers.</p>
+
+<p><img class="aligncenter size-full wp-image-303" src="http://ivan.pedrazas.me/wp-content/uploads/2014/08/fhrs_5_en-gb.jpg" alt="Hygiene Rating Sticker" width="290" height="148" /></p>
+
+<p>Now, as it happens, restaurants, deli bars and of course, take away shops are checked up regularly to see how clean are they and the collected information ends up in a report, a sticker and&#8230; some dark and remote database.</p>
+
+<p>After doing the ElastiSearch training three weeks ago I was itching to do some aggregations with it. I have done aggregations before using &#8220;<em>Ye Olde</em>&#8221; Map/Reduce approach and I was interested on seeing how it would compare to do agregations with MongoDB.</p>
+
+<p>I found the Food and Higiene dataset and a python script later I had all their data in my hard drive (just under 500MB of XMLs). Since I like diversity, I wrote a Java program to parse those XMLs and add them into my ElasticSearch instance. It really surprised me the amount of time spent on preparing the data before being able to execute the analysis. I know, it shouldn&#8217;t but it does&#8230; every single time it does.</p>
+
+<p>Anyway, I run ElasticSearch in a docker instance that has the Marvel plugin in it. This plugin is perfect for throwing a few quick queries and getting some json back. Of course, me being me, I could not just do some tests and write a blog post&#8230; I had to create <a href="https://github.com/ipedrazas/crawlers/tree/master/FHR">a Github Repo</a> where you can find the source code (just in case you do want to try it by yourself), results (in json files) and some more detailed explanation about how to fetch the data, run the docker container and the different queries I issued.</p>
+
+<p>After indexing almost half a Gigabyte I discovered that the average rating In UK for Food Hygiene is <strong>3.5849</strong> which is not that great, is it? I mean, we are talking about how clean is the place where we eat: &#8220;kind of not clean but not dirty neither&#8221;.</p>
+
+<p>What else did I find? Well, I was interested on my area (NW10) average: <strong>3.23910171730515  </strong>Depressing, I guess it&#8217;s time to move to&#8230; where?</p>
+
+<p>Well, let&#8217;s find out, what&#8217;s the cleanest Post Code? I didn&#8217;t know much about UK PostCodes. Post Code indicates the area (outward) and the building/house (inward). The dataset provides longitude and latitude for every single establishment so you don&#8217;t really need the PostCode to put the stablishment in a map. Anyway, that was not my intention.</p>
+
+<p>So, as it turns, the cleanest Post Code is <a href="https://www.google.co.uk/maps/place/South+Petherton,+Somerset+TA13/@50.8277828,-2.2505537,9z/data=!4m2!3m1!1s0x48726c54bfd88a65:0xc91f5b601623f2d1">SOUTH PETHERTON (TA13)</a>, or if you think that 42 establishments and an average of <strong>4.761904761904762</strong> is not significant enough I can move to <a href="https://www.google.co.uk/maps/place/Taunton,+Somerset/@52.1627957,-1.8741876,7z/data=!4m2!3m1!1s0x486d8a921fb7907f:0x75eb0e344edee9fb">TAUNTON (TA3)</a> with a wooping average of <strong>4.642857142857143</strong></p>
+
+<p>And now that we know where to go, which place we should all avoid? Ladies and Gentlemen, the filthiest area in UK is (shame on you)&#8230;</p>
+
+<p><a href="https://www.google.co.uk/maps/place/Hawick,+Scottish+Borders+TD9/@53.3002712,-2.738034,7z/data=!4m6!1m3!3m2!1s0x487d796662ced111:0x2cc564208e63c086!2sShankend+Holiday+Cottage+Hawick!3m1!1s0x487d605a6cc3a265:0x188c40d9107d6db6">HAWICK, NEWCASTLETON (TD9)</a> with a terrible average of <strong>0.013761467889908258</strong> (yes, that&#8217;s Zero point Zero One).</p>
+
+<pre>{
+   "key": "td9",
+   "doc_count": 218,
+   "avg_height": {
+      "value": 0.013761467889908258
+   }
+},
+
+ {
+   "key": "ta13",
+   "doc_count": 42,
+   "avg_height": {
+      "value": 4.761904761904762
+   }
+},
+{
+   "key": "ta3",
+   "doc_count": 112,
+   "avg_height": {
+      "value": 4.642857142857143
+   }
+},
+</pre>
+
+<p>But let&#8217;s not stop there&#8230; What is the most common rating? XX</p>
+
+<p>The Food Standars Agency has a web form that let&#8217;s you check the rating of your favourite place.</p>
+
+<p>Let me show you one of the queries I used, just in case you&#8217;re looking at how to do aggregations with ElasticSearch and are struggling with the lack of documentation:</p>
+
+<pre>GET _search
+{
+
+   "query" : {
+      "match" : { "PostCode" : "PO18*"}
+       },
+   "aggs" : {
+        "Food_hygiene_ratings" : {
+           "terms" : {
+             "field" : "RatingValue"
+           }
+        },
+
+        "avg_height" : {
+          "avg" : {
+            "field" : "RatingValue" }
+
+        }
+      }
+}
+</pre>
+
+<p>This query matches a PostCode (PO18 ) and then it aggregates twice the result using the field RatingValue. The first one will give you the count of the different ratings and the second one will give you the average of the rating.</p>
+
+<p>Conclusion? prepating the data was quiet of a pain, but it always is. Loading the data was blazing fast and the results were pretty quick too. The aggregation of all the PostCodes took a few seconds and the huge amount of data that it returned was impressive.</p>
+
+<p>All in all, a very quick way of getting some json data to feed into the D3 visualisations.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/List_of_postcode_areas_in_the_United_Kingdom">http://en.wikipedia.org/wiki/List_of_postcode_areas_in_the_United_Kingdom</a></p>
+
+<pre>GET _search
+{
+
+   "aggs" : {
+        "Food_hygiene_ratings" : {
+           "terms" : {
+             "field" : "areacode",
+             "size": 0,
+             "order": {
+                    "avg_height": "desc"
+                }
+
+           },
+
+           "aggs":{
+             "postcodes":{
+             "terms" : {
+               "field" : "RatingValue"
+              }
+             }
+             ,
+
+        "avg_height" : {
+          "avg" : {
+            "field" : "RatingValue"
+
+          }
+
+        }
+           }
+        }
+      }
+}
+</pre>
+
+<p>Once we know the area, we want to filter by outward</p>
+
+<p><strong>Worst case TD</strong></p>
+
+<pre>GET _search
+{
+
+    "query" : {
+      "match" : { "areacode" : "td"}
+       },
+   "aggs" : {
+        "Food_hygiene_ratings" : {
+           "terms" : {
+             "field" : "outward",
+             "size": 0,
+             "order": {
+                    "avg_height": "desc"
+                }
+
+           },
+
+           "aggs":{
+
+              "avg_height" : {
+                "avg" : {
+                  "field" : "RatingValue"
+                }
+
+              }
+           }
+      }
+    }
+}
+
+</pre>
+
+<p><strong>Worst case</strong></p>
+
+<pre>"key": "td",
+   "doc_count": 1492,
+   "postcodes": {
+      "buckets": [
+         {
+            "key": 0,
+            "key_as_string": "0",
+            "doc_count": 1244
+         },
+         {
+            "key": 5,
+            "key_as_string": "5",
+            "doc_count": 152
+         },
+         {
+            "key": 4,
+            "key_as_string": "4",
+            "doc_count": 53
+         },
+         {
+            "key": 3,
+            "key_as_string": "3",
+            "doc_count": 37
+         },
+         {
+            "key": 1,
+            "key_as_string": "1",
+            "doc_count": 4
+         },
+         {
+            "key": 2,
+            "key_as_string": "2",
+            "doc_count": 2
+         }
+      ]
+   },
+   "avg_height": {
+      "value": 0.7312332439678284
+   }
+},
+
+</pre>
+
+<p><strong>Best case</strong></p>
+
+<pre>{
+   "key": "ta",
+   "doc_count": 2823,
+   "postcodes": {
+      "buckets": [
+         {
+            "key": 5,
+            "key_as_string": "5",
+            "doc_count": 1955
+         },
+         {
+            "key": 4,
+            "key_as_string": "4",
+            "doc_count": 521
+         },
+         {
+            "key": 3,
+            "key_as_string": "3",
+            "doc_count": 152
+         },
+         {
+            "key": 0,
+            "key_as_string": "0",
+            "doc_count": 107
+         },
+         {
+            "key": 1,
+            "key_as_string": "1",
+            "doc_count": 52
+         },
+         {
+            "key": 2,
+            "key_as_string": "2",
+            "doc_count": 36
+         }
+      ]
+   },
+   "avg_height": {
+      "value": 4.406305348919589
+   }
+},
+</pre>
+
+                    </div>
+                </section>
+                
+            </div>
+            
+
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://blog.pedrazas.me/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

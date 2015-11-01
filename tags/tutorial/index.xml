@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/tags/tutorial/</link>
+    <description>Recent content in Tutorial on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Thu, 18 Sep 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Cassandra and Docker – round 1</title>
+      <link>http://blog.pedrazas.me/2014/09/18/cassandra-and-docker-round-1/</link>
+      <pubDate>Thu, 18 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/09/18/cassandra-and-docker-round-1/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Cassandra_logo.svg_.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-340&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Cassandra_logo.svg_-300x201.png&#34; alt=&#34;Cassandra_logo.svg&#34; width=&#34;300&#34; height=&#34;201&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;This last week I&amp;#8217;ve spent some time trying to set up Cassandra in Docker. My starting point was this Docker Image called &lt;a href=&#34;https://registry.hub.docker.com/u/poklet/cassandra/&#34;&gt;pokle/cassandra&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There are things from that image that I don&amp;#8217;t like and I&amp;#8217;ve been very tempeted to fork it, but as I said, it was a starting point, and for what we need now, it&amp;#8217;s good enough.&lt;/p&gt;
+
+&lt;p&gt;Basically what I wanted was to have a cluster of 3 machines running in Docker, talking to each other and letting me &amp;#8220;play away&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m re-writing dotMarks in java using Dropwizard and, of course, Cassandra. Anyway, this post is about how to set up that cluster.&lt;/p&gt;
+
+&lt;p&gt;Open your terminal and paste this:&lt;/p&gt;
+
+&lt;pre&gt;# Make dirs to store your data
+sudo mkdir -p /data/cassandra/{c1,c2,c3}/data
+sudo mkdir -p /data/cassandra/{c1,c2,c3}/commitlog
+
+# Change permissions so the Cassandra user can write on them
+sudo chmod 777 /data/cassandra/{c1,c2,c3}/data
+sudo chmod 777 /data/cassandra/{c1,c2,c3}/commitlog
+
+# Run the Docker containers with Cassandra
+docker run -d --name c1 -v /data/cassandra/c1/data:/var/lib/cassandra/data -v /data/cassandra/c1/commitlog:/var/lib/cassandra/commitlog poklet/cassandra
+docker run -d --name c2 -v /data/cassandra/c2/data:/var/lib/cassandra/data -v /data/cassandra/c2/commitlog:/var/lib/cassandra/commitlog poklet/cassandra start $(./scripts/ipof.sh c1)
+docker run -d --name c3 -v /data/cassandra/c3/data:/var/lib/cassandra/data -v /data/cassandra/c3/commitlog:/var/lib/cassandra/commitlog poklet/cassandra start $(./scripts/ipof.sh c1)
+
+# Open a CQLSH console
+docker run -it --rm --link c1:c1 -v /data/cassandra/scripts:/data poklet/cassandra bash -c &#39;cqlsh $C1_PORT_9160_TCP_ADDR&#39;
+
+&lt;/pre&gt;
+
+&lt;p&gt;Now you should have a C* cluster of 3 containers. Run docker ps and you should see something like this:&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;pre&gt;-&amp;gt; % docker ps
+CONTAINER ID        IMAGE                     COMMAND               CREATED              STATUS              PORTS                                                                           NAMES
+f85542cb46e3        poklet/cassandra:latest   &#34;start 172.17.0.14&#34;   About a minute ago   Up About a minute   8012/tcp, 9042/tcp, 9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp   c3                  
+9cfdccaf1213        poklet/cassandra:latest   &#34;start 172.17.0.14&#34;   About a minute ago   Up About a minute   9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp, 8012/tcp, 9042/tcp   c2                  
+162c36a8b876        poklet/cassandra:latest   &#34;/bin/sh -c start&#34;    2 minutes ago        Up 2 minutes        9042/tcp, 9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp, 8012/tcp   c1    
+&lt;/pre&gt;
+
+&lt;p&gt;Now, you might want to add some data. We do that using another container that will execute &lt;em&gt;&lt;strong&gt;CQLSH&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;pre&gt;docker run -it --rm --link c1:c1 -v /data/cassandra/scripts:/data poklet/cassandra bash -c &#39;cqlsh $C1_PORT_9160_TCP_ADDR&#39;
+&lt;/pre&gt;
+
+&lt;p&gt;Note that by using Links you don&amp;#8217;t need to know the IPs of the nodes. We will need them to connect if we don&amp;#8217;t use a container with links, but let&amp;#8217;s see that problem later.&lt;/p&gt;
+
+&lt;p&gt;Once you are in the CQLSH, add some data:&lt;/p&gt;
+
+&lt;pre&gt;CREATE KEYSPACE dotmarks WITH REPLICATION =
+ {&#39;class&#39;: &#39;SimpleStrategy&#39;, &#39;replication_factor&#39;: 1};
+
+ USE dotmarks;
+
+ CREATE TABLE test_table (
+  id text,
+  test_value text,
+  PRIMARY KEY (id)
+ );
+
+
+INSERT INTO test_table (id, test_value) VALUES (&#39;1&#39;, &#39;one&#39;);
+INSERT INTO test_table (id, test_value) VALUES (&#39;2&#39;, &#39;two&#39;);
+INSERT INTO test_table (id, test_value) VALUES (&#39;3&#39;, &#39;three&#39;);
+
+SELECT * FROM test_table;
+&lt;/pre&gt;
+
+&lt;p&gt;If you want to check the data from a different node, do this:&lt;/p&gt;
+
+&lt;pre&gt;docker run -it --rm --link c2:c2 -v /data/cassandra/scripts:/data poklet/cassandra bash -c &#39;cqlsh $C2_PORT_9160_TCP_ADDR&#39;
+
+
+Connected to Test Cluster at 172.17.0.15:9160.
+[cqlsh 4.1.1 | Cassandra 2.0.9 | CQL spec 3.1.1 | Thrift protocol 19.39.0]
+Use HELP for help.
+cqlsh&amp;gt; use dotmarks;
+cqlsh:dotmarks&amp;gt; select * from test_table;
+
+ id | test_value
+----+------------
+  3 |      three
+  2 |        two
+  1 |        one
+
+(3 rows)
+
+cqlsh:dotmarks&amp;gt; 
+&lt;/pre&gt;
+
+&lt;p&gt;With this, we have our cluster ready to rock and roll! In the next post, we will see how to confdigure and connect our Dropwizard App to our Cassandra cluster.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

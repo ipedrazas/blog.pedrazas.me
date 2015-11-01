@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devops on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/categories/devops/</link>
+    <description>Recent content in Devops on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Tue, 25 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/categories/devops/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Spaghetti management</title>
+      <link>http://blog.pedrazas.me/2015/08/25/spaghetti-management/</link>
+      <pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/08/25/spaghetti-management/</guid>
+      <description>&lt;p&gt;During a job interview they started asking questions about microservices and the discussion that we had made me think that it would be good to write a bit about it.&lt;/p&gt;
+
+&lt;p&gt;Microservices are great because:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;They are small, that&amp;#8217;s why the appended &amp;#8220;&lt;em&gt;Micro&lt;/em&gt;&amp;#8220;&lt;/li&gt;
+&lt;li&gt;They are independent one each other (deployment, runtime, configuration, downtime, scaling&amp;#8230;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Great! so, where&amp;#8217;s the catch&amp;#8230; because there&amp;#8217;s always a catch. Think about it. You can split your API in multiple microservices. Great, now, the application is loosely coupled to a bunch of services.&lt;/p&gt;
+
+&lt;p&gt;If you replace services by libraries, the name that comes to your mind is? DEPENDENCIES!&lt;/p&gt;
+
+&lt;p&gt;The catch with microservices is that dependencies are not implicit in your API or APP the way they used to be (think jars, gems or python libs).&lt;/p&gt;
+
+&lt;p&gt;Bear in mind as well that IDE&amp;#8217;s and compilers are very good (in general) at finding when dependencies are broken&amp;#8230; which is not the case if you have a bunch of loosely couple services.&lt;/p&gt;
+
+&lt;p&gt;Who&amp;#8217;s responsible for managing all those dependencies now? because excuse me, but I need a way to bundle services together. Or, to be more precise, to bundle versions of services together.&lt;/p&gt;
+
+&lt;p&gt;To me the hardest problem is not a design problem, the hardest problem is managing dependencies at version level.&lt;/p&gt;
+
+&lt;p&gt;At &lt;a href=&#34;https://import.io/&#34; title=&#34;Import.io&#34;&gt;Import.io&lt;/a&gt; we started moving towards this architecture and the way we solved it was not using service discovery but using the old idea of having a contract where you specify a bunch of versions that you know they play nicely together.&lt;/p&gt;
+
+&lt;p&gt;I always differentiate Runtime, Configuration and Context. In our case, Runtime was a container running a microservice. Configuration was another container (a data container) where the relationship between versions was explicitly defined, like a manifest.&lt;/p&gt;
+
+&lt;p&gt;The advantage of using a data container to bind a bunch of versions is that you have traceability. You know always how the application was configured, because it is true, with microservices we have gained a lot of flexibility but we have lost certain control. Using a container helps me to regain that control.&lt;/p&gt;
+
+&lt;p&gt;Why do I do this? because I can leverage my continuous integration pipeline to test my services and how they interact with each other according to specific versions. Because now, my microservice bundles are in git and not in some obscure key of zookeeper or consul. Even more, when the time to migrate to &lt;a href=&#34;http://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt; arrives, I can use my data container as my pod blueprint.&lt;/p&gt;
+
+&lt;p&gt;Because one thing is my architecture and another different thing is my runtime and my operations.&lt;/p&gt;
+
+&lt;p&gt;Remember&amp;#8230;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;It&amp;#8217;s not about power, it&amp;#8217;s about responsibility&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Contain 3</title>
+      <link>http://blog.pedrazas.me/2015/08/12/contain-3/</link>
+      <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/08/12/contain-3/</guid>
+      <description>&lt;p&gt;Last night it was the third Contain meetup. I was looking forward to seeing all the guys from RedHat, Microsoft and CoreOS and learning what was in store for us in the container space.&lt;/p&gt;
+
+&lt;p&gt;As it usually happens in life, things changed pretty quickly. Boris, the guy from Microsoft, had a car accident (rumours of him being in a Google self driving ca were discarded promptly). With Boris out, Matt asked me if I could be in the panel instead of him. I guess that Matt thought I was the perfect candidate to represent Microsoft since I am one of the few certified Windows Me power users (cough, cough).&lt;/p&gt;
+
+&lt;p&gt;Matt understands containers, that&amp;#8217;s why he gave us the slides the proper way:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;docker run jetstack/contain:v3_container_os&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The good news, to compensate the bad news of Boris car accident, was that Chris Kenyon, from Canonical came to talk to us about their plans with containers: &lt;a href=&#34;http://www.ubuntu.com/cloud/tools/lxd&#34; target=&#34;_blank&#34;&gt;LXD&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Chris told us during the panel that the datacenter now is following how mobile phones work. Updating hundreds or thousands of machines it&amp;#8217;s equivalent to update thousands of telephones. Which is very interesting way of explaining transactional updates. Ubuntu, with snappy or CoreOS have that as the core of their value proposition.&lt;/p&gt;
+
+&lt;p&gt;It was an interesting conversation. I&amp;#8217;m a big fan of immutable and ephemeral infrastructure. So when people ask me &amp;#8220;&lt;em&gt;how do you update your containers&lt;/em&gt;&amp;#8221; the answer is simple: You don&amp;#8217;t!&lt;/p&gt;
+
+&lt;p&gt;I think it&amp;#8217;s good to differentiate when transactional updates are good and when they are not. Host updates: &lt;strong&gt;yes&lt;/strong&gt;. Containers updates: &lt;strong&gt;No&lt;/strong&gt;!&lt;/p&gt;
+
+&lt;p&gt;But what it&amp;#8217;s fundamental is to understand that containers are not machines or VMs. You have to see your containers as snapshots. Immutable snapshots that can be easily discarded.&lt;/p&gt;
+
+&lt;p&gt;Forget about Chef, Puppet, Ansible or Salt&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/08/pffbz.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-466&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/08/pffbz-300x177.jpg&#34; alt=&#34;pffbz&#34; width=&#34;300&#34; height=&#34;177&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Updating containers have 2 parts: updating the image and running that container. Kubernetes is your friend here. It wasn&amp;#8217;t until yesterday that I realised that many of my colleagues do not understand the great value of Kubernetes.&lt;/p&gt;
+
+&lt;p&gt;Updating containers is a matter of defining a new pod with your new containers and swapping the label when you are ready for the &amp;#8220;update&amp;#8221;. I guess that the best way of putting it is to say that Kubernetes does not try to solve the update problem because there&amp;#8217;s no such problem in the kubernetes world. We have others&amp;#8230; but that it&amp;#8217;s not one of them.&lt;/p&gt;
+
+&lt;p&gt;In summary, an excellent night. Thanks &lt;a href=&#34;http://www.jetstack.io/&#34; target=&#34;_blank&#34;&gt;Jetstack&lt;/a&gt; and all the Matts involved!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Deconstructing</title>
+      <link>http://blog.pedrazas.me/2015/06/25/deconstructing/</link>
+      <pubDate>Thu, 25 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/06/25/deconstructing/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/kafka_logo.png&#34;&gt;&lt;img class=&#34;alignleft size-full wp-image-454&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/kafka_logo.png&#34; alt=&#34;kafka_logo&#34; width=&#34;75&#34; height=&#34;117&#34; /&gt;&lt;/a&gt;If you haven&amp;#8217;t heard about &lt;a href=&#34;http://kafka.apache.org/&#34;&gt;Apache Kafka&lt;/a&gt;, or his little brother Amazon Kinesis, go and read about &lt;a href=&#34;http://www.oreilly.com/pub/e/3098&#34;&gt;why they are so great&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I was chatting with a friend last night and he told me &amp;#8220;I get containers now. I needed some give it some thought, but I get them now&amp;#8221;. If I had to describe him with one word I would use &amp;#8220;smart&amp;#8221; without any doubt&amp;#8230; still he had to think about why containers are so great.&lt;/p&gt;
+
+&lt;p&gt;We carried on talking and after two more beers and few pork ribs I managed to make him understand why we are about to change we build applications. It&amp;#8217;s not only because of containers (or systems like Mesos or Kubernetes), but because with containers, we have seen the light of deconstructing the monoliths into microservices.&lt;/p&gt;
+
+&lt;p&gt;But, there&amp;#8217;s another key element on this Game of Thrones: The Log, systems like Apache kafka are going to help to change completely the landscape of what we build, and ship and run. Like with Microservices, the Log overlord brings a blessing in disguise: it&amp;#8217;s not what it does, it&amp;#8217;s what allows others to do.&lt;/p&gt;
+
+&lt;p&gt;It is not about its responsibility, it&amp;#8217;s about delegating that responsibility in who really has it. Let&amp;#8217;s look at what happens today. We have a system, that system gets some data, compute that data and stores that data in a database. Easy!&lt;/p&gt;
+
+&lt;p&gt;Then someone comes along and asks to get that same data and put it somewhere else, so our system now gets some data, compute that data and stores that data in two different places.&lt;/p&gt;
+
+&lt;p&gt;As we can see, this does not scale very well, so people get smart, and start doing things like database triggers and a whole bunch of things that are totally correct in itself, but over time, it creates a big mess of &amp;#8220;dirty integrations&amp;#8221;. These are the things that will break when we want to move our system. These are the future nightmares of our microservices journey.&lt;/p&gt;
+
+&lt;p&gt;Then, we have The LOG&amp;#8230; a dumb system that guess what: it does not care about what do you do with that data. The Log Overlord will keep your data for a while, and it&amp;#8217;s up to you, the consumers, to use it.&lt;/p&gt;
+
+&lt;p&gt;A bit like how the TV has been broadcasting for a few years&amp;#8230; with a twist, because, as we do now, this TV system allows you to consume the programs when you want it.&lt;/p&gt;
+
+&lt;p&gt;Ok, so, basically, we have a place where we put all that data (for a while) and we have a bunch of people consuming that data? So what?&lt;/p&gt;
+
+&lt;p&gt;Well, not much, but as with microservices, what the LOG overlord provides is the ability of your consumers to consume the way they want (once per hour, once per day&amp;#8230; in real time), and even more, the people who create the TV shows do not care about the broadcasting anymore.&lt;/p&gt;
+
+&lt;p&gt;Think about it. Microservices decouple your business logic. With microservices you can write very business specific services without having to worry about all the other business rules, use cases and (oh yes) those terrible exceptions.&lt;/p&gt;
+
+&lt;p&gt;Apache Kafka or Amazon Kinesis decouple your data. How you read that data is up to the readers and the writers have nothing to do with that. It&amp;#8217;s like a writer writing a book, and people reading that book: when they want, how they want&amp;#8230; as opposed to the writer writing and reading aloud to certain audience.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m not sure if the creators of Kafka chose that name because it&amp;#8217;s a system that allows writers and readers to focus and enjoy what they want to do.&lt;/p&gt;
+
+&lt;p&gt;As I said, we are living very exciting times with a lot of change. Let me finish with a song&amp;#8230; or my own version of a song by &lt;a href=&#34;https://www.youtube.com/watch?v=f8PMqLHF1jU&#34;&gt;Elvis Presley&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  Treat me like a fool,&lt;br /&gt; Treat me mean and cruel,&lt;br /&gt; But &lt;strong&gt;LOG&lt;/strong&gt; me.
+&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  Wring my faithful heart,&lt;br /&gt; Tear it all apart,&lt;br /&gt; But &lt;strong&gt;LOG&lt;/strong&gt; me.
+&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  &lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/649ca9a3f3d4aba78095a28c26fba1fa.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-455&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/649ca9a3f3d4aba78095a28c26fba1fa-233x300.jpg&#34; alt=&#34;649ca9a3f3d4aba78095a28c26fba1fa&#34; width=&#34;233&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Distance to Mesos</title>
+      <link>http://blog.pedrazas.me/2015/06/16/distance-to-mesos/</link>
+      <pubDate>Tue, 16 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/06/16/distance-to-mesos/</guid>
+      <description>&lt;p&gt;I&amp;#8217;ve been wanting to write this for a while but it seems that it&amp;#8217;s never the right time, so tonight, I&amp;#8217;m biting the bullet and not going to bed until I write it all.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve notice that lately people don&amp;#8217;t talk about Docker so much. Nothing to complain about, really, but what happens is that people has shifted to talk about &lt;span id=&#34;:1u0.1&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Kubernetes&lt;/span&gt; and &lt;a href=&#34;http://mesos.apache.org/&#34;&gt;&lt;span id=&#34;:1u0.2&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;&lt;/a&gt;&amp;#8230; Sigh.&lt;/p&gt;
+
+&lt;p&gt;One of the questions I&amp;#8217;ve asked more frequently is &amp;#8220;How to move to &lt;span id=&#34;:1u0.3&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;&amp;#8230; and is it worth it?&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;There&amp;#8217;s no straight answer to that question really. I don&amp;#8217;t like to say &amp;#8220;it depends&amp;#8221; because it seems that you&amp;#8217;re trying to run away, but in this case it really does.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#8217;s a bit like asking &amp;#8220;how to go to the London Eye&amp;#8221;, first thing I need to find out is to know where you&amp;#8217;re travelling from because it is not the same to come from Liverpool than from Liverpool street&amp;#8230; Distance is important because I can assume that if you come from Liverpool you will arrive to London &lt;span id=&#34;:1u0.4&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Euston&lt;/span&gt; (but I might be wrong, and you might be travelling by car instead of train&amp;#8230;).&lt;/p&gt;
+
+&lt;p&gt;Anyway, it doesn&amp;#8217;t matter where you come from, I&amp;#8217;m sure you will manage to find the way to the London Eye, and if not&amp;#8230;  just ask. There&amp;#8217;s plenty of people happy to help.&lt;/p&gt;
+
+&lt;p&gt;With &lt;span id=&#34;:1u0.5&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; you have a similar problem, you see? it&amp;#8217;s not the same to come from a &lt;span id=&#34;:1u0.6&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;multi&lt;/span&gt;-monolithic architecture with more silos than the &lt;acronym title=&#34;Ministry of Defense&#34;&gt;MOD&lt;/acronym&gt;, than to have a very lean service based architecture with containers and service discovery already in place.&lt;/p&gt;
+
+&lt;p&gt;So, are containers important? strictly speaking: No, however, by using containers you can leverage some very cool functionality that systems like &lt;span id=&#34;:1u0.7&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; have.&lt;/p&gt;
+
+&lt;p&gt;Service Discovery, anyone? let&amp;#8217;s put it like this, it does not matter how you build software, using SD should be part of it. Period.&lt;/p&gt;
+
+&lt;p&gt;There are 3 big blocks in any application:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span id=&#34;:1u0.8&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Runtime&lt;/span&gt;: this is what we run. From a web application to a queue worker, it doesn&amp;#8217;t really matter. It&amp;#8217;s that thing that (when it works) does its job.&lt;/li&gt;
+&lt;li&gt;Configuration: this is what the thing that runs need to run (the way we want). It can be credentials, external resources, addresses, whatever that makes our &lt;span id=&#34;:1u0.9&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;runtime&lt;/span&gt; to be flexible.&lt;/li&gt;
+&lt;li&gt;Context: this is usually forgotten (until it&amp;#8217;s too late) and it&amp;#8217;s where your &lt;span id=&#34;:1u0.10&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;runtime&lt;/span&gt; runs and all those bits and pieces that you need to be run it there. Firewall rules, Security groups, etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These blocks do not depend on what you run: Java, python, &lt;span id=&#34;:1u0.11&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;javascript&lt;/span&gt;&amp;#8230; or where you run it: Amazon, Azure&amp;#8230; they are 3 blocks that every software development has to define&amp;#8230; what about in &lt;span id=&#34;:1u0.12&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;?&lt;/p&gt;
+
+&lt;p&gt;Well, &lt;span id=&#34;:1u0.13&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;, as a software, will need these 3 blocks: we have the &lt;span id=&#34;:1u0.14&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;runtime&lt;/span&gt;, &lt;span id=&#34;:1u0.15&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;mesos&lt;/span&gt;, marathon, &lt;span id=&#34;:1u0.16&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;cronos&lt;/span&gt;&amp;#8230; the different configuration files these young lads use, and where do we run &lt;span id=&#34;:1u0.17&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;: our &lt;span id=&#34;:1u0.18&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;datacenter&lt;/span&gt;, &lt;span id=&#34;:1u0.19&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;AWS&lt;/span&gt;, Google&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;The interesting thing is that inside &lt;span id=&#34;:1u0.20&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; those 3 blocks are somehow diluted.&lt;/p&gt;
+
+&lt;p&gt;To begin with, Context is &lt;span id=&#34;:1u0.21&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;&amp;#8230; To the point that once you have &lt;span id=&#34;:1u0.22&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; you don&amp;#8217;t have environments anymore. Your application have different &lt;span id=&#34;:1u0.23&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;datasources&lt;/span&gt; (Dev, Test, Prod) and different priorities, but it&amp;#8217;s unlikely that you will have a &lt;span id=&#34;:1u0.24&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; cluster per environment (and if you do, there&amp;#8217;s something very fundamental that you didn&amp;#8217;t get right).&lt;/p&gt;
+
+&lt;p&gt;What makes &lt;span id=&#34;:1u0.25&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; very attractive is that &amp;#8220;he knows&amp;#8221; so you don&amp;#8217;t have to. But to be able to do that your applications have to be built in a way that it&amp;#8217;s safe for &lt;span id=&#34;:1u0.26&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; to move around (here it&amp;#8217;s where containers and service discovery can be very handy).&lt;/p&gt;
+
+&lt;p&gt;As I said before, people keep asking me about &lt;span id=&#34;:1u0.27&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; and my answers always point towards the same place: maybe &lt;span id=&#34;:1u0.28&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; is not for you, but moving to containers and using service discovery will make your applications to work better and look, once you&amp;#8217;re there, you&amp;#8217;re not that far from &lt;span id=&#34;:1u0.29&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;In summary, you should not aim to use Service Discovery and containers as a &lt;span id=&#34;:1u0.30&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;pre&lt;/span&gt;-condition to &lt;span id=&#34;:1u0.31&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;, you should do it because it will make your life (and the life of people dealing with your systems) better.&lt;/p&gt;
+
+&lt;p&gt;Not everybody is Google, but everybody should aim to run applications like Google does.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Docker in the Enterprise</title>
+      <link>http://blog.pedrazas.me/2015/04/01/docker-in-the-enterprise/</link>
+      <pubDate>Wed, 01 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/04/01/docker-in-the-enterprise/</guid>
+      <description>&lt;p&gt;One of the top questions that people ask me about Docker is by far &amp;#8220;&lt;strong&gt;&lt;em&gt;Do you think the Enterprise will use Docker?&lt;/em&gt;&lt;/strong&gt;&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;My answer has been the same since the very beginning: &lt;strong&gt;Absolutely!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;It doesn&amp;#8217;t mean it will happen soon, but it will happen. There&amp;#8217;s just a few layers of middle management and hundreds of scared sysadmins in between, but it will happen.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve migrated a few legacy enterprise applications to Docker and to me, there&amp;#8217;s a big difference between startups using Docker and classic enterprise companies using Docker. To begin with, big enterprise companies are project and program based instead of product based. Middle management, red tape and a very low speed in general. In the technical aspects there are big differences also. Let me give you a couple of examples:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Firewalls.&lt;/li&gt;
+&lt;li&gt;Legacy applications.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Have you heard about Mesos? Docker Swarm? the ability to move containers around? well, let me tell you something, in the enterprise we have firewall rules. Firewall rules are dependant on the application but bound to the host. This means that you cannot move containers around if you cannot update firewall rules at the same time.&lt;/p&gt;
+
+&lt;p&gt;Solutions like Weave are perfect for this problem. Right now, I&amp;#8217;m not sure how Docker is going to solve the networking aspect, so, I will not say that Docker will do it natively. Still, you get the point.&lt;/p&gt;
+
+&lt;p&gt;Another scary issue is &amp;#8220;Legacy Applications&amp;#8221;. Let&amp;#8217;s face it, technical debt is bad, forgotten technical debt is pure evil. Moving these kind of applications into containers is sometimes harder than rewriting them from scratch. Issues that I&amp;#8217;ve found while migrating legacy applications to containers can be split in two main groups:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Configuration issues like
+
+&lt;ul&gt;
+&lt;li&gt;hard coded url and/or domains: quite typical to see hardcoded jdbc connections. You can get around it using internal DNSs or if in case of major trouble, a reverse proxy.&lt;/li&gt;
+&lt;li&gt;Hard coded IPs: If you&amp;#8217;re lucky, again, Weave can give you a bit of air here.&lt;/li&gt;
+&lt;li&gt;Embedded credentials: hardcoding credentials is bad, but including these credentials inside of your binaries is terrible. Bad news is that it happens more often than you think. Yes, they used properties files, and yes, they put that file inside a jar, inside a war, inside an EAR&amp;#8230; Hey, enterprise all the way down!&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Context Issues:
+
+&lt;ul&gt;
+&lt;li&gt;The system needs to run in a specific host with a specific configuration like specific IPs (ugh), specific URLs (easy), specific OS (this one was very painful)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Good news is that you have the tools to work around all these issues, and yes, you get much better on fixing them (with time, experience and tears). I don&amp;#8217;t think that we will be seeing a &amp;#8220;Wizard&amp;#8221; to migrate your apps to Docker just yet but we will get there.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using Cassandra in AWS for Dev &amp; Test</title>
+      <link>http://blog.pedrazas.me/2015/03/12/using-cassandra-in-aws-for-dev-test/</link>
+      <pubDate>Thu, 12 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/03/12/using-cassandra-in-aws-for-dev-test/</guid>
+      <description>&lt;p&gt;At &lt;a href=&#34;http://www.adbrain.com/&#34;&gt;Adbrain&lt;/a&gt;, Cassandra is one of our core databases. I&amp;#8217;m a big fan of not doing much by automating a lot. However, I couldn&amp;#8217;t find an easy way, by easy I mean that it would take very little to implement and could work without me having to do any intervention.&lt;/p&gt;
+
+&lt;p&gt;As I&amp;#8217;ve mentioned before, we create ephemeral clusters for our computational work force using Apache Spark, which helped us a lot to reduce the cost of our running infrastructure.&lt;/p&gt;
+
+&lt;p&gt;Yes, I&amp;#8217;m a big fan of using infrastructure in an effective way. There&amp;#8217;s no secret here, using the cloud gives you the flexibility to pay for what you use.&lt;/p&gt;
+
+&lt;p&gt;Our Dev &amp;amp; Test machines only run during working hours (you know, to pay for what you use only). However, with Cassandra we had to do an exception. Noticed the past tense? We use the ephemeral drives of our AWS instances (in raid0), and as many of you have know, disks do not survive if you stop the instances&amp;#8230; which makes stopping &amp;amp; starting Cassandra nodes a pain.&lt;/p&gt;
+
+&lt;p&gt;The solution is pretty obvious, and yes, I&amp;#8217;m banging my head against the wall for all the times I&amp;#8217;ve wrongly said &amp;#8220;Cassandra clusters cannot be stopped&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;We have a jenkins job that stop Dev &amp;amp; Test machines. The idea was to be able to put my Cassandra cluster nodes in that job as well (to keep things tidy). However, it&amp;#8217;s possible but not ideal because you create some dependencies (and there&amp;#8217;s nothing better than being independent)&lt;/p&gt;
+
+&lt;p&gt;This is what my job does:&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  &lt;strong&gt;Cassandra Stop Job&lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Flush cassandra data.
+
+&lt;ol&gt;
+&lt;li&gt;nodetool flush&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Stop cassandra service.&lt;/li&gt;
+&lt;li&gt;Copy Data out. (you have two options)
+
+&lt;ol&gt;
+&lt;li&gt;nodetool snapshot + tar + upload to S3&lt;/li&gt;
+&lt;li&gt;tar /data/cassandra + upload S3&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Stop the instance.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  &lt;strong&gt;Cassandra Start Job&lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Start the instance.&lt;/li&gt;
+&lt;li&gt;Create raid0.&lt;/li&gt;
+&lt;li&gt;Copy data in.&lt;/li&gt;
+&lt;li&gt;Start cassandra service.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;That&amp;#8217;s it, now my Cassandra clusters for Dev &amp;amp; Test only run for 50h a week, instead of 168h (24&amp;#215;7).&lt;/p&gt;
+
+&lt;p&gt;If you use the m3.2xlarge instance type, you will pay per node $28 per week instead of $94.08. A saving of &lt;strong&gt;$66.08&lt;/strong&gt; per node per week.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Buckets of Water</title>
+      <link>http://blog.pedrazas.me/2015/03/06/buckets-of-water/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/03/06/buckets-of-water/</guid>
+      <description>&lt;p&gt;I&amp;#8217;m sure you&amp;#8217;ve been here before: you have a problem, you try to explain it to non-technical people and&amp;#8230; you fail to send a clear message across .&lt;/p&gt;
+
+&lt;p&gt;Communication is a two way road. It&amp;#8217;s not just you sending a message, it&amp;#8217;s the other part receiving it and understanding it. We&amp;#8217;re good at sending and receiving, it&amp;#8217;s in the understanding bit that we all struggle more than we would like to.&lt;/p&gt;
+
+&lt;p&gt;Finding good similes and analogies is hard. It&amp;#8217;s something that sales people excel to, but it seems that technical people, we struggle a bit more.&lt;/p&gt;
+
+&lt;p&gt;Anyway, I had a little problem with one of our Cassandra clusters: it was overflowing data and nodes refused to join the ring&amp;#8230; Solution? Scale up!&lt;/p&gt;
+
+&lt;p&gt;The process was simple but when the non-technical people started asking what was going on I had to find a way of illustrating the situation&amp;#8230; and I did, using buckets of water. This is what I said:&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;Imagine we have buckets of water and we pour water on them in a regular basis. When we see that the water levels are getting to high we add more buckets and little by little move water around until all the buckets have enough space to get more water&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;This is what it usually happens when you add more Cassandra nodes to a ring.&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;Well, trouble is that we&amp;#8217;re not sure why, we cannot add more buckets. What would you do if you cannot add more buckets?&amp;#8221; I asked.&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;Can we use bigger buckets?&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;That&amp;#8217;s pretty much what I have done! do you want to work with us?&amp;#8221; Laughs and nods.&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;I had to replace every single bucket by a bigger one. But there&amp;#8217;s a catch, the bucket has to be the same, which is fine, because I can expand the bucket&amp;#8230; because they are elastic&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;Here the guy asked a few questions about elasticity regarding to how AWS works and blimey, he understood that too!&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;So, what we do is to bring a bucket where we pour all the water, expand our empty bucket and put the water back, and we have to do that for every single bucket&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;Upgrading all the nodes with Chef is pretty simple, so, it was a matter of just moving data (or water) around and launching a few commands (to re-create the raid0).&lt;/p&gt;
+
+&lt;p&gt;Today I&amp;#8217;ve heard a conversation between two sales guy about buckets of water and then, then it&amp;#8217;s when I realised how important is to send our message across as clear as water (pun intended).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Managing Clusters</title>
+      <link>http://blog.pedrazas.me/2015/03/04/managing-clusters-when-cost-is-important/</link>
+      <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/03/04/managing-clusters-when-cost-is-important/</guid>
+      <description>&lt;p&gt;If you have a more than one cluster you know why Cluster Managers are so important: because managing clusters can be a nightmare. A cluster is a special kind of beast. Not only you have to be aware of the usual suspects: Disk space, logs, alerts, etc. But you have to be aware of other things: Master, Slaves, and what do they do together.&lt;/p&gt;
+
+&lt;p&gt;There are plenty of solutions out there that try to solve this problem. In fact, depending on your problem, you should chose one solution or another.&lt;/p&gt;
+
+&lt;p&gt;For example, &lt;a href=&#34;http://mesos.apache.org/&#34;&gt;Apache Mesos&lt;/a&gt; that abstracts machine resources like CPU, memory or storage, or &lt;a href=&#34;http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html&#34;&gt;Yarn&lt;/a&gt; (from the Hadoop family) that allows you to schedule your MapReduce jobs.&lt;/p&gt;
+
+&lt;p&gt;At Adbrain I&amp;#8217;ve built a little tool that does a bit of both. By any means it&amp;#8217;s anything like Mesos or Yarn but a super-hyper striped out version of the core ideas behind these two wonderful systems.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve called it &amp;#8220;&lt;em&gt;CheckPoint&lt;/em&gt;&amp;#8221; because I&amp;#8217;ve designed it following the Hollywood Principle: &amp;#8220;&lt;strong&gt;&lt;em&gt;Don&amp;#8217;t call me, I&amp;#8217;ll call you&lt;/em&gt;&lt;/strong&gt;&amp;#8220;. One of the most annoying things I&amp;#8217;ve found when provisioning machines using code is all that polling. Don&amp;#8217;t get me wrong, it works, but if Javascript has showed us something is that callbacks are (awesome) way better to deal with than threads and sleeps (or waits). CheckPoint works the other way around. For example, it creates and provisions the Apache Spark master, once it&amp;#8217;s up and running, that machine sends a request to Checkpoint and it creates and provision the workers. The whole cluster creation is asyncronous and it decoupled of what the other resources do.&lt;/p&gt;
+
+&lt;p&gt;So, CheckPoint started like yet-another-provisioning tool, but it ended up being much more than that. CheckPoint was the tool that allowed us to start working differently in what I call &amp;#8220;&lt;em&gt;Agile Clusters&lt;/em&gt;&amp;#8220;.&lt;/p&gt;
+
+&lt;p&gt;The foundation of Agile Clusters are 3 simple elements:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Creation and provisioning of Ephemeral clusters.&lt;/li&gt;
+&lt;li&gt;Ephemeral logging and monitoring.&lt;/li&gt;
+&lt;li&gt;Destruction of idle resources.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The 1st point it&amp;#8217;s easy, you need a way of building your machines. There are many solutions like Puppet, Ansible, Salt or Chef. CheckPoint uses Chef because that&amp;#8217;s what we use at Adbrain, but it&amp;#8217;s more of a burden than an advantage.&lt;/p&gt;
+
+&lt;p&gt;The 2nd point is quiet tricky. Ephemeral infrastructure is great, but when the machine go away, so goes the data, and the logs, and everything you didn&amp;#8217;t take out first. The other itchy point is monitoring. Yes, there are plenty solutions are there, but not that many that can deal with ephemeral infrastructure. CheckPoint uses &lt;a href=&#34;http://influxdb.com/&#34;&gt;InfluxDB&lt;/a&gt; and &lt;a href=&#34;http://grafana.org/&#34;&gt;grafana&lt;/a&gt;, in particular the &amp;#8220;&lt;a href=&#34;http://grafana.org/docs/features/scripted_dashboards/&#34;&gt;&lt;em&gt;Scripted Dashboards&lt;/em&gt;&lt;/a&gt;&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;The 3rd point is a blessing in disguise. CheckPoint provides a REST API so, developers can see infrastructure as one step more in their workflow execution where they can create and destroy resources but if for any reason your application or a developer forgets about a cluster&amp;#8230; CheckPoint does not an it will destroy that resource unless it&amp;#8217;s used.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/03/452b76319f298454e6f8ef6c3f6ce11a.png&#34;&gt;&lt;img class=&#34;alignright size-medium wp-image-389&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/03/452b76319f298454e6f8ef6c3f6ce11a-230x300.png&#34; alt=&#34;CheckPoint&#34; width=&#34;230&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;There&amp;#8217;s something that has made a huge impact in how we work: Accessible Information.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve been working in Knowledge Management almost all my life and I know how important is to have access to the right data at the right time.&lt;/p&gt;
+
+&lt;p&gt;That&amp;#8217;s why when I was building CheckPoint I was very conscious of who was going to use it and what it might be helpful to know at that time.&lt;/p&gt;
+
+&lt;p&gt;For example, the fact of displaying CPU, RAM and Price when selecting your instances has been incredibly useful to improve our cluster efficiency and cost.&lt;/p&gt;
+
+&lt;p&gt;But we not only managed to reduce the infrastructure cost by 30%, we achieved something that until now was a big unknown: &amp;#8220;How much it costs to run every big data job&amp;#8221;, because neither Mesos nor Yarn worry about cost, their job is not juggling with cost, it&amp;#8217;s solving another problem, quite a hard one, but to me being able to quantify how much it cost to run a job is critical, because it&amp;#8217;s not about in this world of Cloud services it&amp;#8217;s not about if it&amp;#8217;s possible or not, it&amp;#8217;s about if economically makes sense or not.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GmIT</title>
+      <link>http://blog.pedrazas.me/2014/07/27/gmit/</link>
+      <pubDate>Sun, 27 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/07/27/gmit/</guid>
+      <description>&lt;p&gt;(Graph my IT)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The problem:&lt;/strong&gt; We&amp;#8217;re in the process of upgrading our Documentum platform. As part of this upgrade I had to get in contact with all the owners of the different applications that use, connects or access Documentum. They all had to test, and if possible, upgrade their internal Documentum libraries.&lt;/p&gt;
+
+&lt;p&gt;The main issue was that it was not clear which applications were connecting to our different services or who was the right person to get in touch with.&lt;/p&gt;
+
+&lt;p&gt;My Solution? spending a few days going around the building talking to different teams and people to make sure the message was received.&lt;/p&gt;
+
+&lt;p&gt;I know what you are thinking: proper documentation and email could have well solved my problem but if you work in a fairly large organisation like I do, it will not surprise you that the documentation was not complete and it was not up to date. Half of the people the documentation mentioned was not working in those teams anymore, and some of them had move on to brightest lands.&lt;/p&gt;
+
+&lt;p&gt;As I said, I spent some quality time with different teams. Specially rewarding was my time with the networking team checking out the firewall to know which IPs were connecting to my servers. Having meetings with different group (developers, primary support, help desk, administrators&amp;#8230;) to make sure we had everything under control.&lt;/p&gt;
+
+&lt;p&gt;All this took a fairly amount of time and yes, it can be improved a lot and this post talks about what I did to start sailing towards that remote port.&lt;/p&gt;
+
+&lt;p&gt;Once I had all the details of people, machine, roles, and infrastructure I realise that a Spreadsheet (the way this information was officially kept) was not fit for purpose. I realise pretty quickly that I was looking at a graph and that finally I had stumbled upon a nice Use Case for &lt;a href=&#34;http://www.neo4j.org/&#34;&gt;Neo4J&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/07/neo4j.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-283&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/07/neo4j-300x73.png&#34; alt=&#34;neo4j&#34; width=&#34;300&#34; height=&#34;73&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The first time I had knowledge of Neo4J was in NOSQL eXchange in 2011. Since then, every time I&amp;#8217;ve looked at their technology I&amp;#8217;ve seen really cool things like graphs about Dr. Who or more recently The World Cup but as cool as these examples were, they were not very business focused, really. I mean, mapping daleks and doctors have a very different business value than mapping servers and applications (unless you work for BBC or you just happen to be The Doctor, of course).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/07/koans_drwho.png&#34;&gt;&lt;img class=&#34;aligncenter wp-image-282 size-medium&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/07/koans_drwho-300x224.png&#34; alt=&#34;koans_drwho&#34; width=&#34;300&#34; height=&#34;224&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I have to reckon that it took me a fair bit too long to get into graphs (I will blame Dr. Who and the World Cup!!)&lt;/p&gt;
+
+&lt;p&gt;Neo4j is not as different to any other database, this means: getting your data model right is fundamental&amp;#8230; however, Neo4j has something else&amp;#8230; it provides a bunch of relationships which will transform your data model.&lt;/p&gt;
+
+&lt;p&gt;Let me give you a visual example of what&amp;#8217;s going to happen with you data model once you try to use Neo4J is the Pizza dough. Let&amp;#8217;s assume your Data Architect defined the data model. That would be the dough. If Neo4J were the pizza master, this is what will happen: it will get your data model, it will stretch it, it will shrink it, it will make it spin, it will bake it and finally&amp;#8230; it will be ready for consumption in a very different way it was at the very beginning.&lt;/p&gt;
+
+&lt;div id=&#34;attachment_286&#34; style=&#34;width: 310px&#34; class=&#34;wp-caption aligncenter&#34;&gt;
+  &lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/07/2160246890_94819d31ab.jpg&#34;&gt;&lt;img class=&#34;size-medium wp-image-286&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/07/2160246890_94819d31ab-300x300.jpg&#34; alt=&#34;Defining your Data Model like a Pro!&#34; width=&#34;300&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    Defining your Data Model like a Pro!
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Seriously. I worked with Postgres, MongoDB, ElasticSearch, Redis, Dynamo&amp;#8230; and the datasource that has changed my data model the most is Neo4J, by far!&lt;/p&gt;
+
+&lt;p&gt;I started designing my model using the entities we had in the Spreadsheet&amp;#8230; it didn&amp;#8217;t work. Because flat is not good, and dealing with spreadsheets is what you get: flatland.&lt;/p&gt;
+
+&lt;p&gt;We had a list of applications and person to contact: &lt;strong&gt;Application Name, Owner&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Every Application had a document where it was defined the different machines they used per environment. Yes, that means one document per row in your list.&lt;/p&gt;
+
+&lt;p&gt;Then, you had another list of: &lt;strong&gt;Application, Administrator&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;And yet another one with: &lt;strong&gt;Application, Support Team&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You can put any kind of crazy stuff into a spreadsheet as reality has confirmed to all of us, but the hard truth is that a flat table is just that, a flat data layout. Besides, the fact that you have all that data in a document (with an owner and a path) makes things even worse (people don&amp;#8217;t tend to like other people&amp;#8217;s updating their documents).  Anyway, I decided to run a docker container with Neo4j in it. Easy!&lt;/p&gt;
+
+&lt;p&gt;My first model was something like this:&lt;/p&gt;
+
+&lt;p&gt;&amp;#8211; Application [IP, OS, Name]&lt;/p&gt;
+
+&lt;p&gt;&amp;#8211; Person [Name, email, extension]&lt;/p&gt;
+
+&lt;p&gt;&amp;#8211; Role [name]&lt;/p&gt;
+
+&lt;p&gt;With this first model I achieved something unseen before: I could map my application with all the dependencies and all the people involved but&amp;#8230; It was not very clear. If a person had 2 roles (I am the admin of an application, and support another one, the graph gets confusing. You want to know what the person does, not where he belongs&amp;#8230;)&lt;/p&gt;
+
+&lt;p&gt;Second iteration:&lt;/p&gt;
+
+&lt;p&gt;&amp;#8211; Application [IP, OS, Name] :: r[CONNECTS]&lt;/p&gt;
+
+&lt;p&gt;&amp;#8211; Person [Name, email, extension] :: [ADMINS | SUPPORTS ]&lt;/p&gt;
+
+&lt;p&gt;Applications run in clusters and machine information is quiet important (because we have firewall rules per machine, and IPs are per machine not application). Third iteration:&lt;/p&gt;
+
+&lt;p&gt;&amp;#8211; Application [Name, Build Version] :: r[CONNECTS]&lt;/p&gt;
+
+&lt;p&gt;&amp;#8211; Person [Name, email, extension] :: [ADMINS | SUPPORTS | HAS_ACCESS]&lt;/p&gt;
+
+&lt;p&gt;&amp;#8211; Server [Name, IP, OS] :: r[RUNS]&lt;/p&gt;
+
+&lt;p&gt;Well, I&amp;#8217;m not sure what&amp;#8217;s the best way of describing relationships to an entity but in a nutshell, an application can connect to another application, an application runs in one or more servers, people administers, supports and develops applications and servers and specially key, we had the relationship to map the firewall rules.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/07/networkmap.png&#34;&gt;&lt;img class=&#34;aligncenter size-large wp-image-289&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/07/networkmap-1024x539.png&#34; alt=&#34;networkmap&#34; width=&#34;700&#34; height=&#34;368&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;No matter how strict your rules are, you will always have exceptions and you will have to deal with them&amp;#8230; and as in any other place we do, but those exceptions are the first things to get broken when updates or migrations happen.&lt;/p&gt;
+
+&lt;p&gt;Things that I&amp;#8217;ve learnt during this process:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Creating a graph is much easier that it seems, specially if you run docker.&lt;/li&gt;
+&lt;li&gt;Data with Relationships visualisations are very powerful. Do not underestimate them!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Having an image of your map is worth a 1000 misunderstandings!&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Uploading CSV is a super fast way of getting your data in Neo4j&lt;/li&gt;
+&lt;li&gt;I love the idea of having a &lt;a href=&#34;http://docs.neo4j.org/chunked/milestone/rest-api-cypher.html&#34;&gt;REST API&lt;/a&gt; for my Cypher queries&lt;/li&gt;
+&lt;li&gt;Have I said that you can do batch processing with their API? #AWESOME!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let me give you the basic queries you will need to recreate a beautiful map of your network&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;# Creates Application&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;CREATE (ee:Application { name: &#34;Google Search Engine&#34;, version: &#34;42&#34;, public: true })
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;# Creates Server&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;CREATE (ee:Server { name: &#34;galactus&#34;, os: &#34;Linux Debian 7&#34;, ip: &#34;192.168.69.70&#34; })
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;# Creates Person&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;CREATE (ee:Person { name: &#34;John Wayne&#34;, email: &#34;jwayne@galactus.net&#34;, ext: 6867 })
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;# Creates Relationship Person-App, in this case:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;# person supports application&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;MATCH (a:Person),(b:Application)
+    WHERE a.name = &#39;John Wayne&#39; AND b.name = &#39;Google Search Engine&#39; 
+CREATE (a)-[r:Supports]-&amp;gt;(b)
+RETURN r
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;# Display everything&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;MATCH (a)-[r]-(b) RETURN a,b LIMIT 25
+&lt;/pre&gt;
+
+&lt;p&gt;That&amp;#8217;s all folks, hope you have fun!&lt;/p&gt;
+
+&lt;p&gt;Oh, one last thing&amp;#8230; in case you want to run &lt;a href=&#34;https://registry.hub.docker.com/u/tpires/neo4j/&#34;&gt;Neo4j in docker&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;docker run -d -p 7474:7474 tpires/neo4j&lt;/pre&gt;
+
+&lt;p&gt;If you have any comments, you can &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;find me here &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Monitoring Cron Jobs with Jenkins</title>
+      <link>http://blog.pedrazas.me/2013/06/28/monitoring-cron-jobs-with-jenkins/</link>
+      <pubDate>Fri, 28 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/06/28/monitoring-cron-jobs-with-jenkins/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&amp;#8220;How do you monitor your cron jobs?&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;We just don&amp;#8217;t&amp;#8230;&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Monitoring is one of those things that yo should do: monitor EVERYTHING&amp;#8230; or at least as much as you can.&lt;/p&gt;
+
+&lt;p&gt;One of the most slippery cases are our cron jobs. Many of them don&amp;#8217;t report anything, many of them run without anyone knowing they&amp;#8217;re there&amp;#8230; And even worse, if they fail, they fail silently: as this cron job I disabled because it had been failing since 2008 (only 5 years or every day failures).&lt;/p&gt;
+
+&lt;p&gt;That was the last straw, after removing that entry from the crontab I went to my boss and we decided to tackle the problem. This client uses Nimbus but it seems that the Nimbus guy was not very happy on having loads of cron jobs added so I suggested using Jenkins.&lt;/p&gt;
+
+&lt;p&gt;In this case we decided to use Free Style Software Projects since they allow us to run the cron job manually&lt;/p&gt;
+
+&lt;pre&gt;JENKINS_HOME=http://myserver.acme.org/path/to/jenkins/
+0 * * * *     export JENKINS_HOME=$JENKINS_HOME; java -jar jenkins-core-*.jar &#34;backup&#34; backup.sh 2&amp;gt;&amp;1 &amp;gt; /dev/null&lt;/pre&gt;
+
+&lt;p&gt;You can find more info in the &lt;a href=&#34;https://wiki.jenkins-ci.org/display/JENKINS/Monitoring+external+jobs&#34;&gt;Jenkins Wiki&lt;/a&gt; but if you want to know more or have any doubts, just &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;ping me on Twitter&lt;/a&gt; &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>3 links to save your sanity</title>
+      <link>http://blog.pedrazas.me/2013/06/15/3-links-to-save-your-sanity/</link>
+      <pubDate>Sat, 15 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/06/15/3-links-to-save-your-sanity/</guid>
+      <description>&lt;p&gt;During the last two years I&amp;#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.&lt;/p&gt;
+
+&lt;p&gt;Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&amp;#8217;s finished Boom! deploy finished &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This script will create the following directory:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#8217;s assume the last deploy was done 2 days before:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.13-11.23.22&amp;lt;br /&amp;gt;
+/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, there&amp;#8217;s something I do&amp;#8230; &amp;#8220;just in case&amp;#8221;, I create 3 symbolic links as follows:&lt;/p&gt;
+
+&lt;p&gt;``During the last two years I&amp;#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.&lt;/p&gt;
+
+&lt;p&gt;Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&amp;#8217;s finished Boom! deploy finished &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This script will create the following directory:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#8217;s assume the last deploy was done 2 days before:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.13-11.23.22&amp;lt;br /&amp;gt;
+/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, there&amp;#8217;s something I do&amp;#8230; &amp;#8220;just in case&amp;#8221;, I create 3 symbolic links as follows:&lt;/p&gt;
+
+&lt;p&gt;``&lt;/p&gt;
+
+&lt;p&gt;So, my nginx points to current, so if something goes wrong, I can always swap back to the previous release that, alas, it&amp;#8217;s just there. With these 3 links I know exactly where I am and where I was before the release, and yes, things go wrong, and my rollback is as simple as changing a couple of links (I do something else, but the update of the links is what makes the process extremely fast).&lt;/p&gt;
+
+&lt;p&gt;In case that you wonder, this is how the links are left after a rollback:&lt;/p&gt;
+
+&lt;p&gt;```During the last two years I&amp;#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.&lt;/p&gt;
+
+&lt;p&gt;Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&amp;#8217;s finished Boom! deploy finished &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This script will create the following directory:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#8217;s assume the last deploy was done 2 days before:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.13-11.23.22&amp;lt;br /&amp;gt;
+/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, there&amp;#8217;s something I do&amp;#8230; &amp;#8220;just in case&amp;#8221;, I create 3 symbolic links as follows:&lt;/p&gt;
+
+&lt;p&gt;``During the last two years I&amp;#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.&lt;/p&gt;
+
+&lt;p&gt;Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&amp;#8217;s finished Boom! deploy finished &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This script will create the following directory:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#8217;s assume the last deploy was done 2 days before:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.13-11.23.22&amp;lt;br /&amp;gt;
+/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, there&amp;#8217;s something I do&amp;#8230; &amp;#8220;just in case&amp;#8221;, I create 3 symbolic links as follows:&lt;/p&gt;
+
+&lt;p&gt;``&lt;/p&gt;
+
+&lt;p&gt;So, my nginx points to current, so if something goes wrong, I can always swap back to the previous release that, alas, it&amp;#8217;s just there. With these 3 links I know exactly where I am and where I was before the release, and yes, things go wrong, and my rollback is as simple as changing a couple of links (I do something else, but the update of the links is what makes the process extremely fast).&lt;/p&gt;
+
+&lt;p&gt;In case that you wonder, this is how the links are left after a rollback:&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Vagrant, dev love</title>
+      <link>http://blog.pedrazas.me/2013/06/14/vagrant-dev-love/</link>
+      <pubDate>Fri, 14 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/06/14/vagrant-dev-love/</guid>
+      <description>&lt;p&gt;So, imagine I would say that with this two commands:&lt;/p&gt;
+
+&lt;p&gt;`So, imagine I would say that with this two commands:&lt;/p&gt;
+
+&lt;p&gt;`&lt;/p&gt;
+
+&lt;p&gt;You have a Virtual machine with Ubuntu ready to play with.&lt;/p&gt;
+
+&lt;p&gt;Now, imagine that you configure that machine with the different software that you need. Smart people call that action to provision your machines. Just imagine. Because you have plenty of space, you save that virtual box somewhere in your dev server.&lt;/p&gt;
+
+&lt;p&gt;(in case you wonder where that virtual machine, or box, has been stored, it&amp;#8217;s here, look:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;~/.vagrant.d/boxes/precise64/virtualbox/&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;happy, now?)&lt;/p&gt;
+
+&lt;p&gt;Now, imagine this Science Fiction scene: a new starter arrives and it takes longer to set up his email and domain user than the dev machine. I know&amp;#8230; sounds ridiculous.&lt;/p&gt;
+
+&lt;p&gt;Well, that&amp;#8217;s Vagrant.&lt;/p&gt;
+
+&lt;p&gt;I use Vagrant with &lt;a href=&#34;http://www.ansibleworks.com/docs/playbooks2.html&#34;&gt;Ansible&lt;/a&gt; (we&amp;#8217;ll talk about this in another post) to re-create a Dev environment. Last time we checked out, it took 4 minutes and 23 seconds to create, provision and deploy the code in Vagrant installing and configuring:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span style=&#34;line-height: 15px;&#34;&gt;Nginx&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;php-fpm&lt;/li&gt;
+&lt;li&gt;python: gunicorn, supervisor, virtualenv&lt;/li&gt;
+&lt;li&gt;mongodb&lt;/li&gt;
+&lt;li&gt;redis&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thing is, I much rather prefer spending time setting up my sublime text than my python environment&amp;#8230; unfortunately, I do have yet-another script that installs &amp;amp; configures my sublime.&lt;/p&gt;
+
+&lt;p&gt;Quote of the week:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Automate Everything!&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

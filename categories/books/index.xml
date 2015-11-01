@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Books on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/categories/books/</link>
+    <description>Recent content in Books on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Tue, 23 Jul 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/categories/books/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Vagrant: Up and Running By Mitchell Hashimoto</title>
+      <link>http://blog.pedrazas.me/2013/07/23/vagrant-up-and-running-by-mitchell-hashimoto/</link>
+      <pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/07/23/vagrant-up-and-running-by-mitchell-hashimoto/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://shop.oreilly.com/product/0636920026358.do&#34;&gt;&lt;img class=&#34;alignleft size-full wp-image-180&#34; alt=&#34;Vagrant Up and Running&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/07/vagrant-cover.gif&#34; width=&#34;180&#34; height=&#34;236&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I wanted a book to get me up to speed with Vagrant and that&amp;#8217;s exactly what &lt;a href=&#34;http://shop.oreilly.com/product/0636920026358.do&#34;&gt;Vagrant Up and Running&lt;/a&gt; does.&lt;/p&gt;
+
+&lt;p&gt;I have talked about &lt;a href=&#34;http://www.vagrantup.com/&#34;&gt;Vagrant&lt;/a&gt; already in this blog (&lt;a href=&#34;http://ivan.pedrazas.me/?p=136&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;http://ivan.pedrazas.me/?p=155&#34;&gt;here&lt;/a&gt;) but if you have looked at Vagrant and you&amp;#8217;re not using it yet because you &amp;#8220;didn&amp;#8217;t get it&amp;#8221; let me tell you how I did it.&lt;/p&gt;
+
+&lt;p&gt;Books are great for building this baseline of knowledge. They have the advantage of curated structure and the disadvantage of getting outdated&amp;#8230; but since my memory is quite terrible, what I want from a book is a better understanding of the technology and not how to type that command.&lt;/p&gt;
+
+&lt;p&gt;For the accurate sintaxis and instructions I fall back to google  &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;What I do is the following. When I&amp;#8217;m going to learn something new I always start a new project where I can use that technology.&lt;/p&gt;
+
+&lt;p&gt;My projects are structured as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span style=&#34;line-height: 15px;&#34;&gt;prod&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;lab&lt;/li&gt;
+&lt;li&gt;test&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So, depending what I&amp;#8217;m going to do I add an entry to test (if it&amp;#8217;s a quick test that can be deleted at any time) or to lab if it&amp;#8217;s a project I want to use to learn a new technology. There&amp;#8217;s nothing like building to get the learning going &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For example, I&amp;#8217;m building Cryptadoo as the way of learning Django, or with Grails I created my &amp;#8220;Rewards&amp;#8221; project.&lt;/p&gt;
+
+&lt;p&gt;Vagrant is different because you cannot build something, but it helps you to develop better. Still, I created a project with AngularJS to test Vagrant (ServerMarks).&lt;/p&gt;
+
+&lt;p&gt;For me the book provides a solid foundation for day to day use of Vagrant, with plenty of guidance for getting into more advanced usage. Automation is encouraged by Vagrant&amp;#8217;s workflows, I would say even more: Automation is encourage in general.&lt;/p&gt;
+
+&lt;p&gt;New users and people with zero Vagrant experience will be able to pick up this book and learn everything they need to start using Vagrant and getting the most out of it.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;#8217;re like me, this book will help you loads because it illustrates the best use cases of Vagrant. I agree, the fact that V1.0 and V1.1 or V2.0 have some incompatibilities will force you to go out and look for the right command, but as I said before, books can get outdated pretty quickly, but there&amp;#8217;s something that books give you than none of your random search will do: structure&amp;#8230; and hey, you can read them without Internet connection for example: while commuting &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want a step by step tutorial this &lt;a href=&#34;http://shop.oreilly.com/product/0636920026358.do&#34;&gt;Vagrant Up and Running&lt;/a&gt; will help you little, but as a way to accelerate learning it&amp;#8217;s a wonderful book!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

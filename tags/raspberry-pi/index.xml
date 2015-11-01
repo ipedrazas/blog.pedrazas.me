@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Raspberry Pi on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/tags/raspberry-pi/</link>
+    <description>Recent content in Raspberry Pi on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Sun, 30 Jun 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The Challenge</title>
+      <link>http://blog.pedrazas.me/2013/06/30/the-challenge-2/</link>
+      <pubDate>Sun, 30 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/06/30/the-challenge-2/</guid>
+      <description>&lt;p&gt;Recently me and my wife have been having some problems with Internet and Children. I know, there are hundreds of filters and ways of preventing children to access content that it not appropriate to their age&amp;#8230; and none seems to work well.&lt;/p&gt;
+
+&lt;p&gt;You can enable &lt;a href=&#34;http://www.google.com/preferences&#34;&gt;Safe Search&lt;/a&gt; in Google and YouTube Safety Mode. Let me show you acouple of Image Searches by Mighty Google with the Safe Search On, I searched for &amp;#8220;&lt;a href=&#34;https://www.google.co.uk/search?hl=en&amp;amp;authuser=0&amp;amp;site=imghp&amp;amp;tbm=isch&amp;amp;source=hp&amp;amp;biw=1920&amp;amp;bih=990&amp;amp;q=human+rights&#34;&gt;Human Rights&lt;/a&gt;&amp;#8220;:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/06/Selection_021.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-165&#34; alt=&#34;Google Search&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/06/Selection_021-300x140.png&#34; width=&#34;300&#34; height=&#34;140&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/06/Selection_020.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-164&#34; alt=&#34;Google Search&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/06/Selection_020-300x151.png&#34; width=&#34;300&#34; height=&#34;151&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So, yes, almost all the images are &amp;#8220;safe&amp;#8221;&amp;#8230; almost. Thing is, if you disable that safe search the results contain less blood.&lt;/p&gt;
+
+&lt;p&gt;Other options are using a proxy that filters out the dodgy content but not many people know how to install those things that have evolved into add-ons or extensions that filter out certain pages.&lt;/p&gt;
+
+&lt;p&gt;The issue with those solutions is that you rely on a company that gathers your browsing data (and your children&amp;#8217;s browsing data) and all of them have long Terms and Conditions and what really worries me is that as a company, you need to make money. Since they give away their product, I&amp;#8217;m afraid that the real product is the user&amp;#8217;s data.&lt;/p&gt;
+
+&lt;p&gt;So, as parents we have some options. But it&amp;#8217;s not what us as parents can do, but what our children are going to do. An example would be WoT, a great idea with a big problem: children don&amp;#8217;t understand it. WoT&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;#8220;crowdsources ratings from a global community of millions of users, who rate and comment on websites based on their personal experiences&amp;#8221;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Wicked! Now when I search I see that little green/red icon next to the results&amp;#8230; Do you think that children understand that? me neither.&lt;/p&gt;
+
+&lt;p&gt;Don&amp;#8217;t get me wrong, I think it is a great idea and it is the way to go. They have options to &amp;#8220;&lt;em&gt;Block sites that are unsuitable for children&lt;/em&gt;&amp;#8220;. So, in many ways it is better than using Mighty Google and its Safe Search.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/06/Screenshot-from-2013-06-30-233411.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-167&#34; alt=&#34;WoT&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/06/Screenshot-from-2013-06-30-233411-300x267.png&#34; width=&#34;300&#34; height=&#34;267&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Unfortunately WoT is not only focused on Children safety which is good and bad&amp;#8230; but it is a great idea and I will be looking at them (and their API) more closely.&lt;/p&gt;
+
+&lt;p&gt;One of the best Add-ons for Firefox or Chrome is Web Filter by &lt;a href=&#34;http://www.cloudacl.com/&#34;&gt;CloudAcl&lt;/a&gt;. It allows you Black List or White List websites. A parents/kids mode and it&amp;#8217;s password protected&amp;#8230; and they have a mobile version for your iPhone/iPad or your Android device.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/06/Selection_022.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-173&#34; alt=&#34;CloudAcl&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/06/Selection_022-296x300.png&#34; width=&#34;296&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Another option is to use a &amp;#8220;Kid&amp;#8217;s Safe Browser&amp;#8221; like &lt;a href=&#34;http://www.kidzui.com/&#34;&gt;KidZui&lt;/a&gt;. Again, this is a great tool with the only issue of why do they need to gather and keep browsing history in their servers and not keep it in MY BROWSER!!! (the fact that they do that is a big red flag, since technically there&amp;#8217;s no reason for taking my data somewhere else and by doing that your message is &amp;#8220;I do it because that&amp;#8217;s how I make money&amp;#8221;. Again, me and my children are the product not the customer.&lt;/p&gt;
+
+&lt;p&gt;As it seems, the options out there are not as good as we might expect. Or they are not as efficient as we would like to or they are not specialised in children&amp;#8217;s browing or they have a dodgy business model.&lt;/p&gt;
+
+&lt;p&gt;What &lt;strong&gt;I would like&lt;/strong&gt; is to have an &lt;span style=&#34;text-decoration: underline;&#34;&gt;open source solution&lt;/span&gt; that stops my children from seeing things that are not appropriate for them. I&amp;#8217;d like to have also a tool that allows me easily to monitor what is going on when I&amp;#8217;m not there browsing with them.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m not sure if there&amp;#8217;s such thing, what I know is that I haven&amp;#8217;t found it yet&amp;#8230;  Since I like technology and specially &lt;a href=&#34;www.raspberrypi.org&#34;&gt;Raspberry Pis&lt;/a&gt;, I&amp;#8217;m building a plug and play device that I call &lt;strong&gt;SafeBerry Pi&lt;/strong&gt; and it&amp;#8217;s basically the monitoring tool. Still very early stages but worry not, I will be writing about it as soon as I have something (stable) working, so, stay tunned!!&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

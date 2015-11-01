@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anti Patterns on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/tags/anti-patterns/</link>
+    <description>Recent content in Anti Patterns on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Tue, 19 Feb 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/tags/anti-patterns/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Why Project Managers should have children</title>
+      <link>http://blog.pedrazas.me/2013/02/19/why-project-managers-should-have-children/</link>
+      <pubDate>Tue, 19 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/02/19/why-project-managers-should-have-children/</guid>
+      <description>&lt;p&gt;Sometimes when I&amp;#8217;m out with my children people makes comments about how busy we must be with three little monsters. Yes, we are&amp;#8230; but there&amp;#8217;s nothing you cannot solve with a bit of organisation, loads of patience and chocolate. Bribing is a must!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/02/ID-10081433.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-44&#34; alt=&#34;ID-10081433&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/02/ID-10081433-300x223.jpg&#34; width=&#34;300&#34; height=&#34;223&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;But there&amp;#8217;s a particular case that gest the whole thing wrong: Parents with only one child. They think that one child takes so much time, that 3 will take at least 3 times more.&lt;/p&gt;
+
+&lt;p&gt;Very Wrong.&lt;/p&gt;
+
+&lt;p&gt;Children, like a team, don&amp;#8217;t add up but mix. It&amp;#8217;s all about how well organised you are and don&amp;#8217;t get me wrong, it&amp;#8217;s not about planning 2 weeks ahead, it&amp;#8217;s about planning what are they going to do next or tomorrow, not in 2 weeks, or summer. Yes, registering for summer camps, like managing training of your team has to be done with plenty of time.&lt;/p&gt;
+
+&lt;p&gt;Managing software projects and managing children is quite similar. There are very big unknowns. Planning two weeks ahead makes not much sense. Alas, planning what are they going to do after school is never easy because you never know how tired they will be, or which mood they will come out with&amp;#8230; Plan this big dinner to find out that they had this massive Birthday party and they&amp;#8217;ve been fuelled by sugar and noise&amp;#8230; So, yes, you have to plan, planning is key&amp;#8230; as much as being able to be flexible an improvise.&lt;/p&gt;
+
+&lt;p&gt;How? software development left in hands of improvisation? well, don&amp;#8217;t get me wrong, it&amp;#8217;s not the improvisation that comes with &amp;#8220;Don&amp;#8217;t have a clue&amp;#8230; let&amp;#8217;s try this&amp;#8221; but the improvisation that comes with experience of being now and there. Key is to plan this or that and if it fails (for any reason) do that other thing or try this other approach.&lt;/p&gt;
+
+&lt;p&gt;So, here we are, it&amp;#8217;s not about reading the right books, it&amp;#8217;s about doing the wrong thing and learning from it. Notice the LEARN bit&amp;#8230; any parent with children know their children very well, so when they come home with a foul mood, or tired or XXXX they know how to smooth the transition from school to bed, or how I tell my wife, Bed deployment was success. All unit tests are green, house is quiet.&lt;/p&gt;
+
+&lt;p&gt;She text back something along the lines &amp;#8220;nerd! &amp;#8230; love you&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;Life is never easy, but it&amp;#8217;s about being flexible&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
