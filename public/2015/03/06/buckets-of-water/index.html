@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buckets of Water &middot; Big Bag Blog</title>
+
+    <meta name="description" content="">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Buckets of Water &middot; Big Bag Blog">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Buckets of Water &middot; Big Bag Blog">
+    <meta property="og:description" content="">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://blog.pedrazas.me/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Big Bag Blog" href="http://blog.pedrazas.me/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://blog.pedrazas.me">Big Bag Blog</a></h1>
+            <h2 class="brand-tagline"> Need a place to hide </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/ipedrazas"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/ipedrazas "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://blog.pedrazas.me/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                <h1 class="content-subhead">06 Mar 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2015/03/06/buckets-of-water/" class="post-title">Buckets of Water</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Cassandra" href="http://blog.pedrazas.me/categories/cassandra">Cassandra</a><a class="post-category post-category-DevOps" href="http://blog.pedrazas.me/categories/devops">DevOps</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-share">
+                        <div class="post-share-links">
+                            <h4 style="">Share</h4>
+                            <a href="#" data-type="facebook" data-url="http://blog.pedrazas.me/2015/03/06/buckets-of-water/" data-title="Buckets of Water" data-description="" data-media="" class="prettySocial fa fa-facebook"></a>
+                            <a href="#" data-type="googleplus" data-url="http://blog.pedrazas.me/2015/03/06/buckets-of-water/" data-description="" class="prettySocial fa fa-google-plus"></a>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="post-description">
+                        <p>I&#8217;m sure you&#8217;ve been here before: you have a problem, you try to explain it to non-technical people and&#8230; you fail to send a clear message across .</p>
+
+<p>Communication is a two way road. It&#8217;s not just you sending a message, it&#8217;s the other part receiving it and understanding it. We&#8217;re good at sending and receiving, it&#8217;s in the understanding bit that we all struggle more than we would like to.</p>
+
+<p>Finding good similes and analogies is hard. It&#8217;s something that sales people excel to, but it seems that technical people, we struggle a bit more.</p>
+
+<p>Anyway, I had a little problem with one of our Cassandra clusters: it was overflowing data and nodes refused to join the ring&#8230; Solution? Scale up!</p>
+
+<p>The process was simple but when the non-technical people started asking what was going on I had to find a way of illustrating the situation&#8230; and I did, using buckets of water. This is what I said:</p>
+
+<p>&#8220;Imagine we have buckets of water and we pour water on them in a regular basis. When we see that the water levels are getting to high we add more buckets and little by little move water around until all the buckets have enough space to get more water&#8221;</p>
+
+<p>This is what it usually happens when you add more Cassandra nodes to a ring.</p>
+
+<p>&#8220;Well, trouble is that we&#8217;re not sure why, we cannot add more buckets. What would you do if you cannot add more buckets?&#8221; I asked.</p>
+
+<p>&#8220;Can we use bigger buckets?&#8221;</p>
+
+<p>&#8220;That&#8217;s pretty much what I have done! do you want to work with us?&#8221; Laughs and nods.</p>
+
+<p>&#8220;I had to replace every single bucket by a bigger one. But there&#8217;s a catch, the bucket has to be the same, which is fine, because I can expand the bucket&#8230; because they are elastic&#8221;.</p>
+
+<p>Here the guy asked a few questions about elasticity regarding to how AWS works and blimey, he understood that too!</p>
+
+<p>&#8220;So, what we do is to bring a bucket where we pour all the water, expand our empty bucket and put the water back, and we have to do that for every single bucket&#8221;.</p>
+
+<p>Upgrading all the nodes with Chef is pretty simple, so, it was a matter of just moving data (or water) around and launching a few commands (to re-create the raid0).</p>
+
+<p>Today I&#8217;ve heard a conversation between two sales guy about buckets of water and then, then it&#8217;s when I realised how important is to send our message across as clear as water (pun intended).</p>
+
+                    </div>
+                    
+                </section>
+            </div>
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://blog.pedrazas.me/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

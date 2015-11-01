@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Elasticsearch on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/tags/elasticsearch/</link>
+    <description>Recent content in Elasticsearch on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Sun, 07 Sep 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/tags/elasticsearch/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Analytics From my Browsing History</title>
+      <link>http://blog.pedrazas.me/2014/09/07/from-my-browsing-history/</link>
+      <pubDate>Sun, 07 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/09/07/from-my-browsing-history/</guid>
+      <description>&lt;p&gt;One of the problems I had while writing dotMarks was the fact that I could not get enough URLs for my testing. I did ask friends and family to send me over their exported list of bookmarks or the bookmarks from pocket&amp;#8230; but &lt;a href=&#34;https://www.youtube.com/watch?v=Pj-qBUWOYfE&#34;&gt;I needed more data&lt;/a&gt;, so, I look somewhere else: My browsing history.&lt;/p&gt;
+
+&lt;p&gt;Of course I couldn&amp;#8217;t just get those links &amp;#8220;&lt;strong&gt;&lt;em&gt;and carry on&lt;/em&gt;&lt;/strong&gt;&amp;#8220;. I had to look at them, poke them and write an extension that allows me to analyse them.&lt;/p&gt;
+
+&lt;p&gt;Because, the idea was&amp;#8230; what kind of high level information can Google (or anyone else) know from just looking at my browing history? and the result was as scary as you might imagine.&lt;/p&gt;
+
+&lt;p&gt;Bear in mind that Google knows much more than just my history&amp;#8230; but that&amp;#8217;s for another post. Let&amp;#8217;s focus!&lt;/p&gt;
+
+&lt;p&gt;This extension basically gathers all your browing history (100 days max), sends it to dotmarks where some data-crunching happens and&amp;#8230; then you see the results.&lt;/p&gt;
+
+&lt;p&gt;For example, it checks at what time you visit a link and creates this pretty graph:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111057.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-330&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111057-300x167.png&#34; alt=&#34;Screenshot from 2014-09-07 11:10:57&#34; width=&#34;300&#34; height=&#34;167&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Which highlights something that everybody who knows me is aware of: I do not sleep much and&amp;#8230; that I work very early in the morning, or very late at night.&lt;/p&gt;
+
+&lt;p&gt;I was very curious about finding out my most visited websites&amp;#8230; nothing surprising here:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111147.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-328&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111147-300x207.png&#34; alt=&#34;Screenshot from 2014-09-07 11:11:47&#34; width=&#34;300&#34; height=&#34;207&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;That I do not procastinate as much as I thought is quiet clear (twitter reloads itself a lot, that&amp;#8217;s why it ranks so high), but mostly I work on my localhost&amp;#8230; and check how my Bitcoins are doing at &lt;a href=&#34;http://megamine.com/&#34;&gt;Megamine&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/theres-no-place-like-127-0-0-1-localhost-computer-print-poster.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-333&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/theres-no-place-like-127-0-0-1-localhost-computer-print-poster-300x200.jpg&#34; alt=&#34;theres-no-place-like-127-0-0-1-localhost-computer-print-poster&#34; width=&#34;300&#34; height=&#34;200&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Then, I started extracting keywords from my searches&amp;#8230; and things got more interesting:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111126.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-329&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111126-300x209.png&#34; alt=&#34;Screenshot from 2014-09-07 11:11:26&#34; width=&#34;300&#34; height=&#34;209&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Yes, I do search about superheroes a lot&amp;#8230; things of having children addicted to Thor, Spiderman and such troop.&lt;/p&gt;
+
+&lt;p&gt;What is really interesting is how high rank generics like java, python or ubuntu. I was a bit puzzled at first, then I realised that those keywords are ways of filtering out unwanted results. No surprise then, I do work with ubuntu, java and python.&lt;/p&gt;
+
+&lt;p&gt;Still, top marks for the two technologies I&amp;#8217;ve been working more with: ElasticSearch and Docker. ElasticSearch documentation is quite dry&amp;#8230; Docker, because I&amp;#8217;m trying to do a bit too much I guess.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://dotmarks.net&#34;&gt;dotMarks&lt;/a&gt; is a self hosted bookmarks service. The idea is that you will run your own dotMarks server. I&amp;#8217;m working hard to make it as easy as possible to run it (thanks to Docker) but if you&amp;#8217;re curious and want to see what your browsing history says about you, &lt;a href=&#34;https://github.com/ipedrazas/dotmarks-history&#34;&gt;download the extension&lt;/a&gt; and give it a go.&lt;/p&gt;
+
+&lt;p&gt;What I need is advice  &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;If you run the extension and think of something else I can extract I&amp;#8217;m all ears.&lt;/p&gt;
+
+&lt;p&gt;Currently I&amp;#8217;m working on a simple amazon parser, but it&amp;#8217;s still very early&amp;#8230; anyway, if you want to give it a go, by all means try it out and if you can share your feedback &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;with me&lt;/a&gt;, I would really appreciate it.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;a href=&#34;https://dotmarks.net&#34;&gt;dotMarks&lt;/a&gt; and all related to this project is OpenSource. I do have a working version &lt;a href=&#34;https://dotmarks.net/app/#/dotmarks&#34;&gt;here&lt;/a&gt;, but as I said, the idea is that you will run your own service. Still, if you want to add your bookmarks, go ahead, and if you want to be able to find them later, use a tag that you can recognise later.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What’s the Filthiest PostCode in UK? and the Cleanest too!</title>
+      <link>http://blog.pedrazas.me/2014/08/05/fhr-elasticsearch-aggregations/</link>
+      <pubDate>Tue, 05 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/08/05/fhr-elasticsearch-aggregations/</guid>
+      <description>&lt;p&gt;There&amp;#8217;s a &lt;a href=&#34;https://github.com/ipedrazas/crawlers/tree/master/FHR&#34;&gt;GitHub repo&lt;/a&gt; associated to this post that &lt;a href=&#34;https://github.com/ipedrazas/crawlers/tree/master/FHR&#34;&gt;it can be found here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Do you know that sticker on the window of most takeaway shops? that sticker displays the Hygiene rating. This post is not about those stickers.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-303&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/08/fhrs_5_en-gb.jpg&#34; alt=&#34;Hygiene Rating Sticker&#34; width=&#34;290&#34; height=&#34;148&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, as it happens, restaurants, deli bars and of course, take away shops are checked up regularly to see how clean are they and the collected information ends up in a report, a sticker and&amp;#8230; some dark and remote database.&lt;/p&gt;
+
+&lt;p&gt;After doing the ElastiSearch training three weeks ago I was itching to do some aggregations with it. I have done aggregations before using &amp;#8220;&lt;em&gt;Ye Olde&lt;/em&gt;&amp;#8221; Map/Reduce approach and I was interested on seeing how it would compare to do agregations with MongoDB.&lt;/p&gt;
+
+&lt;p&gt;I found the Food and Higiene dataset and a python script later I had all their data in my hard drive (just under 500MB of XMLs). Since I like diversity, I wrote a Java program to parse those XMLs and add them into my ElasticSearch instance. It really surprised me the amount of time spent on preparing the data before being able to execute the analysis. I know, it shouldn&amp;#8217;t but it does&amp;#8230; every single time it does.&lt;/p&gt;
+
+&lt;p&gt;Anyway, I run ElasticSearch in a docker instance that has the Marvel plugin in it. This plugin is perfect for throwing a few quick queries and getting some json back. Of course, me being me, I could not just do some tests and write a blog post&amp;#8230; I had to create &lt;a href=&#34;https://github.com/ipedrazas/crawlers/tree/master/FHR&#34;&gt;a Github Repo&lt;/a&gt; where you can find the source code (just in case you do want to try it by yourself), results (in json files) and some more detailed explanation about how to fetch the data, run the docker container and the different queries I issued.&lt;/p&gt;
+
+&lt;p&gt;After indexing almost half a Gigabyte I discovered that the average rating In UK for Food Hygiene is &lt;strong&gt;3.5849&lt;/strong&gt; which is not that great, is it? I mean, we are talking about how clean is the place where we eat: &amp;#8220;kind of not clean but not dirty neither&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;What else did I find? Well, I was interested on my area (NW10) average: &lt;strong&gt;3.23910171730515  &lt;/strong&gt;Depressing, I guess it&amp;#8217;s time to move to&amp;#8230; where?&lt;/p&gt;
+
+&lt;p&gt;Well, let&amp;#8217;s find out, what&amp;#8217;s the cleanest Post Code? I didn&amp;#8217;t know much about UK PostCodes. Post Code indicates the area (outward) and the building/house (inward). The dataset provides longitude and latitude for every single establishment so you don&amp;#8217;t really need the PostCode to put the stablishment in a map. Anyway, that was not my intention.&lt;/p&gt;
+
+&lt;p&gt;So, as it turns, the cleanest Post Code is &lt;a href=&#34;https://www.google.co.uk/maps/place/South+Petherton,+Somerset+TA13/@50.8277828,-2.2505537,9z/data=!4m2!3m1!1s0x48726c54bfd88a65:0xc91f5b601623f2d1&#34;&gt;SOUTH PETHERTON (TA13)&lt;/a&gt;, or if you think that 42 establishments and an average of &lt;strong&gt;4.761904761904762&lt;/strong&gt; is not significant enough I can move to &lt;a href=&#34;https://www.google.co.uk/maps/place/Taunton,+Somerset/@52.1627957,-1.8741876,7z/data=!4m2!3m1!1s0x486d8a921fb7907f:0x75eb0e344edee9fb&#34;&gt;TAUNTON (TA3)&lt;/a&gt; with a wooping average of &lt;strong&gt;4.642857142857143&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;And now that we know where to go, which place we should all avoid? Ladies and Gentlemen, the filthiest area in UK is (shame on you)&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.google.co.uk/maps/place/Hawick,+Scottish+Borders+TD9/@53.3002712,-2.738034,7z/data=!4m6!1m3!3m2!1s0x487d796662ced111:0x2cc564208e63c086!2sShankend+Holiday+Cottage+Hawick!3m1!1s0x487d605a6cc3a265:0x188c40d9107d6db6&#34;&gt;HAWICK, NEWCASTLETON (TD9)&lt;/a&gt; with a terrible average of &lt;strong&gt;0.013761467889908258&lt;/strong&gt; (yes, that&amp;#8217;s Zero point Zero One).&lt;/p&gt;
+
+&lt;pre&gt;{
+   &#34;key&#34;: &#34;td9&#34;,
+   &#34;doc_count&#34;: 218,
+   &#34;avg_height&#34;: {
+      &#34;value&#34;: 0.013761467889908258
+   }
+},
+
+ {
+   &#34;key&#34;: &#34;ta13&#34;,
+   &#34;doc_count&#34;: 42,
+   &#34;avg_height&#34;: {
+      &#34;value&#34;: 4.761904761904762
+   }
+},
+{
+   &#34;key&#34;: &#34;ta3&#34;,
+   &#34;doc_count&#34;: 112,
+   &#34;avg_height&#34;: {
+      &#34;value&#34;: 4.642857142857143
+   }
+},
+&lt;/pre&gt;
+
+&lt;p&gt;But let&amp;#8217;s not stop there&amp;#8230; What is the most common rating? XX&lt;/p&gt;
+
+&lt;p&gt;The Food Standars Agency has a web form that let&amp;#8217;s you check the rating of your favourite place.&lt;/p&gt;
+
+&lt;p&gt;Let me show you one of the queries I used, just in case you&amp;#8217;re looking at how to do aggregations with ElasticSearch and are struggling with the lack of documentation:&lt;/p&gt;
+
+&lt;pre&gt;GET _search
+{
+
+   &#34;query&#34; : {
+      &#34;match&#34; : { &#34;PostCode&#34; : &#34;PO18*&#34;}
+       },
+   &#34;aggs&#34; : {
+        &#34;Food_hygiene_ratings&#34; : {
+           &#34;terms&#34; : {
+             &#34;field&#34; : &#34;RatingValue&#34;
+           }
+        },
+
+        &#34;avg_height&#34; : {
+          &#34;avg&#34; : {
+            &#34;field&#34; : &#34;RatingValue&#34; }
+
+        }
+      }
+}
+&lt;/pre&gt;
+
+&lt;p&gt;This query matches a PostCode (PO18 ) and then it aggregates twice the result using the field RatingValue. The first one will give you the count of the different ratings and the second one will give you the average of the rating.&lt;/p&gt;
+
+&lt;p&gt;Conclusion? prepating the data was quiet of a pain, but it always is. Loading the data was blazing fast and the results were pretty quick too. The aggregation of all the PostCodes took a few seconds and the huge amount of data that it returned was impressive.&lt;/p&gt;
+
+&lt;p&gt;All in all, a very quick way of getting some json data to feed into the D3 visualisations.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/List_of_postcode_areas_in_the_United_Kingdom&#34;&gt;http://en.wikipedia.org/wiki/List_of_postcode_areas_in_the_United_Kingdom&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;GET _search
+{
+
+   &#34;aggs&#34; : {
+        &#34;Food_hygiene_ratings&#34; : {
+           &#34;terms&#34; : {
+             &#34;field&#34; : &#34;areacode&#34;,
+             &#34;size&#34;: 0,
+             &#34;order&#34;: {
+                    &#34;avg_height&#34;: &#34;desc&#34;
+                }
+
+           },
+
+           &#34;aggs&#34;:{
+             &#34;postcodes&#34;:{
+             &#34;terms&#34; : {
+               &#34;field&#34; : &#34;RatingValue&#34;
+              }
+             }
+             ,
+
+        &#34;avg_height&#34; : {
+          &#34;avg&#34; : {
+            &#34;field&#34; : &#34;RatingValue&#34;
+
+          }
+
+        }
+           }
+        }
+      }
+}
+&lt;/pre&gt;
+
+&lt;p&gt;Once we know the area, we want to filter by outward&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Worst case TD&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;GET _search
+{
+
+    &#34;query&#34; : {
+      &#34;match&#34; : { &#34;areacode&#34; : &#34;td&#34;}
+       },
+   &#34;aggs&#34; : {
+        &#34;Food_hygiene_ratings&#34; : {
+           &#34;terms&#34; : {
+             &#34;field&#34; : &#34;outward&#34;,
+             &#34;size&#34;: 0,
+             &#34;order&#34;: {
+                    &#34;avg_height&#34;: &#34;desc&#34;
+                }
+
+           },
+
+           &#34;aggs&#34;:{
+
+              &#34;avg_height&#34; : {
+                &#34;avg&#34; : {
+                  &#34;field&#34; : &#34;RatingValue&#34;
+                }
+
+              }
+           }
+      }
+    }
+}
+
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Worst case&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&#34;key&#34;: &#34;td&#34;,
+   &#34;doc_count&#34;: 1492,
+   &#34;postcodes&#34;: {
+      &#34;buckets&#34;: [
+         {
+            &#34;key&#34;: 0,
+            &#34;key_as_string&#34;: &#34;0&#34;,
+            &#34;doc_count&#34;: 1244
+         },
+         {
+            &#34;key&#34;: 5,
+            &#34;key_as_string&#34;: &#34;5&#34;,
+            &#34;doc_count&#34;: 152
+         },
+         {
+            &#34;key&#34;: 4,
+            &#34;key_as_string&#34;: &#34;4&#34;,
+            &#34;doc_count&#34;: 53
+         },
+         {
+            &#34;key&#34;: 3,
+            &#34;key_as_string&#34;: &#34;3&#34;,
+            &#34;doc_count&#34;: 37
+         },
+         {
+            &#34;key&#34;: 1,
+            &#34;key_as_string&#34;: &#34;1&#34;,
+            &#34;doc_count&#34;: 4
+         },
+         {
+            &#34;key&#34;: 2,
+            &#34;key_as_string&#34;: &#34;2&#34;,
+            &#34;doc_count&#34;: 2
+         }
+      ]
+   },
+   &#34;avg_height&#34;: {
+      &#34;value&#34;: 0.7312332439678284
+   }
+},
+
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Best case&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;{
+   &#34;key&#34;: &#34;ta&#34;,
+   &#34;doc_count&#34;: 2823,
+   &#34;postcodes&#34;: {
+      &#34;buckets&#34;: [
+         {
+            &#34;key&#34;: 5,
+            &#34;key_as_string&#34;: &#34;5&#34;,
+            &#34;doc_count&#34;: 1955
+         },
+         {
+            &#34;key&#34;: 4,
+            &#34;key_as_string&#34;: &#34;4&#34;,
+            &#34;doc_count&#34;: 521
+         },
+         {
+            &#34;key&#34;: 3,
+            &#34;key_as_string&#34;: &#34;3&#34;,
+            &#34;doc_count&#34;: 152
+         },
+         {
+            &#34;key&#34;: 0,
+            &#34;key_as_string&#34;: &#34;0&#34;,
+            &#34;doc_count&#34;: 107
+         },
+         {
+            &#34;key&#34;: 1,
+            &#34;key_as_string&#34;: &#34;1&#34;,
+            &#34;doc_count&#34;: 52
+         },
+         {
+            &#34;key&#34;: 2,
+            &#34;key_as_string&#34;: &#34;2&#34;,
+            &#34;doc_count&#34;: 36
+         }
+      ]
+   },
+   &#34;avg_height&#34;: {
+      &#34;value&#34;: 4.406305348919589
+   }
+},
+&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>London on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/categories/london/</link>
+    <description>Recent content in London on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Wed, 12 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/categories/london/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Contain 3</title>
+      <link>http://blog.pedrazas.me/2015/08/12/contain-3/</link>
+      <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/08/12/contain-3/</guid>
+      <description>&lt;p&gt;Last night it was the third Contain meetup. I was looking forward to seeing all the guys from RedHat, Microsoft and CoreOS and learning what was in store for us in the container space.&lt;/p&gt;
+
+&lt;p&gt;As it usually happens in life, things changed pretty quickly. Boris, the guy from Microsoft, had a car accident (rumours of him being in a Google self driving ca were discarded promptly). With Boris out, Matt asked me if I could be in the panel instead of him. I guess that Matt thought I was the perfect candidate to represent Microsoft since I am one of the few certified Windows Me power users (cough, cough).&lt;/p&gt;
+
+&lt;p&gt;Matt understands containers, that&amp;#8217;s why he gave us the slides the proper way:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;docker run jetstack/contain:v3_container_os&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The good news, to compensate the bad news of Boris car accident, was that Chris Kenyon, from Canonical came to talk to us about their plans with containers: &lt;a href=&#34;http://www.ubuntu.com/cloud/tools/lxd&#34; target=&#34;_blank&#34;&gt;LXD&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Chris told us during the panel that the datacenter now is following how mobile phones work. Updating hundreds or thousands of machines it&amp;#8217;s equivalent to update thousands of telephones. Which is very interesting way of explaining transactional updates. Ubuntu, with snappy or CoreOS have that as the core of their value proposition.&lt;/p&gt;
+
+&lt;p&gt;It was an interesting conversation. I&amp;#8217;m a big fan of immutable and ephemeral infrastructure. So when people ask me &amp;#8220;&lt;em&gt;how do you update your containers&lt;/em&gt;&amp;#8221; the answer is simple: You don&amp;#8217;t!&lt;/p&gt;
+
+&lt;p&gt;I think it&amp;#8217;s good to differentiate when transactional updates are good and when they are not. Host updates: &lt;strong&gt;yes&lt;/strong&gt;. Containers updates: &lt;strong&gt;No&lt;/strong&gt;!&lt;/p&gt;
+
+&lt;p&gt;But what it&amp;#8217;s fundamental is to understand that containers are not machines or VMs. You have to see your containers as snapshots. Immutable snapshots that can be easily discarded.&lt;/p&gt;
+
+&lt;p&gt;Forget about Chef, Puppet, Ansible or Salt&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/08/pffbz.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-466&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/08/pffbz-300x177.jpg&#34; alt=&#34;pffbz&#34; width=&#34;300&#34; height=&#34;177&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Updating containers have 2 parts: updating the image and running that container. Kubernetes is your friend here. It wasn&amp;#8217;t until yesterday that I realised that many of my colleagues do not understand the great value of Kubernetes.&lt;/p&gt;
+
+&lt;p&gt;Updating containers is a matter of defining a new pod with your new containers and swapping the label when you are ready for the &amp;#8220;update&amp;#8221;. I guess that the best way of putting it is to say that Kubernetes does not try to solve the update problem because there&amp;#8217;s no such problem in the kubernetes world. We have others&amp;#8230; but that it&amp;#8217;s not one of them.&lt;/p&gt;
+
+&lt;p&gt;In summary, an excellent night. Thanks &lt;a href=&#34;http://www.jetstack.io/&#34; target=&#34;_blank&#34;&gt;Jetstack&lt;/a&gt; and all the Matts involved!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Enter Bitcoin</title>
+      <link>http://blog.pedrazas.me/2014/06/27/enter-bitcoin/</link>
+      <pubDate>Fri, 27 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/06/27/enter-bitcoin/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/06/bitcoin-logo-1000_0.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-271&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/06/bitcoin-logo-1000_0-300x300.jpg&#34; alt=&#34;bitcoin-logo-1000_0&#34; width=&#34;300&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Last month I decided that it was time for Bitcoin and I to spend more quality time together. So I went to &lt;a href=&#34;http://www.megamine.com/&#34;&gt;MegaMine&lt;/a&gt; and opened an account. Why Megamine and not some others? well, truth is that they are local. It&amp;#8217;s a Startup from London, you can go and visit them. Depending on the time of the day they will buy you a coffee or a beer and have a nice chat with you&amp;#8230; and yes, their prices are super competitive!&lt;/p&gt;
+
+&lt;p&gt;I bumped into them because I was looking for a cheap datacenter to host my machines to build my OpenStack Empire, but that&amp;#8217;s another story. Let&amp;#8217;s focus!&lt;/p&gt;
+
+&lt;p&gt;If you want to get into Bitcoins there are two ways:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You can mine Bitcoins, aka Bitcoin mining&lt;/li&gt;
+&lt;li&gt;You can buy Bitcoins. In the same way that you would buy any other foreign currency.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The main difference is the price. Buying Bitcoins is like buying US Dollars, or British Pounds. (Buying and selling prices are different.) When mining you pay for the usage of a mining machine (or a pool), regardless of the price of the Bitcoin (well, that&amp;#8217;s the theory). This means that under certain circumstances, buying Bitcoin is more convenient that mining.&lt;/p&gt;
+
+&lt;p&gt;buying Bitcoin is not as straightforward as many people think. Yes, there are places where you can go and buy Bitcoins. for example, &lt;a href=&#34;https://bitbargain.co.uk/buy&#34;&gt;this website&lt;/a&gt;. Now, if you notice, the website does not sell Bitcoins, the website will allow you to buy Bitcoins (from someone else), and because of that, every transaction has different conditions (looks dodgy, doesn&amp;#8217;t it?)&lt;/p&gt;
+
+&lt;p&gt;At the beginning of the month SatoshiPoint presented their machines and I rushed to go and compare what I could get from them compared to what I could get from mining.&lt;/p&gt;
+
+&lt;p&gt;The difference was that the machines will give you your bitcoin straightaway (in reality it the transaction took around 13 minutes to go through) compared to the 5~ish days that I had to spend mining to get the same amount of Bitcoin.&lt;/p&gt;
+
+&lt;p&gt;As I see it, if you want your Bitcoins now, go and buy them out of some place. Make sure the website is the one selling the Bitcoins and not-yet-another-middle-man-in-the-middle.&lt;/p&gt;
+
+&lt;p&gt;If you want to squeeze your money and get a higher return&amp;#8230; &lt;a href=&#34;http://www.megamine.com/pricing.php&#34;&gt;go and mine&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m not sure if Megamine will sell Bitcoins in the future or not, but I will be asking them next time I see them for a coffee or a beer.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Happy Mining!&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: I&amp;#8217;m not related to Megamine in any way nor they give me any satoshis to write about them (although any offered will be most welcome!).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Distributed Access</title>
+      <link>http://blog.pedrazas.me/2014/05/04/distributed-access/</link>
+      <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/05/04/distributed-access/</guid>
+      <description>&lt;p&gt;Sharing information is not easy. We are animals of customs. Moving from one way of doing things to another takes time and it creates friction and it happens, over time that we accept the new way of doing things as the &amp;#8220;way we do this&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;Working with a distributed team is strange. my team is not exactly distributed, but asynchronous. Working with people whoe are not next to you creates a barrier, but opens up tons of possibilities.&lt;/p&gt;
+
+&lt;p&gt;My wife recently asked  advise about how to deal with a distributed and/or asynchronous team. Technically we have so many options that it&amp;#8217;s difficult to know which is the right choice.&lt;/p&gt;
+
+&lt;p&gt;These are the applications that in my experience, make a distributed async team to be as productive as working together elbow to elbow:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Serialised Chat:&lt;/strong&gt; a chat where people can see the last 4 days of history. Chats are not only useful to &amp;#8220;chat&amp;#8221; but to keep track of what was going on.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Internal Blogs:&lt;/strong&gt; This is the core of a team. Every single team should have an internal blog where they dump what&amp;#8217;s happening. I know, it seems the same than the chat, but it&amp;#8217;s not. Chats are prone to off topics and and are terriffic to let people know. Blogs allow transmitting info and gathering comments dead easy.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Skype/hangouts:&lt;/strong&gt; not much to say here really. There are times that a simple phone call can sort out many problems.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wiki:&lt;/strong&gt; nothing beats the good old wiki to create a solid knowledge base.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Github:&lt;/strong&gt; git it&amp;#8217;s not only great for code, but for anything you need to pull-request&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dropbox:&lt;/strong&gt; sharing made easy.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I do have tried things like basecamp, yammer or jive and they are great but they do not fit very well with small teams.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Now in London</title>
+      <link>http://blog.pedrazas.me/2013/03/01/now-in-london/</link>
+      <pubDate>Fri, 01 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/03/01/now-in-london/</guid>
+      <description>&lt;p&gt;London is HARD. That&amp;#8217;s the message I always send to the Spaniards who ask me about coming to live and work to this city. London has far too many things to offer but there&amp;#8217;s also a high price you have to pay (have you looked at the rental prices lately?).&lt;/p&gt;
+
+&lt;p&gt;But it&amp;#8217;s not only money. London is expensive but so it is Barcelona or Paris.&lt;/p&gt;
+
+&lt;p&gt;What it really makes this city so special is the people (I know, I know, bear with me). The first difference young people notice with any other city is the incredible amount of young people who lives here. The second one is that many people come to London not to settle down, which makes this city the perfect place for flings, affairs and passionate one night stands.&lt;/p&gt;
+
+&lt;p&gt;But it&amp;#8217;s not about how easy is to get laid in this city, ok, it is&amp;#8230; O_0 and about work. I don&amp;#8217;t  tweet job offers any more, at the end of the day, I&amp;#8217;m not a recruiter but if you want to come to this city to find a job, let me know.&lt;/p&gt;
+
+&lt;p&gt;For example, while having coffee this morning a guy asked if I knew of a python developer looking for a job. Another guy spat out  &amp;#8220;&lt;em&gt;Python developers don&amp;#8217;t look for jobs, they all have jobs&lt;/em&gt;&amp;#8221; and we all laughed (we all do python and we all have jobs, so the guy was not that wrong, was he?)&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

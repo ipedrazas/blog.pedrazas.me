@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Arduino on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/categories/arduino/</link>
+    <description>Recent content in Arduino on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Mon, 19 Aug 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/categories/arduino/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hardware Week</title>
+      <link>http://blog.pedrazas.me/2013/08/19/hardware-week/</link>
+      <pubDate>Mon, 19 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/08/19/hardware-week/</guid>
+      <description>&lt;p&gt;This last week has been a bit crazy with all the new stuff that is going on but&amp;#8230; if last week was mayhem, get ready because this week is hardware week.&lt;/p&gt;
+
+&lt;p&gt;Tomorrow I will go to the &lt;a href=&#34;https://london.hackspace.org.uk/&#34;&gt;London Hackspace&lt;/a&gt;  to see what do they do and &lt;strong&gt;IF&lt;/strong&gt; it would make any sense to join them. I will unveil an idea that I&amp;#8217;ve been working on for the last weeks. One of the things that I&amp;#8217;ve learnt during these last 2 years is that no idea is good if no money can be made.&lt;/p&gt;
+
+&lt;p&gt;I agree that making money is &amp;#8220;the business part&amp;#8221; of the idea and I&amp;#8217;ve been tempted to write a post about that in reply to a conversation that was triggered in Twitter by the fine people of Klicap. However, time is precious and &amp;#8220;Talking is easy&amp;#8221; so, my new motto is &amp;#8220;&lt;strong&gt;Make More, Talk Less&lt;/strong&gt;&amp;#8221; (not that this many people are listening).&lt;/p&gt;
+
+&lt;p&gt;Super exciting times where I have to deal with Software and Hardware and the close relationship between them.&lt;/p&gt;
+
+&lt;p&gt;This pre-holidays week is all about hardware:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Arduino&lt;/li&gt;
+&lt;li&gt;Rapsberry Pis&lt;/li&gt;
+&lt;li&gt;NFC&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And :blibb that we could say it&amp;#8217;s the glue that ties them together. As I said&amp;#8230; Exciting!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Arduino Listen to me</title>
+      <link>http://blog.pedrazas.me/2013/08/15/arduino-listen-to-me/</link>
+      <pubDate>Thu, 15 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/08/15/arduino-listen-to-me/</guid>
+      <description>&lt;p&gt;I&amp;#8217;ve been waiting a loooong time before unleashing my (very reduced) arduino skills in order to build something wicked.&lt;/p&gt;
+
+&lt;p&gt;Arduino is great for learning and&amp;#8230; for building THAT CRAZY IDEA.&lt;/p&gt;
+
+&lt;p&gt;First idea was about using solar energy with arduinos but since I work at night&amp;#8230; I think I&amp;#8217;ll have to postpone that one a little bit.&lt;/p&gt;
+
+&lt;p&gt;From all the arduinos the one that really ticks my box is the lilypad. Yup, the wearable arduino is the one I&amp;#8217;ve been more willing to lay my hands on.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/08/lilypad.jpg&#34;&gt;&lt;img class=&#34;alignright size-medium wp-image-187&#34; alt=&#34;lilypad&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/08/lilypad-300x300.jpg&#34; width=&#34;300&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So, what is the project about?&lt;/p&gt;
+
+&lt;p&gt;Well, I like cycling and I like gadgets&amp;#8230; and if there&amp;#8217;s something that a bicycle doesn&amp;#8217;t have is a proper signaling system, so this is my idea: A jacket that will have a signaling/messaging system.&lt;/p&gt;
+
+&lt;p&gt;I know, there are some projects already out there trying to achive having a more secure cycle ride, but they are not very usable.&lt;/p&gt;
+
+&lt;p&gt;My efforts are not making something that works. My efforts are aimed to build something usable. Something useful. Something beautiful.&lt;/p&gt;
+
+&lt;p&gt;So far I&amp;#8217;m experimenting with arduino and the &lt;a href=&#34;http://www.veear.eu/products/easyvr-arduino-shield/&#34;&gt;Easy VR Shield&lt;/a&gt;. The idea is very simple: you give voice commands to your jacket like &amp;#8220;&lt;strong&gt;RIGHT&lt;/strong&gt;&amp;#8221; or &amp;#8220;&lt;strong&gt;LEFT&lt;/strong&gt;&amp;#8221; and the jacket will light up a &lt;strong&gt;&amp;lt;&amp;lt;&lt;/strong&gt; sign for a few seconds.&lt;/p&gt;
+
+&lt;p&gt;That&amp;#8217;s what people would call an MVP, then, of course, there&amp;#8217;s room for more fancy stuff like displaying messages to our fellow drivers&amp;#8230; but this will come later, for now, let&amp;#8217;s get the prototype working.&lt;/p&gt;
+
+&lt;p&gt;Anyway, I need to find a nice name for the project so, if you have a good idea for it, &lt;a href=&#34;http://twitter.com/ipedrazas&#34;&gt;share it with me&lt;/a&gt;, please &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

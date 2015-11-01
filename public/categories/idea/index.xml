@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Idea on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/categories/idea/</link>
+    <description>Recent content in Idea on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Thu, 15 Aug 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/categories/idea/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Arduino Listen to me</title>
+      <link>http://blog.pedrazas.me/2013/08/15/arduino-listen-to-me/</link>
+      <pubDate>Thu, 15 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/08/15/arduino-listen-to-me/</guid>
+      <description>&lt;p&gt;I&amp;#8217;ve been waiting a loooong time before unleashing my (very reduced) arduino skills in order to build something wicked.&lt;/p&gt;
+
+&lt;p&gt;Arduino is great for learning and&amp;#8230; for building THAT CRAZY IDEA.&lt;/p&gt;
+
+&lt;p&gt;First idea was about using solar energy with arduinos but since I work at night&amp;#8230; I think I&amp;#8217;ll have to postpone that one a little bit.&lt;/p&gt;
+
+&lt;p&gt;From all the arduinos the one that really ticks my box is the lilypad. Yup, the wearable arduino is the one I&amp;#8217;ve been more willing to lay my hands on.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/08/lilypad.jpg&#34;&gt;&lt;img class=&#34;alignright size-medium wp-image-187&#34; alt=&#34;lilypad&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/08/lilypad-300x300.jpg&#34; width=&#34;300&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So, what is the project about?&lt;/p&gt;
+
+&lt;p&gt;Well, I like cycling and I like gadgets&amp;#8230; and if there&amp;#8217;s something that a bicycle doesn&amp;#8217;t have is a proper signaling system, so this is my idea: A jacket that will have a signaling/messaging system.&lt;/p&gt;
+
+&lt;p&gt;I know, there are some projects already out there trying to achive having a more secure cycle ride, but they are not very usable.&lt;/p&gt;
+
+&lt;p&gt;My efforts are not making something that works. My efforts are aimed to build something usable. Something useful. Something beautiful.&lt;/p&gt;
+
+&lt;p&gt;So far I&amp;#8217;m experimenting with arduino and the &lt;a href=&#34;http://www.veear.eu/products/easyvr-arduino-shield/&#34;&gt;Easy VR Shield&lt;/a&gt;. The idea is very simple: you give voice commands to your jacket like &amp;#8220;&lt;strong&gt;RIGHT&lt;/strong&gt;&amp;#8221; or &amp;#8220;&lt;strong&gt;LEFT&lt;/strong&gt;&amp;#8221; and the jacket will light up a &lt;strong&gt;&amp;lt;&amp;lt;&lt;/strong&gt; sign for a few seconds.&lt;/p&gt;
+
+&lt;p&gt;That&amp;#8217;s what people would call an MVP, then, of course, there&amp;#8217;s room for more fancy stuff like displaying messages to our fellow drivers&amp;#8230; but this will come later, for now, let&amp;#8217;s get the prototype working.&lt;/p&gt;
+
+&lt;p&gt;Anyway, I need to find a nice name for the project so, if you have a good idea for it, &lt;a href=&#34;http://twitter.com/ipedrazas&#34;&gt;share it with me&lt;/a&gt;, please &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ghost Bed Ideas</title>
+      <link>http://blog.pedrazas.me/2013/04/18/ghost-bed-ideas/</link>
+      <pubDate>Thu, 18 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/04/18/ghost-bed-ideas/</guid>
+      <description>
+
+&lt;h2 id=&#34;those-thoughts-that-crawl-around-at-midnight:09323e6b5e851f2e0b79c1b560fadfa2&#34;&gt;Those thoughts that crawl around at midnight.&lt;/h2&gt;
+
+&lt;p&gt;Was talking about ideas last week and suddenly I realised that my ideas don&amp;#8217;t come from nothing but from a seed idea. Something that makes an impact or attracts my mind somehow triggers the idea generation process.&lt;/p&gt;
+
+&lt;p&gt;The process is more or less like this:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I see something I like, for example, the stool that rocks.&lt;/li&gt;
+&lt;li&gt;That sensation/memory lingers in y head for a while.&lt;/li&gt;
+&lt;li&gt;Start spawning random thoughts of how I would do if I were or what I would do if I could&lt;/li&gt;
+&lt;li&gt;A lot of side jumping between ideas.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Have you seen how designers work? designers produce and discard an extraordinary amount of work. My idea generation process is a bit like that. Hammering the concept with as many random thoughts as possible and looking at how the idea shapes up.&lt;/p&gt;
+
+&lt;p&gt;For example, using the stool that rocks I could talk about the &lt;strong&gt;&amp;#8220;Ghost Bed Idea&amp;#8221;&lt;/strong&gt; which is nothing more that a design of a bed I&amp;#8217;ve made based on the principles of the stool that rocks: that you can make your own furniture.&lt;/p&gt;
+
+&lt;p&gt;But can you? Can you really make your own table? bed? chairs?&lt;/p&gt;
+
+&lt;p&gt;I don&amp;#8217;t see why not. Unfortunately for me, my cad skills are almost none, but I know how to draw, and yes I know how to do technical drawing too&amp;#8230; and I&amp;#8217;m not engineer but I know enough of tensions, forces and resistance to think of what it means to build something like a bed.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;#8217;t want to imagine my wife&amp;#8217;s reaction next time she ask me what I&amp;#8217;m doing: &amp;#8220;Actually, a bed, darling&amp;#8221;&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;But let&amp;#8217;s face it. For now, it&amp;#8217;s more a concept, a few sketches and some random queries in google to find out how thick wood has to be to be able to build a bed.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/04/ghost-bed.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-114&#34; alt=&#34;ghost bed&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/04/ghost-bed-300x225.jpg&#34; width=&#34;300&#34; height=&#34;225&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What’s next?</title>
+      <link>http://blog.pedrazas.me/2013/02/26/whats-next/</link>
+      <pubDate>Tue, 26 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/02/26/whats-next/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/02/photo.jpg&#34;&gt;&lt;img class=&#34;size-medium wp-image-59 aligncenter&#34; alt=&#34;what&#39;s next&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/02/photo-300x225.jpg&#34; width=&#34;300&#34; height=&#34;225&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;After a week near Barcelona where I tried not to write any code&amp;#8230; I came back with a very diffuse idea of what should I do next. I knew what I wanted, I knew where I wanted to go, but I had no idea of the route.&lt;/p&gt;
+
+&lt;p&gt;Well, I&amp;#8217;ve just got the green line from the financial team (read, my wife) to enrol in the next crazy idea: a mobile app for the wedding of a friend!&lt;/p&gt;
+
+&lt;p&gt;Come on, guys, after Saint Valentine, it was clear that it had to be a wedding&amp;#8230; wasn&amp;#8217;t it?&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Secret Valentine – Results</title>
+      <link>http://blog.pedrazas.me/2013/02/20/secret-valentine-results/</link>
+      <pubDate>Wed, 20 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/02/20/secret-valentine-results/</guid>
+      <description>&lt;p&gt;Almost a week ago and I&amp;#8217;ve said a word about My Secret Valentine project&amp;#8230; yet. you will have to excuse me but I&amp;#8217;ve been a bit busy. Things of having to deal with children during Half Term.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#8217;s get into the story. Last week I published a very little app that the only thing that did was to send a (not very pretty, have to reckon) message and a picture by email.&lt;/p&gt;
+
+&lt;p&gt;Total numbers:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span style=&#34;line-height: 15px;&#34;&gt;30 installations in 7 countries (UK, Spain, USA, Ireland, Netherlands, Panama, Ukraine)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;89 Valentines sent&lt;/li&gt;
+&lt;li&gt;8 Uninstalls (after 14th of February)&lt;/li&gt;
+&lt;li&gt;78 visits to the app page (78.71% from Twitter, 8.17% from Facebook, 0% from G+).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I used &lt;a href=&#34;http://karmacracy.com/&#34;&gt;Karmacrazy&lt;/a&gt; to check how many people went to the Play page. In case you don&amp;#8217;t know, Google doesn&amp;#8217;t let you track how many people visit your app&amp;#8217;s page. But as I said, no analytics? no problem. In fact, you can take a look to the link stats to see the kind of information you can get from this tool.&lt;/p&gt;
+
+&lt;p&gt;If you want to give it a go, use this &lt;a href=&#34;http://kcy.me/fo6q&#34;&gt;link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;More numbers. Android Versions. And this is kind of a surprise, because in the last Droidcon we talked loooong time about legacy android versions and here we have the proof of what&amp;#8217;s the biggest problem with Android so far.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/02/stats-msv.png&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-52&#34; alt=&#34;stats-msv&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/02/stats-msv.png&#34; width=&#34;985&#34; height=&#34;364&#34; /&gt;&lt;/a&gt;As you can see the top version is the very old 2.3.x followed by all the 4s. I fact, if we unify all the Jelly Bean devices we see that 75% of the devices are running Jelly Bean. However, who&amp;#8217;s going to shut the door to 30% of their potential customers?&lt;/p&gt;
+
+&lt;p&gt;For those who are prone to slag Android think about it. Updates don&amp;#8217;t come from Google, updates come from your carriers. The more the Android device has been customised, the harder it will be to update. Why so many devices still on 2.3.x ? because of the 24m contracts, of course.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My Secret Valentine – I</title>
+      <link>http://blog.pedrazas.me/2013/02/10/my-secret-valentine-i/</link>
+      <pubDate>Sun, 10 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/02/10/my-secret-valentine-i/</guid>
+      <description>&lt;p&gt;Last Wednesday I spent 3 hours with QME trying to make them understand that one thing is having an idea, a very different thing is creating a product from that idea.&lt;/p&gt;
+
+&lt;p&gt;I got an idea: to make an app for Saint Valentine called &amp;#8220;My Secret Valentine&amp;#8221;. A simple app that allows you to send a message (an image and a text) to your valentine.&lt;/p&gt;
+
+&lt;p&gt;First step: accelerated idea iteration, where you basically get that idea, you throw it into the washing machine of your brain and try to spin it as much as possible. The result? a much polished idea.&lt;/p&gt;
+
+&lt;p&gt;Second step: paper prototype. I&amp;#8217;m a big fan of paper prototype. I always draw diagrams, relationships, anything&amp;#8230; ideas on paper are great because if you cannot put your idea on a paper, you don&amp;#8217;t have an idea, you&amp;#8217;re day dreaming.&lt;/p&gt;
+
+&lt;p&gt;Paper prototypes for apps are the best. Some post-its and a pencil it&amp;#8217;s enough to bring your app to live. Once I have the Post-It app done, I use a mobile outline where I try to do the equivalent of a storyboard of my app.&lt;/p&gt;
+
+&lt;p&gt;Once I have that I start coding&amp;#8230; but that part will be on another post.&lt;/p&gt;
+
+&lt;p&gt;Stay Tuned!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/02/storyboard.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-thumbnail wp-image-33&#34; alt=&#34;storyboard&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2013/02/storyboard-150x150.jpg&#34; width=&#34;150&#34; height=&#34;150&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Iterating the Idea</title>
+      <link>http://blog.pedrazas.me/2013/02/09/iterating-the-idea/</link>
+      <pubDate>Sat, 09 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/02/09/iterating-the-idea/</guid>
+      <description>&lt;p&gt;You have an idea, and that&amp;#8217;s great, but now you need time to cook it, and bake it and let it rest, and then look at it again&amp;#8230; Of course you don&amp;#8217;t have time for anything, so, you just go like mad and jump into this new idea because it&amp;#8217;s so great that you cannot understand how nobody has noticed it before, how no one has done anything before &amp;#8230; And then you fail (it&amp;#8217;s not quiet like that but I&amp;#8217;ll save you a few lines of going nowhere).&lt;/p&gt;
+
+&lt;p&gt;You have an idea and then you wait, and then you talk to people and explain that idea. You see, my wife was right when she said that if you cannot explain an idea the idea is not that great. But how are you going to explain someone your new idea about quantum physics if nobody knows quantum physics&amp;#8230; and this is the hardest lesson I&amp;#8217;ve learnt these last two years:&lt;/p&gt;
+
+&lt;p&gt;If you cannot condense and explain your idea in plain language that everybody can understand, chances are that it&amp;#8217;s not that great idea.&lt;/p&gt;
+
+&lt;p&gt;Don&amp;#8217;t get me wrong, the idea can be incredible awesome, but you have to go over and over and over again to polish it off, to make it cristal clear. Then, and only then, it&amp;#8217;s when it makes sense to go wild and try to create whatever your idea is all about.&lt;/p&gt;
+
+&lt;p&gt;The beauty of the whole thing is that no matter what, you will learn. Either by failing or by succeeding and that is, I think, the best of the whole situation.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Challenge</title>
+      <link>http://blog.pedrazas.me/2013/02/07/the-challenge/</link>
+      <pubDate>Thu, 07 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/02/07/the-challenge/</guid>
+      <description>&lt;p&gt;Yesterday I spent a few hours talking with the Queen Mary Entrepreneurs students. My main objective was to motivate those ones who had and idea to try and build a product. I&amp;#8217;m not sure if I&amp;#8217;ve succeeded or not but while I was talking I had the idea of teaching by giving example&amp;#8230; so, here&amp;#8217;s the challenge.&lt;/p&gt;
+
+&lt;p&gt;Today it&amp;#8217;s 7th of February, in a week it will be 14th&amp;#8230; Saint Valentine&amp;#8217;s day, so the challenge is to build an Android app that allows you to send a Secret Saint Valentine&amp;#8217;s message.&lt;/p&gt;
+
+&lt;p&gt;I have a week to design, implement, test and release this app. Can I do it? well, using Bob the Builder catchphrase: &amp;#8220;Yes, we can!&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;The idea is simple, a person uses the app to send an anonymous message to his secret Valentine. I don&amp;#8217;t really know how the person will receive the message. It will be by email but I&amp;#8217;m not sure of the format yet.&lt;/p&gt;
+
+&lt;p&gt;Anyway, the whole point is to write a bit about the experience so next time I meet with the QME people, I&amp;#8217;ll have some real data to share with them.&lt;/p&gt;
+
+&lt;p&gt;Wish me luck!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

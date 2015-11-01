@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bitcoin on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/categories/bitcoin/</link>
+    <description>Recent content in Bitcoin on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Fri, 27 Jun 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/categories/bitcoin/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Enter Bitcoin</title>
+      <link>http://blog.pedrazas.me/2014/06/27/enter-bitcoin/</link>
+      <pubDate>Fri, 27 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/06/27/enter-bitcoin/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/06/bitcoin-logo-1000_0.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-271&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/06/bitcoin-logo-1000_0-300x300.jpg&#34; alt=&#34;bitcoin-logo-1000_0&#34; width=&#34;300&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Last month I decided that it was time for Bitcoin and I to spend more quality time together. So I went to &lt;a href=&#34;http://www.megamine.com/&#34;&gt;MegaMine&lt;/a&gt; and opened an account. Why Megamine and not some others? well, truth is that they are local. It&amp;#8217;s a Startup from London, you can go and visit them. Depending on the time of the day they will buy you a coffee or a beer and have a nice chat with you&amp;#8230; and yes, their prices are super competitive!&lt;/p&gt;
+
+&lt;p&gt;I bumped into them because I was looking for a cheap datacenter to host my machines to build my OpenStack Empire, but that&amp;#8217;s another story. Let&amp;#8217;s focus!&lt;/p&gt;
+
+&lt;p&gt;If you want to get into Bitcoins there are two ways:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You can mine Bitcoins, aka Bitcoin mining&lt;/li&gt;
+&lt;li&gt;You can buy Bitcoins. In the same way that you would buy any other foreign currency.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The main difference is the price. Buying Bitcoins is like buying US Dollars, or British Pounds. (Buying and selling prices are different.) When mining you pay for the usage of a mining machine (or a pool), regardless of the price of the Bitcoin (well, that&amp;#8217;s the theory). This means that under certain circumstances, buying Bitcoin is more convenient that mining.&lt;/p&gt;
+
+&lt;p&gt;buying Bitcoin is not as straightforward as many people think. Yes, there are places where you can go and buy Bitcoins. for example, &lt;a href=&#34;https://bitbargain.co.uk/buy&#34;&gt;this website&lt;/a&gt;. Now, if you notice, the website does not sell Bitcoins, the website will allow you to buy Bitcoins (from someone else), and because of that, every transaction has different conditions (looks dodgy, doesn&amp;#8217;t it?)&lt;/p&gt;
+
+&lt;p&gt;At the beginning of the month SatoshiPoint presented their machines and I rushed to go and compare what I could get from them compared to what I could get from mining.&lt;/p&gt;
+
+&lt;p&gt;The difference was that the machines will give you your bitcoin straightaway (in reality it the transaction took around 13 minutes to go through) compared to the 5~ish days that I had to spend mining to get the same amount of Bitcoin.&lt;/p&gt;
+
+&lt;p&gt;As I see it, if you want your Bitcoins now, go and buy them out of some place. Make sure the website is the one selling the Bitcoins and not-yet-another-middle-man-in-the-middle.&lt;/p&gt;
+
+&lt;p&gt;If you want to squeeze your money and get a higher return&amp;#8230; &lt;a href=&#34;http://www.megamine.com/pricing.php&#34;&gt;go and mine&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m not sure if Megamine will sell Bitcoins in the future or not, but I will be asking them next time I see them for a coffee or a beer.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Happy Mining!&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: I&amp;#8217;m not related to Megamine in any way nor they give me any satoshis to write about them (although any offered will be most welcome!).&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

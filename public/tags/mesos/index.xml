@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mesos on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/tags/mesos/</link>
+    <description>Recent content in Mesos on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Thu, 25 Jun 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/tags/mesos/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Deconstructing</title>
+      <link>http://blog.pedrazas.me/2015/06/25/deconstructing/</link>
+      <pubDate>Thu, 25 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/06/25/deconstructing/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/kafka_logo.png&#34;&gt;&lt;img class=&#34;alignleft size-full wp-image-454&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/kafka_logo.png&#34; alt=&#34;kafka_logo&#34; width=&#34;75&#34; height=&#34;117&#34; /&gt;&lt;/a&gt;If you haven&amp;#8217;t heard about &lt;a href=&#34;http://kafka.apache.org/&#34;&gt;Apache Kafka&lt;/a&gt;, or his little brother Amazon Kinesis, go and read about &lt;a href=&#34;http://www.oreilly.com/pub/e/3098&#34;&gt;why they are so great&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I was chatting with a friend last night and he told me &amp;#8220;I get containers now. I needed some give it some thought, but I get them now&amp;#8221;. If I had to describe him with one word I would use &amp;#8220;smart&amp;#8221; without any doubt&amp;#8230; still he had to think about why containers are so great.&lt;/p&gt;
+
+&lt;p&gt;We carried on talking and after two more beers and few pork ribs I managed to make him understand why we are about to change we build applications. It&amp;#8217;s not only because of containers (or systems like Mesos or Kubernetes), but because with containers, we have seen the light of deconstructing the monoliths into microservices.&lt;/p&gt;
+
+&lt;p&gt;But, there&amp;#8217;s another key element on this Game of Thrones: The Log, systems like Apache kafka are going to help to change completely the landscape of what we build, and ship and run. Like with Microservices, the Log overlord brings a blessing in disguise: it&amp;#8217;s not what it does, it&amp;#8217;s what allows others to do.&lt;/p&gt;
+
+&lt;p&gt;It is not about its responsibility, it&amp;#8217;s about delegating that responsibility in who really has it. Let&amp;#8217;s look at what happens today. We have a system, that system gets some data, compute that data and stores that data in a database. Easy!&lt;/p&gt;
+
+&lt;p&gt;Then someone comes along and asks to get that same data and put it somewhere else, so our system now gets some data, compute that data and stores that data in two different places.&lt;/p&gt;
+
+&lt;p&gt;As we can see, this does not scale very well, so people get smart, and start doing things like database triggers and a whole bunch of things that are totally correct in itself, but over time, it creates a big mess of &amp;#8220;dirty integrations&amp;#8221;. These are the things that will break when we want to move our system. These are the future nightmares of our microservices journey.&lt;/p&gt;
+
+&lt;p&gt;Then, we have The LOG&amp;#8230; a dumb system that guess what: it does not care about what do you do with that data. The Log Overlord will keep your data for a while, and it&amp;#8217;s up to you, the consumers, to use it.&lt;/p&gt;
+
+&lt;p&gt;A bit like how the TV has been broadcasting for a few years&amp;#8230; with a twist, because, as we do now, this TV system allows you to consume the programs when you want it.&lt;/p&gt;
+
+&lt;p&gt;Ok, so, basically, we have a place where we put all that data (for a while) and we have a bunch of people consuming that data? So what?&lt;/p&gt;
+
+&lt;p&gt;Well, not much, but as with microservices, what the LOG overlord provides is the ability of your consumers to consume the way they want (once per hour, once per day&amp;#8230; in real time), and even more, the people who create the TV shows do not care about the broadcasting anymore.&lt;/p&gt;
+
+&lt;p&gt;Think about it. Microservices decouple your business logic. With microservices you can write very business specific services without having to worry about all the other business rules, use cases and (oh yes) those terrible exceptions.&lt;/p&gt;
+
+&lt;p&gt;Apache Kafka or Amazon Kinesis decouple your data. How you read that data is up to the readers and the writers have nothing to do with that. It&amp;#8217;s like a writer writing a book, and people reading that book: when they want, how they want&amp;#8230; as opposed to the writer writing and reading aloud to certain audience.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m not sure if the creators of Kafka chose that name because it&amp;#8217;s a system that allows writers and readers to focus and enjoy what they want to do.&lt;/p&gt;
+
+&lt;p&gt;As I said, we are living very exciting times with a lot of change. Let me finish with a song&amp;#8230; or my own version of a song by &lt;a href=&#34;https://www.youtube.com/watch?v=f8PMqLHF1jU&#34;&gt;Elvis Presley&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  Treat me like a fool,&lt;br /&gt; Treat me mean and cruel,&lt;br /&gt; But &lt;strong&gt;LOG&lt;/strong&gt; me.
+&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  Wring my faithful heart,&lt;br /&gt; Tear it all apart,&lt;br /&gt; But &lt;strong&gt;LOG&lt;/strong&gt; me.
+&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  &lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/649ca9a3f3d4aba78095a28c26fba1fa.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-455&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/649ca9a3f3d4aba78095a28c26fba1fa-233x300.jpg&#34; alt=&#34;649ca9a3f3d4aba78095a28c26fba1fa&#34; width=&#34;233&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Distance to Mesos</title>
+      <link>http://blog.pedrazas.me/2015/06/16/distance-to-mesos/</link>
+      <pubDate>Tue, 16 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/06/16/distance-to-mesos/</guid>
+      <description>&lt;p&gt;I&amp;#8217;ve been wanting to write this for a while but it seems that it&amp;#8217;s never the right time, so tonight, I&amp;#8217;m biting the bullet and not going to bed until I write it all.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve notice that lately people don&amp;#8217;t talk about Docker so much. Nothing to complain about, really, but what happens is that people has shifted to talk about &lt;span id=&#34;:1u0.1&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Kubernetes&lt;/span&gt; and &lt;a href=&#34;http://mesos.apache.org/&#34;&gt;&lt;span id=&#34;:1u0.2&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;&lt;/a&gt;&amp;#8230; Sigh.&lt;/p&gt;
+
+&lt;p&gt;One of the questions I&amp;#8217;ve asked more frequently is &amp;#8220;How to move to &lt;span id=&#34;:1u0.3&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;&amp;#8230; and is it worth it?&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;There&amp;#8217;s no straight answer to that question really. I don&amp;#8217;t like to say &amp;#8220;it depends&amp;#8221; because it seems that you&amp;#8217;re trying to run away, but in this case it really does.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#8217;s a bit like asking &amp;#8220;how to go to the London Eye&amp;#8221;, first thing I need to find out is to know where you&amp;#8217;re travelling from because it is not the same to come from Liverpool than from Liverpool street&amp;#8230; Distance is important because I can assume that if you come from Liverpool you will arrive to London &lt;span id=&#34;:1u0.4&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Euston&lt;/span&gt; (but I might be wrong, and you might be travelling by car instead of train&amp;#8230;).&lt;/p&gt;
+
+&lt;p&gt;Anyway, it doesn&amp;#8217;t matter where you come from, I&amp;#8217;m sure you will manage to find the way to the London Eye, and if not&amp;#8230;  just ask. There&amp;#8217;s plenty of people happy to help.&lt;/p&gt;
+
+&lt;p&gt;With &lt;span id=&#34;:1u0.5&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; you have a similar problem, you see? it&amp;#8217;s not the same to come from a &lt;span id=&#34;:1u0.6&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;multi&lt;/span&gt;-monolithic architecture with more silos than the &lt;acronym title=&#34;Ministry of Defense&#34;&gt;MOD&lt;/acronym&gt;, than to have a very lean service based architecture with containers and service discovery already in place.&lt;/p&gt;
+
+&lt;p&gt;So, are containers important? strictly speaking: No, however, by using containers you can leverage some very cool functionality that systems like &lt;span id=&#34;:1u0.7&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; have.&lt;/p&gt;
+
+&lt;p&gt;Service Discovery, anyone? let&amp;#8217;s put it like this, it does not matter how you build software, using SD should be part of it. Period.&lt;/p&gt;
+
+&lt;p&gt;There are 3 big blocks in any application:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span id=&#34;:1u0.8&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Runtime&lt;/span&gt;: this is what we run. From a web application to a queue worker, it doesn&amp;#8217;t really matter. It&amp;#8217;s that thing that (when it works) does its job.&lt;/li&gt;
+&lt;li&gt;Configuration: this is what the thing that runs need to run (the way we want). It can be credentials, external resources, addresses, whatever that makes our &lt;span id=&#34;:1u0.9&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;runtime&lt;/span&gt; to be flexible.&lt;/li&gt;
+&lt;li&gt;Context: this is usually forgotten (until it&amp;#8217;s too late) and it&amp;#8217;s where your &lt;span id=&#34;:1u0.10&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;runtime&lt;/span&gt; runs and all those bits and pieces that you need to be run it there. Firewall rules, Security groups, etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These blocks do not depend on what you run: Java, python, &lt;span id=&#34;:1u0.11&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;javascript&lt;/span&gt;&amp;#8230; or where you run it: Amazon, Azure&amp;#8230; they are 3 blocks that every software development has to define&amp;#8230; what about in &lt;span id=&#34;:1u0.12&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;?&lt;/p&gt;
+
+&lt;p&gt;Well, &lt;span id=&#34;:1u0.13&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;, as a software, will need these 3 blocks: we have the &lt;span id=&#34;:1u0.14&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;runtime&lt;/span&gt;, &lt;span id=&#34;:1u0.15&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;mesos&lt;/span&gt;, marathon, &lt;span id=&#34;:1u0.16&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;cronos&lt;/span&gt;&amp;#8230; the different configuration files these young lads use, and where do we run &lt;span id=&#34;:1u0.17&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;: our &lt;span id=&#34;:1u0.18&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;datacenter&lt;/span&gt;, &lt;span id=&#34;:1u0.19&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;AWS&lt;/span&gt;, Google&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;The interesting thing is that inside &lt;span id=&#34;:1u0.20&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; those 3 blocks are somehow diluted.&lt;/p&gt;
+
+&lt;p&gt;To begin with, Context is &lt;span id=&#34;:1u0.21&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;&amp;#8230; To the point that once you have &lt;span id=&#34;:1u0.22&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; you don&amp;#8217;t have environments anymore. Your application have different &lt;span id=&#34;:1u0.23&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;datasources&lt;/span&gt; (Dev, Test, Prod) and different priorities, but it&amp;#8217;s unlikely that you will have a &lt;span id=&#34;:1u0.24&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; cluster per environment (and if you do, there&amp;#8217;s something very fundamental that you didn&amp;#8217;t get right).&lt;/p&gt;
+
+&lt;p&gt;What makes &lt;span id=&#34;:1u0.25&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; very attractive is that &amp;#8220;he knows&amp;#8221; so you don&amp;#8217;t have to. But to be able to do that your applications have to be built in a way that it&amp;#8217;s safe for &lt;span id=&#34;:1u0.26&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; to move around (here it&amp;#8217;s where containers and service discovery can be very handy).&lt;/p&gt;
+
+&lt;p&gt;As I said before, people keep asking me about &lt;span id=&#34;:1u0.27&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; and my answers always point towards the same place: maybe &lt;span id=&#34;:1u0.28&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; is not for you, but moving to containers and using service discovery will make your applications to work better and look, once you&amp;#8217;re there, you&amp;#8217;re not that far from &lt;span id=&#34;:1u0.29&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;In summary, you should not aim to use Service Discovery and containers as a &lt;span id=&#34;:1u0.30&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;pre&lt;/span&gt;-condition to &lt;span id=&#34;:1u0.31&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;, you should do it because it will make your life (and the life of people dealing with your systems) better.&lt;/p&gt;
+
+&lt;p&gt;Not everybody is Google, but everybody should aim to run applications like Google does.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Docker in the Enterprise</title>
+      <link>http://blog.pedrazas.me/2015/04/01/docker-in-the-enterprise/</link>
+      <pubDate>Wed, 01 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/04/01/docker-in-the-enterprise/</guid>
+      <description>&lt;p&gt;One of the top questions that people ask me about Docker is by far &amp;#8220;&lt;strong&gt;&lt;em&gt;Do you think the Enterprise will use Docker?&lt;/em&gt;&lt;/strong&gt;&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;My answer has been the same since the very beginning: &lt;strong&gt;Absolutely!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;It doesn&amp;#8217;t mean it will happen soon, but it will happen. There&amp;#8217;s just a few layers of middle management and hundreds of scared sysadmins in between, but it will happen.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve migrated a few legacy enterprise applications to Docker and to me, there&amp;#8217;s a big difference between startups using Docker and classic enterprise companies using Docker. To begin with, big enterprise companies are project and program based instead of product based. Middle management, red tape and a very low speed in general. In the technical aspects there are big differences also. Let me give you a couple of examples:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Firewalls.&lt;/li&gt;
+&lt;li&gt;Legacy applications.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Have you heard about Mesos? Docker Swarm? the ability to move containers around? well, let me tell you something, in the enterprise we have firewall rules. Firewall rules are dependant on the application but bound to the host. This means that you cannot move containers around if you cannot update firewall rules at the same time.&lt;/p&gt;
+
+&lt;p&gt;Solutions like Weave are perfect for this problem. Right now, I&amp;#8217;m not sure how Docker is going to solve the networking aspect, so, I will not say that Docker will do it natively. Still, you get the point.&lt;/p&gt;
+
+&lt;p&gt;Another scary issue is &amp;#8220;Legacy Applications&amp;#8221;. Let&amp;#8217;s face it, technical debt is bad, forgotten technical debt is pure evil. Moving these kind of applications into containers is sometimes harder than rewriting them from scratch. Issues that I&amp;#8217;ve found while migrating legacy applications to containers can be split in two main groups:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Configuration issues like
+
+&lt;ul&gt;
+&lt;li&gt;hard coded url and/or domains: quite typical to see hardcoded jdbc connections. You can get around it using internal DNSs or if in case of major trouble, a reverse proxy.&lt;/li&gt;
+&lt;li&gt;Hard coded IPs: If you&amp;#8217;re lucky, again, Weave can give you a bit of air here.&lt;/li&gt;
+&lt;li&gt;Embedded credentials: hardcoding credentials is bad, but including these credentials inside of your binaries is terrible. Bad news is that it happens more often than you think. Yes, they used properties files, and yes, they put that file inside a jar, inside a war, inside an EAR&amp;#8230; Hey, enterprise all the way down!&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Context Issues:
+
+&lt;ul&gt;
+&lt;li&gt;The system needs to run in a specific host with a specific configuration like specific IPs (ugh), specific URLs (easy), specific OS (this one was very painful)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Good news is that you have the tools to work around all these issues, and yes, you get much better on fixing them (with time, experience and tears). I don&amp;#8217;t think that we will be seeing a &amp;#8220;Wizard&amp;#8221; to migrate your apps to Docker just yet but we will get there.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

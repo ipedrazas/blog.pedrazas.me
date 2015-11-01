@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/tags/python/</link>
+    <description>Recent content in Python on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Sat, 15 Jun 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>3 links to save your sanity</title>
+      <link>http://blog.pedrazas.me/2013/06/15/3-links-to-save-your-sanity/</link>
+      <pubDate>Sat, 15 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/06/15/3-links-to-save-your-sanity/</guid>
+      <description>&lt;p&gt;During the last two years I&amp;#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.&lt;/p&gt;
+
+&lt;p&gt;Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&amp;#8217;s finished Boom! deploy finished &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This script will create the following directory:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#8217;s assume the last deploy was done 2 days before:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.13-11.23.22&amp;lt;br /&amp;gt;
+/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, there&amp;#8217;s something I do&amp;#8230; &amp;#8220;just in case&amp;#8221;, I create 3 symbolic links as follows:&lt;/p&gt;
+
+&lt;p&gt;``During the last two years I&amp;#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.&lt;/p&gt;
+
+&lt;p&gt;Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&amp;#8217;s finished Boom! deploy finished &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This script will create the following directory:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#8217;s assume the last deploy was done 2 days before:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.13-11.23.22&amp;lt;br /&amp;gt;
+/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, there&amp;#8217;s something I do&amp;#8230; &amp;#8220;just in case&amp;#8221;, I create 3 symbolic links as follows:&lt;/p&gt;
+
+&lt;p&gt;``&lt;/p&gt;
+
+&lt;p&gt;So, my nginx points to current, so if something goes wrong, I can always swap back to the previous release that, alas, it&amp;#8217;s just there. With these 3 links I know exactly where I am and where I was before the release, and yes, things go wrong, and my rollback is as simple as changing a couple of links (I do something else, but the update of the links is what makes the process extremely fast).&lt;/p&gt;
+
+&lt;p&gt;In case that you wonder, this is how the links are left after a rollback:&lt;/p&gt;
+
+&lt;p&gt;```During the last two years I&amp;#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.&lt;/p&gt;
+
+&lt;p&gt;Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&amp;#8217;s finished Boom! deploy finished &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This script will create the following directory:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#8217;s assume the last deploy was done 2 days before:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.13-11.23.22&amp;lt;br /&amp;gt;
+/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, there&amp;#8217;s something I do&amp;#8230; &amp;#8220;just in case&amp;#8221;, I create 3 symbolic links as follows:&lt;/p&gt;
+
+&lt;p&gt;``During the last two years I&amp;#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.&lt;/p&gt;
+
+&lt;p&gt;Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&amp;#8217;s finished Boom! deploy finished &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This script will create the following directory:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#8217;s assume the last deploy was done 2 days before:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/data/blibb/releases/2013.6.13-11.23.22&amp;lt;br /&amp;gt;
+/data/blibb/releases/2013.6.15-22.59.12&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, there&amp;#8217;s something I do&amp;#8230; &amp;#8220;just in case&amp;#8221;, I create 3 symbolic links as follows:&lt;/p&gt;
+
+&lt;p&gt;``&lt;/p&gt;
+
+&lt;p&gt;So, my nginx points to current, so if something goes wrong, I can always swap back to the previous release that, alas, it&amp;#8217;s just there. With these 3 links I know exactly where I am and where I was before the release, and yes, things go wrong, and my rollback is as simple as changing a couple of links (I do something else, but the update of the links is what makes the process extremely fast).&lt;/p&gt;
+
+&lt;p&gt;In case that you wonder, this is how the links are left after a rollback:&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>(Gunicorn &#43; Python) vs (Tomcat &#43; Java)</title>
+      <link>http://blog.pedrazas.me/2013/06/12/gunicorn-python-vs-tomcat-java/</link>
+      <pubDate>Wed, 12 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/06/12/gunicorn-python-vs-tomcat-java/</guid>
+      <description>&lt;p&gt;Writing an app it&amp;#8217;s one thing, deploying an app it&amp;#8217;s a very different matter. Last night we were discussing about the differences between deploying Java apps and deploying python apps. I must admit that I never put my head to look at how python apps were deployed, so this morning I decided to take a look and&amp;#8230; yes, deploying a java app in Tomcat is still easier than deploying a python app with gunicorn (let the troll wars begin!). True, to deploy an app with gunicorn you just need this:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;gunicorn --log-level=debug -c gunicorn.conf hello:app&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;or if just &amp;#8220;gunicorn hello:app&amp;#8221; which is great, it couldn&amp;#8217;t be more simple!&lt;/p&gt;
+
+&lt;p&gt;But&amp;#8230; Imagine this scenario: we create 2 apps, one in Java, one in python, let&amp;#8217;s say, using Flask (I could have said Django&amp;#8230; but let&amp;#8217;s keep it simple).&lt;/p&gt;
+
+&lt;p&gt;Now I have my BIG FAT SERVER where I have my tomcat instance and my gunicorn instance running.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;To deploy the java app I need to create a war file and upload it using the admin page&amp;#8230; et voila, we have java app deployed.&lt;/li&gt;
+&lt;li&gt;To deploy the python app I need to ssh to that server, scp the python app files over, and run that line from above.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Fair enough, it&amp;#8217;s not that different and gunicorn kicks ass, but let&amp;#8217;s be honest here, even if we had to ssh and copy over the war file&amp;#8230; just by putting it in the right directory it will self-deploy. Don&amp;#8217;t get me wrong, I do love python and when I can, I much rather use python-gunicorn than any of their java cousins, but we have to be fair with the fat jvm relatives, haven&amp;#8217;t we?&lt;/p&gt;
+
+&lt;p&gt;This time, Java wins!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

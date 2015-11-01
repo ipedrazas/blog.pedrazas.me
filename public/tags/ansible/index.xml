@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ansible on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/tags/ansible/</link>
+    <description>Recent content in Ansible on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Fri, 14 Jun 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Vagrant, dev love</title>
+      <link>http://blog.pedrazas.me/2013/06/14/vagrant-dev-love/</link>
+      <pubDate>Fri, 14 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/06/14/vagrant-dev-love/</guid>
+      <description>&lt;p&gt;So, imagine I would say that with this two commands:&lt;/p&gt;
+
+&lt;p&gt;`So, imagine I would say that with this two commands:&lt;/p&gt;
+
+&lt;p&gt;`&lt;/p&gt;
+
+&lt;p&gt;You have a Virtual machine with Ubuntu ready to play with.&lt;/p&gt;
+
+&lt;p&gt;Now, imagine that you configure that machine with the different software that you need. Smart people call that action to provision your machines. Just imagine. Because you have plenty of space, you save that virtual box somewhere in your dev server.&lt;/p&gt;
+
+&lt;p&gt;(in case you wonder where that virtual machine, or box, has been stored, it&amp;#8217;s here, look:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;~/.vagrant.d/boxes/precise64/virtualbox/&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;happy, now?)&lt;/p&gt;
+
+&lt;p&gt;Now, imagine this Science Fiction scene: a new starter arrives and it takes longer to set up his email and domain user than the dev machine. I know&amp;#8230; sounds ridiculous.&lt;/p&gt;
+
+&lt;p&gt;Well, that&amp;#8217;s Vagrant.&lt;/p&gt;
+
+&lt;p&gt;I use Vagrant with &lt;a href=&#34;http://www.ansibleworks.com/docs/playbooks2.html&#34;&gt;Ansible&lt;/a&gt; (we&amp;#8217;ll talk about this in another post) to re-create a Dev environment. Last time we checked out, it took 4 minutes and 23 seconds to create, provision and deploy the code in Vagrant installing and configuring:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span style=&#34;line-height: 15px;&#34;&gt;Nginx&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;php-fpm&lt;/li&gt;
+&lt;li&gt;python: gunicorn, supervisor, virtualenv&lt;/li&gt;
+&lt;li&gt;mongodb&lt;/li&gt;
+&lt;li&gt;redis&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thing is, I much rather prefer spending time setting up my sublime text than my python environment&amp;#8230; unfortunately, I do have yet-another script that installs &amp;amp; configures my sublime.&lt;/p&gt;
+
+&lt;p&gt;Quote of the week:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Automate Everything!&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

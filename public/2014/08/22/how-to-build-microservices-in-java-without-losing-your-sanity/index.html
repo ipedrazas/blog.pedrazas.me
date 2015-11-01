@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to build (and run) Microservices in Java without losing your Sanity &middot; Big Bag Blog</title>
+
+    <meta name="description" content="">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="How to build (and run) Microservices in Java without losing your Sanity &middot; Big Bag Blog">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to build (and run) Microservices in Java without losing your Sanity &middot; Big Bag Blog">
+    <meta property="og:description" content="">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://blog.pedrazas.me/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Big Bag Blog" href="http://blog.pedrazas.me/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://blog.pedrazas.me">Big Bag Blog</a></h1>
+            <h2 class="brand-tagline"> Need a place to hide </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/ipedrazas"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/ipedrazas "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://blog.pedrazas.me/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                <h1 class="content-subhead">22 Aug 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2014/08/22/how-to-build-microservices-in-java-without-losing-your-sanity/" class="post-title">How to build (and run) Microservices in Java without losing your Sanity</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Development" href="http://blog.pedrazas.me/categories/development">Development</a><a class="post-category post-category-Docker" href="http://blog.pedrazas.me/categories/docker">Docker</a><a class="post-category post-category-Java" href="http://blog.pedrazas.me/categories/java">Java</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-share">
+                        <div class="post-share-links">
+                            <h4 style="">Share</h4>
+                            <a href="#" data-type="facebook" data-url="http://blog.pedrazas.me/2014/08/22/how-to-build-microservices-in-java-without-losing-your-sanity/" data-title="How to build (and run) Microservices in Java without losing your Sanity" data-description="" data-media="" class="prettySocial fa fa-facebook"></a>
+                            <a href="#" data-type="googleplus" data-url="http://blog.pedrazas.me/2014/08/22/how-to-build-microservices-in-java-without-losing-your-sanity/" data-description="" class="prettySocial fa fa-google-plus"></a>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="post-description">
+                        <p>If you haven&#8217;t heard about Microservices, <a href="http://martinfowler.com/articles/microservices.html">go here</a> and read about them!</p>
+
+<p>For a long time I&#8217;ve writen all my microservices using Python because Java had a massive overhead (called a Servlet Container).</p>
+
+<p>I&#8217;m not sure how I stumbled upon DropWizard, but it has done something that I thought impossible: My Ops side has loved Java back.</p>
+
+<p>What do I want?</p>
+
+<p>I want to be able to define a simple REST service and publish it with as little dependencies as possible.</p>
+
+<p>Yes, I can write a JAX-RS class and run:</p>
+
+<pre>-&gt;%mvn jetty:run
+</pre>
+
+<p>And my servlet container will expose my REST service&#8230; but let&#8217;s face it, deploying services like this will not take us too far. Like, are you planning to run a Jetty/Tomcat service per MicroService you want to expose??? Yes, this is where my Ops side of me was cringing big time.</p>
+
+<p>True, I could bundle services and&#8230; and little by little we will find ourselves walking away from our beloved Microservices because of &#8220;Operations is complicated&#8221;. Operations is hard, we all know that, but a good architecture has to provide enough tools to satisfy our design goals without compromise our operations.</p>
+
+<p>Solution? I&#8217;m sure It won&#8217;t surprise any of my followers: it&#8217;s to use <strong>Docker and&#8230; DropWizard</strong>!!!</p>
+
+<p>How, you don&#8217;t know <a href="https://dropwizard.github.io">DropWizard</a>? run to their website and sort that out: NOW! DropWizard does a lot of things, one of them is awesome: It allows you to write a JAX-RS class and run it from your command line. I mean, it creates a fat jar file that you can then run:</p>
+
+<pre>java -jar my_microservice-0.0.1-SNAPSHOT.jar server my_microservice_conf.yml
+</pre>
+
+<p>And&#8230; it will expose your rest service in the port 8080 (and it comes with an admin freebie in port 8081 &lt;&#8211; my ops side of me is very happy about this).</p>
+
+<p>Now&#8230; what happens if you build a Docker image that runs that instruction? That you have an easy way to run/test/distribute your microservice.</p>
+
+<pre>sudo docker run -d -p 9094:8080 7887:8081 ipedrazas/m_dotmarks:latest
+</pre>
+
+<p>Note that all my microservices are exposed using the default ports: 8080 and 8081 and then I re-map them when running them in Docker. Why? because it gives me more flexibility and I don&#8217;t have to worry about Ops while doing Dev (yes, developers do not decide how to run the service).</p>
+
+<p>As always, I strongly recommend to run nginx as a gateway to your dockerized services. In this case our two ports 8080 and 8081 will be remmaped to 9094 (that nginx will expose using a url like api.dotmarks.net/dotmarks) and 7887 that will be used internally only.</p>
+
+<p>These holidays I&#8217;ve been rewriting my <a href="https://dotmarks.net/">dotMarks</a> app originally in python in Java using DropWizard and I will be releasing the code once it works.</p>
+
+<p>Stay tunned!</p>
+
+                    </div>
+                    
+                </section>
+            </div>
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://blog.pedrazas.me/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

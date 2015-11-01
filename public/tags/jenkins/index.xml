@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jenkins on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/tags/jenkins/</link>
+    <description>Recent content in Jenkins on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Fri, 28 Jun 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/tags/jenkins/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Monitoring Cron Jobs with Jenkins</title>
+      <link>http://blog.pedrazas.me/2013/06/28/monitoring-cron-jobs-with-jenkins/</link>
+      <pubDate>Fri, 28 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/06/28/monitoring-cron-jobs-with-jenkins/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&amp;#8220;How do you monitor your cron jobs?&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;We just don&amp;#8217;t&amp;#8230;&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Monitoring is one of those things that yo should do: monitor EVERYTHING&amp;#8230; or at least as much as you can.&lt;/p&gt;
+
+&lt;p&gt;One of the most slippery cases are our cron jobs. Many of them don&amp;#8217;t report anything, many of them run without anyone knowing they&amp;#8217;re there&amp;#8230; And even worse, if they fail, they fail silently: as this cron job I disabled because it had been failing since 2008 (only 5 years or every day failures).&lt;/p&gt;
+
+&lt;p&gt;That was the last straw, after removing that entry from the crontab I went to my boss and we decided to tackle the problem. This client uses Nimbus but it seems that the Nimbus guy was not very happy on having loads of cron jobs added so I suggested using Jenkins.&lt;/p&gt;
+
+&lt;p&gt;In this case we decided to use Free Style Software Projects since they allow us to run the cron job manually&lt;/p&gt;
+
+&lt;pre&gt;JENKINS_HOME=http://myserver.acme.org/path/to/jenkins/
+0 * * * *     export JENKINS_HOME=$JENKINS_HOME; java -jar jenkins-core-*.jar &#34;backup&#34; backup.sh 2&amp;gt;&amp;1 &amp;gt; /dev/null&lt;/pre&gt;
+
+&lt;p&gt;You can find more info in the &lt;a href=&#34;https://wiki.jenkins-ci.org/display/JENKINS/Monitoring+external+jobs&#34;&gt;Jenkins Wiki&lt;/a&gt; but if you want to know more or have any doubts, just &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;ping me on Twitter&lt;/a&gt; &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

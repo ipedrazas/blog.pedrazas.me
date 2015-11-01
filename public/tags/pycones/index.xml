@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pycones on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/tags/pycones/</link>
+    <description>Recent content in Pycones on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Sun, 02 Nov 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/tags/pycones/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Asistentes a mi taller – PyCoNes 2014</title>
+      <link>http://blog.pedrazas.me/2014/11/02/asistentes-a-mi-taller-pycones-2014/</link>
+      <pubDate>Sun, 02 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/11/02/asistentes-a-mi-taller-pycones-2014/</guid>
+      <description>&lt;p&gt;Si aún no tienes claro si vas a venir a mi taller o no, &lt;a href=&#34;http://ivan.pedrazas.me/?p=364&#34;&gt;lee esto&lt;/a&gt;, y luego sigue &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Parece que la conexión de internet no va a ser para tirar cohetes&amp;#8230; nada que no hayamos sufrido todos alguna vez. Así que, para minimizar el impacto de una mala conexión hay dos opciones:&lt;/p&gt;
+
+&lt;p&gt;Usar una conexion ssh a una máquina virtual en la nube (AWS, &lt;a href=&#34;https://www.digitalocean.com/?refcode=56ae0600c4bc&#34;&gt;Digital Ocean&lt;/a&gt;, Linode&amp;#8230; o vuestro proveedor de máquinas virtuales favorito). Con ésto conseguimos que el tráfico ocurra entre esa máquina y docker, limitando el tráfico desde la sala a un puñado de conexiones ssh.&lt;/p&gt;
+
+&lt;p&gt;Otra opción es usar vuestro ordenador y descargar antes las imágenes que se van a usar. Ésta opción es más agresiva con la red por que cuando hagamos un build habrá imágenes que no se cachearán y habrá que descargarlas&amp;#8230; y petaremos la red.&lt;/p&gt;
+
+&lt;p&gt;Si váis a usar vuestro ordenador, es recomendable que os instaléis la versión 1.3 de docker y hagáis pull de las siguientes imágenes. En negrita están las 5 imágenes base para desarrollo python:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;docker pull ubuntu&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;docker pull tpires/neo4j&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;docker pull dockerfile/redis&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;docker pull dockerfile/mongodb&lt;/p&gt;
+
+&lt;p&gt;docker pull ipedrazas/elasticsearch&lt;/p&gt;
+
+&lt;p&gt;docker pull poklet/cassandra&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;docker pull python:2&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;docker pull python:3&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;docker pull nornagon/postgres&lt;/p&gt;
+
+&lt;p&gt;docker pull clue/ttrss&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;docker pull postgres&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;docker pull ipedrazas/taiga-front&lt;/p&gt;
+
+&lt;p&gt;docker pull ipedrazas/taiga-back&lt;/p&gt;
+
+&lt;p&gt;docker pull php:5.6-apache&lt;/p&gt;
+
+&lt;p&gt;docker pull node:0.10-onbuild&lt;/p&gt;
+
+&lt;p&gt;La lista no es definitiva, pero cubre mucho camino. A los que no uséis Linux, tenéis que instalar Boot2Docker y si no recuerdo mal, la versión 1.3 ya permite montar volúmenes entre host y contenedor, así que no tendréis problemas para seguir el taller.&lt;/p&gt;
+
+&lt;p&gt;Si tenéis preguntas o queréis que hable de algún tema en concreto, mandadme un email, o dadme un toque por &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;twitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;El taller está pensado para que la gente salga con una idea clara de lo que se puede hacer con Docker y por donde se puede empezar. Todo el material estará colgado en github.&lt;/p&gt;
+
+&lt;p&gt;Nos vemos el Sábado!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;: ya empezamos otra vez con las notitas?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 2&lt;/strong&gt;: No, el código de DO no es por que &amp;#8220;espere forrarme&amp;#8221;, ni mucho menos.  O sea, en serio??&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 3&lt;/strong&gt;: a ver cuántos errores y tildes encuentra &lt;a href=&#34;https://twitter.com/yamila_moreno&#34;&gt;Yamila&lt;/a&gt;&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;Nota 4: Gracias a &lt;a href=&#34;https://twitter.com/agonzalezro&#34;&gt;Álex&lt;/a&gt; por corregirme 723 errores, lo menos &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PyConEs 2014</title>
+      <link>http://blog.pedrazas.me/2014/10/30/pycones-2014/</link>
+      <pubDate>Thu, 30 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/10/30/pycones-2014/</guid>
+      <description>&lt;p&gt;Estoy muy orgulloso de poder participar en la PyCon Española con un taller que para seguir la tradición he titulado  &amp;#8220;&lt;strong&gt;50 Shades of Docker&lt;/strong&gt;&amp;#8220;.&lt;/p&gt;
+
+&lt;p&gt;El taller es una breve introducción a los contenedores de Linux y por qué es importante saber sobre ellos. Si eres CIO, CEO o Director de Informática de una empresa donde se usa la virtualización, éste es un taller que no te puedes perder!!!&lt;/p&gt;
+
+&lt;p&gt;De hecho, si eres programador, sysadmin o diseñador&amp;#8230; tampoco te puedes perder!&lt;/p&gt;
+
+&lt;p&gt;Si te preguntás por qué deberías pagar &lt;del&gt;&lt;a href=&#34;https://www.ticketea.com/pycones14/&#34;&gt;los 30€ de la entrada&lt;/a&gt;&lt;/del&gt; (&lt;a href=&#34;https://www.ticketea.com/pycones14/&#34;&gt;20€ usando el codigo &lt;strong&gt;DescuentoPonentes&lt;/strong&gt;)&lt;/a&gt; de la PyConEs, la respuesta es muy sencilla: lo que te vas a ahorrar una vez entiendas lo que Docker puede hacer para ti o tu negocio va a compensar muy mucho el precio de la entrada.&lt;/p&gt;
+
+&lt;p&gt;El taller esta orientado de forma genérica. Los conceptos, si bien son un poco abstractos y con poca aplicación práctica, dan paso a multitud de soluciones y prácticas que se resumen en una frase muy corta:&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;trabajar mejor&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;Así que si estás interesado en saber o aprender cómo puedes trabajar mejor.. ya sabes, VEN!&lt;/p&gt;
+
+&lt;p&gt;Durante el taller se mostrarán ejemplos prácticos. Como todo el mundo ha padecido alguna vez, durante las conferencias la conexión a Internet sufre bastante, es por eso que se recomienda a los asistentes que usen una conexión remota (con &lt;a href=&#34;https://www.digitalocean.com/?refcode=56ae0600c4bc&#34;&gt;éste código&lt;/a&gt; puedes obtener &lt;a href=&#34;https://www.digitalocean.com/?refcode=56ae0600c4bc&#34;&gt;$10 gratis&lt;/a&gt; en Digital Ocean, más que suficiente para que cada asistente pueda realizar el taller durante un par de meses).&lt;/p&gt;
+
+&lt;p&gt;Si prefieres usar tu ordenador, deberás asegurarte que tienes la última versión de &lt;a href=&#34;https://docs.docker.com/installation/#installation&#34;&gt;Docker instalada&lt;/a&gt;, y una vez la tengas instalada, ejecuta el setup.sh que hay en el repositorio de mi github.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;: estoy montando el repo durante esta semana, así que no te sorprendas que el setup cambie un poquillo&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 2&lt;/strong&gt;: El setup lo único que hace es bajarse las imágenes que usaremos durante el taller.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 3&lt;/strong&gt;: Sí, voy a traer mis Google Glass, pero si vienes a mi taller por unas gafas sin cristales tú y yo tenemos que hablar!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 4&lt;/strong&gt;: cualquier duda, &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;pregunta&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 5&lt;/strong&gt;: si la duda es de &lt;a href=&#34;https://golang.org/&#34;&gt;Golang&lt;/a&gt;, preguntadle a &lt;a href=&#34;https://twitter.com/agonzalezro&#34;&gt;Alex&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Última Nota&lt;/strong&gt;: El &lt;a href=&#34;https://twitter.com/juanriaza&#34;&gt;maestro Riaza&lt;/a&gt; se ha comprometido a llevarme a comer a un lugar &amp;#8220;secreto&amp;#8230; dice&amp;#8221; que va a superar con creces la comida de la pasada PyCon. Como dicen por aqui: really looking forward to eating there &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

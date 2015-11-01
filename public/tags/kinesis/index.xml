@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kinesis on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/tags/kinesis/</link>
+    <description>Recent content in Kinesis on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Thu, 25 Jun 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/tags/kinesis/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Deconstructing</title>
+      <link>http://blog.pedrazas.me/2015/06/25/deconstructing/</link>
+      <pubDate>Thu, 25 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/06/25/deconstructing/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/kafka_logo.png&#34;&gt;&lt;img class=&#34;alignleft size-full wp-image-454&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/kafka_logo.png&#34; alt=&#34;kafka_logo&#34; width=&#34;75&#34; height=&#34;117&#34; /&gt;&lt;/a&gt;If you haven&amp;#8217;t heard about &lt;a href=&#34;http://kafka.apache.org/&#34;&gt;Apache Kafka&lt;/a&gt;, or his little brother Amazon Kinesis, go and read about &lt;a href=&#34;http://www.oreilly.com/pub/e/3098&#34;&gt;why they are so great&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I was chatting with a friend last night and he told me &amp;#8220;I get containers now. I needed some give it some thought, but I get them now&amp;#8221;. If I had to describe him with one word I would use &amp;#8220;smart&amp;#8221; without any doubt&amp;#8230; still he had to think about why containers are so great.&lt;/p&gt;
+
+&lt;p&gt;We carried on talking and after two more beers and few pork ribs I managed to make him understand why we are about to change we build applications. It&amp;#8217;s not only because of containers (or systems like Mesos or Kubernetes), but because with containers, we have seen the light of deconstructing the monoliths into microservices.&lt;/p&gt;
+
+&lt;p&gt;But, there&amp;#8217;s another key element on this Game of Thrones: The Log, systems like Apache kafka are going to help to change completely the landscape of what we build, and ship and run. Like with Microservices, the Log overlord brings a blessing in disguise: it&amp;#8217;s not what it does, it&amp;#8217;s what allows others to do.&lt;/p&gt;
+
+&lt;p&gt;It is not about its responsibility, it&amp;#8217;s about delegating that responsibility in who really has it. Let&amp;#8217;s look at what happens today. We have a system, that system gets some data, compute that data and stores that data in a database. Easy!&lt;/p&gt;
+
+&lt;p&gt;Then someone comes along and asks to get that same data and put it somewhere else, so our system now gets some data, compute that data and stores that data in two different places.&lt;/p&gt;
+
+&lt;p&gt;As we can see, this does not scale very well, so people get smart, and start doing things like database triggers and a whole bunch of things that are totally correct in itself, but over time, it creates a big mess of &amp;#8220;dirty integrations&amp;#8221;. These are the things that will break when we want to move our system. These are the future nightmares of our microservices journey.&lt;/p&gt;
+
+&lt;p&gt;Then, we have The LOG&amp;#8230; a dumb system that guess what: it does not care about what do you do with that data. The Log Overlord will keep your data for a while, and it&amp;#8217;s up to you, the consumers, to use it.&lt;/p&gt;
+
+&lt;p&gt;A bit like how the TV has been broadcasting for a few years&amp;#8230; with a twist, because, as we do now, this TV system allows you to consume the programs when you want it.&lt;/p&gt;
+
+&lt;p&gt;Ok, so, basically, we have a place where we put all that data (for a while) and we have a bunch of people consuming that data? So what?&lt;/p&gt;
+
+&lt;p&gt;Well, not much, but as with microservices, what the LOG overlord provides is the ability of your consumers to consume the way they want (once per hour, once per day&amp;#8230; in real time), and even more, the people who create the TV shows do not care about the broadcasting anymore.&lt;/p&gt;
+
+&lt;p&gt;Think about it. Microservices decouple your business logic. With microservices you can write very business specific services without having to worry about all the other business rules, use cases and (oh yes) those terrible exceptions.&lt;/p&gt;
+
+&lt;p&gt;Apache Kafka or Amazon Kinesis decouple your data. How you read that data is up to the readers and the writers have nothing to do with that. It&amp;#8217;s like a writer writing a book, and people reading that book: when they want, how they want&amp;#8230; as opposed to the writer writing and reading aloud to certain audience.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m not sure if the creators of Kafka chose that name because it&amp;#8217;s a system that allows writers and readers to focus and enjoy what they want to do.&lt;/p&gt;
+
+&lt;p&gt;As I said, we are living very exciting times with a lot of change. Let me finish with a song&amp;#8230; or my own version of a song by &lt;a href=&#34;https://www.youtube.com/watch?v=f8PMqLHF1jU&#34;&gt;Elvis Presley&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  Treat me like a fool,&lt;br /&gt; Treat me mean and cruel,&lt;br /&gt; But &lt;strong&gt;LOG&lt;/strong&gt; me.
+&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  Wring my faithful heart,&lt;br /&gt; Tear it all apart,&lt;br /&gt; But &lt;strong&gt;LOG&lt;/strong&gt; me.
+&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  &lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/649ca9a3f3d4aba78095a28c26fba1fa.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-455&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/649ca9a3f3d4aba78095a28c26fba1fa-233x300.jpg&#34; alt=&#34;649ca9a3f3d4aba78095a28c26fba1fa&#34; width=&#34;233&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Wed, 12 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Contain 3</title>
+      <link>http://blog.pedrazas.me/2015/08/12/contain-3/</link>
+      <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/08/12/contain-3/</guid>
+      <description>&lt;p&gt;Last night it was the third Contain meetup. I was looking forward to seeing all the guys from RedHat, Microsoft and CoreOS and learning what was in store for us in the container space.&lt;/p&gt;
+
+&lt;p&gt;As it usually happens in life, things changed pretty quickly. Boris, the guy from Microsoft, had a car accident (rumours of him being in a Google self driving ca were discarded promptly). With Boris out, Matt asked me if I could be in the panel instead of him. I guess that Matt thought I was the perfect candidate to represent Microsoft since I am one of the few certified Windows Me power users (cough, cough).&lt;/p&gt;
+
+&lt;p&gt;Matt understands containers, that&amp;#8217;s why he gave us the slides the proper way:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;docker run jetstack/contain:v3_container_os&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The good news, to compensate the bad news of Boris car accident, was that Chris Kenyon, from Canonical came to talk to us about their plans with containers: &lt;a href=&#34;http://www.ubuntu.com/cloud/tools/lxd&#34; target=&#34;_blank&#34;&gt;LXD&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Chris told us during the panel that the datacenter now is following how mobile phones work. Updating hundreds or thousands of machines it&amp;#8217;s equivalent to update thousands of telephones. Which is very interesting way of explaining transactional updates. Ubuntu, with snappy or CoreOS have that as the core of their value proposition.&lt;/p&gt;
+
+&lt;p&gt;It was an interesting conversation. I&amp;#8217;m a big fan of immutable and ephemeral infrastructure. So when people ask me &amp;#8220;&lt;em&gt;how do you update your containers&lt;/em&gt;&amp;#8221; the answer is simple: You don&amp;#8217;t!&lt;/p&gt;
+
+&lt;p&gt;I think it&amp;#8217;s good to differentiate when transactional updates are good and when they are not. Host updates: &lt;strong&gt;yes&lt;/strong&gt;. Containers updates: &lt;strong&gt;No&lt;/strong&gt;!&lt;/p&gt;
+
+&lt;p&gt;But what it&amp;#8217;s fundamental is to understand that containers are not machines or VMs. You have to see your containers as snapshots. Immutable snapshots that can be easily discarded.&lt;/p&gt;
+
+&lt;p&gt;Forget about Chef, Puppet, Ansible or Salt&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/08/pffbz.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-466&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/08/pffbz-300x177.jpg&#34; alt=&#34;pffbz&#34; width=&#34;300&#34; height=&#34;177&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Updating containers have 2 parts: updating the image and running that container. Kubernetes is your friend here. It wasn&amp;#8217;t until yesterday that I realised that many of my colleagues do not understand the great value of Kubernetes.&lt;/p&gt;
+
+&lt;p&gt;Updating containers is a matter of defining a new pod with your new containers and swapping the label when you are ready for the &amp;#8220;update&amp;#8221;. I guess that the best way of putting it is to say that Kubernetes does not try to solve the update problem because there&amp;#8217;s no such problem in the kubernetes world. We have others&amp;#8230; but that it&amp;#8217;s not one of them.&lt;/p&gt;
+
+&lt;p&gt;In summary, an excellent night. Thanks &lt;a href=&#34;http://www.jetstack.io/&#34; target=&#34;_blank&#34;&gt;Jetstack&lt;/a&gt; and all the Matts involved!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

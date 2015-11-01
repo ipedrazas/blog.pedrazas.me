@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development &middot; Big Bag Blog</title>
+
+    <meta name="description" content="Need a place to hide">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Development &middot; Big Bag Blog">
+    <meta name="twitter:description" content="Need a place to hide">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Development &middot; Big Bag Blog">
+    <meta property="og:description" content="Need a place to hide">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://blog.pedrazas.me/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Big Bag Blog" href="http://blog.pedrazas.me/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://blog.pedrazas.me">Big Bag Blog</a></h1>
+            <h2 class="brand-tagline"> Need a place to hide </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/ipedrazas"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/ipedrazas "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://blog.pedrazas.me/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                
+                <h1 class="content-subhead">22 Sep 2014</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2014/09/22/the-art-of-testing-in-the-rain/" class="post-title">The Art of Testing in the rain</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Development" href="http://blog.pedrazas.me/categories/development">Development</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Testing is hard. We all know that. Testing distributed applications is just a nightmare. Like having Jason, Freddy Krugger and legions of zombies chasing you while you run barefoot, naked and of course, in the rain.</span></span></p>
+
+<p><span style="color: #333333;">Why it&#8217;s so hard? Well, let&#8217;s look at it. We have </span><strong><span style="color: #333333;">Unit Testing</span></strong><span style="color: #333333;">, where we test that our code does what it has to do. Then, we have </span><strong><span style="color: #333333;">Integration Test</span></strong><span style="color: #333333;">, where we test that our code can connect and query other systems. Finally, we have </span><strong><span style="color: #333333;">System Test</span></strong><span style="color: #333333;">, where we want to test if our application works.</span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Questions you ask during <strong>Unit Testing</strong>:</span></span></p>
+
+<ul>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Does this method return this expected value?</span></span></li>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Does this method parse this XML properly?</span></span></li>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Does this method transform this object into this other one?</span></span></li>
+</ul>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Questions you ask during <strong>Integration Test</strong>:</span></span></p>
+
+<ul>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Can my application connect to the database?</span></span></li>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Does this method return any data?</span></span></li>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Does this API call return the Json objects as I expect?</span></span></li>
+</ul>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Finally, <strong>System Test</strong>:</span></span></p>
+
+<ul>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Can I log in?</span></span></li>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Can I sign up as a new user?</span></span></li>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">When I delete this message, does it goes away?</span></span></li>
+</ul>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">And this last bit, this last bit it&#8217;s terribly hard because you have different systems and a frontend to deal with and not only that, you have to have a system that replicates production (and this is expensive and time consuming).</span></span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">So, why testing is so hard? because there are many dependencies at many different layers that are very difficult to replicate (have I talked about firewalls? well, maybe I should)</span></span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Unit Testing can be done as a pre-building task. Cheap, easy.</span></span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Integration Test needs two system talking to each other: our code, and the system my code is connecting to. Not as cheap as it seems. Mocking up is a way of reducing the cost of running two (or more) systems. But don&#8217;t deceive yourself, when mocking you are unit testing.</span></span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">System Test needs all the systems in place properly configured. Expensive.</span></span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Take this, testing your application is not an extra life, it&#8217;s a sneak peak to the dangers that stalk ahead.</span></span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">So, how much effort I should put on testing? as much as you can. Read it again: as much as you can. It depends. Let&#8217;s put it like this, the more effort you put in proper testing, the less effort you will have to put when deploying to production.</span></span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Testing is hard, and with every release, with every problem we find in production we learn (like simulating dodgy firewalls), but you should take Testing like that: a learning exercise.</span></span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">I&#8217;m planning to write a series of posts about Integration and System Testing. So, if you&#8217;re interested, bear with me! </span></span></p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">22 Aug 2014</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2014/08/22/how-to-build-microservices-in-java-without-losing-your-sanity/" class="post-title">How to build (and run) Microservices in Java without losing your Sanity</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Development" href="http://blog.pedrazas.me/categories/development">Development</a><a class="post-category post-category-Docker" href="http://blog.pedrazas.me/categories/docker">Docker</a><a class="post-category post-category-Java" href="http://blog.pedrazas.me/categories/java">Java</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>If you haven&#8217;t heard about Microservices, <a href="http://martinfowler.com/articles/microservices.html">go here</a> and read about them!</p>
+
+<p>For a long time I&#8217;ve writen all my microservices using Python because Java had a massive overhead (called a Servlet Container).</p>
+
+<p>I&#8217;m not sure how I stumbled upon DropWizard, but it has done something that I thought impossible: My Ops side has loved Java back.</p>
+
+<p>What do I want?</p>
+
+<p>I want to be able to define a simple REST service and publish it with as little dependencies as possible.</p>
+
+<p>Yes, I can write a JAX-RS class and run:</p>
+
+<pre>-&gt;%mvn jetty:run
+</pre>
+
+<p>And my servlet container will expose my REST service&#8230; but let&#8217;s face it, deploying services like this will not take us too far. Like, are you planning to run a Jetty/Tomcat service per MicroService you want to expose??? Yes, this is where my Ops side of me was cringing big time.</p>
+
+<p>True, I could bundle services and&#8230; and little by little we will find ourselves walking away from our beloved Microservices because of &#8220;Operations is complicated&#8221;. Operations is hard, we all know that, but a good architecture has to provide enough tools to satisfy our design goals without compromise our operations.</p>
+
+<p>Solution? I&#8217;m sure It won&#8217;t surprise any of my followers: it&#8217;s to use <strong>Docker and&#8230; DropWizard</strong>!!!</p>
+
+<p>How, you don&#8217;t know <a href="https://dropwizard.github.io">DropWizard</a>? run to their website and sort that out: NOW! DropWizard does a lot of things, one of them is awesome: It allows you to write a JAX-RS class and run it from your command line. I mean, it creates a fat jar file that you can then run:</p>
+
+<pre>java -jar my_microservice-0.0.1-SNAPSHOT.jar server my_microservice_conf.yml
+</pre>
+
+<p>And&#8230; it will expose your rest service in the port 8080 (and it comes with an admin freebie in port 8081 &lt;&#8211; my ops side of me is very happy about this).</p>
+
+<p>Now&#8230; what happens if you build a Docker image that runs that instruction? That you have an easy way to run/test/distribute your microservice.</p>
+
+<pre>sudo docker run -d -p 9094:8080 7887:8081 ipedrazas/m_dotmarks:latest
+</pre>
+
+<p>Note that all my microservices are exposed using the default ports: 8080 and 8081 and then I re-map them when running them in Docker. Why? because it gives me more flexibility and I don&#8217;t have to worry about Ops while doing Dev (yes, developers do not decide how to run the service).</p>
+
+<p>As always, I strongly recommend to run nginx as a gateway to your dockerized services. In this case our two ports 8080 and 8081 will be remmaped to 9094 (that nginx will expose using a url like api.dotmarks.net/dotmarks) and 7887 that will be used internally only.</p>
+
+<p>These holidays I&#8217;ve been rewriting my <a href="https://dotmarks.net/">dotMarks</a> app originally in python in Java using DropWizard and I will be releasing the code once it works.</p>
+
+<p>Stay tunned!</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">05 Aug 2014</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2014/08/05/fhr-elasticsearch-aggregations/" class="post-title">What’s the Filthiest PostCode in UK? and the Cleanest too!</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Development" href="http://blog.pedrazas.me/categories/development">Development</a><a class="post-category post-category-Java" href="http://blog.pedrazas.me/categories/java">Java</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>There&#8217;s a <a href="https://github.com/ipedrazas/crawlers/tree/master/FHR">GitHub repo</a> associated to this post that <a href="https://github.com/ipedrazas/crawlers/tree/master/FHR">it can be found here</a></p>
+
+<p>Do you know that sticker on the window of most takeaway shops? that sticker displays the Hygiene rating. This post is not about those stickers.</p>
+
+<p><img class="aligncenter size-full wp-image-303" src="http://ivan.pedrazas.me/wp-content/uploads/2014/08/fhrs_5_en-gb.jpg" alt="Hygiene Rating Sticker" width="290" height="148" /></p>
+
+<p>Now, as it happens, restaurants, deli bars and of course, take away shops are checked up regularly to see how clean are they and the collected information ends up in a report, a sticker and&#8230; some dark and remote database.</p>
+
+<p>After doing the ElastiSearch training three weeks ago I was itching to do some aggregations with it. I have done aggregations before using &#8220;<em>Ye Olde</em>&#8221; Map/Reduce approach and I was interested on seeing how it would compare to do agregations with MongoDB.</p>
+
+<p>I found the Food and Higiene dataset and a python script later I had all their data in my hard drive (just under 500MB of XMLs). Since I like diversity, I wrote a Java program to parse those XMLs and add them into my ElasticSearch instance. It really surprised me the amount of time spent on preparing the data before being able to execute the analysis. I know, it shouldn&#8217;t but it does&#8230; every single time it does.</p>
+
+<p>Anyway, I run ElasticSearch in a docker instance that has the Marvel plugin in it. This plugin is perfect for throwing a few quick queries and getting some json back. Of course, me being me, I could not just do some tests and write a blog post&#8230; I had to create <a href="https://github.com/ipedrazas/crawlers/tree/master/FHR">a Github Repo</a> where you can find the source code (just in case you do want to try it by yourself), results (in json files) and some more detailed explanation about how to fetch the data, run the docker container and the different queries I issued.</p>
+
+<p>After indexing almost half a Gigabyte I discovered that the average rating In UK for Food Hygiene is <strong>3.5849</strong> which is not that great, is it? I mean, we are talking about how clean is the place where we eat: &#8220;kind of not clean but not dirty neither&#8221;.</p>
+
+<p>What else did I find? Well, I was interested on my area (NW10) average: <strong>3.23910171730515  </strong>Depressing, I guess it&#8217;s time to move to&#8230; where?</p>
+
+<p>Well, let&#8217;s find out, what&#8217;s the cleanest Post Code? I didn&#8217;t know much about UK PostCodes. Post Code indicates the area (outward) and the building/house (inward). The dataset provides longitude and latitude for every single establishment so you don&#8217;t really need the PostCode to put the stablishment in a map. Anyway, that was not my intention.</p>
+
+<p>So, as it turns, the cleanest Post Code is <a href="https://www.google.co.uk/maps/place/South+Petherton,+Somerset+TA13/@50.8277828,-2.2505537,9z/data=!4m2!3m1!1s0x48726c54bfd88a65:0xc91f5b601623f2d1">SOUTH PETHERTON (TA13)</a>, or if you think that 42 establishments and an average of <strong>4.761904761904762</strong> is not significant enough I can move to <a href="https://www.google.co.uk/maps/place/Taunton,+Somerset/@52.1627957,-1.8741876,7z/data=!4m2!3m1!1s0x486d8a921fb7907f:0x75eb0e344edee9fb">TAUNTON (TA3)</a> with a wooping average of <strong>4.642857142857143</strong></p>
+
+<p>And now that we know where to go, which place we should all avoid? Ladies and Gentlemen, the filthiest area in UK is (shame on you)&#8230;</p>
+
+<p><a href="https://www.google.co.uk/maps/place/Hawick,+Scottish+Borders+TD9/@53.3002712,-2.738034,7z/data=!4m6!1m3!3m2!1s0x487d796662ced111:0x2cc564208e63c086!2sShankend+Holiday+Cottage+Hawick!3m1!1s0x487d605a6cc3a265:0x188c40d9107d6db6">HAWICK, NEWCASTLETON (TD9)</a> with a terrible average of <strong>0.013761467889908258</strong> (yes, that&#8217;s Zero point Zero One).</p>
+
+<pre>{
+   "key": "td9",
+   "doc_count": 218,
+   "avg_height": {
+      "value": 0.013761467889908258
+   }
+},
+
+ {
+   "key": "ta13",
+   "doc_count": 42,
+   "avg_height": {
+      "value": 4.761904761904762
+   }
+},
+{
+   "key": "ta3",
+   "doc_count": 112,
+   "avg_height": {
+      "value": 4.642857142857143
+   }
+},
+</pre>
+
+<p>But let&#8217;s not stop there&#8230; What is the most common rating? XX</p>
+
+<p>The Food Standars Agency has a web form that let&#8217;s you check the rating of your favourite place.</p>
+
+<p>Let me show you one of the queries I used, just in case you&#8217;re looking at how to do aggregations with ElasticSearch and are struggling with the lack of documentation:</p>
+
+<pre>GET _search
+{
+
+   "query" : {
+      "match" : { "PostCode" : "PO18*"}
+       },
+   "aggs" : {
+        "Food_hygiene_ratings" : {
+           "terms" : {
+             "field" : "RatingValue"
+           }
+        },
+
+        "avg_height" : {
+          "avg" : {
+            "field" : "RatingValue" }
+
+        }
+      }
+}
+</pre>
+
+<p>This query matches a PostCode (PO18 ) and then it aggregates twice the result using the field RatingValue. The first one will give you the count of the different ratings and the second one will give you the average of the rating.</p>
+
+<p>Conclusion? prepating the data was quiet of a pain, but it always is. Loading the data was blazing fast and the results were pretty quick too. The aggregation of all the PostCodes took a few seconds and the huge amount of data that it returned was impressive.</p>
+
+<p>All in all, a very quick way of getting some json data to feed into the D3 visualisations.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/List_of_postcode_areas_in_the_United_Kingdom">http://en.wikipedia.org/wiki/List_of_postcode_areas_in_the_United_Kingdom</a></p>
+
+<pre>GET _search
+{
+
+   "aggs" : {
+        "Food_hygiene_ratings" : {
+           "terms" : {
+             "field" : "areacode",
+             "size": 0,
+             "order": {
+                    "avg_height": "desc"
+                }
+
+           },
+
+           "aggs":{
+             "postcodes":{
+             "terms" : {
+               "field" : "RatingValue"
+              }
+             }
+             ,
+
+        "avg_height" : {
+          "avg" : {
+            "field" : "RatingValue"
+
+          }
+
+        }
+           }
+        }
+      }
+}
+</pre>
+
+<p>Once we know the area, we want to filter by outward</p>
+
+<p><strong>Worst case TD</strong></p>
+
+<pre>GET _search
+{
+
+    "query" : {
+      "match" : { "areacode" : "td"}
+       },
+   "aggs" : {
+        "Food_hygiene_ratings" : {
+           "terms" : {
+             "field" : "outward",
+             "size": 0,
+             "order": {
+                    "avg_height": "desc"
+                }
+
+           },
+
+           "aggs":{
+
+              "avg_height" : {
+                "avg" : {
+                  "field" : "RatingValue"
+                }
+
+              }
+           }
+      }
+    }
+}
+
+</pre>
+
+<p><strong>Worst case</strong></p>
+
+<pre>"key": "td",
+   "doc_count": 1492,
+   "postcodes": {
+      "buckets": [
+         {
+            "key": 0,
+            "key_as_string": "0",
+            "doc_count": 1244
+         },
+         {
+            "key": 5,
+            "key_as_string": "5",
+            "doc_count": 152
+         },
+         {
+            "key": 4,
+            "key_as_string": "4",
+            "doc_count": 53
+         },
+         {
+            "key": 3,
+            "key_as_string": "3",
+            "doc_count": 37
+         },
+         {
+            "key": 1,
+            "key_as_string": "1",
+            "doc_count": 4
+         },
+         {
+            "key": 2,
+            "key_as_string": "2",
+            "doc_count": 2
+         }
+      ]
+   },
+   "avg_height": {
+      "value": 0.7312332439678284
+   }
+},
+
+</pre>
+
+<p><strong>Best case</strong></p>
+
+<pre>{
+   "key": "ta",
+   "doc_count": 2823,
+   "postcodes": {
+      "buckets": [
+         {
+            "key": 5,
+            "key_as_string": "5",
+            "doc_count": 1955
+         },
+         {
+            "key": 4,
+            "key_as_string": "4",
+            "doc_count": 521
+         },
+         {
+            "key": 3,
+            "key_as_string": "3",
+            "doc_count": 152
+         },
+         {
+            "key": 0,
+            "key_as_string": "0",
+            "doc_count": 107
+         },
+         {
+            "key": 1,
+            "key_as_string": "1",
+            "doc_count": 52
+         },
+         {
+            "key": 2,
+            "key_as_string": "2",
+            "doc_count": 36
+         }
+      ]
+   },
+   "avg_height": {
+      "value": 4.406305348919589
+   }
+},
+</pre>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">18 Jun 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2013/06/18/vagrant-second-round/" class="post-title">Vagrant, second round</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Development" href="http://blog.pedrazas.me/categories/development">Development</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>A few developers have asked me if I could explain a little bit more about what makes <a href="http://www.vagrantup.com/">Vagrant</a> such an awesome tool and how different is to work with any of the other virtual machines solutions like VmWare.</p>
+
+<p><a href="http://www.vagrantup.com/">Vagrant</a> is made and brewed for developers by developers. The idea is to speed up and reduce friction as much as possible. It is not about building infrastructure, it&#8217;s about developing for that infrastructure.</p>
+
+<p>Perhaps this is the take away lesson here: you don&#8217;t use Vagrant to replicate your production system, you use Vagrant to produce code to deploy to that production system.</p>
+
+<p>In my case I used to have three environments: local dev, system test and production.</p>
+
+<p>The problem with local dev is that it&#8217;s local&#8230; means only me (or whoever using my machine) can write code for it. When <a href="http://twitter.com/valgreens">Valgreens</a> joined <strong>:blibb</strong> we tried to build the system in his local machine but the task was painful and impossible (I work with ubuntu, he&#8217;s uses Mac, and trying to reproduce the whole thing was just not possible for me&#8230; using remote connections and yes, I accept my burden: we didn&#8217;t know enough).</p>
+
+<p><strong>How Vagrant solved that problem?</strong></p>
+
+<p>Well, we started by building a Vagrant box with what we needed: nginx, supervisor, mongodb, redis, php and zeroMQ. I configured the whole thing and re-package it. Move it to our web server and we install it from there. At that point both of us had the system ready to go. We cloned the git repo in the folder we had mapped in Vagrant and&#8230; that&#8217;s it, we had 2 systems running the latest code in 2 completely different architectures (if we can say that Mac and Linux are completely different&#8230;)</p>
+
+<p><strong>How different is this to do the same with VmWare, for example?</strong></p>
+
+<p>Well, Vagrant it&#8217;s not only the virtual machine or box, it&#8217;s all this little details, like that you can work in your own editor in your local system (but hey, it&#8217;s executed inside the vagrant box!).</p>
+
+<p>Ok, let me say this again: you work in your local system with your editor and the code is saved and executed inside vagrant. No need for FTPs, no need for moving anything because Vagrant allows you to share any folder and remap it into the box as you want.</p>
+
+<p>This is what the project folders look like:</p>
+
+<pre>blibb-project
+        Vagrantfile
+        blibb-api/</pre>
+
+<p>By default Vagrant maps the folder where you run Vagrant inside the box in /Vagrant and we configure nginx and gunicorn to create the virtualhost there.</p>
+
+<p>The we had a couple of (handy) port mappings that allowed us to access MongoDB, gunicorn and the web server (localhost:27007, localhost:8001, localhost:8181)</p>
+
+<p>That&#8217;s it, we wrote code locally, execute code inside vagrant, access the resources through localhost (no need to mess with the hosts files and fake ip/domains)&#8230; easy <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+
+<p>Developing is hard and since we started using Vagrant our productivity has sky rocketed. In this sense, there&#8217;s another product that I will recommend always: <a href="http://clinkerhq.com/">clinker</a>, a Development Ecosystem.</p>
+
+<p>I will be writing soon about Clinker and how it has helped me out to get more time and lower my stress levels, in fact, these two products have made developing quite a rewarding experience. Both of them aim to the same pain point: Forget about system administration. <strong>Developers, develop!</strong></p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">15 Jun 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2013/06/15/3-links-to-save-your-sanity/" class="post-title">3 links to save your sanity</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Development" href="http://blog.pedrazas.me/categories/development">Development</a><a class="post-category post-category-DevOps" href="http://blog.pedrazas.me/categories/devops">DevOps</a><a class="post-category post-category-Python" href="http://blog.pedrazas.me/categories/python">Python</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>During the last two years I&#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.</p>
+
+<p>Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&#8217;s finished Boom! deploy finished <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+
+<p>This script will create the following directory:</p>
+
+<p><code>/data/blibb/releases/2013.6.15-22.59.12</code></p>
+
+<p>Let&#8217;s assume the last deploy was done 2 days before:</p>
+
+<p><code>/data/blibb/releases/2013.6.13-11.23.22&lt;br /&gt;
+/data/blibb/releases/2013.6.15-22.59.12</code></p>
+
+<p>Now, there&#8217;s something I do&#8230; &#8220;just in case&#8221;, I create 3 symbolic links as follows:</p>
+
+<p>``During the last two years I&#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.</p>
+
+<p>Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&#8217;s finished Boom! deploy finished <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+
+<p>This script will create the following directory:</p>
+
+<p><code>/data/blibb/releases/2013.6.15-22.59.12</code></p>
+
+<p>Let&#8217;s assume the last deploy was done 2 days before:</p>
+
+<p><code>/data/blibb/releases/2013.6.13-11.23.22&lt;br /&gt;
+/data/blibb/releases/2013.6.15-22.59.12</code></p>
+
+<p>Now, there&#8217;s something I do&#8230; &#8220;just in case&#8221;, I create 3 symbolic links as follows:</p>
+
+<p>``</p>
+
+<p>So, my nginx points to current, so if something goes wrong, I can always swap back to the previous release that, alas, it&#8217;s just there. With these 3 links I know exactly where I am and where I was before the release, and yes, things go wrong, and my rollback is as simple as changing a couple of links (I do something else, but the update of the links is what makes the process extremely fast).</p>
+
+<p>In case that you wonder, this is how the links are left after a rollback:</p>
+
+<p>```During the last two years I&#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.</p>
+
+<p>Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&#8217;s finished Boom! deploy finished <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+
+<p>This script will create the following directory:</p>
+
+<p><code>/data/blibb/releases/2013.6.15-22.59.12</code></p>
+
+<p>Let&#8217;s assume the last deploy was done 2 days before:</p>
+
+<p><code>/data/blibb/releases/2013.6.13-11.23.22&lt;br /&gt;
+/data/blibb/releases/2013.6.15-22.59.12</code></p>
+
+<p>Now, there&#8217;s something I do&#8230; &#8220;just in case&#8221;, I create 3 symbolic links as follows:</p>
+
+<p>``During the last two years I&#8217;ve been deploying python code to production quiet often and because my memory is quite terrible and I know that when something goes wrong, I need to have everything there: IN-MY-FACE, I added from the beginning three links to my release process.</p>
+
+<p>Imagine we want to deploy :blibb to our server. I will run my fabric script and once it&#8217;s finished Boom! deploy finished <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+
+<p>This script will create the following directory:</p>
+
+<p><code>/data/blibb/releases/2013.6.15-22.59.12</code></p>
+
+<p>Let&#8217;s assume the last deploy was done 2 days before:</p>
+
+<p><code>/data/blibb/releases/2013.6.13-11.23.22&lt;br /&gt;
+/data/blibb/releases/2013.6.15-22.59.12</code></p>
+
+<p>Now, there&#8217;s something I do&#8230; &#8220;just in case&#8221;, I create 3 symbolic links as follows:</p>
+
+<p>``</p>
+
+<p>So, my nginx points to current, so if something goes wrong, I can always swap back to the previous release that, alas, it&#8217;s just there. With these 3 links I know exactly where I am and where I was before the release, and yes, things go wrong, and my rollback is as simple as changing a couple of links (I do something else, but the update of the links is what makes the process extremely fast).</p>
+
+<p>In case that you wonder, this is how the links are left after a rollback:</p>
+
+<p>```</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">10 Jun 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2013/06/10/the-wrong-methodology/" class="post-title">The Wrong Methodology</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Development" href="http://blog.pedrazas.me/categories/development">Development</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Every project needs a team, and every project manager needs a methodology.</p>
+
+<p>Let&#8217;s put it like this: I still haven&#8217;t found the methodology that illustrates my day-to-day life while building products.</p>
+
+<p>We have agiles, we have scrums and ancient cascades, but let&#8217;s be honest&#8230; You pick one and then you adapt it to the requirements/needs of the project. Don&#8217;t get me wrong methodologies are important, and we all need a bit of guidance but in essence all methodologies are flawed because all of them part from a wrong caveat: We know what we&#8217;re doing.</p>
+
+<p>The Wrong Methodology is an internal methodology I&#8217;ve been using and applying in the last projects I&#8217;ve been involved and it&#8217;s proving to be quite successful in forecasting what is going to happen.</p>
+
+<p>The methodology is based in the assumption that anything you do it&#8217;s wrong. In essence is the TDD applied to business. Instead of saying &#8220;This is the data model&#8221; we say &#8220;This is the wrong data model&#8221; then we go and fix it.</p>
+
+<p>This methodology is based in 2 principles:</p>
+
+<ul>
+<li><span style="line-height: 15px;">Assume you are wrong the first time you make a statement.</span></li>
+<li>Assume that nobody cares about that statement.</li>
+</ul>
+
+<p>The first point helps with Ego based project and explicitly highlights something that our agile friends do very well: iterate, iterate, iterate. Defining a data model or a web navigation are the better examples of &#8220;we&#8217;re not going to make t right the first time&#8230; or the following 10&#8243;, but you can apply this point to meetings. Usually the PM would set up a meeting to discuss this or that. The joy of the Wrong Methodology applied to meetings is wicked. &#8220;The fact that you&#8217;re wrong is something that has very little impact in the business, but as it happens, the impact in the business of having a room full of people doing the wrong thing is just terrible&#8221;.</p>
+
+<p>The second point has been very useful to decide priorities and build a &#8220;useful&#8221; roadmap. For example, we didn&#8217;t build the login functionality until our app had to behave different according to the person using it.</p>
+
+<p>I will be writing a bit more about the Wrong Methodology in the following weeks and yes, I will be giving specific examples. Stay Tuned!</p>
+
+<p>&nbsp;</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">22 Apr 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2013/04/22/the-pizza-example/" class="post-title">The Pizza example</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Development" href="http://blog.pedrazas.me/categories/development">Development</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>&nbsp;</p>
+
+<p>Programming and cooking are very similar. It has a bit of craft, a bit of technique, a bit of art and loads of hard work.</p>
+
+<p>This is how I explained once how to make a mobile app using a pizza as example.</p>
+
+<p>To make a pizza you can choose between different ingredients, but more or less they are pretty much the same. Now, people can combine these ingredients to make unique pizzas&#8230; but all of them are made of common ingredients: Dough for the base, tomato, ham, olives, cheese, oregano&#8230;</p>
+
+<p>Apps are the same. Think of an app like Instagram or any that uses the cloud as a pizza. What do you need to make the Instagram Pizza?</p>
+
+<p>Need a database to store all the data you app uses. You need a web interface that allows people to see their pictures. You need an API for that app to talk to your database&#8230;</p>
+
+<p>So, what are your ingredients? the database, for example, Postgress, the language of the app is iOS, then you can choose a language for the backend and the web frontend or use the same. Let&#8217;s choose python, since that&#8217;s how instagram is done.</p>
+
+<p>Ingredients to make the Instagram Pizza:</p>
+
+<ul>
+<li>A well knuckled Postgress Database</li>
+<li>300 ml of well mixed Objective C</li>
+<li>700g of raw python, use 500g if you&#8217;re using Django</li>
+<li>Dress your pizza with a nice gulp of beautifully designed artwork</li>
+<li>Fine, now these ingredients are nothing special. You can make the Instagram Pizza or something completely different. For example, Google uses more or less the same ingredients for many of their cupcakes.</li>
+</ul>
+
+<p>So, what it makes those ingredients to turn into a wonderful Pizza? of course, the chef and his team, and the chef is precisely the one who knows how to combine this ingredient with that one. Why you shouldn&#8217;t whisk the database that fast, or why timing the time and temperature the pizza stays in the oven is key for a great result (timing the time and speed of the uploading of your pictures, if you&#8217;re still thinking of Instagram)</p>
+
+<p>The difference between a good pizza and a terrible one is not usually the ingredients. Of course, the quality of the ingredients it is important, but not the fact that you can have very different pizzas made with the same ingredients. The same way that you can have very different results using the same technologies, or the same stack.</p>
+
+<p>So, how to knuckle the dough, how to combine the ingredients, when and for how long have to be in the oven and how to serve it. That&#8217;s where the difference is really made.</p>
+
+<p>We don&#8217;t define a good cook because of the ingredients, we define a good cook because of the resources he uses to produce wonderful food beautifully cooked. The same way we don&#8217;t define a good programmer because of the language he knows or the stack that he uses&#8230; Oh, Wait!</p>
+
+<p>Want to make a good pizza? choosing the right ingredients help, but it&#8217;s how you bake it what really will make your meal success or a failure.</p>
+
+<p>Agree, there&#8217;s more than just the ingredients: the cooks, the place, the situation and &#8230; your friends, but let&#8217;s leave that for another post.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">10 Apr 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2013/04/10/online-vs-offline/" class="post-title">Online vs Offline</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Development" href="http://blog.pedrazas.me/categories/development">Development</a><a class="post-category post-category-Javascript" href="http://blog.pedrazas.me/categories/javascript">Javascript</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>While building the HTML5 wrapper for the mini apps in :blibb I hit one of the hardest problems I&#8217;ve seen with mobile: Offline support.</p>
+
+<p>Offline is tough. In fact, in mobile, the ABC of <a href="http://www.youtube.com/watch?v=y-AXTx4PcKI">this video</a> is turned into &#8220;Assume Bad Connectivity&#8221; and no matter what you&#8217;re building today, it has to work on mobile. Don&#8217;t get it wrong, I&#8217;m not saying make it mobile, I&#8217;m saying it has to work on mobile&#8230; and here is where I hit my wall: Offline.</p>
+
+<p>There are different approaches, but basically the idea is that if you&#8217;re offline you use the web database (any of the many available now) and save your temporary data there until you get back online and you sync your data back.</p>
+
+<p>That idea didn&#8217;t work out with me. It makes thing too complicated. having this approach means having to implement two set of APIs, one for local and one for remote, and chances of messing up are quiet high:</p>
+
+<pre lang="javascript">if (online){
+          getOnlineData();
+          saveOnlineData();
+          updateOnluneData();
+          deleteOnlineData();
+     }else{
+          getOfflineData();
+          saveOfflineData();
+          updateOffluneData();
+          deleteOfflineData();          
+     }</pre>
+
+<p>Will not help you much because you ever know when you are going to lose your connectivity. For us it worked much better this approach: you use always the local storage by default. Assume being offline always and sync whenever you have connection. Why? because it makes things easier and because it makes much more sense: your users don&#8217;t care about your server&#8230; nor your app, they care about their data.</p>
+
+<pre lang="javascript">getOfflineData();
+    saveOfflineData();
+    updateOffluneData();
+    deleteOfflineData(); 
+
+    if (online){
+          sync();
+     }</pre>
+
+<p>This approach makes development of the mini app much easier: you code against the local APIs and implement a Sync method that will sync changes in your server.</p>
+
+                    </div>
+                </section>
+                
+            </div>
+            
+
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://blog.pedrazas.me/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

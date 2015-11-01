@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cassandra on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/categories/cassandra/</link>
+    <description>Recent content in Cassandra on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Thu, 12 Mar 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/categories/cassandra/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Using Cassandra in AWS for Dev &amp; Test</title>
+      <link>http://blog.pedrazas.me/2015/03/12/using-cassandra-in-aws-for-dev-test/</link>
+      <pubDate>Thu, 12 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/03/12/using-cassandra-in-aws-for-dev-test/</guid>
+      <description>&lt;p&gt;At &lt;a href=&#34;http://www.adbrain.com/&#34;&gt;Adbrain&lt;/a&gt;, Cassandra is one of our core databases. I&amp;#8217;m a big fan of not doing much by automating a lot. However, I couldn&amp;#8217;t find an easy way, by easy I mean that it would take very little to implement and could work without me having to do any intervention.&lt;/p&gt;
+
+&lt;p&gt;As I&amp;#8217;ve mentioned before, we create ephemeral clusters for our computational work force using Apache Spark, which helped us a lot to reduce the cost of our running infrastructure.&lt;/p&gt;
+
+&lt;p&gt;Yes, I&amp;#8217;m a big fan of using infrastructure in an effective way. There&amp;#8217;s no secret here, using the cloud gives you the flexibility to pay for what you use.&lt;/p&gt;
+
+&lt;p&gt;Our Dev &amp;amp; Test machines only run during working hours (you know, to pay for what you use only). However, with Cassandra we had to do an exception. Noticed the past tense? We use the ephemeral drives of our AWS instances (in raid0), and as many of you have know, disks do not survive if you stop the instances&amp;#8230; which makes stopping &amp;amp; starting Cassandra nodes a pain.&lt;/p&gt;
+
+&lt;p&gt;The solution is pretty obvious, and yes, I&amp;#8217;m banging my head against the wall for all the times I&amp;#8217;ve wrongly said &amp;#8220;Cassandra clusters cannot be stopped&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;We have a jenkins job that stop Dev &amp;amp; Test machines. The idea was to be able to put my Cassandra cluster nodes in that job as well (to keep things tidy). However, it&amp;#8217;s possible but not ideal because you create some dependencies (and there&amp;#8217;s nothing better than being independent)&lt;/p&gt;
+
+&lt;p&gt;This is what my job does:&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  &lt;strong&gt;Cassandra Stop Job&lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Flush cassandra data.
+
+&lt;ol&gt;
+&lt;li&gt;nodetool flush&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Stop cassandra service.&lt;/li&gt;
+&lt;li&gt;Copy Data out. (you have two options)
+
+&lt;ol&gt;
+&lt;li&gt;nodetool snapshot + tar + upload to S3&lt;/li&gt;
+&lt;li&gt;tar /data/cassandra + upload S3&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Stop the instance.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  &lt;strong&gt;Cassandra Start Job&lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Start the instance.&lt;/li&gt;
+&lt;li&gt;Create raid0.&lt;/li&gt;
+&lt;li&gt;Copy data in.&lt;/li&gt;
+&lt;li&gt;Start cassandra service.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;That&amp;#8217;s it, now my Cassandra clusters for Dev &amp;amp; Test only run for 50h a week, instead of 168h (24&amp;#215;7).&lt;/p&gt;
+
+&lt;p&gt;If you use the m3.2xlarge instance type, you will pay per node $28 per week instead of $94.08. A saving of &lt;strong&gt;$66.08&lt;/strong&gt; per node per week.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Buckets of Water</title>
+      <link>http://blog.pedrazas.me/2015/03/06/buckets-of-water/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/03/06/buckets-of-water/</guid>
+      <description>&lt;p&gt;I&amp;#8217;m sure you&amp;#8217;ve been here before: you have a problem, you try to explain it to non-technical people and&amp;#8230; you fail to send a clear message across .&lt;/p&gt;
+
+&lt;p&gt;Communication is a two way road. It&amp;#8217;s not just you sending a message, it&amp;#8217;s the other part receiving it and understanding it. We&amp;#8217;re good at sending and receiving, it&amp;#8217;s in the understanding bit that we all struggle more than we would like to.&lt;/p&gt;
+
+&lt;p&gt;Finding good similes and analogies is hard. It&amp;#8217;s something that sales people excel to, but it seems that technical people, we struggle a bit more.&lt;/p&gt;
+
+&lt;p&gt;Anyway, I had a little problem with one of our Cassandra clusters: it was overflowing data and nodes refused to join the ring&amp;#8230; Solution? Scale up!&lt;/p&gt;
+
+&lt;p&gt;The process was simple but when the non-technical people started asking what was going on I had to find a way of illustrating the situation&amp;#8230; and I did, using buckets of water. This is what I said:&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;Imagine we have buckets of water and we pour water on them in a regular basis. When we see that the water levels are getting to high we add more buckets and little by little move water around until all the buckets have enough space to get more water&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;This is what it usually happens when you add more Cassandra nodes to a ring.&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;Well, trouble is that we&amp;#8217;re not sure why, we cannot add more buckets. What would you do if you cannot add more buckets?&amp;#8221; I asked.&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;Can we use bigger buckets?&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;That&amp;#8217;s pretty much what I have done! do you want to work with us?&amp;#8221; Laughs and nods.&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;I had to replace every single bucket by a bigger one. But there&amp;#8217;s a catch, the bucket has to be the same, which is fine, because I can expand the bucket&amp;#8230; because they are elastic&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;Here the guy asked a few questions about elasticity regarding to how AWS works and blimey, he understood that too!&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;So, what we do is to bring a bucket where we pour all the water, expand our empty bucket and put the water back, and we have to do that for every single bucket&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;Upgrading all the nodes with Chef is pretty simple, so, it was a matter of just moving data (or water) around and launching a few commands (to re-create the raid0).&lt;/p&gt;
+
+&lt;p&gt;Today I&amp;#8217;ve heard a conversation between two sales guy about buckets of water and then, then it&amp;#8217;s when I realised how important is to send our message across as clear as water (pun intended).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cassandra and Docker – round 1</title>
+      <link>http://blog.pedrazas.me/2014/09/18/cassandra-and-docker-round-1/</link>
+      <pubDate>Thu, 18 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/09/18/cassandra-and-docker-round-1/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Cassandra_logo.svg_.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-340&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Cassandra_logo.svg_-300x201.png&#34; alt=&#34;Cassandra_logo.svg&#34; width=&#34;300&#34; height=&#34;201&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;This last week I&amp;#8217;ve spent some time trying to set up Cassandra in Docker. My starting point was this Docker Image called &lt;a href=&#34;https://registry.hub.docker.com/u/poklet/cassandra/&#34;&gt;pokle/cassandra&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There are things from that image that I don&amp;#8217;t like and I&amp;#8217;ve been very tempeted to fork it, but as I said, it was a starting point, and for what we need now, it&amp;#8217;s good enough.&lt;/p&gt;
+
+&lt;p&gt;Basically what I wanted was to have a cluster of 3 machines running in Docker, talking to each other and letting me &amp;#8220;play away&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m re-writing dotMarks in java using Dropwizard and, of course, Cassandra. Anyway, this post is about how to set up that cluster.&lt;/p&gt;
+
+&lt;p&gt;Open your terminal and paste this:&lt;/p&gt;
+
+&lt;pre&gt;# Make dirs to store your data
+sudo mkdir -p /data/cassandra/{c1,c2,c3}/data
+sudo mkdir -p /data/cassandra/{c1,c2,c3}/commitlog
+
+# Change permissions so the Cassandra user can write on them
+sudo chmod 777 /data/cassandra/{c1,c2,c3}/data
+sudo chmod 777 /data/cassandra/{c1,c2,c3}/commitlog
+
+# Run the Docker containers with Cassandra
+docker run -d --name c1 -v /data/cassandra/c1/data:/var/lib/cassandra/data -v /data/cassandra/c1/commitlog:/var/lib/cassandra/commitlog poklet/cassandra
+docker run -d --name c2 -v /data/cassandra/c2/data:/var/lib/cassandra/data -v /data/cassandra/c2/commitlog:/var/lib/cassandra/commitlog poklet/cassandra start $(./scripts/ipof.sh c1)
+docker run -d --name c3 -v /data/cassandra/c3/data:/var/lib/cassandra/data -v /data/cassandra/c3/commitlog:/var/lib/cassandra/commitlog poklet/cassandra start $(./scripts/ipof.sh c1)
+
+# Open a CQLSH console
+docker run -it --rm --link c1:c1 -v /data/cassandra/scripts:/data poklet/cassandra bash -c &#39;cqlsh $C1_PORT_9160_TCP_ADDR&#39;
+
+&lt;/pre&gt;
+
+&lt;p&gt;Now you should have a C* cluster of 3 containers. Run docker ps and you should see something like this:&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;pre&gt;-&amp;gt; % docker ps
+CONTAINER ID        IMAGE                     COMMAND               CREATED              STATUS              PORTS                                                                           NAMES
+f85542cb46e3        poklet/cassandra:latest   &#34;start 172.17.0.14&#34;   About a minute ago   Up About a minute   8012/tcp, 9042/tcp, 9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp   c3                  
+9cfdccaf1213        poklet/cassandra:latest   &#34;start 172.17.0.14&#34;   About a minute ago   Up About a minute   9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp, 8012/tcp, 9042/tcp   c2                  
+162c36a8b876        poklet/cassandra:latest   &#34;/bin/sh -c start&#34;    2 minutes ago        Up 2 minutes        9042/tcp, 9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp, 8012/tcp   c1    
+&lt;/pre&gt;
+
+&lt;p&gt;Now, you might want to add some data. We do that using another container that will execute &lt;em&gt;&lt;strong&gt;CQLSH&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;pre&gt;docker run -it --rm --link c1:c1 -v /data/cassandra/scripts:/data poklet/cassandra bash -c &#39;cqlsh $C1_PORT_9160_TCP_ADDR&#39;
+&lt;/pre&gt;
+
+&lt;p&gt;Note that by using Links you don&amp;#8217;t need to know the IPs of the nodes. We will need them to connect if we don&amp;#8217;t use a container with links, but let&amp;#8217;s see that problem later.&lt;/p&gt;
+
+&lt;p&gt;Once you are in the CQLSH, add some data:&lt;/p&gt;
+
+&lt;pre&gt;CREATE KEYSPACE dotmarks WITH REPLICATION =
+ {&#39;class&#39;: &#39;SimpleStrategy&#39;, &#39;replication_factor&#39;: 1};
+
+ USE dotmarks;
+
+ CREATE TABLE test_table (
+  id text,
+  test_value text,
+  PRIMARY KEY (id)
+ );
+
+
+INSERT INTO test_table (id, test_value) VALUES (&#39;1&#39;, &#39;one&#39;);
+INSERT INTO test_table (id, test_value) VALUES (&#39;2&#39;, &#39;two&#39;);
+INSERT INTO test_table (id, test_value) VALUES (&#39;3&#39;, &#39;three&#39;);
+
+SELECT * FROM test_table;
+&lt;/pre&gt;
+
+&lt;p&gt;If you want to check the data from a different node, do this:&lt;/p&gt;
+
+&lt;pre&gt;docker run -it --rm --link c2:c2 -v /data/cassandra/scripts:/data poklet/cassandra bash -c &#39;cqlsh $C2_PORT_9160_TCP_ADDR&#39;
+
+
+Connected to Test Cluster at 172.17.0.15:9160.
+[cqlsh 4.1.1 | Cassandra 2.0.9 | CQL spec 3.1.1 | Thrift protocol 19.39.0]
+Use HELP for help.
+cqlsh&amp;gt; use dotmarks;
+cqlsh:dotmarks&amp;gt; select * from test_table;
+
+ id | test_value
+----+------------
+  3 |      three
+  2 |        two
+  1 |        one
+
+(3 rows)
+
+cqlsh:dotmarks&amp;gt; 
+&lt;/pre&gt;
+
+&lt;p&gt;With this, we have our cluster ready to rock and roll! In the next post, we will see how to confdigure and connect our Dropwizard App to our Cassandra cluster.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

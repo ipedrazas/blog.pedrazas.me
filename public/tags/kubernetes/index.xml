@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Tue, 25 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Spaghetti management</title>
+      <link>http://blog.pedrazas.me/2015/08/25/spaghetti-management/</link>
+      <pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/08/25/spaghetti-management/</guid>
+      <description>&lt;p&gt;During a job interview they started asking questions about microservices and the discussion that we had made me think that it would be good to write a bit about it.&lt;/p&gt;
+
+&lt;p&gt;Microservices are great because:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;They are small, that&amp;#8217;s why the appended &amp;#8220;&lt;em&gt;Micro&lt;/em&gt;&amp;#8220;&lt;/li&gt;
+&lt;li&gt;They are independent one each other (deployment, runtime, configuration, downtime, scaling&amp;#8230;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Great! so, where&amp;#8217;s the catch&amp;#8230; because there&amp;#8217;s always a catch. Think about it. You can split your API in multiple microservices. Great, now, the application is loosely coupled to a bunch of services.&lt;/p&gt;
+
+&lt;p&gt;If you replace services by libraries, the name that comes to your mind is? DEPENDENCIES!&lt;/p&gt;
+
+&lt;p&gt;The catch with microservices is that dependencies are not implicit in your API or APP the way they used to be (think jars, gems or python libs).&lt;/p&gt;
+
+&lt;p&gt;Bear in mind as well that IDE&amp;#8217;s and compilers are very good (in general) at finding when dependencies are broken&amp;#8230; which is not the case if you have a bunch of loosely couple services.&lt;/p&gt;
+
+&lt;p&gt;Who&amp;#8217;s responsible for managing all those dependencies now? because excuse me, but I need a way to bundle services together. Or, to be more precise, to bundle versions of services together.&lt;/p&gt;
+
+&lt;p&gt;To me the hardest problem is not a design problem, the hardest problem is managing dependencies at version level.&lt;/p&gt;
+
+&lt;p&gt;At &lt;a href=&#34;https://import.io/&#34; title=&#34;Import.io&#34;&gt;Import.io&lt;/a&gt; we started moving towards this architecture and the way we solved it was not using service discovery but using the old idea of having a contract where you specify a bunch of versions that you know they play nicely together.&lt;/p&gt;
+
+&lt;p&gt;I always differentiate Runtime, Configuration and Context. In our case, Runtime was a container running a microservice. Configuration was another container (a data container) where the relationship between versions was explicitly defined, like a manifest.&lt;/p&gt;
+
+&lt;p&gt;The advantage of using a data container to bind a bunch of versions is that you have traceability. You know always how the application was configured, because it is true, with microservices we have gained a lot of flexibility but we have lost certain control. Using a container helps me to regain that control.&lt;/p&gt;
+
+&lt;p&gt;Why do I do this? because I can leverage my continuous integration pipeline to test my services and how they interact with each other according to specific versions. Because now, my microservice bundles are in git and not in some obscure key of zookeeper or consul. Even more, when the time to migrate to &lt;a href=&#34;http://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt; arrives, I can use my data container as my pod blueprint.&lt;/p&gt;
+
+&lt;p&gt;Because one thing is my architecture and another different thing is my runtime and my operations.&lt;/p&gt;
+
+&lt;p&gt;Remember&amp;#8230;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;It&amp;#8217;s not about power, it&amp;#8217;s about responsibility&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Contain 3</title>
+      <link>http://blog.pedrazas.me/2015/08/12/contain-3/</link>
+      <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/08/12/contain-3/</guid>
+      <description>&lt;p&gt;Last night it was the third Contain meetup. I was looking forward to seeing all the guys from RedHat, Microsoft and CoreOS and learning what was in store for us in the container space.&lt;/p&gt;
+
+&lt;p&gt;As it usually happens in life, things changed pretty quickly. Boris, the guy from Microsoft, had a car accident (rumours of him being in a Google self driving ca were discarded promptly). With Boris out, Matt asked me if I could be in the panel instead of him. I guess that Matt thought I was the perfect candidate to represent Microsoft since I am one of the few certified Windows Me power users (cough, cough).&lt;/p&gt;
+
+&lt;p&gt;Matt understands containers, that&amp;#8217;s why he gave us the slides the proper way:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;docker run jetstack/contain:v3_container_os&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The good news, to compensate the bad news of Boris car accident, was that Chris Kenyon, from Canonical came to talk to us about their plans with containers: &lt;a href=&#34;http://www.ubuntu.com/cloud/tools/lxd&#34; target=&#34;_blank&#34;&gt;LXD&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Chris told us during the panel that the datacenter now is following how mobile phones work. Updating hundreds or thousands of machines it&amp;#8217;s equivalent to update thousands of telephones. Which is very interesting way of explaining transactional updates. Ubuntu, with snappy or CoreOS have that as the core of their value proposition.&lt;/p&gt;
+
+&lt;p&gt;It was an interesting conversation. I&amp;#8217;m a big fan of immutable and ephemeral infrastructure. So when people ask me &amp;#8220;&lt;em&gt;how do you update your containers&lt;/em&gt;&amp;#8221; the answer is simple: You don&amp;#8217;t!&lt;/p&gt;
+
+&lt;p&gt;I think it&amp;#8217;s good to differentiate when transactional updates are good and when they are not. Host updates: &lt;strong&gt;yes&lt;/strong&gt;. Containers updates: &lt;strong&gt;No&lt;/strong&gt;!&lt;/p&gt;
+
+&lt;p&gt;But what it&amp;#8217;s fundamental is to understand that containers are not machines or VMs. You have to see your containers as snapshots. Immutable snapshots that can be easily discarded.&lt;/p&gt;
+
+&lt;p&gt;Forget about Chef, Puppet, Ansible or Salt&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/08/pffbz.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-466&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/08/pffbz-300x177.jpg&#34; alt=&#34;pffbz&#34; width=&#34;300&#34; height=&#34;177&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Updating containers have 2 parts: updating the image and running that container. Kubernetes is your friend here. It wasn&amp;#8217;t until yesterday that I realised that many of my colleagues do not understand the great value of Kubernetes.&lt;/p&gt;
+
+&lt;p&gt;Updating containers is a matter of defining a new pod with your new containers and swapping the label when you are ready for the &amp;#8220;update&amp;#8221;. I guess that the best way of putting it is to say that Kubernetes does not try to solve the update problem because there&amp;#8217;s no such problem in the kubernetes world. We have others&amp;#8230; but that it&amp;#8217;s not one of them.&lt;/p&gt;
+
+&lt;p&gt;In summary, an excellent night. Thanks &lt;a href=&#34;http://www.jetstack.io/&#34; target=&#34;_blank&#34;&gt;Jetstack&lt;/a&gt; and all the Matts involved!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

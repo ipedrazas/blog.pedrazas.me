@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial &middot; Big Bag Blog</title>
+
+    <meta name="description" content="Need a place to hide">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Tutorial &middot; Big Bag Blog">
+    <meta name="twitter:description" content="Need a place to hide">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Tutorial &middot; Big Bag Blog">
+    <meta property="og:description" content="Need a place to hide">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://blog.pedrazas.me/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Big Bag Blog" href="http://blog.pedrazas.me/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://blog.pedrazas.me">Big Bag Blog</a></h1>
+            <h2 class="brand-tagline"> Need a place to hide </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/ipedrazas"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/ipedrazas "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://blog.pedrazas.me/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                
+                <h1 class="content-subhead">18 Sep 2014</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2014/09/18/cassandra-and-docker-round-1/" class="post-title">Cassandra and Docker – round 1</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Cassandra" href="http://blog.pedrazas.me/categories/cassandra">Cassandra</a><a class="post-category post-category-Docker" href="http://blog.pedrazas.me/categories/docker">Docker</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p><a href="http://ivan.pedrazas.me/wp-content/uploads/2014/09/Cassandra_logo.svg_.png"><img class="aligncenter size-medium wp-image-340" src="http://ivan.pedrazas.me/wp-content/uploads/2014/09/Cassandra_logo.svg_-300x201.png" alt="Cassandra_logo.svg" width="300" height="201" /></a></p>
+
+<p>&nbsp;</p>
+
+<p>This last week I&#8217;ve spent some time trying to set up Cassandra in Docker. My starting point was this Docker Image called <a href="https://registry.hub.docker.com/u/poklet/cassandra/">pokle/cassandra</a>.</p>
+
+<p>There are things from that image that I don&#8217;t like and I&#8217;ve been very tempeted to fork it, but as I said, it was a starting point, and for what we need now, it&#8217;s good enough.</p>
+
+<p>Basically what I wanted was to have a cluster of 3 machines running in Docker, talking to each other and letting me &#8220;play away&#8221;.</p>
+
+<p>I&#8217;m re-writing dotMarks in java using Dropwizard and, of course, Cassandra. Anyway, this post is about how to set up that cluster.</p>
+
+<p>Open your terminal and paste this:</p>
+
+<pre># Make dirs to store your data
+sudo mkdir -p /data/cassandra/{c1,c2,c3}/data
+sudo mkdir -p /data/cassandra/{c1,c2,c3}/commitlog
+
+# Change permissions so the Cassandra user can write on them
+sudo chmod 777 /data/cassandra/{c1,c2,c3}/data
+sudo chmod 777 /data/cassandra/{c1,c2,c3}/commitlog
+
+# Run the Docker containers with Cassandra
+docker run -d --name c1 -v /data/cassandra/c1/data:/var/lib/cassandra/data -v /data/cassandra/c1/commitlog:/var/lib/cassandra/commitlog poklet/cassandra
+docker run -d --name c2 -v /data/cassandra/c2/data:/var/lib/cassandra/data -v /data/cassandra/c2/commitlog:/var/lib/cassandra/commitlog poklet/cassandra start $(./scripts/ipof.sh c1)
+docker run -d --name c3 -v /data/cassandra/c3/data:/var/lib/cassandra/data -v /data/cassandra/c3/commitlog:/var/lib/cassandra/commitlog poklet/cassandra start $(./scripts/ipof.sh c1)
+
+# Open a CQLSH console
+docker run -it --rm --link c1:c1 -v /data/cassandra/scripts:/data poklet/cassandra bash -c 'cqlsh $C1_PORT_9160_TCP_ADDR'
+
+</pre>
+
+<p>Now you should have a C* cluster of 3 containers. Run docker ps and you should see something like this:</p>
+
+<p>&nbsp;</p>
+
+<pre>-&gt; % docker ps
+CONTAINER ID        IMAGE                     COMMAND               CREATED              STATUS              PORTS                                                                           NAMES
+f85542cb46e3        poklet/cassandra:latest   "start 172.17.0.14"   About a minute ago   Up About a minute   8012/tcp, 9042/tcp, 9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp   c3                  
+9cfdccaf1213        poklet/cassandra:latest   "start 172.17.0.14"   About a minute ago   Up About a minute   9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp, 8012/tcp, 9042/tcp   c2                  
+162c36a8b876        poklet/cassandra:latest   "/bin/sh -c start"    2 minutes ago        Up 2 minutes        9042/tcp, 9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp, 8012/tcp   c1    
+</pre>
+
+<p>Now, you might want to add some data. We do that using another container that will execute <em><strong>CQLSH</strong></em>.</p>
+
+<pre>docker run -it --rm --link c1:c1 -v /data/cassandra/scripts:/data poklet/cassandra bash -c 'cqlsh $C1_PORT_9160_TCP_ADDR'
+</pre>
+
+<p>Note that by using Links you don&#8217;t need to know the IPs of the nodes. We will need them to connect if we don&#8217;t use a container with links, but let&#8217;s see that problem later.</p>
+
+<p>Once you are in the CQLSH, add some data:</p>
+
+<pre>CREATE KEYSPACE dotmarks WITH REPLICATION =
+ {'class': 'SimpleStrategy', 'replication_factor': 1};
+
+ USE dotmarks;
+
+ CREATE TABLE test_table (
+  id text,
+  test_value text,
+  PRIMARY KEY (id)
+ );
+
+
+INSERT INTO test_table (id, test_value) VALUES ('1', 'one');
+INSERT INTO test_table (id, test_value) VALUES ('2', 'two');
+INSERT INTO test_table (id, test_value) VALUES ('3', 'three');
+
+SELECT * FROM test_table;
+</pre>
+
+<p>If you want to check the data from a different node, do this:</p>
+
+<pre>docker run -it --rm --link c2:c2 -v /data/cassandra/scripts:/data poklet/cassandra bash -c 'cqlsh $C2_PORT_9160_TCP_ADDR'
+
+
+Connected to Test Cluster at 172.17.0.15:9160.
+[cqlsh 4.1.1 | Cassandra 2.0.9 | CQL spec 3.1.1 | Thrift protocol 19.39.0]
+Use HELP for help.
+cqlsh&gt; use dotmarks;
+cqlsh:dotmarks&gt; select * from test_table;
+
+ id | test_value
+----+------------
+  3 |      three
+  2 |        two
+  1 |        one
+
+(3 rows)
+
+cqlsh:dotmarks&gt; 
+</pre>
+
+<p>With this, we have our cluster ready to rock and roll! In the next post, we will see how to confdigure and connect our Dropwizard App to our Cassandra cluster.</p>
+
+                    </div>
+                </section>
+                
+            </div>
+            
+
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://blog.pedrazas.me/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Uncategorized on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/categories/uncategorized/</link>
+    <description>Recent content in Uncategorized on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Mon, 23 Feb 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>What do I talk about when I talk about DevOps</title>
+      <link>http://blog.pedrazas.me/2015/02/23/what-do-i-talk-about-when-i-talk-about-devops/</link>
+      <pubDate>Mon, 23 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/02/23/what-do-i-talk-about-when-i-talk-about-devops/</guid>
+      <description>&lt;p&gt;I&amp;#8217;ve been in a few meetups already and I&amp;#8217;ve seen people trying to explain &amp;#8220;&lt;em&gt;what is this DevOps thing, anyway&lt;/em&gt;&amp;#8220;.&lt;/p&gt;
+
+&lt;p&gt;To DevOps you come from Dev&amp;#8230; or from Ops, and that origin is quiet important, not because of what you know, but because how do you do things. Some people see DevOps like a fancy way of saying &amp;#8220;sysadmins&amp;#8221; (recruiters, I&amp;#8217;m looking at you!!). Well, here are the bad news for recruiters: DevOps is more about Dev than Ops&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;DevOps it&amp;#8217;s about making life better for developers and sysadmins. DevOps it&amp;#8217;s not about writing Jenkins job, DevOps is about changing the way your process work so you remove risk and friction from, for example, your Jenkins jobs.&lt;/p&gt;
+
+&lt;p&gt;I know, it&amp;#8217;s very unclear&amp;#8230; and I guess that&amp;#8217;s why there&amp;#8217;s so much talk about what it&amp;#8217;s DevOps and what it&amp;#8217;s not.&lt;/p&gt;
+
+&lt;p&gt;Because it&amp;#8217;s not about the tools, it&amp;#8217;s not about the process. It&amp;#8217;s about how do we use those tools and implement those processes that creates friction. Talking about friction, DevOps it&amp;#8217;s giving a small blanket to someone who wears chunky boots before throwing himself down a slide.&lt;/p&gt;
+
+&lt;p&gt;But why we have so many different definitions, then? because we are a mix and match group of people with a mix and match set of problems and a mix and match of tools in our toolboxes. Plenty of combinations, one objective: delivering.&lt;/p&gt;
+
+&lt;p&gt;So, there&amp;#8217;s no silver bullet? I&amp;#8217;m afraid not. The fact that you use Jira and Slack and Git doesn&amp;#8217;t make you an Agile team. It certainly makes your life easier than using Subversion, emails and Microsoft Project, but the tools are not the team, the same way that the team is not the product.&lt;/p&gt;
+
+&lt;p&gt;DevOps is not about being a sysadmin, or a developer, it&amp;#8217;s about being able to challenge and change processes and tools. The most important part of being a good DevOps engineer is not being a good developer or a very methodical sysadmin, it&amp;#8217;s about having the vision and the guts to challenge the process, the tools and the teams.&lt;/p&gt;
+
+&lt;p&gt;Adding a sysadmin type of person to a group of developers will make that team better. The same way that adding a developer to a group of sysadmins. It&amp;#8217;s about finding balance and complementing each other. It&amp;#8217;s not about using Nagios, of Chef or writing Tests for how your infrastructure is created.&lt;/p&gt;
+
+&lt;p&gt;If you google successful DevOps stories you will find many different examples of how to improve. Some of them talk about using a set of tools that allowed them to shorten release times. Others, talk about reorganisations, another will explain how they managed to speed up the communication and feedback loops, or how did they reduce costs, or many others&amp;#8230; The Objective is always the same: Improving you delivery. The pattern is clear: every single successful DevOps story had the opportunity to &lt;strong&gt;challenge the Status Quo&lt;/strong&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sólo Chicas</title>
+      <link>http://blog.pedrazas.me/2014/06/09/solo-chicas/</link>
+      <pubDate>Mon, 09 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/06/09/solo-chicas/</guid>
+      <description>&lt;p&gt;Muy bien no sé cómo me meto en estos berenjenales, pero ya me pasó en la pasada PyCon y hoy hemos vuelto a ir por los mismo derroteros. Me explico.&lt;/p&gt;
+
+&lt;p&gt;Pues resulta que &lt;a href=&#34;http://twitter.com/yamila_moreno&#34; title=&#34;@yamila_moreno&#34;&gt;Yamila&lt;/a&gt; va y pone esto:&lt;/p&gt;
+
+&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;en&#34;&gt;
+  &lt;p&gt;
+    Buenos lunes. Toca un pequeño recordatorio. Mañana tendremos la primera sesión de &amp;#8220;Chicas a programar&amp;#8221;. Más info: &lt;a href=&#34;http://t.co/ZVw37ur3bq&#34;&gt;http://t.co/ZVw37ur3bq&lt;/a&gt; &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    — Yamila Moreno (@yamila_moreno) &lt;a href=&#34;https://twitter.com/yamila_moreno/statuses/475869549842411520&#34;&gt;June 9, 2014&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;y se monta una saludable discusión sobre si los eventos de sólo chicas son sexistas o no. Hay dos bandos, los que creen que hay que &lt;a href=&#34;https://twitter.com/juanriaza/status/475916574382362624&#34;&gt;integrar&lt;/a&gt; a las mujeres en los eventos actuales, y los que opinan que lo importante es que las mujeres se sientan cómodas en un entorno técnico.&lt;/p&gt;
+
+&lt;p&gt;Atención al loro, que son dos cosas (muy) distintas. La cosa iba bien hasta este momento:&lt;/p&gt;
+
+&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;en&#34;&gt;
+  &lt;p&gt;
+    &lt;a href=&#34;https://twitter.com/javimb9&#34;&gt;@javimb9&lt;/a&gt; &lt;a href=&#34;https://twitter.com/Pybonacci&#34;&gt;@Pybonacci&lt;/a&gt; &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;@ipedrazas&lt;/a&gt; solo vamos a intentar quedar para programar un rato y aprender juntas ^_^
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    — Yamila Moreno (@yamila_moreno) &lt;a href=&#34;https://twitter.com/yamila_moreno/statuses/475962549293555712&#34;&gt;June 9, 2014&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;que fue la chispita que encendió la hoguera&lt;/p&gt;
+
+&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;en&#34;&gt;
+  &lt;p&gt;
+    mira &lt;a href=&#34;https://twitter.com/javimb9&#34;&gt;@javimb9&lt;/a&gt; , que &lt;a href=&#34;https://twitter.com/yamila_moreno&#34;&gt;@yamila_moreno&lt;/a&gt; tenga que justificarse para hacer lo que le salga del buffer&amp;#8230; eso es sexismo
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    — Ivan Pedrazas (@ipedrazas) &lt;a href=&#34;https://twitter.com/ipedrazas/statuses/475971780017143808&#34;&gt;June 9, 2014&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Que para nada era un ataque a Javi, y si te he ofendido, desde aquí te pido mis más sinceras disculpas&amp;#8230; sinó todo lo contrario. Por que el problema de fondo del sexismo, o discriminación sexual no es que yo organice un evento &amp;#8220;sólo para chicas&amp;#8221;, si no en lo que es un ejemplo de libro de algo conocido como &amp;#8220;Discrimación Benevolente&amp;#8221;, dónde una mujer ha de justificar que vayan a quedar un grupo de chicas &amp;#8220;para programar y aprender&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;Yo he organizado algún evento y la verdad, nunca he sentido la necesidad de justificarlo en plan &amp;#8220;sólo somos unos amigos que vamos a quedar para ver como Maven descarga medio internet y para luego escupir un OutOfMemoryException o algo peor&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;No nos engañemos, el origen del problema no está en las mujeres que quieren hacer quedadas para chicas, si no en la sociedad (de la que todos formamos parte) donde el poder sigue estando en manos masculinas.&lt;/p&gt;
+
+&lt;p&gt;Mi comentario a Javi no era una reprimenda, si no todo lo contrario, el mensaje era &amp;#8220;Mira, Javi&amp;#8230; cuando una persona ha de justificar sus decisiones, entonces es cuando hemos perdido, pues la justificación denota inferioridad. Y eso no es bueno &amp;#8220;, que de haber twitteado esto, seguro que la conversación hubiera sido más tranquila, pero oigan, uno es como es&amp;#8230; y &amp;#8220;no me cabía&amp;#8221; que como excusa peregrina pues eso, es peregrina.&lt;/p&gt;
+
+&lt;p&gt;Uno de los mensajes más potentes del &lt;a href=&#34;https://twitter.com/search?q=%23YesAllWomen&amp;amp;src=tyah&#34;&gt;#YesAllWomen&lt;/a&gt; es la batalla diaria que supone ser mujer en un mundo masculino.&lt;/p&gt;
+
+&lt;p&gt;El problema de fondo, como bien dice Yamila, es algo mucho más grande, gordo y horroroso&amp;#8230; nivel Cthulhu&amp;#8230; por lo menos.&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/06/Great-cthulhu.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-224&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/06/Great-cthulhu.jpg&#34; alt=&#34;Great-cthulhu&#34; width=&#34;540&#34; height=&#34;405&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Pero eso es &lt;a href=&#34;http://en.wikipedia.org/wiki/The_Call_of_Cthulhu&#34;&gt;otra historia&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Notas&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Sí, tuve que mirar como se deletrea Cthulhu&amp;#8230; mis geek levels por los suelos :_(&lt;/li&gt;
+&lt;li&gt;Para confirmar el estado de la situación&amp;#8230; usemos Google:&lt;/li&gt;
+&lt;li&gt;Busca &amp;#8220;&lt;a href=&#34;https://www.google.co.uk/search?q=chicas&amp;amp;source=lnms&amp;amp;tbm=isch&amp;amp;sa=X&amp;amp;ei=jbaVU5qDJuTK0QWHnoHYCQ&amp;amp;ved=0CAgQ_AUoAQ&amp;amp;biw=1920&amp;amp;bih=921&#34;&gt;chicas&lt;/a&gt;&amp;#8221; y horrorizate con los resultados. Has de contar 48 imágenes antes de encontrar una imagen de una chica &amp;#8220;normal&amp;#8221; (atención que haya tenido que usar este palabro al lado de chica).&lt;/li&gt;
+&lt;li&gt;Busca &amp;#8220;&lt;a href=&#34;https://www.google.co.uk/search?q=solo+chicas&amp;amp;source=lnms&amp;amp;tbm=isch&amp;amp;sa=X&amp;amp;ei=jbaVU5qDJuTK0QWHnoHYCQ&amp;amp;ved=0CAgQ_AUoAQ&amp;amp;biw=1920&amp;amp;bih=921&#34;&gt;solo chicas&lt;/a&gt;&amp;#8220;, y una vez más, horrotizate.&lt;/li&gt;
+&lt;li&gt;Ahora, hagámoslo del revés. Busquemos &amp;#8220;&lt;a href=&#34;https://www.google.co.uk/search?q=chicos&amp;amp;source=lnms&amp;amp;tbm=isch&amp;amp;sa=X&amp;amp;ei=jbaVU5qDJuTK0QWHnoHYCQ&amp;amp;ved=0CAgQ_AUoAQ&amp;amp;biw=1920&amp;amp;bih=921&#34;&gt;chicos&lt;/a&gt;&amp;#8220;: Anda, pero si la mitad de las fotos son chicas&amp;#8230; Vale, que haya una revista que se llame chicos no ayuda&lt;/li&gt;
+&lt;li&gt;&amp;#8220;&lt;a href=&#34;https://www.google.co.uk/search?q=solo+chicos&amp;amp;source=lnms&amp;amp;tbm=isch&amp;amp;sa=X&amp;amp;ei=jbaVU5qDJuTK0QWHnoHYCQ&amp;amp;ved=0CAgQ_AUoAQ&amp;amp;biw=1920&amp;amp;bih=921&#34;&gt;Sólo chicos&lt;/a&gt;&amp;#8220;? más mujeres en posiciones muy receptivas (e irreales)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Moraleja&lt;/strong&gt;: cuando las dos búsquedas devuelvan resultados equivalentes (que no iguales), entonces hablaremos de igualdad, mientras tanto, y la proxima vez que te veas en medio de un sexism flame war, recuerda que Google, casi nunca se equivoca&amp;#8230;  &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;(sí, esto es una puerta abierta a &amp;#8220;Troll me Plenty&amp;#8221;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

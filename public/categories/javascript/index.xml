@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/categories/javascript/</link>
+    <description>Recent content in Javascript on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Wed, 10 Apr 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Online vs Offline</title>
+      <link>http://blog.pedrazas.me/2013/04/10/online-vs-offline/</link>
+      <pubDate>Wed, 10 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2013/04/10/online-vs-offline/</guid>
+      <description>&lt;p&gt;While building the HTML5 wrapper for the mini apps in :blibb I hit one of the hardest problems I&amp;#8217;ve seen with mobile: Offline support.&lt;/p&gt;
+
+&lt;p&gt;Offline is tough. In fact, in mobile, the ABC of &lt;a href=&#34;http://www.youtube.com/watch?v=y-AXTx4PcKI&#34;&gt;this video&lt;/a&gt; is turned into &amp;#8220;Assume Bad Connectivity&amp;#8221; and no matter what you&amp;#8217;re building today, it has to work on mobile. Don&amp;#8217;t get it wrong, I&amp;#8217;m not saying make it mobile, I&amp;#8217;m saying it has to work on mobile&amp;#8230; and here is where I hit my wall: Offline.&lt;/p&gt;
+
+&lt;p&gt;There are different approaches, but basically the idea is that if you&amp;#8217;re offline you use the web database (any of the many available now) and save your temporary data there until you get back online and you sync your data back.&lt;/p&gt;
+
+&lt;p&gt;That idea didn&amp;#8217;t work out with me. It makes thing too complicated. having this approach means having to implement two set of APIs, one for local and one for remote, and chances of messing up are quiet high:&lt;/p&gt;
+
+&lt;pre lang=&#34;javascript&#34;&gt;if (online){
+          getOnlineData();
+          saveOnlineData();
+          updateOnluneData();
+          deleteOnlineData();
+     }else{
+          getOfflineData();
+          saveOfflineData();
+          updateOffluneData();
+          deleteOfflineData();          
+     }&lt;/pre&gt;
+
+&lt;p&gt;Will not help you much because you ever know when you are going to lose your connectivity. For us it worked much better this approach: you use always the local storage by default. Assume being offline always and sync whenever you have connection. Why? because it makes things easier and because it makes much more sense: your users don&amp;#8217;t care about your server&amp;#8230; nor your app, they care about their data.&lt;/p&gt;
+
+&lt;pre lang=&#34;javascript&#34;&gt;getOfflineData();
+    saveOfflineData();
+    updateOffluneData();
+    deleteOfflineData(); 
+
+    if (online){
+          sync();
+     }&lt;/pre&gt;
+
+&lt;p&gt;This approach makes development of the mini app much easier: you code against the local APIs and implement a Sync method that will sync changes in your server.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

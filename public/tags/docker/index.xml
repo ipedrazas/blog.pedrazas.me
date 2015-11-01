@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/tags/docker/</link>
+    <description>Recent content in Docker on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Wed, 12 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Contain 3</title>
+      <link>http://blog.pedrazas.me/2015/08/12/contain-3/</link>
+      <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/08/12/contain-3/</guid>
+      <description>&lt;p&gt;Last night it was the third Contain meetup. I was looking forward to seeing all the guys from RedHat, Microsoft and CoreOS and learning what was in store for us in the container space.&lt;/p&gt;
+
+&lt;p&gt;As it usually happens in life, things changed pretty quickly. Boris, the guy from Microsoft, had a car accident (rumours of him being in a Google self driving ca were discarded promptly). With Boris out, Matt asked me if I could be in the panel instead of him. I guess that Matt thought I was the perfect candidate to represent Microsoft since I am one of the few certified Windows Me power users (cough, cough).&lt;/p&gt;
+
+&lt;p&gt;Matt understands containers, that&amp;#8217;s why he gave us the slides the proper way:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;docker run jetstack/contain:v3_container_os&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The good news, to compensate the bad news of Boris car accident, was that Chris Kenyon, from Canonical came to talk to us about their plans with containers: &lt;a href=&#34;http://www.ubuntu.com/cloud/tools/lxd&#34; target=&#34;_blank&#34;&gt;LXD&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Chris told us during the panel that the datacenter now is following how mobile phones work. Updating hundreds or thousands of machines it&amp;#8217;s equivalent to update thousands of telephones. Which is very interesting way of explaining transactional updates. Ubuntu, with snappy or CoreOS have that as the core of their value proposition.&lt;/p&gt;
+
+&lt;p&gt;It was an interesting conversation. I&amp;#8217;m a big fan of immutable and ephemeral infrastructure. So when people ask me &amp;#8220;&lt;em&gt;how do you update your containers&lt;/em&gt;&amp;#8221; the answer is simple: You don&amp;#8217;t!&lt;/p&gt;
+
+&lt;p&gt;I think it&amp;#8217;s good to differentiate when transactional updates are good and when they are not. Host updates: &lt;strong&gt;yes&lt;/strong&gt;. Containers updates: &lt;strong&gt;No&lt;/strong&gt;!&lt;/p&gt;
+
+&lt;p&gt;But what it&amp;#8217;s fundamental is to understand that containers are not machines or VMs. You have to see your containers as snapshots. Immutable snapshots that can be easily discarded.&lt;/p&gt;
+
+&lt;p&gt;Forget about Chef, Puppet, Ansible or Salt&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/08/pffbz.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-466&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/08/pffbz-300x177.jpg&#34; alt=&#34;pffbz&#34; width=&#34;300&#34; height=&#34;177&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Updating containers have 2 parts: updating the image and running that container. Kubernetes is your friend here. It wasn&amp;#8217;t until yesterday that I realised that many of my colleagues do not understand the great value of Kubernetes.&lt;/p&gt;
+
+&lt;p&gt;Updating containers is a matter of defining a new pod with your new containers and swapping the label when you are ready for the &amp;#8220;update&amp;#8221;. I guess that the best way of putting it is to say that Kubernetes does not try to solve the update problem because there&amp;#8217;s no such problem in the kubernetes world. We have others&amp;#8230; but that it&amp;#8217;s not one of them.&lt;/p&gt;
+
+&lt;p&gt;In summary, an excellent night. Thanks &lt;a href=&#34;http://www.jetstack.io/&#34; target=&#34;_blank&#34;&gt;Jetstack&lt;/a&gt; and all the Matts involved!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Deconstructing</title>
+      <link>http://blog.pedrazas.me/2015/06/25/deconstructing/</link>
+      <pubDate>Thu, 25 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/06/25/deconstructing/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/kafka_logo.png&#34;&gt;&lt;img class=&#34;alignleft size-full wp-image-454&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/kafka_logo.png&#34; alt=&#34;kafka_logo&#34; width=&#34;75&#34; height=&#34;117&#34; /&gt;&lt;/a&gt;If you haven&amp;#8217;t heard about &lt;a href=&#34;http://kafka.apache.org/&#34;&gt;Apache Kafka&lt;/a&gt;, or his little brother Amazon Kinesis, go and read about &lt;a href=&#34;http://www.oreilly.com/pub/e/3098&#34;&gt;why they are so great&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I was chatting with a friend last night and he told me &amp;#8220;I get containers now. I needed some give it some thought, but I get them now&amp;#8221;. If I had to describe him with one word I would use &amp;#8220;smart&amp;#8221; without any doubt&amp;#8230; still he had to think about why containers are so great.&lt;/p&gt;
+
+&lt;p&gt;We carried on talking and after two more beers and few pork ribs I managed to make him understand why we are about to change we build applications. It&amp;#8217;s not only because of containers (or systems like Mesos or Kubernetes), but because with containers, we have seen the light of deconstructing the monoliths into microservices.&lt;/p&gt;
+
+&lt;p&gt;But, there&amp;#8217;s another key element on this Game of Thrones: The Log, systems like Apache kafka are going to help to change completely the landscape of what we build, and ship and run. Like with Microservices, the Log overlord brings a blessing in disguise: it&amp;#8217;s not what it does, it&amp;#8217;s what allows others to do.&lt;/p&gt;
+
+&lt;p&gt;It is not about its responsibility, it&amp;#8217;s about delegating that responsibility in who really has it. Let&amp;#8217;s look at what happens today. We have a system, that system gets some data, compute that data and stores that data in a database. Easy!&lt;/p&gt;
+
+&lt;p&gt;Then someone comes along and asks to get that same data and put it somewhere else, so our system now gets some data, compute that data and stores that data in two different places.&lt;/p&gt;
+
+&lt;p&gt;As we can see, this does not scale very well, so people get smart, and start doing things like database triggers and a whole bunch of things that are totally correct in itself, but over time, it creates a big mess of &amp;#8220;dirty integrations&amp;#8221;. These are the things that will break when we want to move our system. These are the future nightmares of our microservices journey.&lt;/p&gt;
+
+&lt;p&gt;Then, we have The LOG&amp;#8230; a dumb system that guess what: it does not care about what do you do with that data. The Log Overlord will keep your data for a while, and it&amp;#8217;s up to you, the consumers, to use it.&lt;/p&gt;
+
+&lt;p&gt;A bit like how the TV has been broadcasting for a few years&amp;#8230; with a twist, because, as we do now, this TV system allows you to consume the programs when you want it.&lt;/p&gt;
+
+&lt;p&gt;Ok, so, basically, we have a place where we put all that data (for a while) and we have a bunch of people consuming that data? So what?&lt;/p&gt;
+
+&lt;p&gt;Well, not much, but as with microservices, what the LOG overlord provides is the ability of your consumers to consume the way they want (once per hour, once per day&amp;#8230; in real time), and even more, the people who create the TV shows do not care about the broadcasting anymore.&lt;/p&gt;
+
+&lt;p&gt;Think about it. Microservices decouple your business logic. With microservices you can write very business specific services without having to worry about all the other business rules, use cases and (oh yes) those terrible exceptions.&lt;/p&gt;
+
+&lt;p&gt;Apache Kafka or Amazon Kinesis decouple your data. How you read that data is up to the readers and the writers have nothing to do with that. It&amp;#8217;s like a writer writing a book, and people reading that book: when they want, how they want&amp;#8230; as opposed to the writer writing and reading aloud to certain audience.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m not sure if the creators of Kafka chose that name because it&amp;#8217;s a system that allows writers and readers to focus and enjoy what they want to do.&lt;/p&gt;
+
+&lt;p&gt;As I said, we are living very exciting times with a lot of change. Let me finish with a song&amp;#8230; or my own version of a song by &lt;a href=&#34;https://www.youtube.com/watch?v=f8PMqLHF1jU&#34;&gt;Elvis Presley&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  Treat me like a fool,&lt;br /&gt; Treat me mean and cruel,&lt;br /&gt; But &lt;strong&gt;LOG&lt;/strong&gt; me.
+&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  Wring my faithful heart,&lt;br /&gt; Tear it all apart,&lt;br /&gt; But &lt;strong&gt;LOG&lt;/strong&gt; me.
+&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  &lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/649ca9a3f3d4aba78095a28c26fba1fa.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-455&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/649ca9a3f3d4aba78095a28c26fba1fa-233x300.jpg&#34; alt=&#34;649ca9a3f3d4aba78095a28c26fba1fa&#34; width=&#34;233&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Distance to Mesos</title>
+      <link>http://blog.pedrazas.me/2015/06/16/distance-to-mesos/</link>
+      <pubDate>Tue, 16 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/06/16/distance-to-mesos/</guid>
+      <description>&lt;p&gt;I&amp;#8217;ve been wanting to write this for a while but it seems that it&amp;#8217;s never the right time, so tonight, I&amp;#8217;m biting the bullet and not going to bed until I write it all.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve notice that lately people don&amp;#8217;t talk about Docker so much. Nothing to complain about, really, but what happens is that people has shifted to talk about &lt;span id=&#34;:1u0.1&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Kubernetes&lt;/span&gt; and &lt;a href=&#34;http://mesos.apache.org/&#34;&gt;&lt;span id=&#34;:1u0.2&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;&lt;/a&gt;&amp;#8230; Sigh.&lt;/p&gt;
+
+&lt;p&gt;One of the questions I&amp;#8217;ve asked more frequently is &amp;#8220;How to move to &lt;span id=&#34;:1u0.3&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;&amp;#8230; and is it worth it?&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;There&amp;#8217;s no straight answer to that question really. I don&amp;#8217;t like to say &amp;#8220;it depends&amp;#8221; because it seems that you&amp;#8217;re trying to run away, but in this case it really does.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#8217;s a bit like asking &amp;#8220;how to go to the London Eye&amp;#8221;, first thing I need to find out is to know where you&amp;#8217;re travelling from because it is not the same to come from Liverpool than from Liverpool street&amp;#8230; Distance is important because I can assume that if you come from Liverpool you will arrive to London &lt;span id=&#34;:1u0.4&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Euston&lt;/span&gt; (but I might be wrong, and you might be travelling by car instead of train&amp;#8230;).&lt;/p&gt;
+
+&lt;p&gt;Anyway, it doesn&amp;#8217;t matter where you come from, I&amp;#8217;m sure you will manage to find the way to the London Eye, and if not&amp;#8230;  just ask. There&amp;#8217;s plenty of people happy to help.&lt;/p&gt;
+
+&lt;p&gt;With &lt;span id=&#34;:1u0.5&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; you have a similar problem, you see? it&amp;#8217;s not the same to come from a &lt;span id=&#34;:1u0.6&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;multi&lt;/span&gt;-monolithic architecture with more silos than the &lt;acronym title=&#34;Ministry of Defense&#34;&gt;MOD&lt;/acronym&gt;, than to have a very lean service based architecture with containers and service discovery already in place.&lt;/p&gt;
+
+&lt;p&gt;So, are containers important? strictly speaking: No, however, by using containers you can leverage some very cool functionality that systems like &lt;span id=&#34;:1u0.7&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; have.&lt;/p&gt;
+
+&lt;p&gt;Service Discovery, anyone? let&amp;#8217;s put it like this, it does not matter how you build software, using SD should be part of it. Period.&lt;/p&gt;
+
+&lt;p&gt;There are 3 big blocks in any application:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span id=&#34;:1u0.8&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Runtime&lt;/span&gt;: this is what we run. From a web application to a queue worker, it doesn&amp;#8217;t really matter. It&amp;#8217;s that thing that (when it works) does its job.&lt;/li&gt;
+&lt;li&gt;Configuration: this is what the thing that runs need to run (the way we want). It can be credentials, external resources, addresses, whatever that makes our &lt;span id=&#34;:1u0.9&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;runtime&lt;/span&gt; to be flexible.&lt;/li&gt;
+&lt;li&gt;Context: this is usually forgotten (until it&amp;#8217;s too late) and it&amp;#8217;s where your &lt;span id=&#34;:1u0.10&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;runtime&lt;/span&gt; runs and all those bits and pieces that you need to be run it there. Firewall rules, Security groups, etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These blocks do not depend on what you run: Java, python, &lt;span id=&#34;:1u0.11&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;javascript&lt;/span&gt;&amp;#8230; or where you run it: Amazon, Azure&amp;#8230; they are 3 blocks that every software development has to define&amp;#8230; what about in &lt;span id=&#34;:1u0.12&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;?&lt;/p&gt;
+
+&lt;p&gt;Well, &lt;span id=&#34;:1u0.13&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;, as a software, will need these 3 blocks: we have the &lt;span id=&#34;:1u0.14&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;runtime&lt;/span&gt;, &lt;span id=&#34;:1u0.15&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;mesos&lt;/span&gt;, marathon, &lt;span id=&#34;:1u0.16&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;cronos&lt;/span&gt;&amp;#8230; the different configuration files these young lads use, and where do we run &lt;span id=&#34;:1u0.17&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;: our &lt;span id=&#34;:1u0.18&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;datacenter&lt;/span&gt;, &lt;span id=&#34;:1u0.19&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;AWS&lt;/span&gt;, Google&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;The interesting thing is that inside &lt;span id=&#34;:1u0.20&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; those 3 blocks are somehow diluted.&lt;/p&gt;
+
+&lt;p&gt;To begin with, Context is &lt;span id=&#34;:1u0.21&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;&amp;#8230; To the point that once you have &lt;span id=&#34;:1u0.22&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; you don&amp;#8217;t have environments anymore. Your application have different &lt;span id=&#34;:1u0.23&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;datasources&lt;/span&gt; (Dev, Test, Prod) and different priorities, but it&amp;#8217;s unlikely that you will have a &lt;span id=&#34;:1u0.24&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; cluster per environment (and if you do, there&amp;#8217;s something very fundamental that you didn&amp;#8217;t get right).&lt;/p&gt;
+
+&lt;p&gt;What makes &lt;span id=&#34;:1u0.25&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; very attractive is that &amp;#8220;he knows&amp;#8221; so you don&amp;#8217;t have to. But to be able to do that your applications have to be built in a way that it&amp;#8217;s safe for &lt;span id=&#34;:1u0.26&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; to move around (here it&amp;#8217;s where containers and service discovery can be very handy).&lt;/p&gt;
+
+&lt;p&gt;As I said before, people keep asking me about &lt;span id=&#34;:1u0.27&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; and my answers always point towards the same place: maybe &lt;span id=&#34;:1u0.28&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; is not for you, but moving to containers and using service discovery will make your applications to work better and look, once you&amp;#8217;re there, you&amp;#8217;re not that far from &lt;span id=&#34;:1u0.29&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;In summary, you should not aim to use Service Discovery and containers as a &lt;span id=&#34;:1u0.30&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;pre&lt;/span&gt;-condition to &lt;span id=&#34;:1u0.31&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;, you should do it because it will make your life (and the life of people dealing with your systems) better.&lt;/p&gt;
+
+&lt;p&gt;Not everybody is Google, but everybody should aim to run applications like Google does.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Docker in the Enterprise</title>
+      <link>http://blog.pedrazas.me/2015/04/01/docker-in-the-enterprise/</link>
+      <pubDate>Wed, 01 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/04/01/docker-in-the-enterprise/</guid>
+      <description>&lt;p&gt;One of the top questions that people ask me about Docker is by far &amp;#8220;&lt;strong&gt;&lt;em&gt;Do you think the Enterprise will use Docker?&lt;/em&gt;&lt;/strong&gt;&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;My answer has been the same since the very beginning: &lt;strong&gt;Absolutely!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;It doesn&amp;#8217;t mean it will happen soon, but it will happen. There&amp;#8217;s just a few layers of middle management and hundreds of scared sysadmins in between, but it will happen.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve migrated a few legacy enterprise applications to Docker and to me, there&amp;#8217;s a big difference between startups using Docker and classic enterprise companies using Docker. To begin with, big enterprise companies are project and program based instead of product based. Middle management, red tape and a very low speed in general. In the technical aspects there are big differences also. Let me give you a couple of examples:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Firewalls.&lt;/li&gt;
+&lt;li&gt;Legacy applications.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Have you heard about Mesos? Docker Swarm? the ability to move containers around? well, let me tell you something, in the enterprise we have firewall rules. Firewall rules are dependant on the application but bound to the host. This means that you cannot move containers around if you cannot update firewall rules at the same time.&lt;/p&gt;
+
+&lt;p&gt;Solutions like Weave are perfect for this problem. Right now, I&amp;#8217;m not sure how Docker is going to solve the networking aspect, so, I will not say that Docker will do it natively. Still, you get the point.&lt;/p&gt;
+
+&lt;p&gt;Another scary issue is &amp;#8220;Legacy Applications&amp;#8221;. Let&amp;#8217;s face it, technical debt is bad, forgotten technical debt is pure evil. Moving these kind of applications into containers is sometimes harder than rewriting them from scratch. Issues that I&amp;#8217;ve found while migrating legacy applications to containers can be split in two main groups:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Configuration issues like
+
+&lt;ul&gt;
+&lt;li&gt;hard coded url and/or domains: quite typical to see hardcoded jdbc connections. You can get around it using internal DNSs or if in case of major trouble, a reverse proxy.&lt;/li&gt;
+&lt;li&gt;Hard coded IPs: If you&amp;#8217;re lucky, again, Weave can give you a bit of air here.&lt;/li&gt;
+&lt;li&gt;Embedded credentials: hardcoding credentials is bad, but including these credentials inside of your binaries is terrible. Bad news is that it happens more often than you think. Yes, they used properties files, and yes, they put that file inside a jar, inside a war, inside an EAR&amp;#8230; Hey, enterprise all the way down!&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Context Issues:
+
+&lt;ul&gt;
+&lt;li&gt;The system needs to run in a specific host with a specific configuration like specific IPs (ugh), specific URLs (easy), specific OS (this one was very painful)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Good news is that you have the tools to work around all these issues, and yes, you get much better on fixing them (with time, experience and tears). I don&amp;#8217;t think that we will be seeing a &amp;#8220;Wizard&amp;#8221; to migrate your apps to Docker just yet but we will get there.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Local Taiga with Docker</title>
+      <link>http://blog.pedrazas.me/2014/10/08/local-taiga-with-docker/</link>
+      <pubDate>Wed, 08 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/10/08/local-taiga-with-docker/</guid>
+      <description>&lt;p&gt;Recently &lt;a href=&#34;https://taiga.io/&#34;&gt;Taiga.io&lt;/a&gt; was announced. As they describe themselves:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Free. Open Source. Powerful. &lt;strong&gt;Taiga&lt;/strong&gt; is a project management platform for startups and agile developers &amp;amp; designers who want a simple, &lt;strong&gt;beautiful&lt;/strong&gt; tool that makes work truly enjoyable.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It didn&amp;#8217;t take me too long to realise that it would be a nice preparation to dockerize taiga for my next &amp;#8220;50 Shades of Docker&amp;#8221; workshop at the Spanish PyCon.&lt;/p&gt;
+
+&lt;p&gt;I have to reckon that it&amp;#8217;s been more challenging than expected. I would blame the developers, of course  &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;but truth is that turning taiga into a docker container is quiet simple (specially since they provide all the scripts to build a taiga platform in one single host).&lt;/p&gt;
+
+&lt;p&gt;Unfortunately for me, I like distributing things&amp;#8230; so I decided to run one single process per container, so I would have several containers.&lt;/p&gt;
+
+&lt;p&gt;The scripts installed Redis and RabbitMQ which are not in use (just yet), so teh final version has 3 containers:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Postgres&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;RabbitMQ&lt;/del&gt;&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;Redis&lt;/del&gt;&lt;/li&gt;
+&lt;li&gt;Taiga-back&lt;/li&gt;
+&lt;li&gt;Taiga-front&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Another problem I found is that the front-end is not distributable. It means, you have to build it&amp;#8230; so, I created another container that does the build.&lt;/p&gt;
+
+&lt;p&gt;If you want to run taiga in your local machine, you can do so by using this script:&lt;/p&gt;
+
+&lt;pre&gt;sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+sudo sh -c &#34;echo deb https://get.docker.io/ubuntu docker main &amp;gt; /etc/apt/sources.list.d/docker.list&#34;
+sudo apt-get update -y
+sudo apt-get install -y lxc-docker
+
+sudo mkdir -p /data/postgresql
+
+sudo docker run -d --name postgres    -p 5432:5432  -v /data/postgresql:/var/lib/postgresql/data postgres
+sudo docker run -d --name taiga-back  -p 8001:8001  --link postgres:postgres ipedrazas/taiga-back
+sudo docker run -d --name taiga-front -p 80:80 -p 8000:8000 --link taiga-back:taiga-back ipedrazas/taiga-front
+
+
+sudo docker run -it --link postgres:postgres --rm postgres sh -c &#34;su postgres --command &#39;createuser -h &#34;&#39;$POSTGRES_PORT_5432_TCP_ADDR&#39;&#34; -p &#34;&#39;$POSTGRES_PORT_5432_TCP_PORT&#39;&#34; -d -r -s taiga&#39;&#34;
+sudo docker run -it --link postgres:postgres --rm postgres sh -c &#34;su postgres --command &#39;createdb -h &#34;&#39;$POSTGRES_PORT_5432_TCP_ADDR&#39;&#34; -p &#34;&#39;$POSTGRES_PORT_5432_TCP_PORT&#39;&#34; -O taiga taiga&#39;&#34;;
+sudo docker run -it --rm --link postgres:postgres ipedrazas/taiga-back bash regenerate.sh
+&lt;/pre&gt;
+
+&lt;p&gt;If, like me, you want to run it in AWS or Digital Ocean, you will need first to create a DNS and build Taiga using that host (yes, the api url is hardcoded&amp;#8230; so, you have to build it using your hostname).&lt;/p&gt;
+
+&lt;p&gt;Having said that, I want to congratulate the whole Taiag team for the product and the support they have been giving (not only to me, but to many others). &lt;strong&gt;Well done, guys!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;All the code is in my &lt;a href=&#34;https://github.com/ipedrazas/taiga-docker&#34;&gt;Github Repo&lt;/a&gt;, in case that anyone wants to play with it. If you have any doubts, &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;just ask&lt;/a&gt; &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Art of Testing in the rain</title>
+      <link>http://blog.pedrazas.me/2014/09/22/the-art-of-testing-in-the-rain/</link>
+      <pubDate>Mon, 22 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/09/22/the-art-of-testing-in-the-rain/</guid>
+      <description>&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Testing is hard. We all know that. Testing distributed applications is just a nightmare. Like having Jason, Freddy Krugger and legions of zombies chasing you while you run barefoot, naked and of course, in the rain.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;Why it&amp;#8217;s so hard? Well, let&amp;#8217;s look at it. We have &lt;/span&gt;&lt;strong&gt;&lt;span style=&#34;color: #333333;&#34;&gt;Unit Testing&lt;/span&gt;&lt;/strong&gt;&lt;span style=&#34;color: #333333;&#34;&gt;, where we test that our code does what it has to do. Then, we have &lt;/span&gt;&lt;strong&gt;&lt;span style=&#34;color: #333333;&#34;&gt;Integration Test&lt;/span&gt;&lt;/strong&gt;&lt;span style=&#34;color: #333333;&#34;&gt;, where we test that our code can connect and query other systems. Finally, we have &lt;/span&gt;&lt;strong&gt;&lt;span style=&#34;color: #333333;&#34;&gt;System Test&lt;/span&gt;&lt;/strong&gt;&lt;span style=&#34;color: #333333;&#34;&gt;, where we want to test if our application works.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Questions you ask during &lt;strong&gt;Unit Testing&lt;/strong&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Does this method return this expected value?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Does this method parse this XML properly?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Does this method transform this object into this other one?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Questions you ask during &lt;strong&gt;Integration Test&lt;/strong&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Can my application connect to the database?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Does this method return any data?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Does this API call return the Json objects as I expect?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Finally, &lt;strong&gt;System Test&lt;/strong&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Can I log in?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Can I sign up as a new user?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;When I delete this message, does it goes away?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;And this last bit, this last bit it&amp;#8217;s terribly hard because you have different systems and a frontend to deal with and not only that, you have to have a system that replicates production (and this is expensive and time consuming).&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;So, why testing is so hard? because there are many dependencies at many different layers that are very difficult to replicate (have I talked about firewalls? well, maybe I should)&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Unit Testing can be done as a pre-building task. Cheap, easy.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Integration Test needs two system talking to each other: our code, and the system my code is connecting to. Not as cheap as it seems. Mocking up is a way of reducing the cost of running two (or more) systems. But don&amp;#8217;t deceive yourself, when mocking you are unit testing.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;System Test needs all the systems in place properly configured. Expensive.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Take this, testing your application is not an extra life, it&amp;#8217;s a sneak peak to the dangers that stalk ahead.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;So, how much effort I should put on testing? as much as you can. Read it again: as much as you can. It depends. Let&amp;#8217;s put it like this, the more effort you put in proper testing, the less effort you will have to put when deploying to production.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Testing is hard, and with every release, with every problem we find in production we learn (like simulating dodgy firewalls), but you should take Testing like that: a learning exercise.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;I&amp;#8217;m planning to write a series of posts about Integration and System Testing. So, if you&amp;#8217;re interested, bear with me! &lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cassandra and Docker – round 1</title>
+      <link>http://blog.pedrazas.me/2014/09/18/cassandra-and-docker-round-1/</link>
+      <pubDate>Thu, 18 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/09/18/cassandra-and-docker-round-1/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Cassandra_logo.svg_.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-340&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Cassandra_logo.svg_-300x201.png&#34; alt=&#34;Cassandra_logo.svg&#34; width=&#34;300&#34; height=&#34;201&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;This last week I&amp;#8217;ve spent some time trying to set up Cassandra in Docker. My starting point was this Docker Image called &lt;a href=&#34;https://registry.hub.docker.com/u/poklet/cassandra/&#34;&gt;pokle/cassandra&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There are things from that image that I don&amp;#8217;t like and I&amp;#8217;ve been very tempeted to fork it, but as I said, it was a starting point, and for what we need now, it&amp;#8217;s good enough.&lt;/p&gt;
+
+&lt;p&gt;Basically what I wanted was to have a cluster of 3 machines running in Docker, talking to each other and letting me &amp;#8220;play away&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m re-writing dotMarks in java using Dropwizard and, of course, Cassandra. Anyway, this post is about how to set up that cluster.&lt;/p&gt;
+
+&lt;p&gt;Open your terminal and paste this:&lt;/p&gt;
+
+&lt;pre&gt;# Make dirs to store your data
+sudo mkdir -p /data/cassandra/{c1,c2,c3}/data
+sudo mkdir -p /data/cassandra/{c1,c2,c3}/commitlog
+
+# Change permissions so the Cassandra user can write on them
+sudo chmod 777 /data/cassandra/{c1,c2,c3}/data
+sudo chmod 777 /data/cassandra/{c1,c2,c3}/commitlog
+
+# Run the Docker containers with Cassandra
+docker run -d --name c1 -v /data/cassandra/c1/data:/var/lib/cassandra/data -v /data/cassandra/c1/commitlog:/var/lib/cassandra/commitlog poklet/cassandra
+docker run -d --name c2 -v /data/cassandra/c2/data:/var/lib/cassandra/data -v /data/cassandra/c2/commitlog:/var/lib/cassandra/commitlog poklet/cassandra start $(./scripts/ipof.sh c1)
+docker run -d --name c3 -v /data/cassandra/c3/data:/var/lib/cassandra/data -v /data/cassandra/c3/commitlog:/var/lib/cassandra/commitlog poklet/cassandra start $(./scripts/ipof.sh c1)
+
+# Open a CQLSH console
+docker run -it --rm --link c1:c1 -v /data/cassandra/scripts:/data poklet/cassandra bash -c &#39;cqlsh $C1_PORT_9160_TCP_ADDR&#39;
+
+&lt;/pre&gt;
+
+&lt;p&gt;Now you should have a C* cluster of 3 containers. Run docker ps and you should see something like this:&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;pre&gt;-&amp;gt; % docker ps
+CONTAINER ID        IMAGE                     COMMAND               CREATED              STATUS              PORTS                                                                           NAMES
+f85542cb46e3        poklet/cassandra:latest   &#34;start 172.17.0.14&#34;   About a minute ago   Up About a minute   8012/tcp, 9042/tcp, 9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp   c3                  
+9cfdccaf1213        poklet/cassandra:latest   &#34;start 172.17.0.14&#34;   About a minute ago   Up About a minute   9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp, 8012/tcp, 9042/tcp   c2                  
+162c36a8b876        poklet/cassandra:latest   &#34;/bin/sh -c start&#34;    2 minutes ago        Up 2 minutes        9042/tcp, 9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp, 8012/tcp   c1    
+&lt;/pre&gt;
+
+&lt;p&gt;Now, you might want to add some data. We do that using another container that will execute &lt;em&gt;&lt;strong&gt;CQLSH&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;pre&gt;docker run -it --rm --link c1:c1 -v /data/cassandra/scripts:/data poklet/cassandra bash -c &#39;cqlsh $C1_PORT_9160_TCP_ADDR&#39;
+&lt;/pre&gt;
+
+&lt;p&gt;Note that by using Links you don&amp;#8217;t need to know the IPs of the nodes. We will need them to connect if we don&amp;#8217;t use a container with links, but let&amp;#8217;s see that problem later.&lt;/p&gt;
+
+&lt;p&gt;Once you are in the CQLSH, add some data:&lt;/p&gt;
+
+&lt;pre&gt;CREATE KEYSPACE dotmarks WITH REPLICATION =
+ {&#39;class&#39;: &#39;SimpleStrategy&#39;, &#39;replication_factor&#39;: 1};
+
+ USE dotmarks;
+
+ CREATE TABLE test_table (
+  id text,
+  test_value text,
+  PRIMARY KEY (id)
+ );
+
+
+INSERT INTO test_table (id, test_value) VALUES (&#39;1&#39;, &#39;one&#39;);
+INSERT INTO test_table (id, test_value) VALUES (&#39;2&#39;, &#39;two&#39;);
+INSERT INTO test_table (id, test_value) VALUES (&#39;3&#39;, &#39;three&#39;);
+
+SELECT * FROM test_table;
+&lt;/pre&gt;
+
+&lt;p&gt;If you want to check the data from a different node, do this:&lt;/p&gt;
+
+&lt;pre&gt;docker run -it --rm --link c2:c2 -v /data/cassandra/scripts:/data poklet/cassandra bash -c &#39;cqlsh $C2_PORT_9160_TCP_ADDR&#39;
+
+
+Connected to Test Cluster at 172.17.0.15:9160.
+[cqlsh 4.1.1 | Cassandra 2.0.9 | CQL spec 3.1.1 | Thrift protocol 19.39.0]
+Use HELP for help.
+cqlsh&amp;gt; use dotmarks;
+cqlsh:dotmarks&amp;gt; select * from test_table;
+
+ id | test_value
+----+------------
+  3 |      three
+  2 |        two
+  1 |        one
+
+(3 rows)
+
+cqlsh:dotmarks&amp;gt; 
+&lt;/pre&gt;
+
+&lt;p&gt;With this, we have our cluster ready to rock and roll! In the next post, we will see how to confdigure and connect our Dropwizard App to our Cassandra cluster.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Analytics From my Browsing History</title>
+      <link>http://blog.pedrazas.me/2014/09/07/from-my-browsing-history/</link>
+      <pubDate>Sun, 07 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/09/07/from-my-browsing-history/</guid>
+      <description>&lt;p&gt;One of the problems I had while writing dotMarks was the fact that I could not get enough URLs for my testing. I did ask friends and family to send me over their exported list of bookmarks or the bookmarks from pocket&amp;#8230; but &lt;a href=&#34;https://www.youtube.com/watch?v=Pj-qBUWOYfE&#34;&gt;I needed more data&lt;/a&gt;, so, I look somewhere else: My browsing history.&lt;/p&gt;
+
+&lt;p&gt;Of course I couldn&amp;#8217;t just get those links &amp;#8220;&lt;strong&gt;&lt;em&gt;and carry on&lt;/em&gt;&lt;/strong&gt;&amp;#8220;. I had to look at them, poke them and write an extension that allows me to analyse them.&lt;/p&gt;
+
+&lt;p&gt;Because, the idea was&amp;#8230; what kind of high level information can Google (or anyone else) know from just looking at my browing history? and the result was as scary as you might imagine.&lt;/p&gt;
+
+&lt;p&gt;Bear in mind that Google knows much more than just my history&amp;#8230; but that&amp;#8217;s for another post. Let&amp;#8217;s focus!&lt;/p&gt;
+
+&lt;p&gt;This extension basically gathers all your browing history (100 days max), sends it to dotmarks where some data-crunching happens and&amp;#8230; then you see the results.&lt;/p&gt;
+
+&lt;p&gt;For example, it checks at what time you visit a link and creates this pretty graph:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111057.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-330&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111057-300x167.png&#34; alt=&#34;Screenshot from 2014-09-07 11:10:57&#34; width=&#34;300&#34; height=&#34;167&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Which highlights something that everybody who knows me is aware of: I do not sleep much and&amp;#8230; that I work very early in the morning, or very late at night.&lt;/p&gt;
+
+&lt;p&gt;I was very curious about finding out my most visited websites&amp;#8230; nothing surprising here:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111147.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-328&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111147-300x207.png&#34; alt=&#34;Screenshot from 2014-09-07 11:11:47&#34; width=&#34;300&#34; height=&#34;207&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;That I do not procastinate as much as I thought is quiet clear (twitter reloads itself a lot, that&amp;#8217;s why it ranks so high), but mostly I work on my localhost&amp;#8230; and check how my Bitcoins are doing at &lt;a href=&#34;http://megamine.com/&#34;&gt;Megamine&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/theres-no-place-like-127-0-0-1-localhost-computer-print-poster.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-333&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/theres-no-place-like-127-0-0-1-localhost-computer-print-poster-300x200.jpg&#34; alt=&#34;theres-no-place-like-127-0-0-1-localhost-computer-print-poster&#34; width=&#34;300&#34; height=&#34;200&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Then, I started extracting keywords from my searches&amp;#8230; and things got more interesting:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111126.png&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-329&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2014/09/Screenshot-from-2014-09-07-111126-300x209.png&#34; alt=&#34;Screenshot from 2014-09-07 11:11:26&#34; width=&#34;300&#34; height=&#34;209&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Yes, I do search about superheroes a lot&amp;#8230; things of having children addicted to Thor, Spiderman and such troop.&lt;/p&gt;
+
+&lt;p&gt;What is really interesting is how high rank generics like java, python or ubuntu. I was a bit puzzled at first, then I realised that those keywords are ways of filtering out unwanted results. No surprise then, I do work with ubuntu, java and python.&lt;/p&gt;
+
+&lt;p&gt;Still, top marks for the two technologies I&amp;#8217;ve been working more with: ElasticSearch and Docker. ElasticSearch documentation is quite dry&amp;#8230; Docker, because I&amp;#8217;m trying to do a bit too much I guess.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://dotmarks.net&#34;&gt;dotMarks&lt;/a&gt; is a self hosted bookmarks service. The idea is that you will run your own dotMarks server. I&amp;#8217;m working hard to make it as easy as possible to run it (thanks to Docker) but if you&amp;#8217;re curious and want to see what your browsing history says about you, &lt;a href=&#34;https://github.com/ipedrazas/dotmarks-history&#34;&gt;download the extension&lt;/a&gt; and give it a go.&lt;/p&gt;
+
+&lt;p&gt;What I need is advice  &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;If you run the extension and think of something else I can extract I&amp;#8217;m all ears.&lt;/p&gt;
+
+&lt;p&gt;Currently I&amp;#8217;m working on a simple amazon parser, but it&amp;#8217;s still very early&amp;#8230; anyway, if you want to give it a go, by all means try it out and if you can share your feedback &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;with me&lt;/a&gt;, I would really appreciate it.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;a href=&#34;https://dotmarks.net&#34;&gt;dotMarks&lt;/a&gt; and all related to this project is OpenSource. I do have a working version &lt;a href=&#34;https://dotmarks.net/app/#/dotmarks&#34;&gt;here&lt;/a&gt;, but as I said, the idea is that you will run your own service. Still, if you want to add your bookmarks, go ahead, and if you want to be able to find them later, use a tag that you can recognise later.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

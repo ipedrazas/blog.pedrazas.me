@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Big Bag Blog</title>
+    <link>http://blog.pedrazas.me/</link>
+    <description>Recent content on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Tue, 25 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog.pedrazas.me/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Spaghetti management</title>
+      <link>http://blog.pedrazas.me/2015/08/25/spaghetti-management/</link>
+      <pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/08/25/spaghetti-management/</guid>
+      <description>&lt;p&gt;During a job interview they started asking questions about microservices and the discussion that we had made me think that it would be good to write a bit about it.&lt;/p&gt;
+
+&lt;p&gt;Microservices are great because:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;They are small, that&amp;#8217;s why the appended &amp;#8220;&lt;em&gt;Micro&lt;/em&gt;&amp;#8220;&lt;/li&gt;
+&lt;li&gt;They are independent one each other (deployment, runtime, configuration, downtime, scaling&amp;#8230;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Great! so, where&amp;#8217;s the catch&amp;#8230; because there&amp;#8217;s always a catch. Think about it. You can split your API in multiple microservices. Great, now, the application is loosely coupled to a bunch of services.&lt;/p&gt;
+
+&lt;p&gt;If you replace services by libraries, the name that comes to your mind is? DEPENDENCIES!&lt;/p&gt;
+
+&lt;p&gt;The catch with microservices is that dependencies are not implicit in your API or APP the way they used to be (think jars, gems or python libs).&lt;/p&gt;
+
+&lt;p&gt;Bear in mind as well that IDE&amp;#8217;s and compilers are very good (in general) at finding when dependencies are broken&amp;#8230; which is not the case if you have a bunch of loosely couple services.&lt;/p&gt;
+
+&lt;p&gt;Who&amp;#8217;s responsible for managing all those dependencies now? because excuse me, but I need a way to bundle services together. Or, to be more precise, to bundle versions of services together.&lt;/p&gt;
+
+&lt;p&gt;To me the hardest problem is not a design problem, the hardest problem is managing dependencies at version level.&lt;/p&gt;
+
+&lt;p&gt;At &lt;a href=&#34;https://import.io/&#34; title=&#34;Import.io&#34;&gt;Import.io&lt;/a&gt; we started moving towards this architecture and the way we solved it was not using service discovery but using the old idea of having a contract where you specify a bunch of versions that you know they play nicely together.&lt;/p&gt;
+
+&lt;p&gt;I always differentiate Runtime, Configuration and Context. In our case, Runtime was a container running a microservice. Configuration was another container (a data container) where the relationship between versions was explicitly defined, like a manifest.&lt;/p&gt;
+
+&lt;p&gt;The advantage of using a data container to bind a bunch of versions is that you have traceability. You know always how the application was configured, because it is true, with microservices we have gained a lot of flexibility but we have lost certain control. Using a container helps me to regain that control.&lt;/p&gt;
+
+&lt;p&gt;Why do I do this? because I can leverage my continuous integration pipeline to test my services and how they interact with each other according to specific versions. Because now, my microservice bundles are in git and not in some obscure key of zookeeper or consul. Even more, when the time to migrate to &lt;a href=&#34;http://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt; arrives, I can use my data container as my pod blueprint.&lt;/p&gt;
+
+&lt;p&gt;Because one thing is my architecture and another different thing is my runtime and my operations.&lt;/p&gt;
+
+&lt;p&gt;Remember&amp;#8230;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;It&amp;#8217;s not about power, it&amp;#8217;s about responsibility&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Contain 3</title>
+      <link>http://blog.pedrazas.me/2015/08/12/contain-3/</link>
+      <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/08/12/contain-3/</guid>
+      <description>&lt;p&gt;Last night it was the third Contain meetup. I was looking forward to seeing all the guys from RedHat, Microsoft and CoreOS and learning what was in store for us in the container space.&lt;/p&gt;
+
+&lt;p&gt;As it usually happens in life, things changed pretty quickly. Boris, the guy from Microsoft, had a car accident (rumours of him being in a Google self driving ca were discarded promptly). With Boris out, Matt asked me if I could be in the panel instead of him. I guess that Matt thought I was the perfect candidate to represent Microsoft since I am one of the few certified Windows Me power users (cough, cough).&lt;/p&gt;
+
+&lt;p&gt;Matt understands containers, that&amp;#8217;s why he gave us the slides the proper way:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;docker run jetstack/contain:v3_container_os&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The good news, to compensate the bad news of Boris car accident, was that Chris Kenyon, from Canonical came to talk to us about their plans with containers: &lt;a href=&#34;http://www.ubuntu.com/cloud/tools/lxd&#34; target=&#34;_blank&#34;&gt;LXD&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Chris told us during the panel that the datacenter now is following how mobile phones work. Updating hundreds or thousands of machines it&amp;#8217;s equivalent to update thousands of telephones. Which is very interesting way of explaining transactional updates. Ubuntu, with snappy or CoreOS have that as the core of their value proposition.&lt;/p&gt;
+
+&lt;p&gt;It was an interesting conversation. I&amp;#8217;m a big fan of immutable and ephemeral infrastructure. So when people ask me &amp;#8220;&lt;em&gt;how do you update your containers&lt;/em&gt;&amp;#8221; the answer is simple: You don&amp;#8217;t!&lt;/p&gt;
+
+&lt;p&gt;I think it&amp;#8217;s good to differentiate when transactional updates are good and when they are not. Host updates: &lt;strong&gt;yes&lt;/strong&gt;. Containers updates: &lt;strong&gt;No&lt;/strong&gt;!&lt;/p&gt;
+
+&lt;p&gt;But what it&amp;#8217;s fundamental is to understand that containers are not machines or VMs. You have to see your containers as snapshots. Immutable snapshots that can be easily discarded.&lt;/p&gt;
+
+&lt;p&gt;Forget about Chef, Puppet, Ansible or Salt&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/08/pffbz.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-466&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/08/pffbz-300x177.jpg&#34; alt=&#34;pffbz&#34; width=&#34;300&#34; height=&#34;177&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Updating containers have 2 parts: updating the image and running that container. Kubernetes is your friend here. It wasn&amp;#8217;t until yesterday that I realised that many of my colleagues do not understand the great value of Kubernetes.&lt;/p&gt;
+
+&lt;p&gt;Updating containers is a matter of defining a new pod with your new containers and swapping the label when you are ready for the &amp;#8220;update&amp;#8221;. I guess that the best way of putting it is to say that Kubernetes does not try to solve the update problem because there&amp;#8217;s no such problem in the kubernetes world. We have others&amp;#8230; but that it&amp;#8217;s not one of them.&lt;/p&gt;
+
+&lt;p&gt;In summary, an excellent night. Thanks &lt;a href=&#34;http://www.jetstack.io/&#34; target=&#34;_blank&#34;&gt;Jetstack&lt;/a&gt; and all the Matts involved!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Deconstructing</title>
+      <link>http://blog.pedrazas.me/2015/06/25/deconstructing/</link>
+      <pubDate>Thu, 25 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/06/25/deconstructing/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/kafka_logo.png&#34;&gt;&lt;img class=&#34;alignleft size-full wp-image-454&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/kafka_logo.png&#34; alt=&#34;kafka_logo&#34; width=&#34;75&#34; height=&#34;117&#34; /&gt;&lt;/a&gt;If you haven&amp;#8217;t heard about &lt;a href=&#34;http://kafka.apache.org/&#34;&gt;Apache Kafka&lt;/a&gt;, or his little brother Amazon Kinesis, go and read about &lt;a href=&#34;http://www.oreilly.com/pub/e/3098&#34;&gt;why they are so great&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I was chatting with a friend last night and he told me &amp;#8220;I get containers now. I needed some give it some thought, but I get them now&amp;#8221;. If I had to describe him with one word I would use &amp;#8220;smart&amp;#8221; without any doubt&amp;#8230; still he had to think about why containers are so great.&lt;/p&gt;
+
+&lt;p&gt;We carried on talking and after two more beers and few pork ribs I managed to make him understand why we are about to change we build applications. It&amp;#8217;s not only because of containers (or systems like Mesos or Kubernetes), but because with containers, we have seen the light of deconstructing the monoliths into microservices.&lt;/p&gt;
+
+&lt;p&gt;But, there&amp;#8217;s another key element on this Game of Thrones: The Log, systems like Apache kafka are going to help to change completely the landscape of what we build, and ship and run. Like with Microservices, the Log overlord brings a blessing in disguise: it&amp;#8217;s not what it does, it&amp;#8217;s what allows others to do.&lt;/p&gt;
+
+&lt;p&gt;It is not about its responsibility, it&amp;#8217;s about delegating that responsibility in who really has it. Let&amp;#8217;s look at what happens today. We have a system, that system gets some data, compute that data and stores that data in a database. Easy!&lt;/p&gt;
+
+&lt;p&gt;Then someone comes along and asks to get that same data and put it somewhere else, so our system now gets some data, compute that data and stores that data in two different places.&lt;/p&gt;
+
+&lt;p&gt;As we can see, this does not scale very well, so people get smart, and start doing things like database triggers and a whole bunch of things that are totally correct in itself, but over time, it creates a big mess of &amp;#8220;dirty integrations&amp;#8221;. These are the things that will break when we want to move our system. These are the future nightmares of our microservices journey.&lt;/p&gt;
+
+&lt;p&gt;Then, we have The LOG&amp;#8230; a dumb system that guess what: it does not care about what do you do with that data. The Log Overlord will keep your data for a while, and it&amp;#8217;s up to you, the consumers, to use it.&lt;/p&gt;
+
+&lt;p&gt;A bit like how the TV has been broadcasting for a few years&amp;#8230; with a twist, because, as we do now, this TV system allows you to consume the programs when you want it.&lt;/p&gt;
+
+&lt;p&gt;Ok, so, basically, we have a place where we put all that data (for a while) and we have a bunch of people consuming that data? So what?&lt;/p&gt;
+
+&lt;p&gt;Well, not much, but as with microservices, what the LOG overlord provides is the ability of your consumers to consume the way they want (once per hour, once per day&amp;#8230; in real time), and even more, the people who create the TV shows do not care about the broadcasting anymore.&lt;/p&gt;
+
+&lt;p&gt;Think about it. Microservices decouple your business logic. With microservices you can write very business specific services without having to worry about all the other business rules, use cases and (oh yes) those terrible exceptions.&lt;/p&gt;
+
+&lt;p&gt;Apache Kafka or Amazon Kinesis decouple your data. How you read that data is up to the readers and the writers have nothing to do with that. It&amp;#8217;s like a writer writing a book, and people reading that book: when they want, how they want&amp;#8230; as opposed to the writer writing and reading aloud to certain audience.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m not sure if the creators of Kafka chose that name because it&amp;#8217;s a system that allows writers and readers to focus and enjoy what they want to do.&lt;/p&gt;
+
+&lt;p&gt;As I said, we are living very exciting times with a lot of change. Let me finish with a song&amp;#8230; or my own version of a song by &lt;a href=&#34;https://www.youtube.com/watch?v=f8PMqLHF1jU&#34;&gt;Elvis Presley&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  Treat me like a fool,&lt;br /&gt; Treat me mean and cruel,&lt;br /&gt; But &lt;strong&gt;LOG&lt;/strong&gt; me.
+&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  Wring my faithful heart,&lt;br /&gt; Tear it all apart,&lt;br /&gt; But &lt;strong&gt;LOG&lt;/strong&gt; me.
+&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;
+  &lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/649ca9a3f3d4aba78095a28c26fba1fa.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-455&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/06/649ca9a3f3d4aba78095a28c26fba1fa-233x300.jpg&#34; alt=&#34;649ca9a3f3d4aba78095a28c26fba1fa&#34; width=&#34;233&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Distance to Mesos</title>
+      <link>http://blog.pedrazas.me/2015/06/16/distance-to-mesos/</link>
+      <pubDate>Tue, 16 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/06/16/distance-to-mesos/</guid>
+      <description>&lt;p&gt;I&amp;#8217;ve been wanting to write this for a while but it seems that it&amp;#8217;s never the right time, so tonight, I&amp;#8217;m biting the bullet and not going to bed until I write it all.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve notice that lately people don&amp;#8217;t talk about Docker so much. Nothing to complain about, really, but what happens is that people has shifted to talk about &lt;span id=&#34;:1u0.1&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Kubernetes&lt;/span&gt; and &lt;a href=&#34;http://mesos.apache.org/&#34;&gt;&lt;span id=&#34;:1u0.2&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;&lt;/a&gt;&amp;#8230; Sigh.&lt;/p&gt;
+
+&lt;p&gt;One of the questions I&amp;#8217;ve asked more frequently is &amp;#8220;How to move to &lt;span id=&#34;:1u0.3&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;&amp;#8230; and is it worth it?&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;There&amp;#8217;s no straight answer to that question really. I don&amp;#8217;t like to say &amp;#8220;it depends&amp;#8221; because it seems that you&amp;#8217;re trying to run away, but in this case it really does.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#8217;s a bit like asking &amp;#8220;how to go to the London Eye&amp;#8221;, first thing I need to find out is to know where you&amp;#8217;re travelling from because it is not the same to come from Liverpool than from Liverpool street&amp;#8230; Distance is important because I can assume that if you come from Liverpool you will arrive to London &lt;span id=&#34;:1u0.4&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Euston&lt;/span&gt; (but I might be wrong, and you might be travelling by car instead of train&amp;#8230;).&lt;/p&gt;
+
+&lt;p&gt;Anyway, it doesn&amp;#8217;t matter where you come from, I&amp;#8217;m sure you will manage to find the way to the London Eye, and if not&amp;#8230;  just ask. There&amp;#8217;s plenty of people happy to help.&lt;/p&gt;
+
+&lt;p&gt;With &lt;span id=&#34;:1u0.5&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; you have a similar problem, you see? it&amp;#8217;s not the same to come from a &lt;span id=&#34;:1u0.6&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;multi&lt;/span&gt;-monolithic architecture with more silos than the &lt;acronym title=&#34;Ministry of Defense&#34;&gt;MOD&lt;/acronym&gt;, than to have a very lean service based architecture with containers and service discovery already in place.&lt;/p&gt;
+
+&lt;p&gt;So, are containers important? strictly speaking: No, however, by using containers you can leverage some very cool functionality that systems like &lt;span id=&#34;:1u0.7&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; have.&lt;/p&gt;
+
+&lt;p&gt;Service Discovery, anyone? let&amp;#8217;s put it like this, it does not matter how you build software, using SD should be part of it. Period.&lt;/p&gt;
+
+&lt;p&gt;There are 3 big blocks in any application:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span id=&#34;:1u0.8&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Runtime&lt;/span&gt;: this is what we run. From a web application to a queue worker, it doesn&amp;#8217;t really matter. It&amp;#8217;s that thing that (when it works) does its job.&lt;/li&gt;
+&lt;li&gt;Configuration: this is what the thing that runs need to run (the way we want). It can be credentials, external resources, addresses, whatever that makes our &lt;span id=&#34;:1u0.9&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;runtime&lt;/span&gt; to be flexible.&lt;/li&gt;
+&lt;li&gt;Context: this is usually forgotten (until it&amp;#8217;s too late) and it&amp;#8217;s where your &lt;span id=&#34;:1u0.10&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;runtime&lt;/span&gt; runs and all those bits and pieces that you need to be run it there. Firewall rules, Security groups, etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These blocks do not depend on what you run: Java, python, &lt;span id=&#34;:1u0.11&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;javascript&lt;/span&gt;&amp;#8230; or where you run it: Amazon, Azure&amp;#8230; they are 3 blocks that every software development has to define&amp;#8230; what about in &lt;span id=&#34;:1u0.12&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;?&lt;/p&gt;
+
+&lt;p&gt;Well, &lt;span id=&#34;:1u0.13&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;, as a software, will need these 3 blocks: we have the &lt;span id=&#34;:1u0.14&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;runtime&lt;/span&gt;, &lt;span id=&#34;:1u0.15&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;mesos&lt;/span&gt;, marathon, &lt;span id=&#34;:1u0.16&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;cronos&lt;/span&gt;&amp;#8230; the different configuration files these young lads use, and where do we run &lt;span id=&#34;:1u0.17&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;: our &lt;span id=&#34;:1u0.18&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;datacenter&lt;/span&gt;, &lt;span id=&#34;:1u0.19&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;AWS&lt;/span&gt;, Google&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;The interesting thing is that inside &lt;span id=&#34;:1u0.20&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; those 3 blocks are somehow diluted.&lt;/p&gt;
+
+&lt;p&gt;To begin with, Context is &lt;span id=&#34;:1u0.21&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;&amp;#8230; To the point that once you have &lt;span id=&#34;:1u0.22&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; you don&amp;#8217;t have environments anymore. Your application have different &lt;span id=&#34;:1u0.23&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;datasources&lt;/span&gt; (Dev, Test, Prod) and different priorities, but it&amp;#8217;s unlikely that you will have a &lt;span id=&#34;:1u0.24&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; cluster per environment (and if you do, there&amp;#8217;s something very fundamental that you didn&amp;#8217;t get right).&lt;/p&gt;
+
+&lt;p&gt;What makes &lt;span id=&#34;:1u0.25&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; very attractive is that &amp;#8220;he knows&amp;#8221; so you don&amp;#8217;t have to. But to be able to do that your applications have to be built in a way that it&amp;#8217;s safe for &lt;span id=&#34;:1u0.26&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; to move around (here it&amp;#8217;s where containers and service discovery can be very handy).&lt;/p&gt;
+
+&lt;p&gt;As I said before, people keep asking me about &lt;span id=&#34;:1u0.27&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; and my answers always point towards the same place: maybe &lt;span id=&#34;:1u0.28&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt; is not for you, but moving to containers and using service discovery will make your applications to work better and look, once you&amp;#8217;re there, you&amp;#8217;re not that far from &lt;span id=&#34;:1u0.29&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;In summary, you should not aim to use Service Discovery and containers as a &lt;span id=&#34;:1u0.30&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;pre&lt;/span&gt;-condition to &lt;span id=&#34;:1u0.31&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;Mesos&lt;/span&gt;, you should do it because it will make your life (and the life of people dealing with your systems) better.&lt;/p&gt;
+
+&lt;p&gt;Not everybody is Google, but everybody should aim to run applications like Google does.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Everyday Sexism, the Python way</title>
+      <link>http://blog.pedrazas.me/2015/04/03/everyday-sexism-the-python-way/</link>
+      <pubDate>Fri, 03 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/04/03/everyday-sexism-the-python-way/</guid>
+      <description>&lt;p&gt;With great sadness I have to write about sexism in the Python community. Yesterday was brought to my attention &lt;a href=&#34;http://podcast.jcea.es/python/3&#34;&gt;a podcast&lt;/a&gt; where 4 members of the EuroPython organisation were talking about the next &lt;a href=&#34;https://ep2015.europython.eu/en/&#34;&gt;Europython conference&lt;/a&gt;. In the podcast page we can see who these people were:&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;&lt;strong&gt;05:48:&lt;/strong&gt; Entrevistamos Oier Etxaniz, Francisco Fernandez, Alexandre Manhães y Manuel Graña, organizadores de &lt;a href=&#34;https://ep2015.europython.eu/&#34;&gt;EuroPython 2015&lt;/a&gt;.&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;As many Spaniards I was super excited and super proud of Spain hosting this version of EuroPython. I&amp;#8217;ve really enjoyed the first two editions of the Spanish PyCon, so I was over the top when I learnt that this year PyConEs was going to be EuroPython.&lt;/p&gt;
+
+&lt;p&gt;I have been a speaker in both PyConEs (2013 and 2014) and as everybody who participated in them we knew there was much room for improvement. Organising something big like a PyCon conference is hard, and I&amp;#8217;ve tried to give my support to the organisation as much as I could.&lt;/p&gt;
+
+&lt;p&gt;Bearing that in mind, I have to stand up today and shout &amp;#8220;ENOUGH!&amp;#8221;. During the podcast I mentioned earlier a person of the organisation makes the following comment:&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  &amp;#8220;&lt;em&gt;Va a haber las &lt;a href=&#34;https://twitter.com/djangogirls&#34;&gt;DjangoGirls&lt;/a&gt;, los DjangoGays, los django?? por aquello de, digo yo, de las cosas &lt;/em&gt;&lt;em&gt;diferentes, no?&lt;/em&gt;&amp;#8221; [laughs]
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  &amp;#8230;
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  &amp;#8220;&lt;em&gt;A lo mejor hacemos los Django Macho ibéricos para ???? con las mujeres&amp;#8221; [more laughs]&lt;/em&gt;
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  [&amp;#8220;There will be DjangoGirls, DjangoGays and Django?? because, you know, it&amp;#8217;s ok &lt;strong&gt;to be different&lt;/strong&gt;&amp;#8220;]
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  [Maybe we should do a DjangoMachos to ???? with the girls]
+&lt;/p&gt;
+
+&lt;p&gt;(the ?? it&amp;#8217;s because I cannot understand what they say).&lt;/p&gt;
+
+&lt;p&gt;Now, this comment is made as a result of a question that asks to the EuroPython organisers about &amp;#8220;&lt;em&gt;&lt;strong&gt;how to make a better society&lt;/strong&gt;&lt;/em&gt;&amp;#8220;.&lt;/p&gt;
+
+&lt;p&gt;There are two very disturbing things here. First and foremost, that a member of the organisation speaking makes such awful statements. Second, and even more scary, are the laughs resulting of those comments and that nobody thought how terribly out of place were those comments.&lt;/p&gt;
+
+&lt;p&gt;I am not sure I can describe how I felt when I heard that &lt;span id=&#34;:148.41&#34; class=&#34;J-JK9eJ-PJVNOc&#34; tabindex=&#34;-1&#34; data-g-spell-status=&#34;2&#34;&gt;podcast&lt;/span&gt;. Anger, embarrassment, more anger and above all an extremely deep disappointment.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m disappointed that core members of a organisation with such a great &amp;#8220;&lt;a href=&#34;https://ep2015.europython.eu/en/coc/&#34;&gt;Code of Conduct&lt;/a&gt;&amp;#8221; do not live up for those values.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m not sure what to think, I am no one to judge them, but my disappointment and sadness cannot be put in words. What I do know is that I do not tolerate comments of that sort in my presence. I might not set the rules, but I have principles, and I say &amp;#8220;&lt;strong&gt;ENOUGH!!&lt;/strong&gt;&amp;#8220;.&lt;/p&gt;
+
+&lt;p&gt;I was not there, but from the moment I listened to the podcast I have been trying to right their wrongs. Not because of them, right now, I cannot care less about EuroPython. My thoughts are with how the groups they make fun of would feel.&lt;/p&gt;
+
+&lt;p&gt;The EuroPython organisation has made some very offensive comments. I&amp;#8217;m failing to understand why, and what was the objective of it. I&amp;#8217;m failing to understand why nobody in that podcast saw how wrong it was.&lt;/p&gt;
+
+&lt;p&gt;Moreover, I was expecting of some kind of official statement, but it seems that an apologising tweet from a personal account of a member of the organisation it&amp;#8217;s enough to amend the damage, you know, they only offended the women, gay and the rest of the society with their short sighted comments&amp;#8230; and I had enough.&lt;/p&gt;
+
+&lt;p&gt;EuroPython, you have a Code of Conduct. Lead by example, you have the moral obligation of caring for the Python Community!&lt;/p&gt;
+
+&lt;p&gt;During the last PyConEs I was given a PyLadies t-shirt that I usually wear in any public event I participate. Let me tell you this: nobody EVER makes any comment about the t-shirt I wear unless it&amp;#8217;s the PyLadies, and in general it&amp;#8217;s a sexist comment.&lt;/p&gt;
+
+&lt;p&gt;I did think once about writing about the stupidity of this community I&amp;#8217;m part of when I wear a t-shirt of a group that, read by yourself how do they describe themselves:&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;&lt;em&gt;We are an international mentorship group with a focus on helping more women become active participants and leaders in the Python open-source community. &lt;strong&gt;Our mission is to promote, educate and advance a diverse Python community&lt;/strong&gt; through outreach, education, conferences, events and social gatherings.&lt;/em&gt;&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;Now you know why when I speak in public I proudly wear their t-shirt. A group with such a challenging mission cannot have less that all my support.&lt;/p&gt;
+
+&lt;p&gt;My dear Spanish &lt;a href=&#34;https://twitter.com/PyLadies_ES&#34;&gt;PyLadies&lt;/a&gt; tweeted this after learning about the podcast:&lt;/p&gt;
+
+&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;en&#34;&gt;
+  &lt;p&gt;
+    Mucho trabajo por hacer.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    — PyLadies_ES (@PyLadies_ES) &lt;a href=&#34;https://twitter.com/PyLadies_ES/status/583603954984079361&#34;&gt;April 2, 2015&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;(&lt;strong&gt;&lt;em&gt;&amp;#8220;So much work left to do&amp;#8230;&amp;#8221;&lt;/em&gt;&lt;/strong&gt;)&lt;/p&gt;
+
+&lt;p&gt;Thank you, ladies, the world  would be a much better place if there were more people like you and less like them.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Docker in the Enterprise</title>
+      <link>http://blog.pedrazas.me/2015/04/01/docker-in-the-enterprise/</link>
+      <pubDate>Wed, 01 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/04/01/docker-in-the-enterprise/</guid>
+      <description>&lt;p&gt;One of the top questions that people ask me about Docker is by far &amp;#8220;&lt;strong&gt;&lt;em&gt;Do you think the Enterprise will use Docker?&lt;/em&gt;&lt;/strong&gt;&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;My answer has been the same since the very beginning: &lt;strong&gt;Absolutely!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;It doesn&amp;#8217;t mean it will happen soon, but it will happen. There&amp;#8217;s just a few layers of middle management and hundreds of scared sysadmins in between, but it will happen.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve migrated a few legacy enterprise applications to Docker and to me, there&amp;#8217;s a big difference between startups using Docker and classic enterprise companies using Docker. To begin with, big enterprise companies are project and program based instead of product based. Middle management, red tape and a very low speed in general. In the technical aspects there are big differences also. Let me give you a couple of examples:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Firewalls.&lt;/li&gt;
+&lt;li&gt;Legacy applications.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Have you heard about Mesos? Docker Swarm? the ability to move containers around? well, let me tell you something, in the enterprise we have firewall rules. Firewall rules are dependant on the application but bound to the host. This means that you cannot move containers around if you cannot update firewall rules at the same time.&lt;/p&gt;
+
+&lt;p&gt;Solutions like Weave are perfect for this problem. Right now, I&amp;#8217;m not sure how Docker is going to solve the networking aspect, so, I will not say that Docker will do it natively. Still, you get the point.&lt;/p&gt;
+
+&lt;p&gt;Another scary issue is &amp;#8220;Legacy Applications&amp;#8221;. Let&amp;#8217;s face it, technical debt is bad, forgotten technical debt is pure evil. Moving these kind of applications into containers is sometimes harder than rewriting them from scratch. Issues that I&amp;#8217;ve found while migrating legacy applications to containers can be split in two main groups:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Configuration issues like
+
+&lt;ul&gt;
+&lt;li&gt;hard coded url and/or domains: quite typical to see hardcoded jdbc connections. You can get around it using internal DNSs or if in case of major trouble, a reverse proxy.&lt;/li&gt;
+&lt;li&gt;Hard coded IPs: If you&amp;#8217;re lucky, again, Weave can give you a bit of air here.&lt;/li&gt;
+&lt;li&gt;Embedded credentials: hardcoding credentials is bad, but including these credentials inside of your binaries is terrible. Bad news is that it happens more often than you think. Yes, they used properties files, and yes, they put that file inside a jar, inside a war, inside an EAR&amp;#8230; Hey, enterprise all the way down!&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Context Issues:
+
+&lt;ul&gt;
+&lt;li&gt;The system needs to run in a specific host with a specific configuration like specific IPs (ugh), specific URLs (easy), specific OS (this one was very painful)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Good news is that you have the tools to work around all these issues, and yes, you get much better on fixing them (with time, experience and tears). I don&amp;#8217;t think that we will be seeing a &amp;#8220;Wizard&amp;#8221; to migrate your apps to Docker just yet but we will get there.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2nd Docker Birthday, the London Way</title>
+      <link>http://blog.pedrazas.me/2015/03/24/2nd-docker-birthday-the-london-way/</link>
+      <pubDate>Tue, 24 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/03/24/2nd-docker-birthday-the-london-way/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/03/CAy0qK3UYAA58Oj.jpg&#34;&gt;&lt;img class=&#34;alignright size-medium wp-image-415&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/03/CAy0qK3UYAA58Oj-300x300.jpg&#34; alt=&#34;CAy0qK3UYAA58Oj&#34; width=&#34;300&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;Last night at Skillsmatter we celebratedDocker&amp;#8217;s 2nd birthday. It was a good evening to catch up with friends and of course, a great opportunity to meet new people.&lt;/p&gt;
+
+&lt;p&gt;As usual with Docker, the swag was top notch. The mentor&amp;#8217;s t-shirt was especially awesomic!&lt;/p&gt;
+
+&lt;p&gt;Beers and pizza drove to a quick intro by &lt;a href=&#34;https://twitter.com/bfirsh&#34;&gt;Ben&lt;/a&gt; from docker (&lt;a href=&#34;https://twitter.com/bfirsh&#34;&gt;@bfirsh&lt;/a&gt;) who explained that that was not yet-another-meetup but what he called an &amp;#8220;OpenSource-a-thon&amp;#8221;. The idea is to get around the table together and contribute to the Docker project. He emphasized that not only code contributions were welcomed, but all sorts of non-code contributions too.&lt;/p&gt;
+
+&lt;p&gt;I teamed up with the fine people of &lt;a href=&#34;http://www.cloud66.com/&#34;&gt;Cloud66&lt;/a&gt; trying to sort out the Documentation. We tried to complete &lt;a href=&#34;https://github.com/docker/docker/issues/11593&#34;&gt;the Issue 11593&lt;/a&gt;, but we didn&amp;#8217;t get too far. By the time we had set up the environment and started digging the code, it was time to wrap up.&lt;img class=&#34; size-medium wp-image-420 aligncenter&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/03/ben-docker-300x225.jpg&#34; alt=&#34;ben-docker&#34; width=&#34;300&#34; height=&#34;225&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Documentation is key to adoption. Unfortunately, code documentation is very hard unless you know the code very well. At this point I would encourage you, kind reader, to try to write a little about something that&amp;#8217;s it&amp;#8217;s itching you. There&amp;#8217;s nothing like sitting down and starting to type (unless you have one of those funky standing desks, of course) to make you realise how hard is to write good documentation.&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/03/stickers-docker.jpg&#34;&gt;&lt;img class=&#34;alignright size-medium wp-image-419&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/03/stickers-docker-300x225.jpg&#34; alt=&#34;stickers-docker&#34; width=&#34;300&#34; height=&#34;225&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Kudos from me to all the people writing documentation. Me and my children are very very pleased with your work. Keep it up!&lt;/p&gt;
+
+&lt;p&gt;Docker has a &lt;a href=&#34;http://docker.party/&#34;&gt;Docker.party&lt;/a&gt; website about the motivation behind the &amp;#8220;&lt;em&gt;open-source-a-thon&lt;/em&gt;&amp;#8221; where they explain that they will donate $50 to the &lt;a href=&#34;http://www.oceanicsociety.org/&#34;&gt;Oceanic Society&lt;/a&gt; for each contribution we submit during the birthday. You see? write some documentation, save a whale!&lt;/p&gt;
+
+&lt;p&gt;But wait, it&amp;#8217;s not only during these events that your contributions can save a whale: from 23rd of March to 19th of April, all contributions made to the Docker Project will count toward Docker’s donation to the Oceanic Society &lt;strong&gt;\o/&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I might spend some time finishing off that issue and to lead as example, I&amp;#8217;m also happy to write a tutorial. I&amp;#8217;ve been running Docker in production for almost a year now, I&amp;#8217;ve built microservices, used Weave, and migrated dinosaurs (aka Big Enterprise Legacy Applications) to containers. So, I might say it&amp;#8217;s safe to think I know a bit about how to use containers in real life scenarios.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.google.com/forms/d/1R7T-UDsOHsZ9uBYy9YopVEajjPbMrc1cP_nQinfbctc/viewform&#34;&gt;Fill this form&lt;/a&gt; or  &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;Just let me know in Twitter&lt;/a&gt; what kind of tutorial would you like to see and I will get my hands into it!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Happy Birthday, Docker!&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using Cassandra in AWS for Dev &amp; Test</title>
+      <link>http://blog.pedrazas.me/2015/03/12/using-cassandra-in-aws-for-dev-test/</link>
+      <pubDate>Thu, 12 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/03/12/using-cassandra-in-aws-for-dev-test/</guid>
+      <description>&lt;p&gt;At &lt;a href=&#34;http://www.adbrain.com/&#34;&gt;Adbrain&lt;/a&gt;, Cassandra is one of our core databases. I&amp;#8217;m a big fan of not doing much by automating a lot. However, I couldn&amp;#8217;t find an easy way, by easy I mean that it would take very little to implement and could work without me having to do any intervention.&lt;/p&gt;
+
+&lt;p&gt;As I&amp;#8217;ve mentioned before, we create ephemeral clusters for our computational work force using Apache Spark, which helped us a lot to reduce the cost of our running infrastructure.&lt;/p&gt;
+
+&lt;p&gt;Yes, I&amp;#8217;m a big fan of using infrastructure in an effective way. There&amp;#8217;s no secret here, using the cloud gives you the flexibility to pay for what you use.&lt;/p&gt;
+
+&lt;p&gt;Our Dev &amp;amp; Test machines only run during working hours (you know, to pay for what you use only). However, with Cassandra we had to do an exception. Noticed the past tense? We use the ephemeral drives of our AWS instances (in raid0), and as many of you have know, disks do not survive if you stop the instances&amp;#8230; which makes stopping &amp;amp; starting Cassandra nodes a pain.&lt;/p&gt;
+
+&lt;p&gt;The solution is pretty obvious, and yes, I&amp;#8217;m banging my head against the wall for all the times I&amp;#8217;ve wrongly said &amp;#8220;Cassandra clusters cannot be stopped&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;We have a jenkins job that stop Dev &amp;amp; Test machines. The idea was to be able to put my Cassandra cluster nodes in that job as well (to keep things tidy). However, it&amp;#8217;s possible but not ideal because you create some dependencies (and there&amp;#8217;s nothing better than being independent)&lt;/p&gt;
+
+&lt;p&gt;This is what my job does:&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  &lt;strong&gt;Cassandra Stop Job&lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Flush cassandra data.
+
+&lt;ol&gt;
+&lt;li&gt;nodetool flush&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Stop cassandra service.&lt;/li&gt;
+&lt;li&gt;Copy Data out. (you have two options)
+
+&lt;ol&gt;
+&lt;li&gt;nodetool snapshot + tar + upload to S3&lt;/li&gt;
+&lt;li&gt;tar /data/cassandra + upload S3&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Stop the instance.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  &lt;strong&gt;Cassandra Start Job&lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Start the instance.&lt;/li&gt;
+&lt;li&gt;Create raid0.&lt;/li&gt;
+&lt;li&gt;Copy data in.&lt;/li&gt;
+&lt;li&gt;Start cassandra service.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;That&amp;#8217;s it, now my Cassandra clusters for Dev &amp;amp; Test only run for 50h a week, instead of 168h (24&amp;#215;7).&lt;/p&gt;
+
+&lt;p&gt;If you use the m3.2xlarge instance type, you will pay per node $28 per week instead of $94.08. A saving of &lt;strong&gt;$66.08&lt;/strong&gt; per node per week.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Buckets of Water</title>
+      <link>http://blog.pedrazas.me/2015/03/06/buckets-of-water/</link>
+      <pubDate>Fri, 06 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/03/06/buckets-of-water/</guid>
+      <description>&lt;p&gt;I&amp;#8217;m sure you&amp;#8217;ve been here before: you have a problem, you try to explain it to non-technical people and&amp;#8230; you fail to send a clear message across .&lt;/p&gt;
+
+&lt;p&gt;Communication is a two way road. It&amp;#8217;s not just you sending a message, it&amp;#8217;s the other part receiving it and understanding it. We&amp;#8217;re good at sending and receiving, it&amp;#8217;s in the understanding bit that we all struggle more than we would like to.&lt;/p&gt;
+
+&lt;p&gt;Finding good similes and analogies is hard. It&amp;#8217;s something that sales people excel to, but it seems that technical people, we struggle a bit more.&lt;/p&gt;
+
+&lt;p&gt;Anyway, I had a little problem with one of our Cassandra clusters: it was overflowing data and nodes refused to join the ring&amp;#8230; Solution? Scale up!&lt;/p&gt;
+
+&lt;p&gt;The process was simple but when the non-technical people started asking what was going on I had to find a way of illustrating the situation&amp;#8230; and I did, using buckets of water. This is what I said:&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;Imagine we have buckets of water and we pour water on them in a regular basis. When we see that the water levels are getting to high we add more buckets and little by little move water around until all the buckets have enough space to get more water&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;This is what it usually happens when you add more Cassandra nodes to a ring.&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;Well, trouble is that we&amp;#8217;re not sure why, we cannot add more buckets. What would you do if you cannot add more buckets?&amp;#8221; I asked.&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;Can we use bigger buckets?&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;That&amp;#8217;s pretty much what I have done! do you want to work with us?&amp;#8221; Laughs and nods.&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;I had to replace every single bucket by a bigger one. But there&amp;#8217;s a catch, the bucket has to be the same, which is fine, because I can expand the bucket&amp;#8230; because they are elastic&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;Here the guy asked a few questions about elasticity regarding to how AWS works and blimey, he understood that too!&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;So, what we do is to bring a bucket where we pour all the water, expand our empty bucket and put the water back, and we have to do that for every single bucket&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;Upgrading all the nodes with Chef is pretty simple, so, it was a matter of just moving data (or water) around and launching a few commands (to re-create the raid0).&lt;/p&gt;
+
+&lt;p&gt;Today I&amp;#8217;ve heard a conversation between two sales guy about buckets of water and then, then it&amp;#8217;s when I realised how important is to send our message across as clear as water (pun intended).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Managing Clusters</title>
+      <link>http://blog.pedrazas.me/2015/03/04/managing-clusters-when-cost-is-important/</link>
+      <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/03/04/managing-clusters-when-cost-is-important/</guid>
+      <description>&lt;p&gt;If you have a more than one cluster you know why Cluster Managers are so important: because managing clusters can be a nightmare. A cluster is a special kind of beast. Not only you have to be aware of the usual suspects: Disk space, logs, alerts, etc. But you have to be aware of other things: Master, Slaves, and what do they do together.&lt;/p&gt;
+
+&lt;p&gt;There are plenty of solutions out there that try to solve this problem. In fact, depending on your problem, you should chose one solution or another.&lt;/p&gt;
+
+&lt;p&gt;For example, &lt;a href=&#34;http://mesos.apache.org/&#34;&gt;Apache Mesos&lt;/a&gt; that abstracts machine resources like CPU, memory or storage, or &lt;a href=&#34;http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html&#34;&gt;Yarn&lt;/a&gt; (from the Hadoop family) that allows you to schedule your MapReduce jobs.&lt;/p&gt;
+
+&lt;p&gt;At Adbrain I&amp;#8217;ve built a little tool that does a bit of both. By any means it&amp;#8217;s anything like Mesos or Yarn but a super-hyper striped out version of the core ideas behind these two wonderful systems.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve called it &amp;#8220;&lt;em&gt;CheckPoint&lt;/em&gt;&amp;#8221; because I&amp;#8217;ve designed it following the Hollywood Principle: &amp;#8220;&lt;strong&gt;&lt;em&gt;Don&amp;#8217;t call me, I&amp;#8217;ll call you&lt;/em&gt;&lt;/strong&gt;&amp;#8220;. One of the most annoying things I&amp;#8217;ve found when provisioning machines using code is all that polling. Don&amp;#8217;t get me wrong, it works, but if Javascript has showed us something is that callbacks are (awesome) way better to deal with than threads and sleeps (or waits). CheckPoint works the other way around. For example, it creates and provisions the Apache Spark master, once it&amp;#8217;s up and running, that machine sends a request to Checkpoint and it creates and provision the workers. The whole cluster creation is asyncronous and it decoupled of what the other resources do.&lt;/p&gt;
+
+&lt;p&gt;So, CheckPoint started like yet-another-provisioning tool, but it ended up being much more than that. CheckPoint was the tool that allowed us to start working differently in what I call &amp;#8220;&lt;em&gt;Agile Clusters&lt;/em&gt;&amp;#8220;.&lt;/p&gt;
+
+&lt;p&gt;The foundation of Agile Clusters are 3 simple elements:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Creation and provisioning of Ephemeral clusters.&lt;/li&gt;
+&lt;li&gt;Ephemeral logging and monitoring.&lt;/li&gt;
+&lt;li&gt;Destruction of idle resources.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The 1st point it&amp;#8217;s easy, you need a way of building your machines. There are many solutions like Puppet, Ansible, Salt or Chef. CheckPoint uses Chef because that&amp;#8217;s what we use at Adbrain, but it&amp;#8217;s more of a burden than an advantage.&lt;/p&gt;
+
+&lt;p&gt;The 2nd point is quiet tricky. Ephemeral infrastructure is great, but when the machine go away, so goes the data, and the logs, and everything you didn&amp;#8217;t take out first. The other itchy point is monitoring. Yes, there are plenty solutions are there, but not that many that can deal with ephemeral infrastructure. CheckPoint uses &lt;a href=&#34;http://influxdb.com/&#34;&gt;InfluxDB&lt;/a&gt; and &lt;a href=&#34;http://grafana.org/&#34;&gt;grafana&lt;/a&gt;, in particular the &amp;#8220;&lt;a href=&#34;http://grafana.org/docs/features/scripted_dashboards/&#34;&gt;&lt;em&gt;Scripted Dashboards&lt;/em&gt;&lt;/a&gt;&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;The 3rd point is a blessing in disguise. CheckPoint provides a REST API so, developers can see infrastructure as one step more in their workflow execution where they can create and destroy resources but if for any reason your application or a developer forgets about a cluster&amp;#8230; CheckPoint does not an it will destroy that resource unless it&amp;#8217;s used.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/03/452b76319f298454e6f8ef6c3f6ce11a.png&#34;&gt;&lt;img class=&#34;alignright size-medium wp-image-389&#34; src=&#34;http://ivan.pedrazas.me/wp-content/uploads/2015/03/452b76319f298454e6f8ef6c3f6ce11a-230x300.png&#34; alt=&#34;CheckPoint&#34; width=&#34;230&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;There&amp;#8217;s something that has made a huge impact in how we work: Accessible Information.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve been working in Knowledge Management almost all my life and I know how important is to have access to the right data at the right time.&lt;/p&gt;
+
+&lt;p&gt;That&amp;#8217;s why when I was building CheckPoint I was very conscious of who was going to use it and what it might be helpful to know at that time.&lt;/p&gt;
+
+&lt;p&gt;For example, the fact of displaying CPU, RAM and Price when selecting your instances has been incredibly useful to improve our cluster efficiency and cost.&lt;/p&gt;
+
+&lt;p&gt;But we not only managed to reduce the infrastructure cost by 30%, we achieved something that until now was a big unknown: &amp;#8220;How much it costs to run every big data job&amp;#8221;, because neither Mesos nor Yarn worry about cost, their job is not juggling with cost, it&amp;#8217;s solving another problem, quite a hard one, but to me being able to quantify how much it cost to run a job is critical, because it&amp;#8217;s not about in this world of Cloud services it&amp;#8217;s not about if it&amp;#8217;s possible or not, it&amp;#8217;s about if economically makes sense or not.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What do I talk about when I talk about DevOps</title>
+      <link>http://blog.pedrazas.me/2015/02/23/what-do-i-talk-about-when-i-talk-about-devops/</link>
+      <pubDate>Mon, 23 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2015/02/23/what-do-i-talk-about-when-i-talk-about-devops/</guid>
+      <description>&lt;p&gt;I&amp;#8217;ve been in a few meetups already and I&amp;#8217;ve seen people trying to explain &amp;#8220;&lt;em&gt;what is this DevOps thing, anyway&lt;/em&gt;&amp;#8220;.&lt;/p&gt;
+
+&lt;p&gt;To DevOps you come from Dev&amp;#8230; or from Ops, and that origin is quiet important, not because of what you know, but because how do you do things. Some people see DevOps like a fancy way of saying &amp;#8220;sysadmins&amp;#8221; (recruiters, I&amp;#8217;m looking at you!!). Well, here are the bad news for recruiters: DevOps is more about Dev than Ops&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;DevOps it&amp;#8217;s about making life better for developers and sysadmins. DevOps it&amp;#8217;s not about writing Jenkins job, DevOps is about changing the way your process work so you remove risk and friction from, for example, your Jenkins jobs.&lt;/p&gt;
+
+&lt;p&gt;I know, it&amp;#8217;s very unclear&amp;#8230; and I guess that&amp;#8217;s why there&amp;#8217;s so much talk about what it&amp;#8217;s DevOps and what it&amp;#8217;s not.&lt;/p&gt;
+
+&lt;p&gt;Because it&amp;#8217;s not about the tools, it&amp;#8217;s not about the process. It&amp;#8217;s about how do we use those tools and implement those processes that creates friction. Talking about friction, DevOps it&amp;#8217;s giving a small blanket to someone who wears chunky boots before throwing himself down a slide.&lt;/p&gt;
+
+&lt;p&gt;But why we have so many different definitions, then? because we are a mix and match group of people with a mix and match set of problems and a mix and match of tools in our toolboxes. Plenty of combinations, one objective: delivering.&lt;/p&gt;
+
+&lt;p&gt;So, there&amp;#8217;s no silver bullet? I&amp;#8217;m afraid not. The fact that you use Jira and Slack and Git doesn&amp;#8217;t make you an Agile team. It certainly makes your life easier than using Subversion, emails and Microsoft Project, but the tools are not the team, the same way that the team is not the product.&lt;/p&gt;
+
+&lt;p&gt;DevOps is not about being a sysadmin, or a developer, it&amp;#8217;s about being able to challenge and change processes and tools. The most important part of being a good DevOps engineer is not being a good developer or a very methodical sysadmin, it&amp;#8217;s about having the vision and the guts to challenge the process, the tools and the teams.&lt;/p&gt;
+
+&lt;p&gt;Adding a sysadmin type of person to a group of developers will make that team better. The same way that adding a developer to a group of sysadmins. It&amp;#8217;s about finding balance and complementing each other. It&amp;#8217;s not about using Nagios, of Chef or writing Tests for how your infrastructure is created.&lt;/p&gt;
+
+&lt;p&gt;If you google successful DevOps stories you will find many different examples of how to improve. Some of them talk about using a set of tools that allowed them to shorten release times. Others, talk about reorganisations, another will explain how they managed to speed up the communication and feedback loops, or how did they reduce costs, or many others&amp;#8230; The Objective is always the same: Improving you delivery. The pattern is clear: every single successful DevOps story had the opportunity to &lt;strong&gt;challenge the Status Quo&lt;/strong&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Asistentes a mi taller – PyCoNes 2014</title>
+      <link>http://blog.pedrazas.me/2014/11/02/asistentes-a-mi-taller-pycones-2014/</link>
+      <pubDate>Sun, 02 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/11/02/asistentes-a-mi-taller-pycones-2014/</guid>
+      <description>&lt;p&gt;Si aún no tienes claro si vas a venir a mi taller o no, &lt;a href=&#34;http://ivan.pedrazas.me/?p=364&#34;&gt;lee esto&lt;/a&gt;, y luego sigue &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Parece que la conexión de internet no va a ser para tirar cohetes&amp;#8230; nada que no hayamos sufrido todos alguna vez. Así que, para minimizar el impacto de una mala conexión hay dos opciones:&lt;/p&gt;
+
+&lt;p&gt;Usar una conexion ssh a una máquina virtual en la nube (AWS, &lt;a href=&#34;https://www.digitalocean.com/?refcode=56ae0600c4bc&#34;&gt;Digital Ocean&lt;/a&gt;, Linode&amp;#8230; o vuestro proveedor de máquinas virtuales favorito). Con ésto conseguimos que el tráfico ocurra entre esa máquina y docker, limitando el tráfico desde la sala a un puñado de conexiones ssh.&lt;/p&gt;
+
+&lt;p&gt;Otra opción es usar vuestro ordenador y descargar antes las imágenes que se van a usar. Ésta opción es más agresiva con la red por que cuando hagamos un build habrá imágenes que no se cachearán y habrá que descargarlas&amp;#8230; y petaremos la red.&lt;/p&gt;
+
+&lt;p&gt;Si váis a usar vuestro ordenador, es recomendable que os instaléis la versión 1.3 de docker y hagáis pull de las siguientes imágenes. En negrita están las 5 imágenes base para desarrollo python:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;docker pull ubuntu&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;docker pull tpires/neo4j&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;docker pull dockerfile/redis&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;docker pull dockerfile/mongodb&lt;/p&gt;
+
+&lt;p&gt;docker pull ipedrazas/elasticsearch&lt;/p&gt;
+
+&lt;p&gt;docker pull poklet/cassandra&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;docker pull python:2&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;docker pull python:3&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;docker pull nornagon/postgres&lt;/p&gt;
+
+&lt;p&gt;docker pull clue/ttrss&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;docker pull postgres&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;docker pull ipedrazas/taiga-front&lt;/p&gt;
+
+&lt;p&gt;docker pull ipedrazas/taiga-back&lt;/p&gt;
+
+&lt;p&gt;docker pull php:5.6-apache&lt;/p&gt;
+
+&lt;p&gt;docker pull node:0.10-onbuild&lt;/p&gt;
+
+&lt;p&gt;La lista no es definitiva, pero cubre mucho camino. A los que no uséis Linux, tenéis que instalar Boot2Docker y si no recuerdo mal, la versión 1.3 ya permite montar volúmenes entre host y contenedor, así que no tendréis problemas para seguir el taller.&lt;/p&gt;
+
+&lt;p&gt;Si tenéis preguntas o queréis que hable de algún tema en concreto, mandadme un email, o dadme un toque por &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;twitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;El taller está pensado para que la gente salga con una idea clara de lo que se puede hacer con Docker y por donde se puede empezar. Todo el material estará colgado en github.&lt;/p&gt;
+
+&lt;p&gt;Nos vemos el Sábado!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;: ya empezamos otra vez con las notitas?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 2&lt;/strong&gt;: No, el código de DO no es por que &amp;#8220;espere forrarme&amp;#8221;, ni mucho menos.  O sea, en serio??&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 3&lt;/strong&gt;: a ver cuántos errores y tildes encuentra &lt;a href=&#34;https://twitter.com/yamila_moreno&#34;&gt;Yamila&lt;/a&gt;&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;Nota 4: Gracias a &lt;a href=&#34;https://twitter.com/agonzalezro&#34;&gt;Álex&lt;/a&gt; por corregirme 723 errores, lo menos &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PyConEs 2014</title>
+      <link>http://blog.pedrazas.me/2014/10/30/pycones-2014/</link>
+      <pubDate>Thu, 30 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/10/30/pycones-2014/</guid>
+      <description>&lt;p&gt;Estoy muy orgulloso de poder participar en la PyCon Española con un taller que para seguir la tradición he titulado  &amp;#8220;&lt;strong&gt;50 Shades of Docker&lt;/strong&gt;&amp;#8220;.&lt;/p&gt;
+
+&lt;p&gt;El taller es una breve introducción a los contenedores de Linux y por qué es importante saber sobre ellos. Si eres CIO, CEO o Director de Informática de una empresa donde se usa la virtualización, éste es un taller que no te puedes perder!!!&lt;/p&gt;
+
+&lt;p&gt;De hecho, si eres programador, sysadmin o diseñador&amp;#8230; tampoco te puedes perder!&lt;/p&gt;
+
+&lt;p&gt;Si te preguntás por qué deberías pagar &lt;del&gt;&lt;a href=&#34;https://www.ticketea.com/pycones14/&#34;&gt;los 30€ de la entrada&lt;/a&gt;&lt;/del&gt; (&lt;a href=&#34;https://www.ticketea.com/pycones14/&#34;&gt;20€ usando el codigo &lt;strong&gt;DescuentoPonentes&lt;/strong&gt;)&lt;/a&gt; de la PyConEs, la respuesta es muy sencilla: lo que te vas a ahorrar una vez entiendas lo que Docker puede hacer para ti o tu negocio va a compensar muy mucho el precio de la entrada.&lt;/p&gt;
+
+&lt;p&gt;El taller esta orientado de forma genérica. Los conceptos, si bien son un poco abstractos y con poca aplicación práctica, dan paso a multitud de soluciones y prácticas que se resumen en una frase muy corta:&lt;/p&gt;
+
+&lt;p&gt;&amp;#8220;trabajar mejor&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;Así que si estás interesado en saber o aprender cómo puedes trabajar mejor.. ya sabes, VEN!&lt;/p&gt;
+
+&lt;p&gt;Durante el taller se mostrarán ejemplos prácticos. Como todo el mundo ha padecido alguna vez, durante las conferencias la conexión a Internet sufre bastante, es por eso que se recomienda a los asistentes que usen una conexión remota (con &lt;a href=&#34;https://www.digitalocean.com/?refcode=56ae0600c4bc&#34;&gt;éste código&lt;/a&gt; puedes obtener &lt;a href=&#34;https://www.digitalocean.com/?refcode=56ae0600c4bc&#34;&gt;$10 gratis&lt;/a&gt; en Digital Ocean, más que suficiente para que cada asistente pueda realizar el taller durante un par de meses).&lt;/p&gt;
+
+&lt;p&gt;Si prefieres usar tu ordenador, deberás asegurarte que tienes la última versión de &lt;a href=&#34;https://docs.docker.com/installation/#installation&#34;&gt;Docker instalada&lt;/a&gt;, y una vez la tengas instalada, ejecuta el setup.sh que hay en el repositorio de mi github.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;: estoy montando el repo durante esta semana, así que no te sorprendas que el setup cambie un poquillo&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 2&lt;/strong&gt;: El setup lo único que hace es bajarse las imágenes que usaremos durante el taller.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 3&lt;/strong&gt;: Sí, voy a traer mis Google Glass, pero si vienes a mi taller por unas gafas sin cristales tú y yo tenemos que hablar!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 4&lt;/strong&gt;: cualquier duda, &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;pregunta&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota 5&lt;/strong&gt;: si la duda es de &lt;a href=&#34;https://golang.org/&#34;&gt;Golang&lt;/a&gt;, preguntadle a &lt;a href=&#34;https://twitter.com/agonzalezro&#34;&gt;Alex&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Última Nota&lt;/strong&gt;: El &lt;a href=&#34;https://twitter.com/juanriaza&#34;&gt;maestro Riaza&lt;/a&gt; se ha comprometido a llevarme a comer a un lugar &amp;#8220;secreto&amp;#8230; dice&amp;#8221; que va a superar con creces la comida de la pasada PyCon. Como dicen por aqui: really looking forward to eating there &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Local Taiga with Docker</title>
+      <link>http://blog.pedrazas.me/2014/10/08/local-taiga-with-docker/</link>
+      <pubDate>Wed, 08 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/10/08/local-taiga-with-docker/</guid>
+      <description>&lt;p&gt;Recently &lt;a href=&#34;https://taiga.io/&#34;&gt;Taiga.io&lt;/a&gt; was announced. As they describe themselves:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Free. Open Source. Powerful. &lt;strong&gt;Taiga&lt;/strong&gt; is a project management platform for startups and agile developers &amp;amp; designers who want a simple, &lt;strong&gt;beautiful&lt;/strong&gt; tool that makes work truly enjoyable.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It didn&amp;#8217;t take me too long to realise that it would be a nice preparation to dockerize taiga for my next &amp;#8220;50 Shades of Docker&amp;#8221; workshop at the Spanish PyCon.&lt;/p&gt;
+
+&lt;p&gt;I have to reckon that it&amp;#8217;s been more challenging than expected. I would blame the developers, of course  &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;but truth is that turning taiga into a docker container is quiet simple (specially since they provide all the scripts to build a taiga platform in one single host).&lt;/p&gt;
+
+&lt;p&gt;Unfortunately for me, I like distributing things&amp;#8230; so I decided to run one single process per container, so I would have several containers.&lt;/p&gt;
+
+&lt;p&gt;The scripts installed Redis and RabbitMQ which are not in use (just yet), so teh final version has 3 containers:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Postgres&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;RabbitMQ&lt;/del&gt;&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;Redis&lt;/del&gt;&lt;/li&gt;
+&lt;li&gt;Taiga-back&lt;/li&gt;
+&lt;li&gt;Taiga-front&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Another problem I found is that the front-end is not distributable. It means, you have to build it&amp;#8230; so, I created another container that does the build.&lt;/p&gt;
+
+&lt;p&gt;If you want to run taiga in your local machine, you can do so by using this script:&lt;/p&gt;
+
+&lt;pre&gt;sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+sudo sh -c &#34;echo deb https://get.docker.io/ubuntu docker main &amp;gt; /etc/apt/sources.list.d/docker.list&#34;
+sudo apt-get update -y
+sudo apt-get install -y lxc-docker
+
+sudo mkdir -p /data/postgresql
+
+sudo docker run -d --name postgres    -p 5432:5432  -v /data/postgresql:/var/lib/postgresql/data postgres
+sudo docker run -d --name taiga-back  -p 8001:8001  --link postgres:postgres ipedrazas/taiga-back
+sudo docker run -d --name taiga-front -p 80:80 -p 8000:8000 --link taiga-back:taiga-back ipedrazas/taiga-front
+
+
+sudo docker run -it --link postgres:postgres --rm postgres sh -c &#34;su postgres --command &#39;createuser -h &#34;&#39;$POSTGRES_PORT_5432_TCP_ADDR&#39;&#34; -p &#34;&#39;$POSTGRES_PORT_5432_TCP_PORT&#39;&#34; -d -r -s taiga&#39;&#34;
+sudo docker run -it --link postgres:postgres --rm postgres sh -c &#34;su postgres --command &#39;createdb -h &#34;&#39;$POSTGRES_PORT_5432_TCP_ADDR&#39;&#34; -p &#34;&#39;$POSTGRES_PORT_5432_TCP_PORT&#39;&#34; -O taiga taiga&#39;&#34;;
+sudo docker run -it --rm --link postgres:postgres ipedrazas/taiga-back bash regenerate.sh
+&lt;/pre&gt;
+
+&lt;p&gt;If, like me, you want to run it in AWS or Digital Ocean, you will need first to create a DNS and build Taiga using that host (yes, the api url is hardcoded&amp;#8230; so, you have to build it using your hostname).&lt;/p&gt;
+
+&lt;p&gt;Having said that, I want to congratulate the whole Taiag team for the product and the support they have been giving (not only to me, but to many others). &lt;strong&gt;Well done, guys!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;All the code is in my &lt;a href=&#34;https://github.com/ipedrazas/taiga-docker&#34;&gt;Github Repo&lt;/a&gt;, in case that anyone wants to play with it. If you have any doubts, &lt;a href=&#34;https://twitter.com/ipedrazas&#34;&gt;just ask&lt;/a&gt; &lt;img src=&#34;http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif&#34; alt=&#34;:)&#34; class=&#34;wp-smiley&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Art of Testing in the rain</title>
+      <link>http://blog.pedrazas.me/2014/09/22/the-art-of-testing-in-the-rain/</link>
+      <pubDate>Mon, 22 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.pedrazas.me/2014/09/22/the-art-of-testing-in-the-rain/</guid>
+      <description>&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Testing is hard. We all know that. Testing distributed applications is just a nightmare. Like having Jason, Freddy Krugger and legions of zombies chasing you while you run barefoot, naked and of course, in the rain.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;Why it&amp;#8217;s so hard? Well, let&amp;#8217;s look at it. We have &lt;/span&gt;&lt;strong&gt;&lt;span style=&#34;color: #333333;&#34;&gt;Unit Testing&lt;/span&gt;&lt;/strong&gt;&lt;span style=&#34;color: #333333;&#34;&gt;, where we test that our code does what it has to do. Then, we have &lt;/span&gt;&lt;strong&gt;&lt;span style=&#34;color: #333333;&#34;&gt;Integration Test&lt;/span&gt;&lt;/strong&gt;&lt;span style=&#34;color: #333333;&#34;&gt;, where we test that our code can connect and query other systems. Finally, we have &lt;/span&gt;&lt;strong&gt;&lt;span style=&#34;color: #333333;&#34;&gt;System Test&lt;/span&gt;&lt;/strong&gt;&lt;span style=&#34;color: #333333;&#34;&gt;, where we want to test if our application works.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Questions you ask during &lt;strong&gt;Unit Testing&lt;/strong&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Does this method return this expected value?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Does this method parse this XML properly?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Does this method transform this object into this other one?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Questions you ask during &lt;strong&gt;Integration Test&lt;/strong&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Can my application connect to the database?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Does this method return any data?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Does this API call return the Json objects as I expect?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Finally, &lt;strong&gt;System Test&lt;/strong&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Can I log in?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Can I sign up as a new user?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;When I delete this message, does it goes away?&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;And this last bit, this last bit it&amp;#8217;s terribly hard because you have different systems and a frontend to deal with and not only that, you have to have a system that replicates production (and this is expensive and time consuming).&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;So, why testing is so hard? because there are many dependencies at many different layers that are very difficult to replicate (have I talked about firewalls? well, maybe I should)&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Unit Testing can be done as a pre-building task. Cheap, easy.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Integration Test needs two system talking to each other: our code, and the system my code is connecting to. Not as cheap as it seems. Mocking up is a way of reducing the cost of running two (or more) systems. But don&amp;#8217;t deceive yourself, when mocking you are unit testing.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;System Test needs all the systems in place properly configured. Expensive.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Take this, testing your application is not an extra life, it&amp;#8217;s a sneak peak to the dangers that stalk ahead.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;So, how much effort I should put on testing? as much as you can. Read it again: as much as you can. It depends. Let&amp;#8217;s put it like this, the more effort you put in proper testing, the less effort you will have to put when deploying to production.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;Testing is hard, and with every release, with every problem we find in production we learn (like simulating dodgy firewalls), but you should take Testing like that: a learning exercise.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #333333;&#34;&gt;&lt;span style=&#34;font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif;&#34;&gt;I&amp;#8217;m planning to write a series of posts about Integration and System Testing. So, if you&amp;#8217;re interested, bear with me! &lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
