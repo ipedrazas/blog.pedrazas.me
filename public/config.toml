@@ -1,0 +1,10 @@
+baseurl = "http://blog.pedrazas.me"
+languageCode = "en-GB"
+title = "Big Bag Blog"
+theme = "purehugo"
+Paginate = 10
+
+[params]
+  twitterName = "ipedrazas"
+  githubName = "ipedrazas"
+  description = "Need a place to hide"
