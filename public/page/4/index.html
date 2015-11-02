@@ -68,6 +68,47 @@
             
             <div class="posts">
                 
+                <h1 class="content-subhead">28 Jun 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2013/06/28/monitoring-cron-jobs-with-jenkins/" class="post-title">Monitoring Cron Jobs with Jenkins</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-DevOps" href="http://blog.pedrazas.me/categories/devops">DevOps</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <blockquote>
+<p>&#8220;How do you monitor your cron jobs?&#8221;</p>
+
+<p>&#8220;We just don&#8217;t&#8230;&#8221;</p>
+</blockquote>
+
+<p>Monitoring is one of those things that yo should do: monitor EVERYTHING&#8230; or at least as much as you can.</p>
+
+<p>One of the most slippery cases are our cron jobs. Many of them don&#8217;t report anything, many of them run without anyone knowing they&#8217;re there&#8230; And even worse, if they fail, they fail silently: as this cron job I disabled because it had been failing since 2008 (only 5 years or every day failures).</p>
+
+<p>That was the last straw, after removing that entry from the crontab I went to my boss and we decided to tackle the problem. This client uses Nimbus but it seems that the Nimbus guy was not very happy on having loads of cron jobs added so I suggested using Jenkins.</p>
+
+<p>In this case we decided to use Free Style Software Projects since they allow us to run the cron job manually</p>
+
+<pre>JENKINS_HOME=http://myserver.acme.org/path/to/jenkins/
+0 * * * *     export JENKINS_HOME=$JENKINS_HOME; java -jar jenkins-core-*.jar "backup" backup.sh 2&gt;&1 &gt; /dev/null</pre>
+
+<p>You can find more info in the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Monitoring+external+jobs">Jenkins Wiki</a> but if you want to know more or have any doubts, just <a href="https://twitter.com/ipedrazas">ping me on Twitter</a> <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">18 Jun 2013</h1>
                 <section class="post">
                     <header class="post-header">
@@ -570,44 +611,6 @@
      }</pre>
 
 <p>This approach makes development of the mini app much easier: you code against the local APIs and implement a Sync method that will sync changes in your server.</p>
-
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">07 Apr 2013</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.pedrazas.me/2013/04/07/not-the-pizza-example-yet/" class="post-title">Not The Pizza Example… yet</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">ipedrazas</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-children" href="http://blog.pedrazas.me/categories/children">children</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                        
-
-<h2 id="how-to-explain-geeky-grown-up-things-to-children:b87417a3db83b0c819bd99e32e2357cb">How to explain geeky grown up things to children</h2>
-
-<p>There are times that you have to think fast. There are times you cannot think at all, like when my little boy asked me &#8220;Dad, what is the Internet?&#8221;</p>
-
-<p>My answer then was not great, but I think I manage to send my message. It was something like &#8220;Imagine that the game you play in internet were a building. Imagine as well that the web pages you visit are buildings as well. YouTube? like the cinemas at Wetsfields. yes? He nodded so I took it as if he was following me&#8221;</p>
-
-<p>&#8220;Well, if you can see all those websites like buildings, Internet are the roads and streets that take you from one to another. Then you have search engines like Google that are like the tube, that will take you to that far building down there but faster. Do you understand?&#8221;</p>
-
-<p>&#8220;So&#8230; it&#8217;s not a place, it&#8217;s the way you go from one place to another?&#8221; &#8220;yup&#8221; &#8220;Oh&#8230; is it that why granddad calls it <strong>The Information Highway</strong>?&#8221;</p>
-
-<p>#facepalm</p>
-
-<p>Next time he asks me something like that I will direct him straight to my dad.</p>
 
                     </div>
                 </section>

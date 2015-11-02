@@ -3,8 +3,13 @@
   
   <url>
     <loc>http://blog.pedrazas.me/</loc>
-    <lastmod>2015-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2015-11-02T00:40:31+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pedrazas.me/post/snapshots-and-immutable-architecture/</loc>
+    <lastmod>2015-11-02T00:40:31+00:00</lastmod>
   </url>
   
   <url>

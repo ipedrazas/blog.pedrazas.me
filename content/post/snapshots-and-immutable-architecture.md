@@ -4,7 +4,6 @@ Description = ""
 Tags = ["kubernetes", "immutable", "Architecture"]
 date = "2015-11-02T00:40:31Z"
 title = "Snapshot Architecture"
-draft = true
 +++
 
 Immutable is good. Immutable is good because it doesn't change, and things that don't change are good because if it works once, it has to work always... or that's the theory.

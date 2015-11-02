@@ -68,6 +68,66 @@
             
             <div class="posts">
                 
+                <h1 class="content-subhead">04 Mar 2015</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.pedrazas.me/2015/03/04/managing-clusters-when-cost-is-important/" class="post-title">Managing Clusters</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">ipedrazas</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-DevOps" href="http://blog.pedrazas.me/categories/devops">DevOps</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>If you have a more than one cluster you know why Cluster Managers are so important: because managing clusters can be a nightmare. A cluster is a special kind of beast. Not only you have to be aware of the usual suspects: Disk space, logs, alerts, etc. But you have to be aware of other things: Master, Slaves, and what do they do together.</p>
+
+<p>There are plenty of solutions out there that try to solve this problem. In fact, depending on your problem, you should chose one solution or another.</p>
+
+<p>For example, <a href="http://mesos.apache.org/">Apache Mesos</a> that abstracts machine resources like CPU, memory or storage, or <a href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html">Yarn</a> (from the Hadoop family) that allows you to schedule your MapReduce jobs.</p>
+
+<p>At Adbrain I&#8217;ve built a little tool that does a bit of both. By any means it&#8217;s anything like Mesos or Yarn but a super-hyper striped out version of the core ideas behind these two wonderful systems.</p>
+
+<p>I&#8217;ve called it &#8220;<em>CheckPoint</em>&#8221; because I&#8217;ve designed it following the Hollywood Principle: &#8220;<strong><em>Don&#8217;t call me, I&#8217;ll call you</em></strong>&#8220;. One of the most annoying things I&#8217;ve found when provisioning machines using code is all that polling. Don&#8217;t get me wrong, it works, but if Javascript has showed us something is that callbacks are (awesome) way better to deal with than threads and sleeps (or waits). CheckPoint works the other way around. For example, it creates and provisions the Apache Spark master, once it&#8217;s up and running, that machine sends a request to Checkpoint and it creates and provision the workers. The whole cluster creation is asyncronous and it decoupled of what the other resources do.</p>
+
+<p>So, CheckPoint started like yet-another-provisioning tool, but it ended up being much more than that. CheckPoint was the tool that allowed us to start working differently in what I call &#8220;<em>Agile Clusters</em>&#8220;.</p>
+
+<p>The foundation of Agile Clusters are 3 simple elements:</p>
+
+<ol>
+<li>Creation and provisioning of Ephemeral clusters.</li>
+<li>Ephemeral logging and monitoring.</li>
+<li>Destruction of idle resources.</li>
+</ol>
+
+<p>The 1st point it&#8217;s easy, you need a way of building your machines. There are many solutions like Puppet, Ansible, Salt or Chef. CheckPoint uses Chef because that&#8217;s what we use at Adbrain, but it&#8217;s more of a burden than an advantage.</p>
+
+<p>The 2nd point is quiet tricky. Ephemeral infrastructure is great, but when the machine go away, so goes the data, and the logs, and everything you didn&#8217;t take out first. The other itchy point is monitoring. Yes, there are plenty solutions are there, but not that many that can deal with ephemeral infrastructure. CheckPoint uses <a href="http://influxdb.com/">InfluxDB</a> and <a href="http://grafana.org/">grafana</a>, in particular the &#8220;<a href="http://grafana.org/docs/features/scripted_dashboards/"><em>Scripted Dashboards</em></a>&#8221;</p>
+
+<p>The 3rd point is a blessing in disguise. CheckPoint provides a REST API so, developers can see infrastructure as one step more in their workflow execution where they can create and destroy resources but if for any reason your application or a developer forgets about a cluster&#8230; CheckPoint does not an it will destroy that resource unless it&#8217;s used.</p>
+
+<p><a href="http://ivan.pedrazas.me/wp-content/uploads/2015/03/452b76319f298454e6f8ef6c3f6ce11a.png"><img class="alignright size-medium wp-image-389" src="http://ivan.pedrazas.me/wp-content/uploads/2015/03/452b76319f298454e6f8ef6c3f6ce11a-230x300.png" alt="CheckPoint" width="230" height="300" /></a>There&#8217;s something that has made a huge impact in how we work: Accessible Information.</p>
+
+<p>I&#8217;ve been working in Knowledge Management almost all my life and I know how important is to have access to the right data at the right time.</p>
+
+<p>That&#8217;s why when I was building CheckPoint I was very conscious of who was going to use it and what it might be helpful to know at that time.</p>
+
+<p>For example, the fact of displaying CPU, RAM and Price when selecting your instances has been incredibly useful to improve our cluster efficiency and cost.</p>
+
+<p>But we not only managed to reduce the infrastructure cost by 30%, we achieved something that until now was a big unknown: &#8220;How much it costs to run every big data job&#8221;, because neither Mesos nor Yarn worry about cost, their job is not juggling with cost, it&#8217;s solving another problem, quite a hard one, but to me being able to quantify how much it cost to run a job is critical, because it&#8217;s not about in this world of Cloud services it&#8217;s not about if it&#8217;s possible or not, it&#8217;s about if economically makes sense or not.</p>
+
+<p>&nbsp;</p>
+
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">23 Feb 2015</h1>
                 <section class="post">
                     <header class="post-header">
@@ -894,159 +954,6 @@ cqlsh:dotmarks&gt;
    }
 },
 </pre>
-
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">27 Jul 2014</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.pedrazas.me/2014/07/27/gmit/" class="post-title">GmIT</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">ipedrazas</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-DevOps" href="http://blog.pedrazas.me/categories/devops">DevOps</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                        <p>(Graph my IT)</p>
-
-<p><strong>The problem:</strong> We&#8217;re in the process of upgrading our Documentum platform. As part of this upgrade I had to get in contact with all the owners of the different applications that use, connects or access Documentum. They all had to test, and if possible, upgrade their internal Documentum libraries.</p>
-
-<p>The main issue was that it was not clear which applications were connecting to our different services or who was the right person to get in touch with.</p>
-
-<p>My Solution? spending a few days going around the building talking to different teams and people to make sure the message was received.</p>
-
-<p>I know what you are thinking: proper documentation and email could have well solved my problem but if you work in a fairly large organisation like I do, it will not surprise you that the documentation was not complete and it was not up to date. Half of the people the documentation mentioned was not working in those teams anymore, and some of them had move on to brightest lands.</p>
-
-<p>As I said, I spent some quality time with different teams. Specially rewarding was my time with the networking team checking out the firewall to know which IPs were connecting to my servers. Having meetings with different group (developers, primary support, help desk, administrators&#8230;) to make sure we had everything under control.</p>
-
-<p>All this took a fairly amount of time and yes, it can be improved a lot and this post talks about what I did to start sailing towards that remote port.</p>
-
-<p>Once I had all the details of people, machine, roles, and infrastructure I realise that a Spreadsheet (the way this information was officially kept) was not fit for purpose. I realise pretty quickly that I was looking at a graph and that finally I had stumbled upon a nice Use Case for <a href="http://www.neo4j.org/">Neo4J</a>.</p>
-
-<p><a href="http://ivan.pedrazas.me/wp-content/uploads/2014/07/neo4j.png"><img class="aligncenter size-medium wp-image-283" src="http://ivan.pedrazas.me/wp-content/uploads/2014/07/neo4j-300x73.png" alt="neo4j" width="300" height="73" /></a></p>
-
-<p>The first time I had knowledge of Neo4J was in NOSQL eXchange in 2011. Since then, every time I&#8217;ve looked at their technology I&#8217;ve seen really cool things like graphs about Dr. Who or more recently The World Cup but as cool as these examples were, they were not very business focused, really. I mean, mapping daleks and doctors have a very different business value than mapping servers and applications (unless you work for BBC or you just happen to be The Doctor, of course).</p>
-
-<p><a href="http://ivan.pedrazas.me/wp-content/uploads/2014/07/koans_drwho.png"><img class="aligncenter wp-image-282 size-medium" src="http://ivan.pedrazas.me/wp-content/uploads/2014/07/koans_drwho-300x224.png" alt="koans_drwho" width="300" height="224" /></a></p>
-
-<p>I have to reckon that it took me a fair bit too long to get into graphs (I will blame Dr. Who and the World Cup!!)</p>
-
-<p>Neo4j is not as different to any other database, this means: getting your data model right is fundamental&#8230; however, Neo4j has something else&#8230; it provides a bunch of relationships which will transform your data model.</p>
-
-<p>Let me give you a visual example of what&#8217;s going to happen with you data model once you try to use Neo4J is the Pizza dough. Let&#8217;s assume your Data Architect defined the data model. That would be the dough. If Neo4J were the pizza master, this is what will happen: it will get your data model, it will stretch it, it will shrink it, it will make it spin, it will bake it and finally&#8230; it will be ready for consumption in a very different way it was at the very beginning.</p>
-
-<div id="attachment_286" style="width: 310px" class="wp-caption aligncenter">
-  <a href="http://ivan.pedrazas.me/wp-content/uploads/2014/07/2160246890_94819d31ab.jpg"><img class="size-medium wp-image-286" src="http://ivan.pedrazas.me/wp-content/uploads/2014/07/2160246890_94819d31ab-300x300.jpg" alt="Defining your Data Model like a Pro!" width="300" height="300" /></a>
-  
-  <p class="wp-caption-text">
-    Defining your Data Model like a Pro!
-  </p>
-</div>
-
-<p>Seriously. I worked with Postgres, MongoDB, ElasticSearch, Redis, Dynamo&#8230; and the datasource that has changed my data model the most is Neo4J, by far!</p>
-
-<p>I started designing my model using the entities we had in the Spreadsheet&#8230; it didn&#8217;t work. Because flat is not good, and dealing with spreadsheets is what you get: flatland.</p>
-
-<p>We had a list of applications and person to contact: <strong>Application Name, Owner</strong></p>
-
-<p>Every Application had a document where it was defined the different machines they used per environment. Yes, that means one document per row in your list.</p>
-
-<p>Then, you had another list of: <strong>Application, Administrator</strong></p>
-
-<p>And yet another one with: <strong>Application, Support Team</strong></p>
-
-<p>You can put any kind of crazy stuff into a spreadsheet as reality has confirmed to all of us, but the hard truth is that a flat table is just that, a flat data layout. Besides, the fact that you have all that data in a document (with an owner and a path) makes things even worse (people don&#8217;t tend to like other people&#8217;s updating their documents).  Anyway, I decided to run a docker container with Neo4j in it. Easy!</p>
-
-<p>My first model was something like this:</p>
-
-<p>&#8211; Application [IP, OS, Name]</p>
-
-<p>&#8211; Person [Name, email, extension]</p>
-
-<p>&#8211; Role [name]</p>
-
-<p>With this first model I achieved something unseen before: I could map my application with all the dependencies and all the people involved but&#8230; It was not very clear. If a person had 2 roles (I am the admin of an application, and support another one, the graph gets confusing. You want to know what the person does, not where he belongs&#8230;)</p>
-
-<p>Second iteration:</p>
-
-<p>&#8211; Application [IP, OS, Name] :: r[CONNECTS]</p>
-
-<p>&#8211; Person [Name, email, extension] :: [ADMINS | SUPPORTS ]</p>
-
-<p>Applications run in clusters and machine information is quiet important (because we have firewall rules per machine, and IPs are per machine not application). Third iteration:</p>
-
-<p>&#8211; Application [Name, Build Version] :: r[CONNECTS]</p>
-
-<p>&#8211; Person [Name, email, extension] :: [ADMINS | SUPPORTS | HAS_ACCESS]</p>
-
-<p>&#8211; Server [Name, IP, OS] :: r[RUNS]</p>
-
-<p>Well, I&#8217;m not sure what&#8217;s the best way of describing relationships to an entity but in a nutshell, an application can connect to another application, an application runs in one or more servers, people administers, supports and develops applications and servers and specially key, we had the relationship to map the firewall rules.</p>
-
-<p><a href="http://ivan.pedrazas.me/wp-content/uploads/2014/07/networkmap.png"><img class="aligncenter size-large wp-image-289" src="http://ivan.pedrazas.me/wp-content/uploads/2014/07/networkmap-1024x539.png" alt="networkmap" width="700" height="368" /></a></p>
-
-<p>No matter how strict your rules are, you will always have exceptions and you will have to deal with them&#8230; and as in any other place we do, but those exceptions are the first things to get broken when updates or migrations happen.</p>
-
-<p>Things that I&#8217;ve learnt during this process:</p>
-
-<ul>
-<li>Creating a graph is much easier that it seems, specially if you run docker.</li>
-<li>Data with Relationships visualisations are very powerful. Do not underestimate them!</li>
-<li><strong>Having an image of your map is worth a 1000 misunderstandings!</strong></li>
-<li>Uploading CSV is a super fast way of getting your data in Neo4j</li>
-<li>I love the idea of having a <a href="http://docs.neo4j.org/chunked/milestone/rest-api-cypher.html">REST API</a> for my Cypher queries</li>
-<li>Have I said that you can do batch processing with their API? #AWESOME!</li>
-</ul>
-
-<p>Let me give you the basic queries you will need to recreate a beautiful map of your network</p>
-
-<p><strong># Creates Application</strong></p>
-
-<pre>CREATE (ee:Application { name: "Google Search Engine", version: "42", public: true })
-</pre>
-
-<p><strong># Creates Server</strong></p>
-
-<pre>CREATE (ee:Server { name: "galactus", os: "Linux Debian 7", ip: "192.168.69.70" })
-</pre>
-
-<p><strong># Creates Person</strong></p>
-
-<pre>CREATE (ee:Person { name: "John Wayne", email: "jwayne@galactus.net", ext: 6867 })
-</pre>
-
-<p><strong># Creates Relationship Person-App, in this case:</strong></p>
-
-<p><strong># person supports application</strong></p>
-
-<pre>MATCH (a:Person),(b:Application)
-    WHERE a.name = 'John Wayne' AND b.name = 'Google Search Engine' 
-CREATE (a)-[r:Supports]-&gt;(b)
-RETURN r
-</pre>
-
-<p><strong># Display everything</strong></p>
-
-<pre>MATCH (a)-[r]-(b) RETURN a,b LIMIT 25
-</pre>
-
-<p>That&#8217;s all folks, hope you have fun!</p>
-
-<p>Oh, one last thing&#8230; in case you want to run <a href="https://registry.hub.docker.com/u/tpires/neo4j/">Neo4j in docker</a>:</p>
-
-<pre>docker run -d -p 7474:7474 tpires/neo4j</pre>
-
-<p>If you have any comments, you can <a href="https://twitter.com/ipedrazas">find me here <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></a></p>
 
                     </div>
                 </section>
