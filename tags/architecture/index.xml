@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Architecture on Big Bag Blog</title>
-    <link>http://localhost:1313/tags/architecture/</link>
+    <link>http://blog.pedrazas.me/tags/architecture/</link>
     <description>Recent content in Architecture on Big Bag Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <lastBuildDate>Mon, 02 Nov 2015 00:40:31 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blog.pedrazas.me/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Snapshot Architecture</title>
-      <link>http://localhost:1313/post/snapshots-and-immutable-architecture/</link>
+      <link>http://blog.pedrazas.me/post/snapshots-and-immutable-architecture/</link>
       <pubDate>Mon, 02 Nov 2015 00:40:31 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/snapshots-and-immutable-architecture/</guid>
+      <guid>http://blog.pedrazas.me/post/snapshots-and-immutable-architecture/</guid>
       <description>&lt;p&gt;Immutable is good. Immutable is good because it doesn&amp;rsquo;t change, and things that don&amp;rsquo;t change are good because if it works once, it has to work always&amp;hellip; or that&amp;rsquo;s the theory.&lt;/p&gt;
 
 &lt;p&gt;If you use any of those fancy new functional programming languages, you&amp;rsquo;re using immutable data types. They are great. Do you know why? because they do not change. Things that change are hard. Managing things that change is complicated. Managing many things that chnage very quickly is a nightmare.&lt;/p&gt;
@@ -37,9 +37,13 @@
 
 &lt;p&gt;We have traded the cohesion of our applications for flexibility. And it is good. But we have still to embrace a truly immutable architecture. We have to understand that our applications are immutable. The services do not change. The services are replaced by other services that superseed the old ones.&lt;/p&gt;
 
-&lt;p&gt;It&amp;rsquo;s not deploying new versions of an application anymore, it&amp;rsquo;s deploying new services every time. Services that replace other old services.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s not deploying new versions of an application anymore, it&amp;rsquo;s deploying new services every time. Services that replace services.&lt;/p&gt;
 
-&lt;p&gt;I agree, it seems like I&amp;rsquo;m trying to justify but I am not, because I&amp;rsquo;ve seen it, I&amp;rsquo;ve done it and then it&amp;rsquo;s when I&amp;rsquo;ve realised that we should aim to build applications using snapshot services.&lt;/p&gt;
+&lt;p&gt;Let me tell you 2 words: Backwards compatible. Probably the heaviest stone in our world of design and compute. Think about it. What I&amp;rsquo;m saying is that we&amp;rsquo;re in a position to let all the baggage go. Every time you start, you start afresh. It doesn&amp;rsquo;t matter your previous sins, you&amp;rsquo;re clean.&lt;/p&gt;
+
+&lt;p&gt;Stop thinking of your code like something that it&amp;rsquo;s alive. Think of your code as a cake or toy factory. It produces things that do not change. You can change the machinery of that factory, you can improve the making of products, but the toy you did two years ago&amp;hellip; that toy will not be touched once has left the factory.&lt;/p&gt;
+
+&lt;p&gt;I know, you could go all crazy and start shouting &lt;strong&gt;&amp;ldquo;Stop refactoring!!&amp;rdquo;, &amp;ldquo;Stop fixing bugs!&amp;rdquo;&lt;/strong&gt;but truth is that you&amp;rsquo;re not doing it to improve something that it&amp;rsquo;s there, you&amp;rsquo;re doing it to make something better.&lt;/p&gt;
 </description>
     </item>
     

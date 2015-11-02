@@ -26,10 +26,10 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://localhost:1313//css/all.min.css">
+    <link rel="stylesheet" href="http://blog.pedrazas.me/css/all.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <link rel="alternate" type="application/rss+xml" title="Big Bag Blog" href="http://localhost:1313//index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Big Bag Blog" href="http://blog.pedrazas.me/index.xml" />
 </head>
 <body>
 
@@ -38,7 +38,7 @@
     <div class="sidebar pure-u-1 pure-u-md-1-4">
     <div class="header">
         <hgroup>
-            <h1 class="brand-title"><a href="http://localhost:1313/">Big Bag Blog</a></h1>
+            <h1 class="brand-title"><a href="http://blog.pedrazas.me">Big Bag Blog</a></h1>
             <h2 class="brand-tagline"> Need a place to hide </h2>
         </hgroup>
 
@@ -55,7 +55,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="pure-button" href="http://localhost:1313//index.xml"><i class="fa fa-rss"></i> rss</a>
+                    <a class="pure-button" href="http://blog.pedrazas.me/index.xml"><i class="fa fa-rss"></i> rss</a>
                 </li>
             </ul>
         </nav>
@@ -72,14 +72,14 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://localhost:1313/post/snapshots-and-immutable-architecture/" class="post-title">Snapshot Architecture</a>
+                        <a href="http://blog.pedrazas.me/post/snapshots-and-immutable-architecture/" class="post-title">Snapshot Architecture</a>
 
                         <p class="post-meta">
                             
                             
                                 under 
                                 
-                                <a class="post-category post-category-Architecture" href="http://localhost:1313//categories/architecture">Architecture</a>
+                                <a class="post-category post-category-Architecture" href="http://blog.pedrazas.me/categories/architecture">Architecture</a>
                             
                         </p>
                     </header>
@@ -107,9 +107,13 @@
 
 <p>We have traded the cohesion of our applications for flexibility. And it is good. But we have still to embrace a truly immutable architecture. We have to understand that our applications are immutable. The services do not change. The services are replaced by other services that superseed the old ones.</p>
 
-<p>It&rsquo;s not deploying new versions of an application anymore, it&rsquo;s deploying new services every time. Services that replace other old services.</p>
+<p>It&rsquo;s not deploying new versions of an application anymore, it&rsquo;s deploying new services every time. Services that replace services.</p>
 
-<p>I agree, it seems like I&rsquo;m trying to justify but I am not, because I&rsquo;ve seen it, I&rsquo;ve done it and then it&rsquo;s when I&rsquo;ve realised that we should aim to build applications using snapshot services.</p>
+<p>Let me tell you 2 words: Backwards compatible. Probably the heaviest stone in our world of design and compute. Think about it. What I&rsquo;m saying is that we&rsquo;re in a position to let all the baggage go. Every time you start, you start afresh. It doesn&rsquo;t matter your previous sins, you&rsquo;re clean.</p>
+
+<p>Stop thinking of your code like something that it&rsquo;s alive. Think of your code as a cake or toy factory. It produces things that do not change. You can change the machinery of that factory, you can improve the making of products, but the toy you did two years ago&hellip; that toy will not be touched once has left the factory.</p>
+
+<p>I know, you could go all crazy and start shouting <strong>&ldquo;Stop refactoring!!&rdquo;, &ldquo;Stop fixing bugs!&rdquo;</strong>but truth is that you&rsquo;re not doing it to improve something that it&rsquo;s there, you&rsquo;re doing it to make something better.</p>
 
                     </div>
                 </section>
@@ -124,7 +128,7 @@
         </ul>
     </div>
 </div>
-<script src="http://localhost:1313//js/all.min.js"></script>
+<script src="http://blog.pedrazas.me/js/all.min.js"></script>
         </div>
     </div>
 </div>
