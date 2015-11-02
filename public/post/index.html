@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts &middot; Big Bag Blog</title>
+
+    <meta name="description" content="Need a place to hide">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Posts &middot; Big Bag Blog">
+    <meta name="twitter:description" content="Need a place to hide">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Posts &middot; Big Bag Blog">
+    <meta property="og:description" content="Need a place to hide">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://localhost:1313//css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Big Bag Blog" href="http://localhost:1313//index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://localhost:1313/">Big Bag Blog</a></h1>
+            <h2 class="brand-tagline"> Need a place to hide </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/ipedrazas"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/ipedrazas "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://localhost:1313//index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                
+                <h1 class="content-subhead">02 Nov 2015</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://localhost:1313/post/snapshots-and-immutable-architecture/" class="post-title">Snapshot Architecture</a>
+
+                        <p class="post-meta">
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Architecture" href="http://localhost:1313//categories/architecture">Architecture</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Immutable is good. Immutable is good because it doesn&rsquo;t change, and things that don&rsquo;t change are good because if it works once, it has to work always&hellip; or that&rsquo;s the theory.</p>
+
+<p>If you use any of those fancy new functional programming languages, you&rsquo;re using immutable data types. They are great. Do you know why? because they do not change. Things that change are hard. Managing things that change is complicated. Managing many things that chnage very quickly is a nightmare.</p>
+
+<p>Have you heard of immutable infrastructure? infrastructure is hard, so, by making infrastructure immutable you reduce the pain of managing things that change. It has been recently that we achieved the fact of deploying <strong>always</strong> the same application regardless of where it runs.</p>
+
+<p>Kubernetes helps a bit with managing immutable infrastructure, but infrastructure is not our mission. It is important, but it is just another piece. I do not know anyone with the only purpouse of running machines by the sole sake of running them. It&rsquo;s the applications we&rsquo;re interested on!</p>
+
+<p>Do we have immutable applications? kind of. Containers are helping. Do we have immutable infrastructure? indeed we have, and yes, containers are helping&hellip; So, where is the trouble?</p>
+
+<p>It has taken me a while to understand this, but I think I&rsquo;m starting to understand where the rabbit hole is (and where it takes).</p>
+
+<p>If infrastructure is our data type, the architecture is the functional programming language. It&rsquo;s great to have immutability all the way down making sure our data, applications or machines do not change, but there&rsquo;s a missing piece still. If we don&rsquo;t start re-architecting solutions based on those principles, the principles will not stand.</p>
+
+<p>Like those people making fun of microservices: you go from a big horrible monolithic application to a bunch of horrible services scatered all over the place. Comment might be fair in some contexts, but in my experience it&rsquo;s not about services or monoliths, it&rsquo;s about adopting a half baked approach.</p>
+
+<p>Microservices are great, but they are hard to manage because the internal dependencies now are external. We give away control. We trust&hellip; the others.</p>
+
+<p>Trouble is that if we understand an application as a set of loosely coupled microservices (all of them running in containers, hence immutable services), we have to accept that now that state, that mutability we have tried to get rid of, is present as the hardest of all forms: distributed evolution.</p>
+
+<p>We have traded the cohesion of our applications for flexibility. And it is good. But we have still to embrace a truly immutable architecture. We have to understand that our applications are immutable. The services do not change. The services are replaced by other services that superseed the old ones.</p>
+
+<p>It&rsquo;s not deploying new versions of an application anymore, it&rsquo;s deploying new services every time. Services that replace other old services.</p>
+
+<p>I agree, it seems like I&rsquo;m trying to justify but I am not, because I&rsquo;ve seen it, I&rsquo;ve done it and then it&rsquo;s when I&rsquo;ve realised that we should aim to build applications using snapshot services.</p>
+
+                    </div>
+                </section>
+                
+            </div>
+            
+
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://localhost:1313//js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
