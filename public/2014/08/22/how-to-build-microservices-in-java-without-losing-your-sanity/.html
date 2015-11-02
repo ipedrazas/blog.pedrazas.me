@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+How to build (and run) Microservices in Java without losing your Sanity | blog.ipedrazas.me
+</title>
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    
+
+    
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+
+    
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">blog.ipedrazas.me</a>
+        </div>
+        
+        <div class="navbar-collapse collapse">
+          
+          <ul class="nav navbar-nav">
+            
+            <li><a href="/archives.html">Archives</a></li>
+            
+            
+          </ul>
+          
+          
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Categories <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/category/Android.html">Android <span class="badge pull-right">6</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Architecture.html">Architecture <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Arduino.html">Arduino <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Bitcoin.html">Bitcoin <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/CMS.html">CMS <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Cassandra.html">Cassandra <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/DevOps.html">DevOps <span class="badge pull-right">9</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Development.html">Development <span class="badge pull-right">8</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Docker.html">Docker <span class="badge pull-right">5</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Idea.html">Idea <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/London.html">London <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Maker.html">Maker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Me.html">Me <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Python.html">Python <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Spanish.html">Spanish <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Uncategorized.html">Uncategorized <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/analytics.html">analytics <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/books.html">books <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/children.html">children <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/startups.html">startups <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/stats.html">stats <span class="badge pull-right">1</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Tags <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/tag/Android.html">Android <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Idea.html">Idea <span class="badge pull-right">5</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/stats.html">stats <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/kubernetes.html">kubernetes <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/immutable.html">immutable <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/architecture.html">architecture <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Arduino.html">Arduino <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Cassandra.html">Cassandra <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Docker.html">Docker <span class="badge pull-right">7</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/cassandra.html">cassandra <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/docker.html">docker <span class="badge pull-right">8</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/tutorial.html">tutorial <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/DevOps.html">DevOps <span class="badge pull-right">11</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/ansible.html">ansible <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/vagrant.html">vagrant <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/jenkins.html">jenkins <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/neo4j.html">neo4j <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/devops.html">devops <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/mesos.html">mesos <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Mesos.html">Mesos <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/apachekafka.html">apachekafka <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/aws.html">aws <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/kinesis.html">kinesis <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/London.html">London <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/coreos.html">coreos <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/lxd.html">lxd <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/meetup.html">meetup <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/ubuntu.html">ubuntu <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/microservices.html">microservices <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Development.html">Development <span class="badge pull-right">6</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Javascript.html">Javascript <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Python.html">Python <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/deploy.html">deploy <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/python.html">python <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/clinker.html">clinker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Java.html">Java <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/elasticsearch.html">elasticsearch <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/github.html">github <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/testing.html">testing <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/taiga.html">taiga <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Spanish.html">Spanish <span class="badge pull-right">4</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/pycones.html">pycones <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Me.html">Me <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/startups.html">startups <span class="badge pull-right">4</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Maker.html">Maker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/RaspberryPi.html">RaspberryPi <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/dev.html">dev <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/gunicorn.html">gunicorn <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/java.html">java <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/tomcat.html">tomcat <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/sexism.html">sexism <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Uncategorized.html">Uncategorized <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/dotmarks.html">dotmarks <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/children.html">children <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/security.html">security <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/raspberrypi.html">raspberrypi <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/anti-patterns.html">anti-patterns <span class="badge pull-right">1</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="container col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      
+<h1>How to build (and run) Microservices in Java without losing your Sanity</h1>
+
+<p>
+
+<span class="label label-default">by ipedrazas</span>
+
+
+
+<span class="label label-default">2014-08-22</span>
+
+
+
+<a class="label label-success" href="/category/Development.html">Development</a>
+
+
+
+
+<a class="label label-info" href="/tag/Development.html">Development</a>
+
+<a class="label label-info" href="/tag/Docker.html">Docker</a>
+
+<a class="label label-info" href="/tag/Java.html">Java</a>
+
+
+</p>
+
+<p>For a long time I&#8217;ve writen all my microservices using Python because Java had a massive overhead (called a Servlet Container).</p>
+
+<p>I&#8217;m not sure how I stumbled upon DropWizard, but it has done something that I thought impossible: My Ops side has loved Java back.</p>
+
+<p>What do I want?</p>
+
+<p>I want to be able to define a simple REST service and publish it with as little dependencies as possible.</p>
+
+<p>Yes, I can write a JAX-RS class and run:</p>
+
+<pre>-&gt;%mvn jetty:run
+</pre>
+
+<p>And my servlet container will expose my REST service&#8230; but let&#8217;s face it, deploying services like this will not take us too far. Like, are you planning to run a Jetty/Tomcat service per MicroService you want to expose??? Yes, this is where my Ops side of me was cringing big time.</p>
+
+<p>True, I could bundle services and&#8230; and little by little we will find ourselves walking away from our beloved Microservices because of &#8220;Operations is complicated&#8221;. Operations is hard, we all know that, but a good architecture has to provide enough tools to satisfy our design goals without compromise our operations.</p>
+
+<p>Solution? I&#8217;m sure It won&#8217;t surprise any of my followers: it&#8217;s to use <strong>Docker and&#8230; DropWizard</strong>!!!</p>
+
+<p>How, you don&#8217;t know <a href="https://dropwizard.github.io">DropWizard</a>? run to their website and sort that out: NOW! DropWizard does a lot of things, one of them is awesome: It allows you to write a JAX-RS class and run it from your command line. I mean, it creates a fat jar file that you can then run:</p>
+
+<pre>java -jar my_microservice-0.0.1-SNAPSHOT.jar server my_microservice_conf.yml
+</pre>
+
+<p>And&#8230; it will expose your rest service in the port 8080 (and it comes with an admin freebie in port 8081 &lt;&#8211; my ops side of me is very happy about this).</p>
+
+<p>Now&#8230; what happens if you build a Docker image that runs that instruction? That you have an easy way to run/test/distribute your microservice.</p>
+
+<pre>sudo docker run -d -p 9094:8080 7887:8081 ipedrazas/m_dotmarks:latest
+</pre>
+
+<p>Note that all my microservices are exposed using the default ports: 8080 and 8081 and then I re-map them when running them in Docker. Why? because it gives me more flexibility and I don&#8217;t have to worry about Ops while doing Dev (yes, developers do not decide how to run the service).</p>
+
+<p>As always, I strongly recommend to run nginx as a gateway to your dockerized services. In this case our two ports 8080 and 8081 will be remmaped to 9094 (that nginx will expose using a url like api.dotmarks.net/dotmarks) and 7887 that will be used internally only.</p>
+
+<p>These holidays I&#8217;ve been rewriting my <a href="https://dotmarks.net/">dotMarks</a> app originally in python in Java using DropWizard and I will be releasing the code once it works.</p>
+
+<p>Stay tunned!</p>
+
+
+
+
+
+
+    </div>
+    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+    
+  
+
+  </body>
+</html>

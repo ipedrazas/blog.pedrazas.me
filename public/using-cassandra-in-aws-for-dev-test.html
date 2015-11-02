@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+&#39;Using Cassandra in AWS for Dev &amp; Test&#39; | blog.ipedrazas.me
+</title>
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    
+
+    
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+
+    
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">blog.ipedrazas.me</a>
+        </div>
+        
+        <div class="navbar-collapse collapse">
+          
+          <ul class="nav navbar-nav">
+            
+            <li><a href="/archives.html">Archives</a></li>
+            
+            
+          </ul>
+          
+          
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Categories <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/category/Android.html">Android <span class="badge pull-right">6</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Architecture.html">Architecture <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Arduino.html">Arduino <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Bitcoin.html">Bitcoin <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/CMS.html">CMS <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Cassandra.html">Cassandra <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/DevOps.html">DevOps <span class="badge pull-right">9</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Development.html">Development <span class="badge pull-right">8</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Docker.html">Docker <span class="badge pull-right">5</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Idea.html">Idea <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/London.html">London <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Maker.html">Maker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Me.html">Me <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Python.html">Python <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Spanish.html">Spanish <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Uncategorized.html">Uncategorized <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/analytics.html">analytics <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/books.html">books <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/children.html">children <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/startups.html">startups <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/stats.html">stats <span class="badge pull-right">1</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Tags <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/tag/Android.html">Android <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Idea.html">Idea <span class="badge pull-right">4</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/stats.html">stats <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/kubernetes.html">kubernetes <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/immutable.html">immutable <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/architecture.html">architecture <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Arduino.html">Arduino <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Cassandra.html">Cassandra <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Docker.html">Docker <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/cassandra.html">cassandra <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/docker.html">docker <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/tutorial.html">tutorial <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/DevOps.html">DevOps <span class="badge pull-right">5</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/ansible.html">ansible <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/vagrant.html">vagrant <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/jenkins.html">jenkins <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/neo4j.html">neo4j <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Development.html">Development <span class="badge pull-right">6</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Javascript.html">Javascript <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Python.html">Python <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/deploy.html">deploy <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/python.html">python <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/clinker.html">clinker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Java.html">Java <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/elasticsearch.html">elasticsearch <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/github.html">github <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/testing.html">testing <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/dotmarks.html">dotmarks <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/children.html">children <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/security.html">security <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/raspberrypi.html">raspberrypi <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/startups.html">startups <span class="badge pull-right">1</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="container col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      
+<h1>&#39;Using Cassandra in AWS for Dev &amp; Test&#39;</h1>
+
+<p>
+
+<span class="label label-default">by ipedrazas</span>
+
+
+
+<span class="label label-default">0001-01-01</span>
+
+
+
+<a class="label label-success" href="/category/DevOps.html">DevOps</a>
+
+
+
+</p>
+
+<p>categories:
+  &ndash; Cassandra</p>
+
+<h2>&ndash; DevOps</h2>
+
+<p>At <a href="http://www.adbrain.com/">Adbrain</a>, Cassandra is one of our core databases. I&#8217;m a big fan of not doing much by automating a lot. However, I couldn&#8217;t find an easy way, by easy I mean that it would take very little to implement and could work without me having to do any intervention.</p>
+
+<p>As I&#8217;ve mentioned before, we create ephemeral clusters for our computational work force using Apache Spark, which helped us a lot to reduce the cost of our running infrastructure.</p>
+
+<p>Yes, I&#8217;m a big fan of using infrastructure in an effective way. There&#8217;s no secret here, using the cloud gives you the flexibility to pay for what you use.</p>
+
+<p>Our Dev &amp; Test machines only run during working hours (you know, to pay for what you use only). However, with Cassandra we had to do an exception. Noticed the past tense? We use the ephemeral drives of our AWS instances (in raid0), and as many of you have know, disks do not survive if you stop the instances&#8230; which makes stopping &amp; starting Cassandra nodes a pain.</p>
+
+<p>The solution is pretty obvious, and yes, I&#8217;m banging my head against the wall for all the times I&#8217;ve wrongly said &#8220;Cassandra clusters cannot be stopped&#8221;.</p>
+
+<p>We have a jenkins job that stop Dev &amp; Test machines. The idea was to be able to put my Cassandra cluster nodes in that job as well (to keep things tidy). However, it&#8217;s possible but not ideal because you create some dependencies (and there&#8217;s nothing better than being independent)</p>
+
+<p>This is what my job does:</p>
+
+<p style="padding-left: 30px;">
+  <strong>Cassandra Stop Job</strong>
+</p>
+
+<ol>
+<li>Flush cassandra data.
+
+<ol>
+<li>nodetool flush</li>
+</ol></li>
+<li>Stop cassandra service.</li>
+<li>Copy Data out. (you have two options)
+
+<ol>
+<li>nodetool snapshot + tar + upload to S3</li>
+<li>tar /data/cassandra + upload S3</li>
+</ol></li>
+<li>Stop the instance.</li>
+</ol>
+
+<p style="padding-left: 30px;">
+  <strong>Cassandra Start Job</strong>
+</p>
+
+<ol>
+<li>Start the instance.</li>
+<li>Create raid0.</li>
+<li>Copy data in.</li>
+<li>Start cassandra service.</li>
+</ol>
+
+<p>That&#8217;s it, now my Cassandra clusters for Dev &amp; Test only run for 50h a week, instead of 168h (24&#215;7).</p>
+
+<p>If you use the m3.2xlarge instance type, you will pay per node $28 per week instead of $94.08. A saving of <strong>$66.08</strong> per node per week.</p>
+
+
+
+
+
+
+    </div>
+    
+  
+  <div class="container col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <div class="text-center">
+      <p>
+        <a href="http://github.com/agonzalezro/polo">polo</a> is made with
+        <span class="glyphicon glyphicon-heart"></span> by
+        <a href="http://twitter.com/agonzalezro">@agonzalezro</a>
+      </p>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+    
+  
+
+  </body>
+</html>

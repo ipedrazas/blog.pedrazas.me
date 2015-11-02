@@ -1,0 +1,526 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+&#39;Vagrant: Up and Running By Mitchell Hashimoto&#39; | blog.ipedrazas.me
+</title>
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    
+
+    
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+
+    
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">blog.ipedrazas.me</a>
+        </div>
+        
+        <div class="navbar-collapse collapse">
+          
+          <ul class="nav navbar-nav">
+            
+            <li><a href="/archives.html">Archives</a></li>
+            
+            
+          </ul>
+          
+          
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Categories <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/category/Android.html">Android <span class="badge pull-right">6</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Architecture.html">Architecture <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Arduino.html">Arduino <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Bitcoin.html">Bitcoin <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/CMS.html">CMS <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Cassandra.html">Cassandra <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/DevOps.html">DevOps <span class="badge pull-right">9</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Development.html">Development <span class="badge pull-right">8</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Docker.html">Docker <span class="badge pull-right">5</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Idea.html">Idea <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/London.html">London <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Maker.html">Maker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Me.html">Me <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Python.html">Python <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Spanish.html">Spanish <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Uncategorized.html">Uncategorized <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/analytics.html">analytics <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/books.html">books <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/children.html">children <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/startups.html">startups <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/stats.html">stats <span class="badge pull-right">1</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Tags <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/tag/Android.html">Android <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Idea.html">Idea <span class="badge pull-right">5</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/stats.html">stats <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/kubernetes.html">kubernetes <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/immutable.html">immutable <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/architecture.html">architecture <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Arduino.html">Arduino <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Cassandra.html">Cassandra <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Docker.html">Docker <span class="badge pull-right">7</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/cassandra.html">cassandra <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/docker.html">docker <span class="badge pull-right">8</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/tutorial.html">tutorial <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/DevOps.html">DevOps <span class="badge pull-right">11</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/ansible.html">ansible <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/vagrant.html">vagrant <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/jenkins.html">jenkins <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/neo4j.html">neo4j <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/devops.html">devops <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/mesos.html">mesos <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Mesos.html">Mesos <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/apachekafka.html">apachekafka <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/aws.html">aws <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/kinesis.html">kinesis <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/London.html">London <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/coreos.html">coreos <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/lxd.html">lxd <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/meetup.html">meetup <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/ubuntu.html">ubuntu <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/microservices.html">microservices <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Development.html">Development <span class="badge pull-right">6</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Javascript.html">Javascript <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Python.html">Python <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/deploy.html">deploy <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/python.html">python <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/clinker.html">clinker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Java.html">Java <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/elasticsearch.html">elasticsearch <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/github.html">github <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/testing.html">testing <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/taiga.html">taiga <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Spanish.html">Spanish <span class="badge pull-right">4</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/pycones.html">pycones <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Me.html">Me <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/startups.html">startups <span class="badge pull-right">4</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Maker.html">Maker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/RaspberryPi.html">RaspberryPi <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/dev.html">dev <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/gunicorn.html">gunicorn <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/java.html">java <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/tomcat.html">tomcat <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/sexism.html">sexism <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Uncategorized.html">Uncategorized <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/dotmarks.html">dotmarks <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/children.html">children <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/security.html">security <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/raspberrypi.html">raspberrypi <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/anti-patterns.html">anti-patterns <span class="badge pull-right">1</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="container col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      
+<h1>&#39;Vagrant: Up and Running By Mitchell Hashimoto&#39;</h1>
+
+<p>
+
+<span class="label label-default">by ipedrazas</span>
+
+
+
+<span class="label label-default">2013-07-23</span>
+
+
+
+<a class="label label-success" href="/category/books.html">books</a>
+
+
+
+</p>
+
+<p>I wanted a book to get me up to speed with Vagrant and that&#8217;s exactly what <a href="http://shop.oreilly.com/product/0636920026358.do">Vagrant Up and Running</a> does.</p>
+
+<p>I have talked about <a href="http://www.vagrantup.com/">Vagrant</a> already in this blog (<a href="http://ivan.pedrazas.me/?p=136">here</a> and <a href="http://ivan.pedrazas.me/?p=155">here</a>) but if you have looked at Vagrant and you&#8217;re not using it yet because you &#8220;didn&#8217;t get it&#8221; let me tell you how I did it.</p>
+
+<p>Books are great for building this baseline of knowledge. They have the advantage of curated structure and the disadvantage of getting outdated&#8230; but since my memory is quite terrible, what I want from a book is a better understanding of the technology and not how to type that command.</p>
+
+<p>For the accurate sintaxis and instructions I fall back to google  <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" />What I do is the following. When I&#8217;m going to learn something new I always start a new project where I can use that technology.</p>
+
+<p>My projects are structured as follows:</p>
+
+<ul>
+<li><span style="line-height: 15px;">prod</span></li>
+<li>lab</li>
+<li>test</li>
+</ul>
+
+<p>So, depending what I&#8217;m going to do I add an entry to test (if it&#8217;s a quick test that can be deleted at any time) or to lab if it&#8217;s a project I want to use to learn a new technology. There&#8217;s nothing like building to get the learning going <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+
+<p>For example, I&#8217;m building Cryptadoo as the way of learning Django, or with Grails I created my &#8220;Rewards&#8221; project.</p>
+
+<p>Vagrant is different because you cannot build something, but it helps you to develop better. Still, I created a project with AngularJS to test Vagrant (ServerMarks).</p>
+
+<p>For me the book provides a solid foundation for day to day use of Vagrant, with plenty of guidance for getting into more advanced usage. Automation is encouraged by Vagrant&#8217;s workflows, I would say even more: Automation is encourage in general.</p>
+
+<p>New users and people with zero Vagrant experience will be able to pick up this book and learn everything they need to start using Vagrant and getting the most out of it.</p>
+
+<p>If you&#8217;re like me, this book will help you loads because it illustrates the best use cases of Vagrant. I agree, the fact that V1.0 and V1.1 or V2.0 have some incompatibilities will force you to go out and look for the right command, but as I said before, books can get outdated pretty quickly, but there&#8217;s something that books give you than none of your random search will do: structure&#8230; and hey, you can read them without Internet connection for example: while commuting <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+
+<p>If you want a step by step tutorial this <a href="http://shop.oreilly.com/product/0636920026358.do">Vagrant Up and Running</a> will help you little, but as a way to accelerate learning it&#8217;s a wonderful book!</p>
+
+
+
+
+
+
+    </div>
+    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+    
+  
+
+  </body>
+</html>

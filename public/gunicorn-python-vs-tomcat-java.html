@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+(Gunicorn &#43; Python) vs (Tomcat &#43; Java) | blog.ipedrazas.me
+</title>
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    
+
+    
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+
+    
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">blog.ipedrazas.me</a>
+        </div>
+        
+        <div class="navbar-collapse collapse">
+          
+          <ul class="nav navbar-nav">
+            
+            <li><a href="/archives.html">Archives</a></li>
+            
+            
+          </ul>
+          
+          
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Categories <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/category/Android.html">Android <span class="badge pull-right">6</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Architecture.html">Architecture <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Arduino.html">Arduino <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Bitcoin.html">Bitcoin <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/CMS.html">CMS <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Cassandra.html">Cassandra <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/DevOps.html">DevOps <span class="badge pull-right">9</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Development.html">Development <span class="badge pull-right">8</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Docker.html">Docker <span class="badge pull-right">5</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Idea.html">Idea <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/London.html">London <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Maker.html">Maker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Me.html">Me <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Python.html">Python <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Spanish.html">Spanish <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Uncategorized.html">Uncategorized <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/analytics.html">analytics <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/books.html">books <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/children.html">children <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/startups.html">startups <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/stats.html">stats <span class="badge pull-right">1</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Tags <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/tag/Android.html">Android <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Idea.html">Idea <span class="badge pull-right">4</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/stats.html">stats <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/kubernetes.html">kubernetes <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/immutable.html">immutable <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/architecture.html">architecture <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Arduino.html">Arduino <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Cassandra.html">Cassandra <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Docker.html">Docker <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/cassandra.html">cassandra <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/docker.html">docker <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/tutorial.html">tutorial <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/DevOps.html">DevOps <span class="badge pull-right">5</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/ansible.html">ansible <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/vagrant.html">vagrant <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/jenkins.html">jenkins <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/neo4j.html">neo4j <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Development.html">Development <span class="badge pull-right">6</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Javascript.html">Javascript <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Python.html">Python <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/deploy.html">deploy <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/python.html">python <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/clinker.html">clinker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Java.html">Java <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/elasticsearch.html">elasticsearch <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/github.html">github <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/testing.html">testing <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/dotmarks.html">dotmarks <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/children.html">children <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/security.html">security <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/raspberrypi.html">raspberrypi <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/startups.html">startups <span class="badge pull-right">1</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="container col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      
+<h1>(Gunicorn &#43; Python) vs (Tomcat &#43; Java)</h1>
+
+<p>
+
+<span class="label label-default">by ipedrazas</span>
+
+
+
+<span class="label label-default">0001-01-01</span>
+
+
+
+<a class="label label-success" href="/category/Python.html">Python</a>
+
+
+
+</p>
+
+<p>categories:
+  &ndash; Python
+tags:
+  &ndash; dev
+  &ndash; gunicorn
+  &ndash; java
+  &ndash; python</p>
+
+<h2>&ndash; tomcat</h2>
+
+<p>Writing an app it&#8217;s one thing, deploying an app it&#8217;s a very different matter. Last night we were discussing about the differences between deploying Java apps and deploying python apps. I must admit that I never put my head to look at how python apps were deployed, so this morning I decided to take a look and&#8230; yes, deploying a java app in Tomcat is still easier than deploying a python app with gunicorn (let the troll wars begin!). True, to deploy an app with gunicorn you just need this:</p>
+
+<p><code>gunicorn --log-level=debug -c gunicorn.conf hello:app</code></p>
+
+<p>or if just &#8220;gunicorn hello:app&#8221; which is great, it couldn&#8217;t be more simple!</p>
+
+<p>But&#8230; Imagine this scenario: we create 2 apps, one in Java, one in python, let&#8217;s say, using Flask (I could have said Django&#8230; but let&#8217;s keep it simple).</p>
+
+<p>Now I have my BIG FAT SERVER where I have my tomcat instance and my gunicorn instance running.</p>
+
+<ul>
+<li>To deploy the java app I need to create a war file and upload it using the admin page&#8230; et voila, we have java app deployed.</li>
+<li>To deploy the python app I need to ssh to that server, scp the python app files over, and run that line from above.</li>
+</ul>
+
+<p>Fair enough, it&#8217;s not that different and gunicorn kicks ass, but let&#8217;s be honest here, even if we had to ssh and copy over the war file&#8230; just by putting it in the right directory it will self-deploy. Don&#8217;t get me wrong, I do love python and when I can, I much rather use python-gunicorn than any of their java cousins, but we have to be fair with the fat jvm relatives, haven&#8217;t we?</p>
+
+<p>This time, Java wins!</p>
+
+
+
+
+
+
+    </div>
+    
+  
+  <div class="container col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <div class="text-center">
+      <p>
+        <a href="http://github.com/agonzalezro/polo">polo</a> is made with
+        <span class="glyphicon glyphicon-heart"></span> by
+        <a href="http://twitter.com/agonzalezro">@agonzalezro</a>
+      </p>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+    
+  
+
+  </body>
+</html>

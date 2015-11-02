@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+&#43;&#43;&#43; | Álex Go{,nzález}
+</title>
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    
+
+    
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+
+    
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="//w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+      stLight.options({publisher: "db740e9c-f490-4a3f-813a-5d257e1ea7f8", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+    </script>
+    
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Álex Go{,nzález}</a>
+        </div>
+        
+        <div class="navbar-collapse collapse">
+          
+          <ul class="nav navbar-nav">
+            
+            <li><a href="/archives.html">Archives</a></li>
+            
+            
+          </ul>
+          
+          
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Categories <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/category/content.html">content <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/post.html">post <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/posts.html">posts <span class="badge pull-right">55</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="container col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      
+<h1>&#43;&#43;&#43;</h1>
+
+<p>
+
+<span class="label label-default">by Álex</span>
+
+
+
+<span class="label label-default">0001-01-01</span>
+
+
+
+<a class="label label-success" href="/category/post.html">post</a>
+
+
+
+</p>
+
+<p>Description = &ldquo;&rdquo;
+Tags = [&ldquo;kubernetes&rdquo;, &ldquo;immutable&rdquo;, &ldquo;Architecture&rdquo;]
+date = &ldquo;2015-11-02T00:40:31Z&rdquo;
+title = &ldquo;Snapshot Architecture&rdquo;
++++</p>
+
+<p>Immutable is good. Immutable is good because it doesn&rsquo;t change, and things that don&rsquo;t change are good because if it works once, it has to work always&hellip; or that&rsquo;s the theory.</p>
+
+<p>If you use any of those fancy new functional programming languages, you&rsquo;re using immutable data types. They are great. Do you know why? because they do not change. Things that change are hard. Managing things that change is complicated. Managing many things that chnage very quickly is a nightmare.</p>
+
+<p>Have you heard of immutable infrastructure? infrastructure is hard, so, by making infrastructure immutable you reduce the pain of managing things that change. It has been recently that we achieved the fact of deploying <strong>always</strong> the same application regardless of where it runs.</p>
+
+<p>Kubernetes helps a bit with managing immutable infrastructure, but infrastructure is not our mission. It is important, but it is just another piece. I do not know anyone with the only purpouse of running machines by the sole sake of running them. It&rsquo;s the applications we&rsquo;re interested on!</p>
+
+<p>Do we have immutable applications? kind of. Containers are helping. Do we have immutable infrastructure? indeed we have, and yes, containers are helping&hellip; So, where is the trouble?</p>
+
+<p>It has taken me a while to understand this, but I think I&rsquo;m starting to understand where the rabbit hole is (and where it takes).</p>
+
+<p>If infrastructure is our data type, the architecture is the functional programming language. It&rsquo;s great to have immutability all the way down making sure our data, applications or machines do not change, but there&rsquo;s a missing piece still. If we don&rsquo;t start re-architecting solutions based on those principles, the principles will not stand.</p>
+
+<p>Like those people making fun of microservices: you go from a big horrible monolithic application to a bunch of horrible services scatered all over the place. Comment might be fair in some contexts, but in my experience it&rsquo;s not about services or monoliths, it&rsquo;s about adopting a half baked approach.</p>
+
+<p>Microservices are great, but they are hard to manage because the internal dependencies now are external. We give away control. We trust&hellip; the others.</p>
+
+<p>Trouble is that if we understand an application as a set of loosely coupled microservices (all of them running in containers, hence immutable services), we have to accept that now that state, that mutability we have tried to get rid of, is present as the hardest of all forms: distributed evolution.</p>
+
+<p>We have traded the cohesion of our applications for flexibility. And it is good. But we have still to embrace a truly immutable architecture. We have to understand that our applications are immutable. The services do not change. The services are replaced by other services that superseed the old ones.</p>
+
+<p>It&rsquo;s not deploying new versions of an application anymore, it&rsquo;s deploying new services every time. Services that replace services.</p>
+
+<p>Let me tell you 2 words: Backwards compatible. Probably the heaviest stone in our world of design and compute. Think about it. What I&rsquo;m saying is that we&rsquo;re in a position to let all the baggage go. Every time you start, you start afresh. It doesn&rsquo;t matter your previous sins, you&rsquo;re clean.</p>
+
+<p>Stop thinking of your code like something that it&rsquo;s alive. Think of your code as a cake or toy factory. It produces things that do not change. You can change the machinery of that factory, you can improve the making of products, but the toy you did two years ago&hellip; that toy will not be touched once has left the factory.</p>
+
+<p>I know, you could go all crazy and start shouting <strong>&ldquo;Stop refactoring!!&rdquo;, &ldquo;Stop fixing bugs!&rdquo;</strong>but truth is that you&rsquo;re not doing it to improve something that it&rsquo;s there, you&rsquo;re doing it to make something better.</p>
+
+
+
+
+<br>
+<span class='st_sharethis_large' displayText='ShareThis'></span>
+<span class='st_facebook_large' displayText='Facebook'></span>
+<span class='st_twitter_large' displayText='Tweet'></span>
+<span class='st_linkedin_large' displayText='LinkedIn'></span>
+<span class='st_googleplus_large' displayText='Google +'></span>
+<span class='st_reddit_large' displayText='Reddit'></span>
+<span class='st_email_large' displayText='Email'></span>
+
+
+
+
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'agonzalezro';
+  
+  
+  var disqus_identifier = '\/.html';
+
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+    </div>
+    
+  
+  <div class="container col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <div class="text-center">
+      <p>
+        <a href="http://github.com/agonzalezro/polo">polo</a> is made with
+        <span class="glyphicon glyphicon-heart"></span> by
+        <a href="http://twitter.com/agonzalezro">@agonzalezro</a>
+      </p>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+    
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35984509-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  
+
+  </body>
+</html>

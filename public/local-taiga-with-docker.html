@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+Local Taiga with Docker | blog.ipedrazas.me
+</title>
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    
+
+    
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+
+    
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">blog.ipedrazas.me</a>
+        </div>
+        
+        <div class="navbar-collapse collapse">
+          
+          <ul class="nav navbar-nav">
+            
+            <li><a href="/archives.html">Archives</a></li>
+            
+            
+          </ul>
+          
+          
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Categories <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/category/Android.html">Android <span class="badge pull-right">6</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Architecture.html">Architecture <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Arduino.html">Arduino <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Bitcoin.html">Bitcoin <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/CMS.html">CMS <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Cassandra.html">Cassandra <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/DevOps.html">DevOps <span class="badge pull-right">9</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Development.html">Development <span class="badge pull-right">8</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Docker.html">Docker <span class="badge pull-right">5</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Idea.html">Idea <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/London.html">London <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Maker.html">Maker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Me.html">Me <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Python.html">Python <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Spanish.html">Spanish <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Uncategorized.html">Uncategorized <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/analytics.html">analytics <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/books.html">books <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/children.html">children <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/startups.html">startups <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/stats.html">stats <span class="badge pull-right">1</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Tags <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/tag/Android.html">Android <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Idea.html">Idea <span class="badge pull-right">4</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/stats.html">stats <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/kubernetes.html">kubernetes <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/immutable.html">immutable <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/architecture.html">architecture <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Arduino.html">Arduino <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Cassandra.html">Cassandra <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Docker.html">Docker <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/cassandra.html">cassandra <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/docker.html">docker <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/tutorial.html">tutorial <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/DevOps.html">DevOps <span class="badge pull-right">5</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/ansible.html">ansible <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/vagrant.html">vagrant <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/jenkins.html">jenkins <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/neo4j.html">neo4j <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Development.html">Development <span class="badge pull-right">6</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Javascript.html">Javascript <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Python.html">Python <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/deploy.html">deploy <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/python.html">python <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/clinker.html">clinker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Java.html">Java <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/elasticsearch.html">elasticsearch <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/github.html">github <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/testing.html">testing <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/dotmarks.html">dotmarks <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/children.html">children <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/security.html">security <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/raspberrypi.html">raspberrypi <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/startups.html">startups <span class="badge pull-right">1</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="container col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      
+<h1>Local Taiga with Docker</h1>
+
+<p>
+
+<span class="label label-default">by ipedrazas</span>
+
+
+
+<span class="label label-default">0001-01-01</span>
+
+
+
+<a class="label label-success" href="/category/Docker.html">Docker</a>
+
+
+
+</p>
+
+<p>categories:
+  &ndash; Docker
+tags:
+  &ndash; docker</p>
+
+<h2>&ndash; taiga</h2>
+
+<p>Recently <a href="https://taiga.io/">Taiga.io</a> was announced. As they describe themselves:</p>
+
+<blockquote>
+<p>Free. Open Source. Powerful. <strong>Taiga</strong> is a project management platform for startups and agile developers &amp; designers who want a simple, <strong>beautiful</strong> tool that makes work truly enjoyable.</p>
+</blockquote>
+
+<p>It didn&#8217;t take me too long to realise that it would be a nice preparation to dockerize taiga for my next &#8220;50 Shades of Docker&#8221; workshop at the Spanish PyCon.</p>
+
+<p>I have to reckon that it&#8217;s been more challenging than expected. I would blame the developers, of course  <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" />but truth is that turning taiga into a docker container is quiet simple (specially since they provide all the scripts to build a taiga platform in one single host).</p>
+
+<p>Unfortunately for me, I like distributing things&#8230; so I decided to run one single process per container, so I would have several containers.</p>
+
+<p>The scripts installed Redis and RabbitMQ which are not in use (just yet), so teh final version has 3 containers:</p>
+
+<ul>
+<li>Postgres</li>
+<li><del>RabbitMQ</del></li>
+<li><del>Redis</del></li>
+<li>Taiga-back</li>
+<li>Taiga-front</li>
+</ul>
+
+<p>Another problem I found is that the front-end is not distributable. It means, you have to build it&#8230; so, I created another container that does the build.</p>
+
+<p>If you want to run taiga in your local machine, you can do so by using this script:</p>
+
+<pre>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+sudo sh -c "echo deb https://get.docker.io/ubuntu docker main &gt; /etc/apt/sources.list.d/docker.list"
+sudo apt-get update -y
+sudo apt-get install -y lxc-docker
+
+sudo mkdir -p /data/postgresql
+
+sudo docker run -d --name postgres    -p 5432:5432  -v /data/postgresql:/var/lib/postgresql/data postgres
+sudo docker run -d --name taiga-back  -p 8001:8001  --link postgres:postgres ipedrazas/taiga-back
+sudo docker run -d --name taiga-front -p 80:80 -p 8000:8000 --link taiga-back:taiga-back ipedrazas/taiga-front
+
+
+sudo docker run -it --link postgres:postgres --rm postgres sh -c "su postgres --command 'createuser -h "'$POSTGRES_PORT_5432_TCP_ADDR'" -p "'$POSTGRES_PORT_5432_TCP_PORT'" -d -r -s taiga'"
+sudo docker run -it --link postgres:postgres --rm postgres sh -c "su postgres --command 'createdb -h "'$POSTGRES_PORT_5432_TCP_ADDR'" -p "'$POSTGRES_PORT_5432_TCP_PORT'" -O taiga taiga'";
+sudo docker run -it --rm --link postgres:postgres ipedrazas/taiga-back bash regenerate.sh
+</pre>
+
+<p>If, like me, you want to run it in AWS or Digital Ocean, you will need first to create a DNS and build Taiga using that host (yes, the api url is hardcoded&#8230; so, you have to build it using your hostname).</p>
+
+<p>Having said that, I want to congratulate the whole Taiag team for the product and the support they have been giving (not only to me, but to many others). <strong>Well done, guys!</strong></p>
+
+<p>All the code is in my <a href="https://github.com/ipedrazas/taiga-docker">Github Repo</a>, in case that anyone wants to play with it. If you have any doubts, <a href="https://twitter.com/ipedrazas">just ask</a> <img src="http://ivan.pedrazas.me/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+
+
+
+
+
+
+    </div>
+    
+  
+  <div class="container col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <div class="text-center">
+      <p>
+        <a href="http://github.com/agonzalezro/polo">polo</a> is made with
+        <span class="glyphicon glyphicon-heart"></span> by
+        <a href="http://twitter.com/agonzalezro">@agonzalezro</a>
+      </p>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+    
+  
+
+  </body>
+</html>

@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+The Art of Testing in the rain | blog.ipedrazas.me
+</title>
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    
+
+    
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+
+    
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">blog.ipedrazas.me</a>
+        </div>
+        
+        <div class="navbar-collapse collapse">
+          
+          <ul class="nav navbar-nav">
+            
+            <li><a href="/archives.html">Archives</a></li>
+            
+            
+          </ul>
+          
+          
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Categories <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/category/Android.html">Android <span class="badge pull-right">6</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Architecture.html">Architecture <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Arduino.html">Arduino <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Bitcoin.html">Bitcoin <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/CMS.html">CMS <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Cassandra.html">Cassandra <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/DevOps.html">DevOps <span class="badge pull-right">9</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Development.html">Development <span class="badge pull-right">8</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Docker.html">Docker <span class="badge pull-right">5</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Idea.html">Idea <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/London.html">London <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Maker.html">Maker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Me.html">Me <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Python.html">Python <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Spanish.html">Spanish <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Uncategorized.html">Uncategorized <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/analytics.html">analytics <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/books.html">books <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/children.html">children <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/startups.html">startups <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/stats.html">stats <span class="badge pull-right">1</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Tags <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/tag/Android.html">Android <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Idea.html">Idea <span class="badge pull-right">4</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/stats.html">stats <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/kubernetes.html">kubernetes <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/immutable.html">immutable <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/architecture.html">architecture <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Arduino.html">Arduino <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Cassandra.html">Cassandra <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Docker.html">Docker <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/cassandra.html">cassandra <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/docker.html">docker <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/tutorial.html">tutorial <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/DevOps.html">DevOps <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Development.html">Development <span class="badge pull-right">5</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Javascript.html">Javascript <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Python.html">Python <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/deploy.html">deploy <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/python.html">python <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/clinker.html">clinker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/vagrant.html">vagrant <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Java.html">Java <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/elasticsearch.html">elasticsearch <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/github.html">github <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/dotmarks.html">dotmarks <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/children.html">children <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/security.html">security <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/raspberrypi.html">raspberrypi <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/startups.html">startups <span class="badge pull-right">1</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="container col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      
+<h1>The Art of Testing in the rain</h1>
+
+<p>
+
+<span class="label label-default">by ipedrazas</span>
+
+
+
+<span class="label label-default">0001-01-01</span>
+
+
+
+<a class="label label-success" href="/category/Development.html">Development</a>
+
+
+
+</p>
+
+<p>categories:
+  &ndash; Development
+tags:
+  &ndash; cassandra
+  &ndash; docker</p>
+
+<h2>&ndash; testing</h2>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Testing is hard. We all know that. Testing distributed applications is just a nightmare. Like having Jason, Freddy Krugger and legions of zombies chasing you while you run barefoot, naked and of course, in the rain.</span></span></p>
+
+<p><span style="color: #333333;">Why it&#8217;s so hard? Well, let&#8217;s look at it. We have </span><strong><span style="color: #333333;">Unit Testing</span></strong><span style="color: #333333;">, where we test that our code does what it has to do. Then, we have </span><strong><span style="color: #333333;">Integration Test</span></strong><span style="color: #333333;">, where we test that our code can connect and query other systems. Finally, we have </span><strong><span style="color: #333333;">System Test</span></strong><span style="color: #333333;">, where we want to test if our application works.</span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Questions you ask during <strong>Unit Testing</strong>:</span></span></p>
+
+<ul>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Does this method return this expected value?</span></span></li>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Does this method parse this XML properly?</span></span></li>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Does this method transform this object into this other one?</span></span></li>
+</ul>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Questions you ask during <strong>Integration Test</strong>:</span></span></p>
+
+<ul>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Can my application connect to the database?</span></span></li>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Does this method return any data?</span></span></li>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Does this API call return the Json objects as I expect?</span></span></li>
+</ul>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Finally, <strong>System Test</strong>:</span></span></p>
+
+<ul>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Can I log in?</span></span></li>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Can I sign up as a new user?</span></span></li>
+<li><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">When I delete this message, does it goes away?</span></span></li>
+</ul>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">And this last bit, this last bit it&#8217;s terribly hard because you have different systems and a frontend to deal with and not only that, you have to have a system that replicates production (and this is expensive and time consuming).</span></span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">So, why testing is so hard? because there are many dependencies at many different layers that are very difficult to replicate (have I talked about firewalls? well, maybe I should)</span></span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Unit Testing can be done as a pre-building task. Cheap, easy.</span></span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Integration Test needs two system talking to each other: our code, and the system my code is connecting to. Not as cheap as it seems. Mocking up is a way of reducing the cost of running two (or more) systems. But don&#8217;t deceive yourself, when mocking you are unit testing.</span></span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">System Test needs all the systems in place properly configured. Expensive.</span></span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Take this, testing your application is not an extra life, it&#8217;s a sneak peak to the dangers that stalk ahead.</span></span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">So, how much effort I should put on testing? as much as you can. Read it again: as much as you can. It depends. Let&#8217;s put it like this, the more effort you put in proper testing, the less effort you will have to put when deploying to production.</span></span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Testing is hard, and with every release, with every problem we find in production we learn (like simulating dodgy firewalls), but you should take Testing like that: a learning exercise.</span></span></p>
+
+<p><span style="color: #333333;"><span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">I&#8217;m planning to write a series of posts about Integration and System Testing. So, if you&#8217;re interested, bear with me! </span></span></p>
+
+
+
+
+
+
+    </div>
+    
+  
+  <div class="container col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <div class="text-center">
+      <p>
+        <a href="http://github.com/agonzalezro/polo">polo</a> is made with
+        <span class="glyphicon glyphicon-heart"></span> by
+        <a href="http://twitter.com/agonzalezro">@agonzalezro</a>
+      </p>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+    
+  
+
+  </body>
+</html>
