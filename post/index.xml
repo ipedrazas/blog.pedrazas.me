@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Big Bag Blog</title>
+    <link>http://localhost:1313/post/</link>
+    <description>Recent content in Posts on Big Bag Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Mon, 02 Nov 2015 00:40:31 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Snapshot Architecture</title>
+      <link>http://localhost:1313/post/snapshots-and-immutable-architecture/</link>
+      <pubDate>Mon, 02 Nov 2015 00:40:31 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/snapshots-and-immutable-architecture/</guid>
+      <description>&lt;p&gt;Immutable is good. Immutable is good because it doesn&amp;rsquo;t change, and things that don&amp;rsquo;t change are good because if it works once, it has to work always&amp;hellip; or that&amp;rsquo;s the theory.&lt;/p&gt;
+
+&lt;p&gt;If you use any of those fancy new functional programming languages, you&amp;rsquo;re using immutable data types. They are great. Do you know why? because they do not change. Things that change are hard. Managing things that change is complicated. Managing many things that chnage very quickly is a nightmare.&lt;/p&gt;
+
+&lt;p&gt;Have you heard of immutable infrastructure? infrastructure is hard, so, by making infrastructure immutable you reduce the pain of managing things that change. It has been recently that we achieved the fact of deploying &lt;strong&gt;always&lt;/strong&gt; the same application regardless of where it runs.&lt;/p&gt;
+
+&lt;p&gt;Kubernetes helps a bit with managing immutable infrastructure, but infrastructure is not our mission. It is important, but it is just another piece. I do not know anyone with the only purpouse of running machines by the sole sake of running them. It&amp;rsquo;s the applications we&amp;rsquo;re interested on!&lt;/p&gt;
+
+&lt;p&gt;Do we have immutable applications? kind of. Containers are helping. Do we have immutable infrastructure? indeed we have, and yes, containers are helping&amp;hellip; So, where is the trouble?&lt;/p&gt;
+
+&lt;p&gt;It has taken me a while to understand this, but I think I&amp;rsquo;m starting to understand where the rabbit hole is (and where it takes).&lt;/p&gt;
+
+&lt;p&gt;If infrastructure is our data type, the architecture is the functional programming language. It&amp;rsquo;s great to have immutability all the way down making sure our data, applications or machines do not change, but there&amp;rsquo;s a missing piece still. If we don&amp;rsquo;t start re-architecting solutions based on those principles, the principles will not stand.&lt;/p&gt;
+
+&lt;p&gt;Like those people making fun of microservices: you go from a big horrible monolithic application to a bunch of horrible services scatered all over the place. Comment might be fair in some contexts, but in my experience it&amp;rsquo;s not about services or monoliths, it&amp;rsquo;s about adopting a half baked approach.&lt;/p&gt;
+
+&lt;p&gt;Microservices are great, but they are hard to manage because the internal dependencies now are external. We give away control. We trust&amp;hellip; the others.&lt;/p&gt;
+
+&lt;p&gt;Trouble is that if we understand an application as a set of loosely coupled microservices (all of them running in containers, hence immutable services), we have to accept that now that state, that mutability we have tried to get rid of, is present as the hardest of all forms: distributed evolution.&lt;/p&gt;
+
+&lt;p&gt;We have traded the cohesion of our applications for flexibility. And it is good. But we have still to embrace a truly immutable architecture. We have to understand that our applications are immutable. The services do not change. The services are replaced by other services that superseed the old ones.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s not deploying new versions of an application anymore, it&amp;rsquo;s deploying new services every time. Services that replace other old services.&lt;/p&gt;
+
+&lt;p&gt;I agree, it seems like I&amp;rsquo;m trying to justify but I am not, because I&amp;rsquo;ve seen it, I&amp;rsquo;ve done it and then it&amp;rsquo;s when I&amp;rsquo;ve realised that we should aim to build applications using snapshot services.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
