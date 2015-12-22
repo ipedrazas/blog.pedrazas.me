@@ -1,0 +1,12 @@
+{
+  "author": "ipedrazas",
+  "title": "blog.ipedrazas.me",
+
+  "url": "http://blog.ipedrazas.me",
+
+  "showArchive": true,
+  "showCategories": true,
+  "showTags": true,
+
+  "paginationSize": 10
+}

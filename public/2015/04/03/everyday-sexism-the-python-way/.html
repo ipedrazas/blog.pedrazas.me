@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+Everyday Sexism, the Python way | blog.ipedrazas.me
+</title>
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    
+
+    
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+
+    
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">blog.ipedrazas.me</a>
+        </div>
+        
+        <div class="navbar-collapse collapse">
+          
+          <ul class="nav navbar-nav">
+            
+            <li><a href="/archives.html">Archives</a></li>
+            
+            
+          </ul>
+          
+          
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Categories <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/category/Android.html">Android <span class="badge pull-right">6</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Architecture.html">Architecture <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Arduino.html">Arduino <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Bitcoin.html">Bitcoin <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/CMS.html">CMS <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Cassandra.html">Cassandra <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/DevOps.html">DevOps <span class="badge pull-right">9</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Development.html">Development <span class="badge pull-right">8</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Docker.html">Docker <span class="badge pull-right">5</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Idea.html">Idea <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/London.html">London <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Maker.html">Maker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Me.html">Me <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Python.html">Python <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Spanish.html">Spanish <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Uncategorized.html">Uncategorized <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/analytics.html">analytics <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/books.html">books <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/children.html">children <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/startups.html">startups <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/stats.html">stats <span class="badge pull-right">1</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Tags <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/tag/Android.html">Android <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Idea.html">Idea <span class="badge pull-right">5</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/stats.html">stats <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/kubernetes.html">kubernetes <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/immutable.html">immutable <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/architecture.html">architecture <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Arduino.html">Arduino <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Cassandra.html">Cassandra <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Docker.html">Docker <span class="badge pull-right">7</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/cassandra.html">cassandra <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/docker.html">docker <span class="badge pull-right">8</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/tutorial.html">tutorial <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/DevOps.html">DevOps <span class="badge pull-right">11</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/ansible.html">ansible <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/vagrant.html">vagrant <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/jenkins.html">jenkins <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/neo4j.html">neo4j <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/devops.html">devops <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/mesos.html">mesos <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Mesos.html">Mesos <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/apachekafka.html">apachekafka <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/aws.html">aws <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/kinesis.html">kinesis <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/London.html">London <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/coreos.html">coreos <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/lxd.html">lxd <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/meetup.html">meetup <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/ubuntu.html">ubuntu <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/microservices.html">microservices <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Development.html">Development <span class="badge pull-right">6</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Javascript.html">Javascript <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Python.html">Python <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/deploy.html">deploy <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/python.html">python <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/clinker.html">clinker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Java.html">Java <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/elasticsearch.html">elasticsearch <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/github.html">github <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/testing.html">testing <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/taiga.html">taiga <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Spanish.html">Spanish <span class="badge pull-right">4</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/pycones.html">pycones <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Me.html">Me <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/startups.html">startups <span class="badge pull-right">4</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Maker.html">Maker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/RaspberryPi.html">RaspberryPi <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/dev.html">dev <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/gunicorn.html">gunicorn <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/java.html">java <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/tomcat.html">tomcat <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/sexism.html">sexism <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Uncategorized.html">Uncategorized <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/dotmarks.html">dotmarks <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/children.html">children <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/security.html">security <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/raspberrypi.html">raspberrypi <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/anti-patterns.html">anti-patterns <span class="badge pull-right">1</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="container col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      
+<h1>Everyday Sexism, the Python way</h1>
+
+<p>
+
+<span class="label label-default">by ipedrazas</span>
+
+
+
+<span class="label label-default">2015-04-03</span>
+
+
+
+<a class="label label-success" href="/category/Python.html">Python</a>
+
+
+
+
+<a class="label label-info" href="/tag/Python.html">Python</a>
+
+<a class="label label-info" href="/tag/sexism.html">sexism</a>
+
+
+</p>
+
+<p>&#8220;<strong>05:48:</strong> Entrevistamos Oier Etxaniz, Francisco Fernandez, Alexandre Manhães y Manuel Graña, organizadores de <a href="https://ep2015.europython.eu/">EuroPython 2015</a>.&#8221;</p>
+
+<p>As many Spaniards I was super excited and super proud of Spain hosting this version of EuroPython. I&#8217;ve really enjoyed the first two editions of the Spanish PyCon, so I was over the top when I learnt that this year PyConEs was going to be EuroPython.</p>
+
+<p>I have been a speaker in both PyConEs (2013 and 2014) and as everybody who participated in them we knew there was much room for improvement. Organising something big like a PyCon conference is hard, and I&#8217;ve tried to give my support to the organisation as much as I could.</p>
+
+<p>Bearing that in mind, I have to stand up today and shout &#8220;ENOUGH!&#8221;. During the podcast I mentioned earlier a person of the organisation makes the following comment:</p>
+
+<p style="padding-left: 30px;">
+  &#8220;<em>Va a haber las <a href="https://twitter.com/djangogirls">DjangoGirls</a>, los DjangoGays, los django?? por aquello de, digo yo, de las cosas </em><em>diferentes, no?</em>&#8221; [laughs]
+</p>
+
+<p style="padding-left: 30px;">
+  &#8230;
+</p>
+
+<p style="padding-left: 30px;">
+  &#8220;<em>A lo mejor hacemos los Django Macho ibéricos para ???? con las mujeres&#8221; [more laughs]</em>
+</p>
+
+<p style="padding-left: 30px;">
+  [&#8220;There will be DjangoGirls, DjangoGays and Django?? because, you know, it&#8217;s ok <strong>to be different</strong>&#8220;]
+</p>
+
+<p style="padding-left: 30px;">
+  [Maybe we should do a DjangoMachos to ???? with the girls]
+</p>
+
+<p>(the ?? it&#8217;s because I cannot understand what they say).</p>
+
+<p>Now, this comment is made as a result of a question that asks to the EuroPython organisers about &#8220;<em><strong>how to make a better society</strong></em>&#8220;.</p>
+
+<p>There are two very disturbing things here. First and foremost, that a member of the organisation speaking makes such awful statements. Second, and even more scary, are the laughs resulting of those comments and that nobody thought how terribly out of place were those comments.</p>
+
+<p>I am not sure I can describe how I felt when I heard that <span id=":148.41" class="J-JK9eJ-PJVNOc" tabindex="-1" data-g-spell-status="2">podcast</span>. Anger, embarrassment, more anger and above all an extremely deep disappointment.</p>
+
+<p>I&#8217;m disappointed that core members of a organisation with such a great &#8220;<a href="https://ep2015.europython.eu/en/coc/">Code of Conduct</a>&#8221; do not live up for those values.</p>
+
+<p>I&#8217;m not sure what to think, I am no one to judge them, but my disappointment and sadness cannot be put in words. What I do know is that I do not tolerate comments of that sort in my presence. I might not set the rules, but I have principles, and I say &#8220;<strong>ENOUGH!!</strong>&#8220;.</p>
+
+<p>I was not there, but from the moment I listened to the podcast I have been trying to right their wrongs. Not because of them, right now, I cannot care less about EuroPython. My thoughts are with how the groups they make fun of would feel.</p>
+
+<p>The EuroPython organisation has made some very offensive comments. I&#8217;m failing to understand why, and what was the objective of it. I&#8217;m failing to understand why nobody in that podcast saw how wrong it was.</p>
+
+<p>Moreover, I was expecting of some kind of official statement, but it seems that an apologising tweet from a personal account of a member of the organisation it&#8217;s enough to amend the damage, you know, they only offended the women, gay and the rest of the society with their short sighted comments&#8230; and I had enough.</p>
+
+<p>EuroPython, you have a Code of Conduct. Lead by example, you have the moral obligation of caring for the Python Community!</p>
+
+<p>During the last PyConEs I was given a PyLadies t-shirt that I usually wear in any public event I participate. Let me tell you this: nobody EVER makes any comment about the t-shirt I wear unless it&#8217;s the PyLadies, and in general it&#8217;s a sexist comment.</p>
+
+<p>I did think once about writing about the stupidity of this community I&#8217;m part of when I wear a t-shirt of a group that, read by yourself how do they describe themselves:</p>
+
+<p>&#8220;<em>We are an international mentorship group with a focus on helping more women become active participants and leaders in the Python open-source community. <strong>Our mission is to promote, educate and advance a diverse Python community</strong> through outreach, education, conferences, events and social gatherings.</em>&#8221;</p>
+
+<p>Now you know why when I speak in public I proudly wear their t-shirt. A group with such a challenging mission cannot have less that all my support.</p>
+
+<p>My dear Spanish <a href="https://twitter.com/PyLadies_ES">PyLadies</a> tweeted this after learning about the podcast:</p>
+
+<blockquote class="twitter-tweet" lang="en">
+  <p>
+    Mucho trabajo por hacer.
+  </p>
+
+  <p>
+    — PyLadies_ES (@PyLadies_ES) <a href="https://twitter.com/PyLadies_ES/status/583603954984079361">April 2, 2015</a>
+  </p>
+</blockquote>
+
+<p>(<strong><em>&#8220;So much work left to do&#8230;&#8221;</em></strong>)</p>
+
+<p>Thank you, ladies, the world  would be a much better place if there were more people like you and less like them.</p>
+
+
+
+
+
+
+    </div>
+    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+    
+  
+
+  </body>
+</html>

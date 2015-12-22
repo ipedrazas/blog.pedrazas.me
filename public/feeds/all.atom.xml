@@ -1,0 +1,161 @@
+&lt;?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>blog.ipedrazas.me</title>
+  <link href="http://blog.ipedrazas.me" />
+  <updated>2015-11-03T00:34:05&#43;01:00</updated>
+
+  
+  
+  <entry>
+    <title>Snapshot Architecture</title>
+    <link href="http://blog.ipedrazas.me/snapshot-architecture.html" />
+    
+    <updated>2015-11-02 00:40:00 &#43;0000 UTC</updated>
+    
+    <summary>
+      <p>Immutable is good. Immutable is good because it doesn&rsquo;t change, and things that don&rsquo;t change are good because if it works once, it has to work always&hellip; or that&rsquo;s the theory.</p>
+
+    </summary>
+    <author>
+      <name>ipedrazas</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Spaghetti management</title>
+    <link href="http://blog.ipedrazas.me/2015/08/25/spaghetti-management/.html" />
+    
+    <updated>2015-08-25 00:00:00 &#43;0000 UTC</updated>
+    
+    <summary>
+      <p>Microservices are great because:</p>
+
+    </summary>
+    <author>
+      <name>ipedrazas</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Contain 3</title>
+    <link href="http://blog.ipedrazas.me/2015/08/12/contain-3/.html" />
+    
+    <updated>2015-08-12 00:00:00 &#43;0000 UTC</updated>
+    
+    <summary>
+      <p>As it usually happens in life, things changed pretty quickly. Boris, the guy from Microsoft, had a car accident (rumours of him being in a Google self driving ca were discarded promptly). With Boris out, Matt asked me if I could be in the panel instead of him. I guess that Matt thought I was the perfect candidate to represent Microsoft since I am one of the few certified Windows Me power users (cough, cough).</p>
+
+    </summary>
+    <author>
+      <name>ipedrazas</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Deconstructing</title>
+    <link href="http://blog.ipedrazas.me/2015/06/25/deconstructing/.html" />
+    
+    <updated>2015-06-25 00:00:00 &#43;0000 UTC</updated>
+    
+    <summary>
+      <p>I was chatting with a friend last night and he told me &#8220;I get containers now. I needed some give it some thought, but I get them now&#8221;. If I had to describe him with one word I would use &#8220;smart&#8221; without any doubt&#8230; still he had to think about why containers are so great.</p>
+
+    </summary>
+    <author>
+      <name>ipedrazas</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Distance to Mesos</title>
+    <link href="http://blog.ipedrazas.me/2015/06/16/distance-to-mesos/.html" />
+    
+    <updated>2015-06-16 00:00:00 &#43;0000 UTC</updated>
+    
+    <summary>
+      <p>I&#8217;ve notice that lately people don&#8217;t talk about Docker so much. Nothing to complain about, really, but what happens is that people has shifted to talk about <span id=":1u0.1" class="J-JK9eJ-PJVNOc" tabindex="-1" data-g-spell-status="2">Kubernetes</span> and [<span id=":1u0.2" class="J-JK9eJ-PJVNOc" tabindex="-1" data-g-spell-status="2">Mesos</span>][1]&#8230; Sigh.</p>
+
+    </summary>
+    <author>
+      <name>ipedrazas</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Everyday Sexism, the Python way</title>
+    <link href="http://blog.ipedrazas.me/2015/04/03/everyday-sexism-the-python-way/.html" />
+    
+    <updated>2015-04-03 00:00:00 &#43;0000 UTC</updated>
+    
+    <summary>
+      <p>&#8220;<strong>05:48:</strong> Entrevistamos Oier Etxaniz, Francisco Fernandez, Alexandre Manhães y Manuel Graña, organizadores de [EuroPython 2015][3].&#8221;</p>
+
+    </summary>
+    <author>
+      <name>ipedrazas</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Docker in the Enterprise</title>
+    <link href="http://blog.ipedrazas.me/2015/04/01/docker-in-the-enterprise/.html" />
+    
+    <updated>2015-04-01 00:00:00 &#43;0000 UTC</updated>
+    
+    <summary>
+      <p>My answer has been the same since the very beginning: <strong>Absolutely!</strong></p>
+
+    </summary>
+    <author>
+      <name>ipedrazas</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>2nd Docker Birthday, the London Way</title>
+    <link href="http://blog.ipedrazas.me/2015/03/24/2nd-docker-birthday-the-london-way/.html" />
+    
+    <updated>2015-03-24 00:00:00 &#43;0000 UTC</updated>
+    
+    <summary>
+      <p>As usual with Docker, the swag was top notch. The mentor&#8217;s t-shirt was especially awesomic!</p>
+
+    </summary>
+    <author>
+      <name>ipedrazas</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>&#39;Using Cassandra in AWS for Dev &amp; Test&#39;</title>
+    <link href="http://blog.ipedrazas.me/2015/03/12/using-cassandra-in-aws-for-dev-test/.html" />
+    
+    <updated>2015-03-12 00:00:00 &#43;0000 UTC</updated>
+    
+    <summary>
+      <p>As I&#8217;ve mentioned before, we create ephemeral clusters for our computational work force using Apache Spark, which helped us a lot to reduce the cost of our running infrastructure.</p>
+
+    </summary>
+    <author>
+      <name>ipedrazas</name>
+    </author>
+  </entry>
+  
+  <entry>
+    <title>Buckets of Water</title>
+    <link href="http://blog.ipedrazas.me/2015/03/06/buckets-of-water/.html" />
+    
+    <updated>2015-03-06 00:00:00 &#43;0000 UTC</updated>
+    
+    <summary>
+      <p>Communication is a two way road. It&#8217;s not just you sending a message, it&#8217;s the other part receiving it and understanding it. We&#8217;re good at sending and receiving, it&#8217;s in the understanding bit that we all struggle more than we would like to.</p>
+
+    </summary>
+    <author>
+      <name>ipedrazas</name>
+    </author>
+  </entry>
+  
+  
+</feed>

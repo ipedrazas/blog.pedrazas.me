@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+Cassandra and Docker – round 1 | blog.ipedrazas.me
+</title>
+
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    
+
+    
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+
+    
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">blog.ipedrazas.me</a>
+        </div>
+        
+        <div class="navbar-collapse collapse">
+          
+          <ul class="nav navbar-nav">
+            
+            <li><a href="/archives.html">Archives</a></li>
+            
+            
+          </ul>
+          
+          
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Categories <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/category/Android.html">Android <span class="badge pull-right">6</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Architecture.html">Architecture <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Arduino.html">Arduino <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Bitcoin.html">Bitcoin <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/CMS.html">CMS <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Cassandra.html">Cassandra <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/DevOps.html">DevOps <span class="badge pull-right">9</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Development.html">Development <span class="badge pull-right">8</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Docker.html">Docker <span class="badge pull-right">5</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Idea.html">Idea <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/London.html">London <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Maker.html">Maker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Me.html">Me <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Python.html">Python <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Spanish.html">Spanish <span class="badge pull-right">2</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/Uncategorized.html">Uncategorized <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/analytics.html">analytics <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/books.html">books <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/children.html">children <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/startups.html">startups <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/category/stats.html">stats <span class="badge pull-right">1</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+            
+            <li class="dropdown">
+            <a href="#" data-toggle="dropdown">Tags <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+              
+              <li>
+              <a href="/tag/Android.html">Android <span class="badge pull-right">3</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Idea.html">Idea <span class="badge pull-right">4</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/stats.html">stats <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/kubernetes.html">kubernetes <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/immutable.html">immutable <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/architecture.html">architecture <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/Arduino.html">Arduino <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/docker.html">docker <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/dotmarks.html">dotmarks <span class="badge pull-right">1</span></a>
+              </li>
+              
+              
+              <li>
+              <a href="/tag/elasticsearch.html">elasticsearch <span class="badge pull-right">1</span></a>
+              </li>
+              
+            </ul>
+            </li>
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="container col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      
+<h1>Cassandra and Docker – round 1</h1>
+
+<p>
+
+<span class="label label-default">by ipedrazas</span>
+
+
+
+<span class="label label-default">0001-01-01</span>
+
+
+
+<a class="label label-success" href="/category/Cassandra.html">Cassandra</a>
+
+
+
+</p>
+
+<p>categories:
+  &ndash; Cassandra
+  &ndash; Docker
+tags:
+  &ndash; cassandra
+  &ndash; docker</p>
+
+<h2>&ndash; tutorial</h2>
+
+<p><a href="http://ivan.pedrazas.me/wp-content/uploads/2014/09/Cassandra_logo.svg_.png"><img class="aligncenter size-medium wp-image-340" src="http://ivan.pedrazas.me/wp-content/uploads/2014/09/Cassandra_logo.svg_-300x201.png" alt="Cassandra_logo.svg" width="300" height="201" /></a></p>
+
+<p>&nbsp;</p>
+
+<p>This last week I&#8217;ve spent some time trying to set up Cassandra in Docker. My starting point was this Docker Image called <a href="https://registry.hub.docker.com/u/poklet/cassandra/">pokle/cassandra</a>.</p>
+
+<p>There are things from that image that I don&#8217;t like and I&#8217;ve been very tempeted to fork it, but as I said, it was a starting point, and for what we need now, it&#8217;s good enough.</p>
+
+<p>Basically what I wanted was to have a cluster of 3 machines running in Docker, talking to each other and letting me &#8220;play away&#8221;.</p>
+
+<p>I&#8217;m re-writing dotMarks in java using Dropwizard and, of course, Cassandra. Anyway, this post is about how to set up that cluster.</p>
+
+<p>Open your terminal and paste this:</p>
+
+<pre># Make dirs to store your data
+sudo mkdir -p /data/cassandra/{c1,c2,c3}/data
+sudo mkdir -p /data/cassandra/{c1,c2,c3}/commitlog
+
+# Change permissions so the Cassandra user can write on them
+sudo chmod 777 /data/cassandra/{c1,c2,c3}/data
+sudo chmod 777 /data/cassandra/{c1,c2,c3}/commitlog
+
+# Run the Docker containers with Cassandra
+docker run -d --name c1 -v /data/cassandra/c1/data:/var/lib/cassandra/data -v /data/cassandra/c1/commitlog:/var/lib/cassandra/commitlog poklet/cassandra
+docker run -d --name c2 -v /data/cassandra/c2/data:/var/lib/cassandra/data -v /data/cassandra/c2/commitlog:/var/lib/cassandra/commitlog poklet/cassandra start $(./scripts/ipof.sh c1)
+docker run -d --name c3 -v /data/cassandra/c3/data:/var/lib/cassandra/data -v /data/cassandra/c3/commitlog:/var/lib/cassandra/commitlog poklet/cassandra start $(./scripts/ipof.sh c1)
+
+# Open a CQLSH console
+docker run -it --rm --link c1:c1 -v /data/cassandra/scripts:/data poklet/cassandra bash -c 'cqlsh $C1_PORT_9160_TCP_ADDR'
+
+</pre>
+
+<p>Now you should have a C* cluster of 3 containers. Run docker ps and you should see something like this:</p>
+
+<p>&nbsp;</p>
+
+<pre>-&gt; % docker ps
+CONTAINER ID        IMAGE                     COMMAND               CREATED              STATUS              PORTS                                                                           NAMES
+f85542cb46e3        poklet/cassandra:latest   "start 172.17.0.14"   About a minute ago   Up About a minute   8012/tcp, 9042/tcp, 9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp   c3                  
+9cfdccaf1213        poklet/cassandra:latest   "start 172.17.0.14"   About a minute ago   Up About a minute   9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp, 8012/tcp, 9042/tcp   c2                  
+162c36a8b876        poklet/cassandra:latest   "/bin/sh -c start"    2 minutes ago        Up 2 minutes        9042/tcp, 9160/tcp, 22/tcp, 61621/tcp, 7000/tcp, 7001/tcp, 7199/tcp, 8012/tcp   c1    
+</pre>
+
+<p>Now, you might want to add some data. We do that using another container that will execute <em><strong>CQLSH</strong></em>.</p>
+
+<pre>docker run -it --rm --link c1:c1 -v /data/cassandra/scripts:/data poklet/cassandra bash -c 'cqlsh $C1_PORT_9160_TCP_ADDR'
+</pre>
+
+<p>Note that by using Links you don&#8217;t need to know the IPs of the nodes. We will need them to connect if we don&#8217;t use a container with links, but let&#8217;s see that problem later.</p>
+
+<p>Once you are in the CQLSH, add some data:</p>
+
+<pre>CREATE KEYSPACE dotmarks WITH REPLICATION =
+ {'class': 'SimpleStrategy', 'replication_factor': 1};
+
+ USE dotmarks;
+
+ CREATE TABLE test_table (
+  id text,
+  test_value text,
+  PRIMARY KEY (id)
+ );
+
+
+INSERT INTO test_table (id, test_value) VALUES ('1', 'one');
+INSERT INTO test_table (id, test_value) VALUES ('2', 'two');
+INSERT INTO test_table (id, test_value) VALUES ('3', 'three');
+
+SELECT * FROM test_table;
+</pre>
+
+<p>If you want to check the data from a different node, do this:</p>
+
+<pre>docker run -it --rm --link c2:c2 -v /data/cassandra/scripts:/data poklet/cassandra bash -c 'cqlsh $C2_PORT_9160_TCP_ADDR'
+
+
+Connected to Test Cluster at 172.17.0.15:9160.
+[cqlsh 4.1.1 | Cassandra 2.0.9 | CQL spec 3.1.1 | Thrift protocol 19.39.0]
+Use HELP for help.
+cqlsh&gt; use dotmarks;
+cqlsh:dotmarks&gt; select * from test_table;
+
+ id | test_value
+----+------------
+  3 |      three
+  2 |        two
+  1 |        one
+
+(3 rows)
+
+cqlsh:dotmarks&gt; 
+</pre>
+
+<p>With this, we have our cluster ready to rock and roll! In the next post, we will see how to confdigure and connect our Dropwizard App to our Cassandra cluster.</p>
+
+
+
+
+
+
+    </div>
+    
+  
+  <div class="container col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <div class="text-center">
+      <p>
+        <a href="http://github.com/agonzalezro/polo">polo</a> is made with
+        <span class="glyphicon glyphicon-heart"></span> by
+        <a href="http://twitter.com/agonzalezro">@agonzalezro</a>
+      </p>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+    
+  
+
+  </body>
+</html>
